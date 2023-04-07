@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JobsManagement
 {
-    public partial class calendar : Form
+    public partial class fcalendar : Form
     {
-        public calendar()
+        public fcalendar()
         {
             InitializeComponent();
         }
