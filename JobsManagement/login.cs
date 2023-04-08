@@ -21,5 +21,10 @@ namespace JobsManagement
 		{
 
 		}
+
+		private void fLogin_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

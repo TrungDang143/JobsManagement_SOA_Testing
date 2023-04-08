@@ -49,6 +49,7 @@
 			this.Controls.Add(this.button1);
 			this.Name = "fLogin";
 			this.Text = "Đăng Nhập";
+			this.Load += new System.EventHandler(this.fLogin_Load);
 			this.ResumeLayout(false);
 
         }
