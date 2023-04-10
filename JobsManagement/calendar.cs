@@ -16,5 +16,15 @@ namespace JobsManagement
         {
             InitializeComponent();
         }
+
+        private void btnWed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
