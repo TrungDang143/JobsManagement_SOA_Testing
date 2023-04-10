@@ -21,5 +21,10 @@ namespace JobsManagement
         {
 
         }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

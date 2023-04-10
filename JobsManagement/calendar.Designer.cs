@@ -115,12 +115,13 @@
             // 
             // btnToday
             // 
-            this.btnToday.Location = new System.Drawing.Point(787, 3);
+            this.btnToday.Location = new System.Drawing.Point(803, 3);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(97, 23);
             this.btnToday.TabIndex = 1;
             this.btnToday.Text = "Hôm nay";
             this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnMon
             // 
