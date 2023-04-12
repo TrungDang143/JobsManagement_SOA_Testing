@@ -43,17 +43,17 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(13, 13);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1056, 627);
             this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(5, 84);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(5, 73);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1048, 539);
+            this.panel3.Size = new System.Drawing.Size(1048, 550);
             this.panel3.TabIndex = 1;
             // 
             // panel2
@@ -62,18 +62,18 @@
             this.panel2.Controls.Add(this.btnTodayJob);
             this.panel2.Controls.Add(this.btnCalandar);
             this.panel2.Location = new System.Drawing.Point(5, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1047, 73);
+            this.panel2.Size = new System.Drawing.Size(1047, 61);
             this.panel2.TabIndex = 0;
             // 
             // btnStatistics
             // 
             this.btnStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnStatistics.Location = new System.Drawing.Point(889, 6);
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStatistics.Location = new System.Drawing.Point(883, 4);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Size = new System.Drawing.Size(154, 58);
+            this.btnStatistics.Size = new System.Drawing.Size(160, 50);
             this.btnStatistics.TabIndex = 2;
             this.btnStatistics.Text = "Thống kê";
             this.btnStatistics.UseVisualStyleBackColor = true;
@@ -81,10 +81,10 @@
             // btnTodayJob
             // 
             this.btnTodayJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTodayJob.Location = new System.Drawing.Point(306, 6);
-            this.btnTodayJob.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTodayJob.Location = new System.Drawing.Point(296, 4);
+            this.btnTodayJob.Margin = new System.Windows.Forms.Padding(4);
             this.btnTodayJob.Name = "btnTodayJob";
-            this.btnTodayJob.Size = new System.Drawing.Size(443, 58);
+            this.btnTodayJob.Size = new System.Drawing.Size(450, 50);
             this.btnTodayJob.TabIndex = 1;
             this.btnTodayJob.Text = "Việc cần làm hôm nay";
             this.btnTodayJob.UseVisualStyleBackColor = true;
@@ -92,10 +92,10 @@
             // btnCalandar
             // 
             this.btnCalandar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCalandar.Location = new System.Drawing.Point(5, 6);
-            this.btnCalandar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalandar.Location = new System.Drawing.Point(4, 4);
+            this.btnCalandar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalandar.Name = "btnCalandar";
-            this.btnCalandar.Size = new System.Drawing.Size(154, 58);
+            this.btnCalandar.Size = new System.Drawing.Size(160, 50);
             this.btnCalandar.TabIndex = 0;
             this.btnCalandar.Text = "Lịch";
             this.btnCalandar.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 653);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fhome";
             this.Text = "home";
             this.panel1.ResumeLayout(false);
