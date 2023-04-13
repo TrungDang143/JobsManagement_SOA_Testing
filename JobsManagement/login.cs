@@ -31,5 +31,19 @@ namespace JobsManagement
 		{
 
 		}
-	}
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPassword.Checked)
+            {
+                txbPassword.UseSystemPasswordChar = false;
+            }
+            else { txbPassword.UseSystemPasswordChar = true; }
+        }
+    }
 }
