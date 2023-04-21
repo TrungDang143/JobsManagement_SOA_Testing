@@ -1,6 +1,6 @@
 ﻿namespace JobsManagement
 {
-    partial class fcalendar
+    partial class fCalendar
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
             this.btnSun = new System.Windows.Forms.Button();
             this.btnSat = new System.Windows.Forms.Button();
             this.btnFri = new System.Windows.Forms.Button();
@@ -68,9 +68,9 @@
             // 
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(12, 37);
+            this.panel3.Location = new System.Drawing.Point(3, 37);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1043, 589);
+            this.panel3.Size = new System.Drawing.Size(1052, 589);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -93,68 +93,68 @@
             this.panel4.Controls.Add(this.btnMon);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1040, 54);
+            this.panel4.Size = new System.Drawing.Size(1049, 54);
             this.panel4.TabIndex = 0;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(917, 0);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(129, 51);
+            this.btnNext.TabIndex = 7;
+            this.btnNext.Text = "Tháng Sau";
+            this.btnNext.UseVisualStyleBackColor = true;
             // 
             // btnPrevious
             // 
             this.btnPrevious.Location = new System.Drawing.Point(3, 3);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(86, 51);
+            this.btnPrevious.Size = new System.Drawing.Size(128, 51);
             this.btnPrevious.TabIndex = 8;
             this.btnPrevious.Text = "Tháng trước";
             this.btnPrevious.UseVisualStyleBackColor = true;
             // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(950, 0);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(87, 51);
-            this.btnNext.TabIndex = 7;
-            this.btnNext.Text = "Tháng Sau";
-            this.btnNext.UseVisualStyleBackColor = true;
-            // 
             // btnSun
             // 
-            this.btnSun.Location = new System.Drawing.Point(865, 0);
+            this.btnSun.Location = new System.Drawing.Point(784, 0);
             this.btnSun.Name = "btnSun";
-            this.btnSun.Size = new System.Drawing.Size(75, 51);
+            this.btnSun.Size = new System.Drawing.Size(96, 51);
             this.btnSun.TabIndex = 6;
             this.btnSun.Text = "Chủ Nhật";
             this.btnSun.UseVisualStyleBackColor = true;
             // 
             // btnSat
             // 
-            this.btnSat.Location = new System.Drawing.Point(733, 0);
+            this.btnSat.Location = new System.Drawing.Point(682, 0);
             this.btnSat.Name = "btnSat";
-            this.btnSat.Size = new System.Drawing.Size(75, 51);
+            this.btnSat.Size = new System.Drawing.Size(96, 51);
             this.btnSat.TabIndex = 5;
             this.btnSat.Text = "Thứ 7";
             this.btnSat.UseVisualStyleBackColor = true;
             // 
             // btnFri
             // 
-            this.btnFri.Location = new System.Drawing.Point(609, 3);
+            this.btnFri.Location = new System.Drawing.Point(580, 0);
             this.btnFri.Name = "btnFri";
-            this.btnFri.Size = new System.Drawing.Size(75, 51);
+            this.btnFri.Size = new System.Drawing.Size(96, 51);
             this.btnFri.TabIndex = 4;
             this.btnFri.Text = "Thứ 6";
             this.btnFri.UseVisualStyleBackColor = true;
             // 
             // btnThurs
             // 
-            this.btnThurs.Location = new System.Drawing.Point(476, 3);
+            this.btnThurs.Location = new System.Drawing.Point(478, 0);
             this.btnThurs.Name = "btnThurs";
-            this.btnThurs.Size = new System.Drawing.Size(75, 51);
+            this.btnThurs.Size = new System.Drawing.Size(96, 51);
             this.btnThurs.TabIndex = 3;
             this.btnThurs.Text = "Thứ 5";
             this.btnThurs.UseVisualStyleBackColor = true;
             // 
             // btnWed
             // 
-            this.btnWed.Location = new System.Drawing.Point(347, 3);
+            this.btnWed.Location = new System.Drawing.Point(376, 0);
             this.btnWed.Name = "btnWed";
-            this.btnWed.Size = new System.Drawing.Size(75, 51);
+            this.btnWed.Size = new System.Drawing.Size(96, 51);
             this.btnWed.TabIndex = 2;
             this.btnWed.Text = "Thứ 4";
             this.btnWed.UseVisualStyleBackColor = true;
@@ -162,18 +162,18 @@
             // 
             // btnTues
             // 
-            this.btnTues.Location = new System.Drawing.Point(223, 3);
+            this.btnTues.Location = new System.Drawing.Point(274, 0);
             this.btnTues.Name = "btnTues";
-            this.btnTues.Size = new System.Drawing.Size(75, 51);
+            this.btnTues.Size = new System.Drawing.Size(96, 51);
             this.btnTues.TabIndex = 1;
             this.btnTues.Text = "Thứ 3";
             this.btnTues.UseVisualStyleBackColor = true;
             // 
             // btnMon
             // 
-            this.btnMon.Location = new System.Drawing.Point(100, 3);
+            this.btnMon.Location = new System.Drawing.Point(172, 0);
             this.btnMon.Name = "btnMon";
-            this.btnMon.Size = new System.Drawing.Size(75, 51);
+            this.btnMon.Size = new System.Drawing.Size(96, 51);
             this.btnMon.TabIndex = 0;
             this.btnMon.Text = "Thứ 2";
             this.btnMon.UseVisualStyleBackColor = true;
@@ -183,9 +183,9 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnToday);
             this.panel1.Controls.Add(this.dateTimePicker);
-            this.panel1.Location = new System.Drawing.Point(12, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1043, 28);
+            this.panel1.Size = new System.Drawing.Size(1052, 28);
             this.panel1.TabIndex = 0;
             // 
             // panel6
@@ -246,13 +246,13 @@
             this.dateTimePicker.Size = new System.Drawing.Size(238, 22);
             this.dateTimePicker.TabIndex = 0;
             // 
-            // fcalendar
+            // fCalendar
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1082, 653);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "fcalendar";
+            this.Name = "fCalendar";
             this.Text = "calendar";
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

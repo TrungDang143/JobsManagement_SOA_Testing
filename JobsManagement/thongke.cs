@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JobsManagement
 {
-    public partial class thongke : Form
+    public partial class fThongKe : Form
     {
-        public thongke()
+        public fThongKe()
         {
             InitializeComponent();
         }
