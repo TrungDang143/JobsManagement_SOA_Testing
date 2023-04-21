@@ -1,6 +1,6 @@
 ﻿namespace JobsManagement
 {
-    partial class addJob
+    partial class fAddJob
     {
         /// <summary>
         /// Required designer variable.
@@ -235,7 +235,7 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             // 
-            // addJob
+            // fAddJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,7 +243,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "addJob";
+            this.Name = "fAddJob";
             this.Text = "addJob";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

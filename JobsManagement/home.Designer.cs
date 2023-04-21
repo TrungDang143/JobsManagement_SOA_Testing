@@ -1,6 +1,6 @@
 ﻿namespace JobsManagement
 {
-    partial class fhome
+    partial class fHome
     {
         /// <summary>
         /// Required designer variable.
@@ -100,14 +100,14 @@
             this.btnCalandar.Text = "Lịch";
             this.btnCalandar.UseVisualStyleBackColor = true;
             // 
-            // fhome
+            // fHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 653);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "fhome";
+            this.Name = "fHome";
             this.Text = "home";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
