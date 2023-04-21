@@ -81,6 +81,9 @@
     <Compile Include="thongke.Designer.cs">
       <DependentUpon>thongke.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addJob.resx">
+      <DependentUpon>addJob.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="calendar.resx">
       <DependentUpon>calendar.cs</DependentUpon>
     </EmbeddedResource>
