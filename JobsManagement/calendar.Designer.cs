@@ -254,7 +254,7 @@
             // 
             // btnToday
             // 
-            this.btnToday.Location = new System.Drawing.Point(633, 6);
+            this.btnToday.Location = new System.Drawing.Point(633, 5);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(97, 23);
             this.btnToday.TabIndex = 1;
