@@ -54,5 +54,20 @@ namespace JobsManagement
         {
 
         }
+
+        private void btnTK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fCalendar_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
