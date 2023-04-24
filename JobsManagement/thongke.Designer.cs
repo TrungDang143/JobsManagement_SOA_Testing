@@ -50,71 +50,7 @@
             this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.Controls.Add(this.dataGridView2);
             this.panel4.Controls.Add(this.lbCVdaHoanThanh);
-            this.panel4.Location = new System.Drawing.Point(549, 96);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(520, 527);
-            this.panel4.TabIndex = 1;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 70);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(520, 457);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // lbCVdaHoanThanh
-            // 
-            this.lbCVdaHoanThanh.AutoSize = true;
-            this.lbCVdaHoanThanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCVdaHoanThanh.Location = new System.Drawing.Point(3, 23);
-            this.lbCVdaHoanThanh.Name = "lbCVdaHoanThanh";
-            this.lbCVdaHoanThanh.Size = new System.Drawing.Size(379, 29);
-            this.lbCVdaHoanThanh.TabIndex = 0;
-            this.lbCVdaHoanThanh.Text = "Không có công việc đã hoàn thành";
-            this.lbCVdaHoanThanh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Controls.Add(this.lbCVchuaHoanThanh);
-            this.panel3.Location = new System.Drawing.Point(14, 96);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(520, 527);
-            this.panel3.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 70);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(520, 457);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // lbCVchuaHoanThanh
-            // 
-            this.lbCVchuaHoanThanh.AutoSize = true;
-            this.lbCVchuaHoanThanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCVchuaHoanThanh.Location = new System.Drawing.Point(3, 23);
-            this.lbCVchuaHoanThanh.Name = "lbCVchuaHoanThanh";
-            this.lbCVchuaHoanThanh.Size = new System.Drawing.Size(403, 29);
-            this.lbCVchuaHoanThanh.TabIndex = 0;
-            this.lbCVchuaHoanThanh.Text = "Không có công việc chưa hoàn thành";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.dataGridView2);
-            this.panel4.Controls.Add(this.lbCVdaHoanThanh);
-            this.panel4.Location = new System.Drawing.Point(536, 79);
+            this.panel4.Location = new System.Drawing.Point(549, 81);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(520, 545);
             this.panel4.TabIndex = 1;
@@ -146,7 +82,7 @@
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.lbCVchuaHoanThanh);
-            this.panel3.Location = new System.Drawing.Point(5, 79);
+            this.panel3.Location = new System.Drawing.Point(13, 81);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(520, 545);
             this.panel3.TabIndex = 1;
@@ -251,6 +187,5 @@
         private System.Windows.Forms.Label lbCVchuaHoanThanh;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
     }
 }
