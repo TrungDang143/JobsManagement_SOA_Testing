@@ -40,32 +40,35 @@
 			// 
 			// button4
 			// 
+			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button4.Location = new System.Drawing.Point(87, 307);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(284, 48);
 			this.button4.TabIndex = 3;
-			this.button4.Text = "Dang Nhap";
+			this.button4.Text = "Đăng nhập ";
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
 			// button5
 			// 
 			this.button5.BackColor = System.Drawing.Color.White;
+			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button5.Location = new System.Drawing.Point(465, 307);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(267, 48);
 			this.button5.TabIndex = 4;
-			this.button5.Text = "Thoat ";
+			this.button5.Text = "Thoát";
 			this.button5.UseVisualStyleBackColor = false;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(348, 79);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(250, 50);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(76, 16);
+			this.label1.Size = new System.Drawing.Size(271, 54);
 			this.label1.TabIndex = 5;
-			this.label1.Text = "Dang Nhap";
+			this.label1.Text = "Đăng Nhập ";
 			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// txbUsername
