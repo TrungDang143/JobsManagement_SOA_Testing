@@ -17,10 +17,23 @@ namespace JobsManagement
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void btnTodayJob_Click(object sender, EventArgs e)
         {
-            label1.Text = "trung";
+            this.Hide();
+            fHome newform = new fHome();
+            newform.Location = this.Location;
+            newform.StartPosition = FormStartPosition.Manual;
+            newform.ShowDialog();
+            this.Close();
+        }
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fCalendar newform = new fCalendar();
+            newform.Location = this.Location;
+            newform.StartPosition = FormStartPosition.Manual;
+            newform.ShowDialog();
+            this.Close();
         }
     }
 }
