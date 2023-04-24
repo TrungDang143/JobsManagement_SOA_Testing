@@ -33,7 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnTodayJob = new System.Windows.Forms.Button();
-            this.btnCalandar = new System.Windows.Forms.Button();
+            this.btnCalendar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +60,7 @@
             // 
             this.panel2.Controls.Add(this.btnStatistics);
             this.panel2.Controls.Add(this.btnTodayJob);
-            this.panel2.Controls.Add(this.btnCalandar);
+            this.panel2.Controls.Add(this.btnCalendar);
             this.panel2.Location = new System.Drawing.Point(5, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
@@ -89,16 +89,16 @@
             this.btnTodayJob.Text = "Việc cần làm hôm nay";
             this.btnTodayJob.UseVisualStyleBackColor = true;
             // 
-            // btnCalandar
+            // btnCalendar
             // 
-            this.btnCalandar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCalandar.Location = new System.Drawing.Point(4, 4);
-            this.btnCalandar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCalandar.Name = "btnCalandar";
-            this.btnCalandar.Size = new System.Drawing.Size(160, 50);
-            this.btnCalandar.TabIndex = 0;
-            this.btnCalandar.Text = "Lịch";
-            this.btnCalandar.UseVisualStyleBackColor = true;
+            this.btnCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCalendar.Location = new System.Drawing.Point(4, 4);
+            this.btnCalendar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCalendar.Name = "btnCalendar";
+            this.btnCalendar.Size = new System.Drawing.Size(160, 50);
+            this.btnCalendar.TabIndex = 0;
+            this.btnCalendar.Text = "Lịch";
+            this.btnCalendar.UseVisualStyleBackColor = true;
             // 
             // fHome
             // 
@@ -122,6 +122,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Button btnTodayJob;
-        private System.Windows.Forms.Button btnCalandar;
+        private System.Windows.Forms.Button btnCalendar;
     }
 }
