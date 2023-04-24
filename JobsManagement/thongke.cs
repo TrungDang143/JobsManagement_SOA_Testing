@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,6 @@ namespace JobsManagement
         {
             InitializeComponent();
         }
-
         private void btnTodayJob_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -26,7 +26,6 @@ namespace JobsManagement
             newform.ShowDialog();
             this.Close();
         }
-
         private void btnCalendar_Click(object sender, EventArgs e)
         {
             this.Hide();
