@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JobsManagement
 {
-    public partial class addJob : Form
+    public partial class fAddJob : Form
     {
-        public addJob()
+        public fAddJob()
         {
             InitializeComponent();
         }

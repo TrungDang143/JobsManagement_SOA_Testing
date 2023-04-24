@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JobsManagement
 {
-    public partial class home : Form
+    public partial class fHome : Form
     {
-        public home()
+        public fHome()
         {
             InitializeComponent();
         }

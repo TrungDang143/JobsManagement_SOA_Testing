@@ -1,6 +1,6 @@
 ﻿namespace JobsManagement
 {
-    partial class fcalendar
+    partial class fCalendar
     {
         /// <summary>
         /// Required designer variable.
@@ -74,9 +74,9 @@
             // 
             this.panel3.Controls.Add(this.paMatrix);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(12, 76);
+            this.panel3.Location = new System.Drawing.Point(3, 37);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1036, 550);
+            this.panel3.Size = new System.Drawing.Size(1052, 589);
             this.panel3.TabIndex = 1;
             // 
             // paMatrix
@@ -99,7 +99,7 @@
             this.panel4.Controls.Add(this.btnMon);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1040, 62);
+            this.panel4.Size = new System.Drawing.Size(1049, 54);
             this.panel4.TabIndex = 0;
             // 
             // btnNext
@@ -189,9 +189,9 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnToday);
             this.panel1.Controls.Add(this.dateTimePicker);
-            this.panel1.Location = new System.Drawing.Point(12, 40);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1036, 33);
+            this.panel1.Size = new System.Drawing.Size(1052, 28);
             this.panel1.TabIndex = 0;
             // 
             // btnTK
@@ -286,7 +286,7 @@
             this.ClientSize = new System.Drawing.Size(1082, 653);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "fcalendar";
+            this.Name = "fCalendar";
             this.Text = "calendar";
             this.Load += new System.EventHandler(this.fCalendar_Load);
             this.panel2.ResumeLayout(false);
