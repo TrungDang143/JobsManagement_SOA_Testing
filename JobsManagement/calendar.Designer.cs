@@ -30,7 +30,7 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.paMatrix = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -47,6 +47,8 @@
             this.chkNotify = new System.Windows.Forms.CheckBox();
             this.btnToday = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.btnTK = new System.Windows.Forms.Button();
+            this.btnLich = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -66,19 +68,19 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.paMatrix);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(3, 37);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1052, 589);
             this.panel3.TabIndex = 1;
             // 
-            // panel5
+            // paMatrix
             // 
-            this.panel5.Location = new System.Drawing.Point(103, 63);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(840, 523);
-            this.panel5.TabIndex = 1;
+            this.paMatrix.Location = new System.Drawing.Point(175, 63);
+            this.paMatrix.Name = "paMatrix";
+            this.paMatrix.Size = new System.Drawing.Size(708, 523);
+            this.paMatrix.TabIndex = 1;
             // 
             // panel4
             // 
@@ -107,7 +109,7 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(3, 3);
+            this.btnPrevious.Location = new System.Drawing.Point(98, 0);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(128, 51);
             this.btnPrevious.TabIndex = 8;
@@ -180,6 +182,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLich);
+            this.panel1.Controls.Add(this.btnTK);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnToday);
             this.panel1.Controls.Add(this.dateTimePicker);
@@ -231,7 +235,7 @@
             // 
             // btnToday
             // 
-            this.btnToday.Location = new System.Drawing.Point(570, 2);
+            this.btnToday.Location = new System.Drawing.Point(633, 3);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(97, 23);
             this.btnToday.TabIndex = 1;
@@ -241,7 +245,7 @@
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(326, 3);
+            this.dateTimePicker.Location = new System.Drawing.Point(389, 4);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(238, 22);
             this.dateTimePicker.TabIndex = 0;
@@ -249,6 +253,7 @@
             // fCalendar
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(1082, 653);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -269,7 +274,7 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel paMatrix;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnSun;
         private System.Windows.Forms.Button btnSat;
@@ -286,5 +291,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.NumericUpDown nmrNotify;
         private System.Windows.Forms.CheckBox chkNotify;
+        private System.Windows.Forms.Button btnTK;
+        private System.Windows.Forms.Button btnLich;
     }
 }

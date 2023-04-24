@@ -15,8 +15,36 @@ namespace JobsManagement
         public fCalendar()
         {
             InitializeComponent();
+            createMatrix();
         }
+        void createMatrix()
+        {
+            Button oldBtn = new Button()
+            {
+                Width = 0,
+                Height = 0,
+                Location = new Point(-6, 0),
+            };
+            for(int i = 0; i < 6; i++)
+            {
+                for(int j = 0; j < 7; j++)
+                {
+                    Button btn = new Button()
+                    {
+                        Width = 96, Height = 51
+                    };
+                    btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y);
 
+                    paMatrix.Controls.Add(btn);
+
+                    oldBtn = btn;
+                }
+                oldBtn = new Button()
+                {
+                    Width = 0, Height = 0, Location = new Point(-6, oldBtn.Location.Y + 51)
+                };
+            }
+        }
         private void btnWed_Click(object sender, EventArgs e)
         {
 
