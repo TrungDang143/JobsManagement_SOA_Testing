@@ -38,6 +38,7 @@
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnTodayJob = new System.Windows.Forms.Button();
             this.btnCalendar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -48,6 +49,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.dataGridView2);
             this.panel4.Controls.Add(this.lbCVdaHoanThanh);
             this.panel4.Location = new System.Drawing.Point(549, 81);
@@ -155,6 +157,15 @@
             this.btnCalendar.UseVisualStyleBackColor = true;
             this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(110, 232);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "khanh";
+            // 
             // fThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -187,5 +198,6 @@
         private System.Windows.Forms.Label lbCVchuaHoanThanh;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
     }
 }
