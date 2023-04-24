@@ -118,7 +118,7 @@
             // 
             // btnSun
             // 
-            this.btnSun.Location = new System.Drawing.Point(784, 3);
+            this.btnSun.Location = new System.Drawing.Point(784, 0);
             this.btnSun.Name = "btnSun";
             this.btnSun.Size = new System.Drawing.Size(96, 51);
             this.btnSun.TabIndex = 6;
@@ -127,7 +127,7 @@
             // 
             // btnSat
             // 
-            this.btnSat.Location = new System.Drawing.Point(682, 3);
+            this.btnSat.Location = new System.Drawing.Point(682, 0);
             this.btnSat.Name = "btnSat";
             this.btnSat.Size = new System.Drawing.Size(96, 51);
             this.btnSat.TabIndex = 5;
@@ -136,7 +136,7 @@
             // 
             // btnFri
             // 
-            this.btnFri.Location = new System.Drawing.Point(580, 3);
+            this.btnFri.Location = new System.Drawing.Point(580, 0);
             this.btnFri.Name = "btnFri";
             this.btnFri.Size = new System.Drawing.Size(96, 51);
             this.btnFri.TabIndex = 4;
@@ -145,7 +145,7 @@
             // 
             // btnThurs
             // 
-            this.btnThurs.Location = new System.Drawing.Point(478, 3);
+            this.btnThurs.Location = new System.Drawing.Point(478, 0);
             this.btnThurs.Name = "btnThurs";
             this.btnThurs.Size = new System.Drawing.Size(96, 51);
             this.btnThurs.TabIndex = 3;
@@ -154,7 +154,7 @@
             // 
             // btnWed
             // 
-            this.btnWed.Location = new System.Drawing.Point(376, 3);
+            this.btnWed.Location = new System.Drawing.Point(376, 0);
             this.btnWed.Name = "btnWed";
             this.btnWed.Size = new System.Drawing.Size(96, 51);
             this.btnWed.TabIndex = 2;
@@ -164,7 +164,7 @@
             // 
             // btnTues
             // 
-            this.btnTues.Location = new System.Drawing.Point(274, 3);
+            this.btnTues.Location = new System.Drawing.Point(274, 0);
             this.btnTues.Name = "btnTues";
             this.btnTues.Size = new System.Drawing.Size(96, 51);
             this.btnTues.TabIndex = 1;
@@ -173,7 +173,7 @@
             // 
             // btnMon
             // 
-            this.btnMon.Location = new System.Drawing.Point(172, 3);
+            this.btnMon.Location = new System.Drawing.Point(172, 0);
             this.btnMon.Name = "btnMon";
             this.btnMon.Size = new System.Drawing.Size(96, 51);
             this.btnMon.TabIndex = 0;
