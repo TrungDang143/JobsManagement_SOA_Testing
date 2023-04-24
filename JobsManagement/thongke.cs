@@ -16,5 +16,25 @@ namespace JobsManagement
         {
             InitializeComponent();
         }
+
+        private void btnTodayJob_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fHome newform = new fHome();
+            newform.Location = this.Location;
+            newform.StartPosition = FormStartPosition.Manual;
+            newform.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fCalendar newform = new fCalendar();
+            newform.Location = this.Location;
+            newform.StartPosition = FormStartPosition.Manual;
+            newform.ShowDialog();
+            this.Close();
+        }
     }
 }
