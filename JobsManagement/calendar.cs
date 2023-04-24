@@ -31,9 +31,9 @@ namespace JobsManagement
                 {
                     Button btn = new Button()
                     {
-                        Width = 96, Height = 51
+                        Width = 96, Height = 50
                     };
-                    btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y);
+                    btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
 
                     paMatrix.Controls.Add(btn);
 
@@ -41,7 +41,7 @@ namespace JobsManagement
                 }
                 oldBtn = new Button()
                 {
-                    Width = 0, Height = 0, Location = new Point(-6, oldBtn.Location.Y + 51)
+                    Width = 0, Height = 0, Location = new Point(-6, oldBtn.Location.Y + 50 + 1)
                 };
             }
         }
@@ -55,19 +55,29 @@ namespace JobsManagement
 
         }
 
-        private void btnTK_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void fCalendar_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTodayJob_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            fHome newform = new fHome();
+            newform.Location = this.Location;
+            newform.StartPosition = FormStartPosition.Manual;
+            newform.ShowDialog();
+            this.Close();
+        }
 
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fThongKe newform = new fThongKe();
+            newform.Location = this.Location;
+            newform.StartPosition = FormStartPosition.Manual;
+            newform.ShowDialog();
+            this.Close();
         }
     }
 }
