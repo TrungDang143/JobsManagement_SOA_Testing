@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.lbCVdaHoanThanh = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnTodayJob = new System.Windows.Forms.Button();
             this.btnCalendar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -47,25 +45,14 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1056, 627);
-            this.panel1.TabIndex = 1;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.Controls.Add(this.dataGridView2);
             this.panel4.Controls.Add(this.lbCVdaHoanThanh);
-            this.panel4.Location = new System.Drawing.Point(536, 79);
+            this.panel4.Location = new System.Drawing.Point(549, 96);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(520, 545);
+            this.panel4.Size = new System.Drawing.Size(520, 527);
             this.panel4.TabIndex = 1;
             // 
             // dataGridView2
@@ -76,7 +63,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(520, 475);
+            this.dataGridView2.Size = new System.Drawing.Size(520, 457);
             this.dataGridView2.TabIndex = 1;
             // 
             // lbCVdaHoanThanh
@@ -95,9 +82,9 @@
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.lbCVchuaHoanThanh);
-            this.panel3.Location = new System.Drawing.Point(5, 79);
+            this.panel3.Location = new System.Drawing.Point(14, 96);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(520, 545);
+            this.panel3.Size = new System.Drawing.Size(520, 527);
             this.panel3.TabIndex = 1;
             // 
             // dataGridView1
@@ -108,7 +95,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(520, 475);
+            this.dataGridView1.Size = new System.Drawing.Size(520, 457);
             this.dataGridView1.TabIndex = 1;
             // 
             // lbCVchuaHoanThanh
@@ -126,17 +113,17 @@
             this.panel2.Controls.Add(this.btnStatistics);
             this.panel2.Controls.Add(this.btnTodayJob);
             this.panel2.Controls.Add(this.btnCalendar);
-            this.panel2.Location = new System.Drawing.Point(5, 4);
+            this.panel2.Location = new System.Drawing.Point(13, 13);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1047, 61);
+            this.panel2.Size = new System.Drawing.Size(1056, 61);
             this.panel2.TabIndex = 0;
             // 
             // btnStatistics
             // 
             this.btnStatistics.Enabled = false;
             this.btnStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnStatistics.Location = new System.Drawing.Point(883, 4);
+            this.btnStatistics.Location = new System.Drawing.Point(892, 4);
             this.btnStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(160, 50);
@@ -173,10 +160,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 653);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Name = "fThongKe";
             this.Text = "thongke";
-            this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -189,8 +177,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Button btnTodayJob;
