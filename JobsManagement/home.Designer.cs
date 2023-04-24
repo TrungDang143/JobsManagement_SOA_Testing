@@ -50,10 +50,10 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(5, 73);
+            this.panel3.Location = new System.Drawing.Point(5, 66);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1048, 550);
+            this.panel3.Size = new System.Drawing.Size(1048, 557);
             this.panel3.TabIndex = 1;
             // 
             // panel2
@@ -77,9 +77,11 @@
             this.btnStatistics.TabIndex = 2;
             this.btnStatistics.Text = "Thống kê";
             this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // btnTodayJob
             // 
+            this.btnTodayJob.Enabled = false;
             this.btnTodayJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTodayJob.Location = new System.Drawing.Point(296, 4);
             this.btnTodayJob.Margin = new System.Windows.Forms.Padding(4);
@@ -99,6 +101,7 @@
             this.btnCalendar.TabIndex = 0;
             this.btnCalendar.Text = "Lịch";
             this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // fHome
             // 
