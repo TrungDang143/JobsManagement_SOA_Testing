@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vs38F7.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vsA5FE.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vs38F7.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vsA5FE.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -63,6 +63,19 @@
     <Compile Include="calendar.Designer.cs">
       <DependentUpon>calendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="connectDB.cs" />
+    <Compile Include="fForgot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fForgot.Designer.cs">
+      <DependentUpon>fForgot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSignUp.Designer.cs">
+      <DependentUpon>fSignUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="calendar.resx">
       <DependentUpon>calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fForgot.resx">
+      <DependentUpon>fForgot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSignUp.resx">
+      <DependentUpon>fSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="home.resx">
       <DependentUpon>home.cs</DependentUpon>
