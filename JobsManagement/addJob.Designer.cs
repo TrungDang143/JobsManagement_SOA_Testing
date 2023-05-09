@@ -109,28 +109,28 @@
             // 
             // nudPhut
             // 
-            this.nudPhut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.nudPhut.Location = new System.Drawing.Point(394, 134);
+            this.nudPhut.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudPhut.Location = new System.Drawing.Point(414, 149);
             this.nudPhut.Maximum = new decimal(new int[] {
-            60,
+            59,
             0,
             0,
             0});
             this.nudPhut.Name = "nudPhut";
-            this.nudPhut.Size = new System.Drawing.Size(48, 30);
+            this.nudPhut.Size = new System.Drawing.Size(66, 45);
             this.nudPhut.TabIndex = 4;
             // 
             // nudGio
             // 
-            this.nudGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.nudGio.Location = new System.Drawing.Point(268, 134);
+            this.nudGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudGio.Location = new System.Drawing.Point(267, 149);
             this.nudGio.Maximum = new decimal(new int[] {
             24,
             0,
             0,
             0});
             this.nudGio.Name = "nudGio";
-            this.nudGio.Size = new System.Drawing.Size(46, 30);
+            this.nudGio.Size = new System.Drawing.Size(66, 45);
             this.nudGio.TabIndex = 3;
             // 
             // cbbLapLai
@@ -143,7 +143,7 @@
             "Hằng tuần"});
             this.cbbLapLai.Location = new System.Drawing.Point(268, 219);
             this.cbbLapLai.Name = "cbbLapLai";
-            this.cbbLapLai.Size = new System.Drawing.Size(294, 33);
+            this.cbbLapLai.Size = new System.Drawing.Size(212, 33);
             this.cbbLapLai.TabIndex = 2;
             // 
             // label5
@@ -160,7 +160,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(448, 132);
+            this.label4.Location = new System.Drawing.Point(486, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 32);
             this.label4.TabIndex = 0;
@@ -170,7 +170,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(320, 132);
+            this.label3.Location = new System.Drawing.Point(339, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 32);
             this.label3.TabIndex = 0;
@@ -180,7 +180,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(54, 130);
+            this.label2.Location = new System.Drawing.Point(54, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(158, 32);
             this.label2.TabIndex = 0;
@@ -193,7 +193,7 @@
             this.txbCongViec.Multiline = true;
             this.txbCongViec.Name = "txbCongViec";
             this.txbCongViec.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbCongViec.Size = new System.Drawing.Size(448, 78);
+            this.txbCongViec.Size = new System.Drawing.Size(448, 97);
             this.txbCongViec.TabIndex = 1;
             // 
             // label1
