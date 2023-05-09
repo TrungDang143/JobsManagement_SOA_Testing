@@ -45,5 +45,17 @@ namespace JobsManagement
             }
             else { txbPassword.UseSystemPasswordChar = true; }
         }
+
+        private void linkDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fSignUp f = new fSignUp();
+            f.ShowDialog();
+        }
+
+        private void linkQuenMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fForgot f = new fForgot();
+            f.ShowDialog();
+        }
     }
 }

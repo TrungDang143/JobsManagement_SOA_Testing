@@ -43,7 +43,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(86, 342);
+            this.button4.Location = new System.Drawing.Point(66, 352);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(284, 48);
             this.button4.TabIndex = 3;
@@ -55,7 +55,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(464, 342);
+            this.button5.Location = new System.Drawing.Point(444, 352);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(267, 48);
             this.button5.TabIndex = 4;
@@ -132,6 +132,7 @@
             this.linkDangKy.TabIndex = 11;
             this.linkDangKy.TabStop = true;
             this.linkDangKy.Text = "Đăng ký";
+            this.linkDangKy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDangKy_LinkClicked);
             // 
             // linkQuenMK
             // 
@@ -143,6 +144,7 @@
             this.linkQuenMK.TabIndex = 11;
             this.linkQuenMK.TabStop = true;
             this.linkQuenMK.Text = "Quên mật khẩu";
+            this.linkQuenMK.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkQuenMK_LinkClicked);
             // 
             // fLogin
             // 
@@ -160,6 +162,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Name = "fLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.Load += new System.EventHandler(this.fLogin_Load);
             this.ResumeLayout(false);

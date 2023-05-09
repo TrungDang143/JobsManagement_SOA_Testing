@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnHomNay = new System.Windows.Forms.Button();
-            this.btnNgayMai = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnNgayMai = new System.Windows.Forms.Button();
+            this.btnHomNay = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbCongViec = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbbLapLai = new System.Windows.Forms.ComboBox();
-            this.nudGio = new System.Windows.Forms.NumericUpDown();
             this.nudPhut = new System.Windows.Forms.NumericUpDown();
+            this.nudGio = new System.Windows.Forms.NumericUpDown();
+            this.cbbLapLai = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txbCongViec = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudGio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGio)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,19 +62,18 @@
             this.panel1.Size = new System.Drawing.Size(776, 57);
             this.panel1.TabIndex = 0;
             // 
-            // btnHomNay
+            // dateTimePicker1
             // 
-            this.btnHomNay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHomNay.Location = new System.Drawing.Point(3, 3);
-            this.btnHomNay.Name = "btnHomNay";
-            this.btnHomNay.Size = new System.Drawing.Size(137, 50);
-            this.btnHomNay.TabIndex = 0;
-            this.btnHomNay.Text = "Hôm nay";
-            this.btnHomNay.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(208, 11);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(365, 30);
+            this.dateTimePicker1.TabIndex = 1;
             // 
             // btnNgayMai
             // 
-            this.btnNgayMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNgayMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnNgayMai.Location = new System.Drawing.Point(636, 3);
             this.btnNgayMai.Name = "btnNgayMai";
             this.btnNgayMai.Size = new System.Drawing.Size(137, 50);
@@ -82,14 +81,15 @@
             this.btnNgayMai.Text = "Ngày mai";
             this.btnNgayMai.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // btnHomNay
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(229, 13);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(316, 27);
-            this.dateTimePicker1.TabIndex = 1;
+            this.btnHomNay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHomNay.Location = new System.Drawing.Point(3, 3);
+            this.btnHomNay.Name = "btnHomNay";
+            this.btnHomNay.Size = new System.Drawing.Size(137, 50);
+            this.btnHomNay.TabIndex = 0;
+            this.btnHomNay.Text = "Hôm nay";
+            this.btnHomNay.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -107,78 +107,18 @@
             this.panel2.Size = new System.Drawing.Size(773, 266);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // nudPhut
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(54, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Công việc: ";
-            // 
-            // txbCongViec
-            // 
-            this.txbCongViec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txbCongViec.Location = new System.Drawing.Point(268, 34);
-            this.txbCongViec.Multiline = true;
-            this.txbCongViec.Name = "txbCongViec";
-            this.txbCongViec.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbCongViec.Size = new System.Drawing.Size(448, 78);
-            this.txbCongViec.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(54, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Thời gian: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(320, 132);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 32);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "giờ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(448, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 32);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "phút";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(54, 216);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 32);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Lặp lại:";
-            // 
-            // cbbLapLai
-            // 
-            this.cbbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbbLapLai.FormattingEnabled = true;
-            this.cbbLapLai.Items.AddRange(new object[] {
-            "Một lần",
-            "Hằng ngày",
-            "Hằng tuần"});
-            this.cbbLapLai.Location = new System.Drawing.Point(268, 219);
-            this.cbbLapLai.Name = "cbbLapLai";
-            this.cbbLapLai.Size = new System.Drawing.Size(294, 33);
-            this.cbbLapLai.TabIndex = 2;
+            this.nudPhut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudPhut.Location = new System.Drawing.Point(394, 134);
+            this.nudPhut.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.nudPhut.Name = "nudPhut";
+            this.nudPhut.Size = new System.Drawing.Size(48, 30);
+            this.nudPhut.TabIndex = 4;
             // 
             // nudGio
             // 
@@ -193,18 +133,78 @@
             this.nudGio.Size = new System.Drawing.Size(46, 30);
             this.nudGio.TabIndex = 3;
             // 
-            // nudPhut
+            // cbbLapLai
             // 
-            this.nudPhut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.nudPhut.Location = new System.Drawing.Point(394, 134);
-            this.nudPhut.Maximum = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.nudPhut.Name = "nudPhut";
-            this.nudPhut.Size = new System.Drawing.Size(48, 30);
-            this.nudPhut.TabIndex = 4;
+            this.cbbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbbLapLai.FormattingEnabled = true;
+            this.cbbLapLai.Items.AddRange(new object[] {
+            "Một lần",
+            "Hằng ngày",
+            "Hằng tuần"});
+            this.cbbLapLai.Location = new System.Drawing.Point(268, 219);
+            this.cbbLapLai.Name = "cbbLapLai";
+            this.cbbLapLai.Size = new System.Drawing.Size(294, 33);
+            this.cbbLapLai.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(54, 216);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 32);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Lặp lại:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(448, 132);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 32);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "phút";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(320, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 32);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "giờ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(54, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 32);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Thời gian: ";
+            // 
+            // txbCongViec
+            // 
+            this.txbCongViec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txbCongViec.Location = new System.Drawing.Point(268, 34);
+            this.txbCongViec.Multiline = true;
+            this.txbCongViec.Name = "txbCongViec";
+            this.txbCongViec.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txbCongViec.Size = new System.Drawing.Size(448, 78);
+            this.txbCongViec.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(54, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Công việc: ";
             // 
             // panel3
             // 
@@ -217,7 +217,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnHuy.Location = new System.Drawing.Point(457, 3);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(137, 50);
@@ -227,7 +227,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLuu.Location = new System.Drawing.Point(177, 3);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(137, 50);
@@ -248,8 +248,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudGio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGio)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -31,7 +31,7 @@ namespace JobsManagement
                 {
                     Button btn = new Button()
                     {
-                        Width = 96, Height = 50
+                        Width = 96, Height = 60
                     };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
 
@@ -41,7 +41,7 @@ namespace JobsManagement
                 }
                 oldBtn = new Button()
                 {
-                    Width = 0, Height = 0, Location = new Point(-6, oldBtn.Location.Y + 50 + 1)
+                    Width = 0, Height = 0, Location = new Point(-6, oldBtn.Location.Y + 60 + 1)
                 };
             }
         }
