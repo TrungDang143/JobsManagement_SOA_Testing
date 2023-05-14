@@ -12,6 +12,18 @@ namespace JobsManagement
 {
     public partial class fCalendar : Form
     {
+        
+        #region Peoperties
+        private List<List<Button>> matrix;
+
+        public List<List<Button>> Matrix
+        {
+            get { return matrix; }
+            set { matrix = value; }
+        }
+        private List<string> dateOfW = new List<string>(){ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        #endregion
+        
         public fCalendar()
         {
             InitializeComponent();
@@ -19,6 +31,7 @@ namespace JobsManagement
         }
         void createMatrix()
         {
+            Matrix = new List<List<Button>>();
             Button oldBtn = new Button()
             {
                 Width = 0,
@@ -27,6 +40,7 @@ namespace JobsManagement
             };
             for(int i = 0; i < 6; i++)
             {
+                Matrix.Add(new List<Button>());
                 for(int j = 0; j < 7; j++)
                 {
                     Button btn = new Button()
@@ -36,15 +50,82 @@ namespace JobsManagement
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
 
                     paMatrix.Controls.Add(btn);
+                    Matrix[i].Add(btn);
 
                     oldBtn = btn;
                 }
                 oldBtn = new Button()
                 {
-                    Width = 0, Height = 0, Location = new Point(-6, oldBtn.Location.Y + 60 + 1)
+                    Width = 0,
+                    Height = 0,
+                    Location = new Point(-6, oldBtn.Location.Y + 60 + 1)
                 };
             }
+            SetDate();
         }
+
+
+        int dayOfM(DateTime date)
+        {
+            switch (date.Month)
+            {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    return 31;
+                case 2:
+                    if ((date.Year % 4 == 0 && date.Year % 100 != 0) || date.Year % 400 == 0)
+                        return 29;
+                    else 
+                        return 28;
+                default:
+                    return 30;
+            }
+        }
+        void AddDay(DateTime date)
+        {
+            clear();
+            DateTime useDate = new DateTime(date.Year, date.Month, 1);
+            int line = 0;
+
+            for(int i = 1; i <= dayOfM(date); i++)
+            {
+                int column = dateOfW.IndexOf(useDate.DayOfWeek.ToString());
+                Button btn = Matrix[line][column];
+                btn.Text = i.ToString();
+                
+                if(column >= 6)
+                {
+                    line++;
+                }
+                useDate = useDate.AddDays(1);
+            }
+        }
+
+        void clear()
+        {
+            for(int i =0; i <  Matrix.Count; i++)
+            {
+                for (int j = 0; j < Matrix[i].Count; j++)
+                {
+                    Button btn = Matrix[i][j];
+                    btn.Text = "";
+                }
+            }
+        }
+        void SetDate()
+        {
+            dateTimePicker.Value = DateTime.Now;
+        }
+        private void dtpkValueChanged(object sender, EventArgs e)
+        {
+            AddDay((sender as DateTimePicker).Value);
+        }
+
         private void btnWed_Click(object sender, EventArgs e)
         {
 
@@ -79,5 +160,7 @@ namespace JobsManagement
             newform.ShowDialog();
             this.Close();
         }
+
+       
     }
 }
