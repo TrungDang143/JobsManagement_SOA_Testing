@@ -12,7 +12,6 @@ namespace JobsManagement
 {
     public partial class fCalendar : Form
     {
-        
         #region Peoperties
         private List<List<Button>> matrix;
 
