@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnNgayMai = new System.Windows.Forms.Button();
+            this.btnTom = new System.Windows.Forms.Button();
             this.btnHomNay = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnNgayMai);
+            this.panel1.Controls.Add(this.btnTom);
             this.panel1.Controls.Add(this.btnHomNay);
             this.panel1.Controls.Add(this.dateTimePicker);
             this.panel1.Location = new System.Drawing.Point(13, 81);
@@ -62,16 +62,16 @@
             this.panel1.Size = new System.Drawing.Size(1056, 56);
             this.panel1.TabIndex = 0;
             // 
-            // btnNgayMai
+            // btnTom
             // 
-            this.btnNgayMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNgayMai.Location = new System.Drawing.Point(740, 5);
-            this.btnNgayMai.Name = "btnNgayMai";
-            this.btnNgayMai.Size = new System.Drawing.Size(140, 40);
-            this.btnNgayMai.TabIndex = 1;
-            this.btnNgayMai.Text = "Ngày mai";
-            this.btnNgayMai.UseVisualStyleBackColor = true;
-            this.btnNgayMai.Click += new System.EventHandler(this.btnToday_Click);
+            this.btnTom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTom.Location = new System.Drawing.Point(740, 5);
+            this.btnTom.Name = "btnTom";
+            this.btnTom.Size = new System.Drawing.Size(140, 40);
+            this.btnTom.TabIndex = 1;
+            this.btnTom.Text = "Ngày mai";
+            this.btnTom.UseVisualStyleBackColor = true;
+            this.btnTom.Click += new System.EventHandler(this.btnTom_Click);
             // 
             // btnHomNay
             // 
@@ -118,6 +118,7 @@
             this.btnNext.TabIndex = 7;
             this.btnNext.Text = "Tháng Sau";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -127,6 +128,7 @@
             this.btnPrevious.TabIndex = 8;
             this.btnPrevious.Text = "Tháng trước";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnSun
             // 
@@ -269,7 +271,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnNgayMai;
+        private System.Windows.Forms.Button btnTom;
         private System.Windows.Forms.Button btnHomNay;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Panel panel4;
