@@ -35,7 +35,7 @@ namespace JobsManagement
             {
                 Width = 0,
                 Height = 0,
-                Location = new Point(-4, 0),
+                Location = new Point(-6, 0),
             };
             for(int i = 0; i < 6; i++)
             {
@@ -44,9 +44,9 @@ namespace JobsManagement
                 {
                     Button btn = new Button()
                     {
-                        Width = 72, Height = 50
+                        Width = 96, Height = 50
                     };
-                    btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 4, oldBtn.Location.Y + 1);
+                    btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
 
                     paMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
@@ -57,7 +57,7 @@ namespace JobsManagement
                 {
                     Width = 0,
                     Height = 0,
-                    Location = new Point(-4, oldBtn.Location.Y + 60 + 1)
+                    Location = new Point(-6, oldBtn.Location.Y + 50)
                 };
             }
             SetDate();
