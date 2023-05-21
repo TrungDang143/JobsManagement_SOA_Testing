@@ -8,7 +8,7 @@ TTCSN_Group8
 
 Sản phẩm: ___Phần mềm quản lý công việc JobsManagement___
 
-# Để kiểm tra tiến độ sản phẩm
+## Để kiểm tra tiến độ sản phẩm
   + Tải và cài đặt 
     - Microsoft Visual Studio: [Tại đây](https://visualstudio.microsoft.com/)
     - SQL Server bản __Express__: [Tại đây](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
