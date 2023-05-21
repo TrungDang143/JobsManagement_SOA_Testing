@@ -16,7 +16,7 @@ namespace JobsManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fCalendar());
+            Application.Run(new fHome());
         }
     }
 }
