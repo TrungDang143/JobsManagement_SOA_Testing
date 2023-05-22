@@ -149,6 +149,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="thongke.resx">
       <DependentUpon>thongke.cs</DependentUpon>
@@ -175,6 +176,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\minus_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\multipy_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons8-calendar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons8-chart-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

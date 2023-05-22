@@ -82,6 +82,7 @@
             this.btnNext.TabIndex = 7;
             this.btnNext.Text = "Tháng Sau";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -92,6 +93,7 @@
             this.btnPrevious.TabIndex = 8;
             this.btnPrevious.Text = "Tháng trước";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnSun
             // 
@@ -184,6 +186,7 @@
             this.btnTom.TabIndex = 1;
             this.btnTom.Text = "Ngày mai";
             this.btnTom.UseVisualStyleBackColor = true;
+            this.btnTom.Click += new System.EventHandler(this.btnTom_Click);
             // 
             // btnHomNay
             // 
@@ -195,6 +198,7 @@
             this.btnHomNay.TabIndex = 1;
             this.btnHomNay.Text = "Hôm nay";
             this.btnHomNay.UseVisualStyleBackColor = true;
+            this.btnHomNay.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // dateTimePicker
             // 
@@ -204,6 +208,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(375, 30);
             this.dateTimePicker.TabIndex = 0;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dtpkValueChanged);
             // 
             // ucCalendar
             // 
