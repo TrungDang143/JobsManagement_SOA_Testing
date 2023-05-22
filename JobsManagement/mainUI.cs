@@ -62,10 +62,24 @@ namespace JobsManagement
 
         #region menu
         
+        void resetSelect()
+        {
+            pnlContent.Controls.Clear();
+            pnlHighLight1.Visible = false;
+            pnlHighLight2.Visible = false;
+            pnlHighLight3.Visible = false;
+            pnlHighLight4.Visible = false;
+            btnHome.BackColor = Color.FromArgb(24, 30, 54);
+            btnCalendar.BackColor = Color.FromArgb(24, 30, 54);
+            btnTK.BackColor = Color.FromArgb(24, 30, 54);
+            btnSetting.BackColor = Color.FromArgb(24, 30, 54);
+
+        }
         private void btnHome_Click(object sender, EventArgs e)
         {
+            resetSelect();
             pnlHighLight1.Visible = true;
-            pnlContent.Controls.Clear();
+            
             ucHome ucHome = new ucHome();
             pnlContent.Controls.Add(ucHome);
             btnHome.BackColor = Color.FromArgb(46, 51, 73);
@@ -73,8 +87,9 @@ namespace JobsManagement
         }
         private void btnCalendar_Click(object sender, EventArgs e)
         {
+            resetSelect();
             pnlHighLight2.Visible = true;
-            pnlContent.Controls.Clear();
+            
             ucCalendar ucCalendar = new ucCalendar();
             pnlContent.Controls.Add(ucCalendar);
             btnCalendar.BackColor = Color.FromArgb(46, 51, 73);
@@ -83,8 +98,9 @@ namespace JobsManagement
 
         private void btnTK_Click(object sender, EventArgs e)
         {
+            resetSelect();
             pnlHighLight3.Visible = true;
-            pnlContent.Controls.Clear();
+            
             ucThongKe ucThongKe = new ucThongKe();  
             pnlContent.Controls.Add(ucThongKe);
             btnTK.BackColor = Color.FromArgb(46, 51, 73);
@@ -109,34 +125,47 @@ namespace JobsManagement
         {
             pnlHighLight3.Visible = true;
         }
-
-        private void btnHome_MouseLeave(object sender, EventArgs e)
-        {
-            pnlHighLight1.Visible = false;
-            btnHome.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnCalendar_MouseLeave(object sender, EventArgs e)
-        {
-            pnlHighLight2.Visible = false;
-            btnCalendar.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnTK_MouseLeave(object sender, EventArgs e)
-        {
-            pnlHighLight3.Visible = false;
-            btnTK.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
         private void btnSetting_MouseHover(object sender, EventArgs e)
         {
             pnlHighLight4.Visible = true;
         }
 
+        private void btnHome_MouseLeave(object sender, EventArgs e)
+        {
+            if(string.Compare( lbTitle.Text, "Trang chủ", true) != 0)
+            {
+                pnlHighLight1.Visible = false;
+                btnHome.BackColor = Color.FromArgb(24, 30, 54);
+            }    
+        }
+
+        private void btnCalendar_MouseLeave(object sender, EventArgs e)
+        {
+            if (string.Compare(lbTitle.Text, "Lịch", true) != 0)
+            {
+                pnlHighLight2.Visible = false;
+                btnCalendar.BackColor = Color.FromArgb(24, 30, 54);
+            }
+        }
+
+        private void btnTK_MouseLeave(object sender, EventArgs e)
+        {
+
+            if (string.Compare(lbTitle.Text, "Thống kê", true) != 0)
+            {
+                pnlHighLight3.Visible = false;
+                btnTK.BackColor = Color.FromArgb(24, 30, 54);
+            }
+        }
+
+
         private void btnSetting_MouseLeave(object sender, EventArgs e)
         {
-            pnlHighLight4.Visible = false;
-            btnSetting.BackColor = Color.FromArgb(24, 30, 54);
+            if (string.Compare(lbTitle.Text, "Cài đặt", true) != 0)
+            {
+                pnlHighLight4.Visible = false;
+                btnSetting.BackColor = Color.FromArgb(24, 30, 54);
+            }
         }
         #endregion
 

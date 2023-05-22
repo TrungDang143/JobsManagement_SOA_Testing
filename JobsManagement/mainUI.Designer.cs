@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pnlHighLight4 = new System.Windows.Forms.Panel();
             this.pnlHighLight3 = new System.Windows.Forms.Panel();
             this.pnlHighLight2 = new System.Windows.Forms.Panel();
             this.pnlHighLight1 = new System.Windows.Forms.Panel();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnTK = new System.Windows.Forms.Button();
-            this.btnCalendar = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbUserName = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.icoClose = new System.Windows.Forms.PictureBox();
             this.icoMinus = new System.Windows.Forms.PictureBox();
-            this.pnlHighLight4 = new System.Windows.Forms.Panel();
+            this.btnCalendar = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,13 +71,23 @@
             this.pnlMenu.Size = new System.Drawing.Size(212, 753);
             this.pnlMenu.TabIndex = 0;
             // 
+            // pnlHighLight4
+            // 
+            this.pnlHighLight4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlHighLight4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlHighLight4.Location = new System.Drawing.Point(0, 682);
+            this.pnlHighLight4.Name = "pnlHighLight4";
+            this.pnlHighLight4.Size = new System.Drawing.Size(5, 71);
+            this.pnlHighLight4.TabIndex = 5;
+            this.pnlHighLight4.Visible = false;
+            // 
             // pnlHighLight3
             // 
             this.pnlHighLight3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlHighLight3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight3.Location = new System.Drawing.Point(0, 430);
+            this.pnlHighLight3.Location = new System.Drawing.Point(0, 431);
             this.pnlHighLight3.Name = "pnlHighLight3";
-            this.pnlHighLight3.Size = new System.Drawing.Size(5, 62);
+            this.pnlHighLight3.Size = new System.Drawing.Size(5, 68);
             this.pnlHighLight3.TabIndex = 4;
             this.pnlHighLight3.Visible = false;
             // 
@@ -85,9 +95,9 @@
             // 
             this.pnlHighLight2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlHighLight2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight2.Location = new System.Drawing.Point(0, 343);
+            this.pnlHighLight2.Location = new System.Drawing.Point(0, 363);
             this.pnlHighLight2.Name = "pnlHighLight2";
-            this.pnlHighLight2.Size = new System.Drawing.Size(5, 62);
+            this.pnlHighLight2.Size = new System.Drawing.Size(5, 68);
             this.pnlHighLight2.TabIndex = 4;
             this.pnlHighLight2.Visible = false;
             // 
@@ -95,9 +105,9 @@
             // 
             this.pnlHighLight1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlHighLight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight1.Location = new System.Drawing.Point(0, 255);
+            this.pnlHighLight1.Location = new System.Drawing.Point(0, 295);
             this.pnlHighLight1.Name = "pnlHighLight1";
-            this.pnlHighLight1.Size = new System.Drawing.Size(5, 62);
+            this.pnlHighLight1.Size = new System.Drawing.Size(5, 68);
             this.pnlHighLight1.TabIndex = 3;
             this.pnlHighLight1.Visible = false;
             // 
@@ -120,7 +130,6 @@
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             this.btnSetting.MouseEnter += new System.EventHandler(this.btnSetting_MouseHover);
             this.btnSetting.MouseLeave += new System.EventHandler(this.btnSetting_MouseLeave);
-            this.btnSetting.MouseHover += new System.EventHandler(this.btnSetting_MouseHover);
             // 
             // btnTK
             // 
@@ -132,9 +141,9 @@
             this.btnTK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnTK.Image = global::JobsManagement.Properties.Resources.icons8_chart_48;
             this.btnTK.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTK.Location = new System.Drawing.Point(5, 430);
+            this.btnTK.Location = new System.Drawing.Point(5, 431);
             this.btnTK.Name = "btnTK";
-            this.btnTK.Size = new System.Drawing.Size(207, 62);
+            this.btnTK.Size = new System.Drawing.Size(207, 68);
             this.btnTK.TabIndex = 2;
             this.btnTK.Text = "Thống kê";
             this.btnTK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,29 +151,6 @@
             this.btnTK.Click += new System.EventHandler(this.btnTK_Click);
             this.btnTK.MouseEnter += new System.EventHandler(this.button2_MouseHover);
             this.btnTK.MouseLeave += new System.EventHandler(this.btnTK_MouseLeave);
-            this.btnTK.MouseHover += new System.EventHandler(this.button2_MouseHover);
-            // 
-            // btnCalendar
-            // 
-            this.btnCalendar.FlatAppearance.BorderSize = 0;
-            this.btnCalendar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btnCalendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btnCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnCalendar.Image = global::JobsManagement.Properties.Resources.icons8_calendar_48;
-            this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCalendar.Location = new System.Drawing.Point(5, 343);
-            this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Size = new System.Drawing.Size(207, 62);
-            this.btnCalendar.TabIndex = 2;
-            this.btnCalendar.Text = "Lịch";
-            this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendar.UseVisualStyleBackColor = true;
-            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
-            this.btnCalendar.MouseEnter += new System.EventHandler(this.button1_MouseHover);
-            this.btnCalendar.MouseLeave += new System.EventHandler(this.btnCalendar_MouseLeave);
-            this.btnCalendar.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // btnHome
             // 
@@ -176,9 +162,9 @@
             this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnHome.Image = global::JobsManagement.Properties.Resources.home;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHome.Location = new System.Drawing.Point(5, 255);
+            this.btnHome.Location = new System.Drawing.Point(5, 295);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(207, 62);
+            this.btnHome.Size = new System.Drawing.Size(207, 68);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,7 +172,6 @@
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseHover);
             this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
-            this.btnHome.MouseHover += new System.EventHandler(this.btnHome_MouseHover);
             // 
             // panel1
             // 
@@ -248,7 +233,7 @@
             this.lbTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lbTitle.Location = new System.Drawing.Point(6, 17);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(179, 39);
+            this.lbTitle.Size = new System.Drawing.Size(173, 38);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "Trang chủ";
             this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
@@ -256,7 +241,7 @@
             // icoClose
             // 
             this.icoClose.Image = global::JobsManagement.Properties.Resources.multipy_icon;
-            this.icoClose.Location = new System.Drawing.Point(1028, 12);
+            this.icoClose.Location = new System.Drawing.Point(1018, 12);
             this.icoClose.Name = "icoClose";
             this.icoClose.Size = new System.Drawing.Size(30, 30);
             this.icoClose.TabIndex = 0;
@@ -273,15 +258,26 @@
             this.icoMinus.TabStop = false;
             this.icoMinus.Click += new System.EventHandler(this.icoMinus_Click);
             // 
-            // pnlHighLight4
+            // btnCalendar
             // 
-            this.pnlHighLight4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight4.Location = new System.Drawing.Point(0, 682);
-            this.pnlHighLight4.Name = "pnlHighLight4";
-            this.pnlHighLight4.Size = new System.Drawing.Size(5, 71);
-            this.pnlHighLight4.TabIndex = 5;
-            this.pnlHighLight4.Visible = false;
+            this.btnCalendar.FlatAppearance.BorderSize = 0;
+            this.btnCalendar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnCalendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnCalendar.Image = global::JobsManagement.Properties.Resources.icons8_calendar_48;
+            this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCalendar.Location = new System.Drawing.Point(5, 363);
+            this.btnCalendar.Name = "btnCalendar";
+            this.btnCalendar.Size = new System.Drawing.Size(207, 68);
+            this.btnCalendar.TabIndex = 2;
+            this.btnCalendar.Text = "Lịch";
+            this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
+            this.btnCalendar.MouseEnter += new System.EventHandler(this.button1_MouseHover);
+            this.btnCalendar.MouseLeave += new System.EventHandler(this.btnCalendar_MouseLeave);
             // 
             // mainUI
             // 
@@ -293,6 +289,7 @@
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "mainUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mainUI";
             this.Load += new System.EventHandler(this.btnHome_Click);
             this.pnlMenu.ResumeLayout(false);
@@ -318,7 +315,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Button btnTK;
-        private System.Windows.Forms.Button btnCalendar;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel pnlHighLight1;
         private System.Windows.Forms.Panel pnlHighLight3;
@@ -326,5 +322,6 @@
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Panel pnlHighLight4;
+        private System.Windows.Forms.Button btnCalendar;
     }
 }
