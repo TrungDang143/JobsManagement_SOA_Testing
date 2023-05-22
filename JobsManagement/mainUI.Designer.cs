@@ -35,22 +35,22 @@
             this.pnlHighLight1 = new System.Windows.Forms.Panel();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnTK = new System.Windows.Forms.Button();
+            this.btnCalendar = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.pnlTitle = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
-            this.icoClose = new System.Windows.Forms.PictureBox();
             this.icoMinus = new System.Windows.Forms.PictureBox();
-            this.btnCalendar = new System.Windows.Forms.Button();
+            this.icoClose = new System.Windows.Forms.PictureBox();
+            this.pnlTitle = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
+            this.pnlTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -125,7 +125,7 @@
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(207, 71);
             this.btnSetting.TabIndex = 2;
-            this.btnSetting.Text = "   Cài đặt";
+            this.btnSetting.Text = "    Cài đặt";
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             this.btnSetting.MouseEnter += new System.EventHandler(this.btnSetting_MouseHover);
@@ -151,6 +151,27 @@
             this.btnTK.Click += new System.EventHandler(this.btnTK_Click);
             this.btnTK.MouseEnter += new System.EventHandler(this.button2_MouseHover);
             this.btnTK.MouseLeave += new System.EventHandler(this.btnTK_MouseLeave);
+            // 
+            // btnCalendar
+            // 
+            this.btnCalendar.FlatAppearance.BorderSize = 0;
+            this.btnCalendar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnCalendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnCalendar.Image = global::JobsManagement.Properties.Resources.icons8_calendar_48;
+            this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCalendar.Location = new System.Drawing.Point(5, 363);
+            this.btnCalendar.Name = "btnCalendar";
+            this.btnCalendar.Size = new System.Drawing.Size(207, 68);
+            this.btnCalendar.TabIndex = 2;
+            this.btnCalendar.Text = "Lịch";
+            this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
+            this.btnCalendar.MouseEnter += new System.EventHandler(this.button1_MouseHover);
+            this.btnCalendar.MouseLeave += new System.EventHandler(this.btnCalendar_MouseLeave);
             // 
             // btnHome
             // 
@@ -213,19 +234,6 @@
             this.pnlContent.Size = new System.Drawing.Size(1070, 694);
             this.pnlContent.TabIndex = 1;
             // 
-            // pnlTitle
-            // 
-            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.pnlTitle.Controls.Add(this.lbTitle);
-            this.pnlTitle.Controls.Add(this.icoClose);
-            this.pnlTitle.Controls.Add(this.icoMinus);
-            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTitle.Location = new System.Drawing.Point(212, 0);
-            this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1070, 59);
-            this.pnlTitle.TabIndex = 2;
-            this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
-            // 
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
@@ -238,16 +246,6 @@
             this.lbTitle.Text = "Trang chủ";
             this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
-            // icoClose
-            // 
-            this.icoClose.Image = global::JobsManagement.Properties.Resources.multipy_icon;
-            this.icoClose.Location = new System.Drawing.Point(1018, 12);
-            this.icoClose.Name = "icoClose";
-            this.icoClose.Size = new System.Drawing.Size(30, 30);
-            this.icoClose.TabIndex = 0;
-            this.icoClose.TabStop = false;
-            this.icoClose.Click += new System.EventHandler(this.icoClose_Click);
-            // 
             // icoMinus
             // 
             this.icoMinus.Image = global::JobsManagement.Properties.Resources.minus_icon;
@@ -258,26 +256,28 @@
             this.icoMinus.TabStop = false;
             this.icoMinus.Click += new System.EventHandler(this.icoMinus_Click);
             // 
-            // btnCalendar
+            // icoClose
             // 
-            this.btnCalendar.FlatAppearance.BorderSize = 0;
-            this.btnCalendar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btnCalendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btnCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnCalendar.Image = global::JobsManagement.Properties.Resources.icons8_calendar_48;
-            this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCalendar.Location = new System.Drawing.Point(5, 363);
-            this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Size = new System.Drawing.Size(207, 68);
-            this.btnCalendar.TabIndex = 2;
-            this.btnCalendar.Text = "Lịch";
-            this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendar.UseVisualStyleBackColor = true;
-            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
-            this.btnCalendar.MouseEnter += new System.EventHandler(this.button1_MouseHover);
-            this.btnCalendar.MouseLeave += new System.EventHandler(this.btnCalendar_MouseLeave);
+            this.icoClose.Image = global::JobsManagement.Properties.Resources.multipy_icon;
+            this.icoClose.Location = new System.Drawing.Point(1018, 12);
+            this.icoClose.Name = "icoClose";
+            this.icoClose.Size = new System.Drawing.Size(30, 30);
+            this.icoClose.TabIndex = 0;
+            this.icoClose.TabStop = false;
+            this.icoClose.Click += new System.EventHandler(this.icoClose_Click);
+            // 
+            // pnlTitle
+            // 
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.pnlTitle.Controls.Add(this.lbTitle);
+            this.pnlTitle.Controls.Add(this.icoClose);
+            this.pnlTitle.Controls.Add(this.icoMinus);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTitle.Location = new System.Drawing.Point(212, 0);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(1070, 59);
+            this.pnlTitle.TabIndex = 2;
+            this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // mainUI
             // 
@@ -296,10 +296,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icoClose)).EndInit();
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icoClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,9 +308,6 @@
 
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel pnlContent;
-        private System.Windows.Forms.Panel pnlTitle;
-        private System.Windows.Forms.PictureBox icoClose;
-        private System.Windows.Forms.PictureBox icoMinus;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbTitle;
@@ -323,5 +320,8 @@
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Panel pnlHighLight4;
         private System.Windows.Forms.Button btnCalendar;
+        private System.Windows.Forms.PictureBox icoMinus;
+        private System.Windows.Forms.PictureBox icoClose;
+        private System.Windows.Forms.Panel pnlTitle;
     }
 }
