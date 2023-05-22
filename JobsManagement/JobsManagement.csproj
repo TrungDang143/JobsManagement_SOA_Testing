@@ -57,12 +57,6 @@
     <Compile Include="addJob.Designer.cs">
       <DependentUpon>addJob.cs</DependentUpon>
     </Compile>
-    <Compile Include="calendar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="calendar.Designer.cs">
-      <DependentUpon>calendar.cs</DependentUpon>
-    </Compile>
     <Compile Include="connectDB.cs" />
     <Compile Include="fForgot.cs">
       <SubType>Form</SubType>
@@ -82,12 +76,6 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="home.Designer.cs">
-      <DependentUpon>home.cs</DependentUpon>
-    </Compile>
     <Compile Include="mainUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,12 +84,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="thongke.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="thongke.Designer.cs">
-      <DependentUpon>thongke.cs</DependentUpon>
-    </Compile>
     <Compile Include="ucCalendar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,17 +105,11 @@
     <EmbeddedResource Include="addJob.resx">
       <DependentUpon>addJob.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="calendar.resx">
-      <DependentUpon>calendar.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fForgot.resx">
       <DependentUpon>fForgot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fSignUp.resx">
       <DependentUpon>fSignUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="home.resx">
-      <DependentUpon>home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -151,9 +127,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="thongke.resx">
-      <DependentUpon>thongke.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ucCalendar.resx">
       <DependentUpon>ucCalendar.cs</DependentUpon>
     </EmbeddedResource>

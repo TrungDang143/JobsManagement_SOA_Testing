@@ -46,7 +46,8 @@ namespace JobsManagement
                     Button btn = new Button()
                     {
                         Width = 96,
-                        Height = 50
+                        Height = 50,
+                        FlatStyle = FlatStyle.Flat
                     };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
 
