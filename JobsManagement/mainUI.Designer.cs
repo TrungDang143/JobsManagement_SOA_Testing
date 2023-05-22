@@ -32,16 +32,19 @@
             this.pnlHighLight3 = new System.Windows.Forms.Panel();
             this.pnlHighLight2 = new System.Windows.Forms.Panel();
             this.pnlHighLight1 = new System.Windows.Forms.Panel();
+            this.btnSetting = new System.Windows.Forms.Button();
             this.btnTK = new System.Windows.Forms.Button();
             this.btnCalendar = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.icoClose = new System.Windows.Forms.PictureBox();
             this.icoMinus = new System.Windows.Forms.PictureBox();
+            this.pnlHighLight4 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,9 +56,11 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pnlMenu.Controls.Add(this.pnlHighLight4);
             this.pnlMenu.Controls.Add(this.pnlHighLight3);
             this.pnlMenu.Controls.Add(this.pnlHighLight2);
             this.pnlMenu.Controls.Add(this.pnlHighLight1);
+            this.pnlMenu.Controls.Add(this.btnSetting);
             this.pnlMenu.Controls.Add(this.btnTK);
             this.pnlMenu.Controls.Add(this.btnCalendar);
             this.pnlMenu.Controls.Add(this.btnHome);
@@ -95,6 +100,27 @@
             this.pnlHighLight1.Size = new System.Drawing.Size(5, 62);
             this.pnlHighLight1.TabIndex = 3;
             this.pnlHighLight1.Visible = false;
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnSetting.Image = global::JobsManagement.Properties.Resources.icons8_settings_50;
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.Location = new System.Drawing.Point(5, 682);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(207, 71);
+            this.btnSetting.TabIndex = 2;
+            this.btnSetting.Text = "   Cài đặt";
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            this.btnSetting.MouseEnter += new System.EventHandler(this.btnSetting_MouseHover);
+            this.btnSetting.MouseLeave += new System.EventHandler(this.btnSetting_MouseLeave);
+            this.btnSetting.MouseHover += new System.EventHandler(this.btnSetting_MouseHover);
             // 
             // btnTK
             // 
@@ -164,12 +190,24 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbUserName);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(212, 249);
             this.panel1.TabIndex = 1;
+            // 
+            // lbUserName
+            // 
+            this.lbUserName.AutoSize = true;
+            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lbUserName.Location = new System.Drawing.Point(71, 199);
+            this.lbUserName.Name = "lbUserName";
+            this.lbUserName.Size = new System.Drawing.Size(71, 22);
+            this.lbUserName.TabIndex = 1;
+            this.lbUserName.Text = "ADMIN";
             // 
             // pictureBox1
             // 
@@ -208,7 +246,7 @@
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lbTitle.Location = new System.Drawing.Point(3, 17);
+            this.lbTitle.Location = new System.Drawing.Point(6, 17);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(179, 39);
             this.lbTitle.TabIndex = 1;
@@ -235,6 +273,16 @@
             this.icoMinus.TabStop = false;
             this.icoMinus.Click += new System.EventHandler(this.icoMinus_Click);
             // 
+            // pnlHighLight4
+            // 
+            this.pnlHighLight4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlHighLight4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlHighLight4.Location = new System.Drawing.Point(0, 682);
+            this.pnlHighLight4.Name = "pnlHighLight4";
+            this.pnlHighLight4.Size = new System.Drawing.Size(5, 71);
+            this.pnlHighLight4.TabIndex = 5;
+            this.pnlHighLight4.Visible = false;
+            // 
             // mainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -249,6 +297,7 @@
             this.Load += new System.EventHandler(this.btnHome_Click);
             this.pnlMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
@@ -274,5 +323,8 @@
         private System.Windows.Forms.Panel pnlHighLight1;
         private System.Windows.Forms.Panel pnlHighLight3;
         private System.Windows.Forms.Panel pnlHighLight2;
+        private System.Windows.Forms.Label lbUserName;
+        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Panel pnlHighLight4;
     }
 }

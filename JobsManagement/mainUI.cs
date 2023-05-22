@@ -76,7 +76,7 @@ namespace JobsManagement
             pnlHighLight2.Visible = true;
             pnlContent.Controls.Clear();
             ucCalendar ucCalendar = new ucCalendar();
-            pnlContent.Controls.Add((ucCalendar));
+            pnlContent.Controls.Add(ucCalendar);
             btnCalendar.BackColor = Color.FromArgb(46, 51, 73);
             lbTitle.Text = "Lịch";
         }
@@ -89,6 +89,10 @@ namespace JobsManagement
             pnlContent.Controls.Add(ucThongKe);
             btnTK.BackColor = Color.FromArgb(46, 51, 73);
             lbTitle.Text = "Thống kê";
+        }
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnHome_MouseHover(object sender, EventArgs e)
@@ -124,6 +128,17 @@ namespace JobsManagement
             btnTK.BackColor = Color.FromArgb(24, 30, 54);
         }
 
+        private void btnSetting_MouseHover(object sender, EventArgs e)
+        {
+            pnlHighLight4.Visible = true;
+        }
+
+        private void btnSetting_MouseLeave(object sender, EventArgs e)
+        {
+            pnlHighLight4.Visible = false;
+            btnSetting.BackColor = Color.FromArgb(24, 30, 54);
+        }
         #endregion
+
     }
 }
