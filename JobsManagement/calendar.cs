@@ -12,7 +12,6 @@ namespace JobsManagement
 {
     public partial class fCalendar : Form
     {
-        
         #region Peoperties
         private List<List<Button>> matrix;
 
@@ -45,7 +44,7 @@ namespace JobsManagement
                 {
                     Button btn = new Button()
                     {
-                        Width = 96, Height = 60
+                        Width = 96, Height = 50
                     };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
 
@@ -58,7 +57,7 @@ namespace JobsManagement
                 {
                     Width = 0,
                     Height = 0,
-                    Location = new Point(-6, oldBtn.Location.Y + 60 + 1)
+                    Location = new Point(-6, oldBtn.Location.Y + 50)
                 };
             }
             SetDate();
@@ -96,9 +95,19 @@ namespace JobsManagement
             {
                 int column = dateOfW.IndexOf(useDate.DayOfWeek.ToString());
                 Button btn = Matrix[line][column];
+                btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                 btn.Text = i.ToString();
-                
-                if(column >= 6)
+                if(compareTime(useDate, DateTime.Now))
+                {
+                    btn.BackColor = Color.Green;
+                    btn.ForeColor = Color.Red;
+                }
+                if (compareTime(useDate, date))
+                {
+                    btn.BackColor = Color.Cyan;
+                }
+
+                if (column >= 6)
                 {
                     line++;
                 }
@@ -108,18 +117,43 @@ namespace JobsManagement
 
         void clear()
         {
-            for(int i =0; i <  Matrix.Count; i++)
+            for (int i = 0; i < Matrix.Count; i++)
             {
                 for (int j = 0; j < Matrix[i].Count; j++)
                 {
                     Button btn = Matrix[i][j];
                     btn.Text = "";
+                    btn.BackColor = Color.White;
+                    btn.ForeColor = Color.Black;
                 }
             }
         }
         void SetDate()
         {
             dateTimePicker.Value = DateTime.Now;
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            dateTimePicker.Value = dateTimePicker.Value.AddMonths(1);
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            dateTimePicker.Value = dateTimePicker.Value.AddMonths(-1);
+        }
+
+        private void btnTom_Click(object sender, EventArgs e)
+        {
+            dateTimePicker.Value = dateTimePicker.Value.AddDays(1);
+        }
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+            SetDate();
+        }
+
+        bool compareTime(DateTime A, DateTime B)
+        {
+            return A.Year == B.Year && A.Month == B.Month && A.Day == B.Day;
         }
         private void dtpkValueChanged(object sender, EventArgs e)
         {
@@ -131,10 +165,6 @@ namespace JobsManagement
 
         }
 
-        private void btnToday_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void fCalendar_Load(object sender, EventArgs e)
         {
@@ -160,7 +190,5 @@ namespace JobsManagement
             newform.ShowDialog();
             this.Close();
         }
-
-       
     }
 }
