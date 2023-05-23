@@ -19,7 +19,7 @@ namespace JobsManagement
 
         private void cbxtHN_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbxtHN.Checked)
+            if(cbxtHN.Checked && d = 1)
             {
                 cbt2.Checked = true;
                 cbt3.Checked = true;
@@ -29,12 +29,7 @@ namespace JobsManagement
                 cbt7.Checked = true;
                 cbcn.Checked = true;
             }
-            else if(cbt2.Checked && cbt3.Checked && cbt4.Checked && cbt5.Checked && cbt6.Checked && cbt7.Checked && cbcn.Checked)
-            {
-                cbxtHN.Checked = true;
-            }
-
-            if(!cbxtHN.Checked)
+            else if(!cbxtHN.Checked)
             {
                 cbt2.Checked = false;
                 cbt3.Checked = false;
@@ -45,6 +40,18 @@ namespace JobsManagement
                 cbcn.Checked = false;
             }
 
+        }
+
+        private void cbcn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbt2.Checked && cbt3.Checked && cbt4.Checked && cbt5.Checked && cbt6.Checked && cbt7.Checked && cbcn.Checked)
+            {
+                cbxtHN.Checked = true;
+            }
+            else
+            {
+                cbxtHN.Checked = false;
+            }
         }
     }
 }
