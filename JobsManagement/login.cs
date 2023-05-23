@@ -39,11 +39,8 @@ namespace JobsManagement
 
         private void showPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (showPassword.Checked)
-            {
-                txbPassword.UseSystemPasswordChar = false;
-            }
-            else { txbPassword.UseSystemPasswordChar = true; }
+            txbPassword.UseSystemPasswordChar = !txbPassword.UseSystemPasswordChar;
+            
         }
 
         private void linkDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
