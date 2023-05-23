@@ -41,9 +41,9 @@ namespace JobsManagement
         {
             if (showPassword.Checked)
             {
-                txbPassword.UseSystemPasswordChar = false;
+                txbPassword.UseSystemPasswordChar = true;
             }
-            else { txbPassword.UseSystemPasswordChar = true; }
+            else { txbPassword.UseSystemPasswordChar = false; }
         }
 
         private void linkDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -95,6 +95,11 @@ namespace JobsManagement
         }
 
         private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
