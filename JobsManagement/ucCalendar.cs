@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace JobsManagement
 {
-    public partial class fCalendar : Form
+    public partial class ucCalendar : UserControl
     {
+        public ucCalendar()
+        {
+            InitializeComponent();
+            createMatrix();
+        }
+
         #region Peoperties
         private List<List<Button>> matrix;
 
@@ -20,14 +26,9 @@ namespace JobsManagement
             get { return matrix; }
             set { matrix = value; }
         }
-        private List<string> dateOfW = new List<string>(){ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        private List<string> dateOfW = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         #endregion
-        
-        public fCalendar()
-        {
-            InitializeComponent();
-            createMatrix();
-        }
+
         void createMatrix()
         {
             Matrix = new List<List<Button>>();
@@ -37,14 +38,16 @@ namespace JobsManagement
                 Height = 0,
                 Location = new Point(-6, 0),
             };
-            for(int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 Matrix.Add(new List<Button>());
-                for(int j = 0; j < 7; j++)
+                for (int j = 0; j < 7; j++)
                 {
                     Button btn = new Button()
                     {
-                        Width = 96, Height = 50
+                        Width = 96,
+                        Height = 50,
+                        FlatStyle = FlatStyle.Flat
                     };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
 
@@ -79,7 +82,7 @@ namespace JobsManagement
                 case 2:
                     if ((date.Year % 4 == 0 && date.Year % 100 != 0) || date.Year % 400 == 0)
                         return 29;
-                    else 
+                    else
                         return 28;
                 default:
                     return 30;
@@ -91,13 +94,13 @@ namespace JobsManagement
             DateTime useDate = new DateTime(date.Year, date.Month, 1);
             int line = 0;
 
-            for(int i = 1; i <= dayOfM(date); i++)
+            for (int i = 1; i <= dayOfM(date); i++)
             {
                 int column = dateOfW.IndexOf(useDate.DayOfWeek.ToString());
                 Button btn = Matrix[line][column];
                 btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                 btn.Text = i.ToString();
-                if(compareTime(useDate, DateTime.Now))
+                if (compareTime(useDate, DateTime.Now))
                 {
                     btn.BackColor = Color.Green;
                     btn.ForeColor = Color.Red;
@@ -158,37 +161,6 @@ namespace JobsManagement
         private void dtpkValueChanged(object sender, EventArgs e)
         {
             AddDay((sender as DateTimePicker).Value);
-        }
-
-        private void btnWed_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void fCalendar_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTodayJob_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            fHome newform = new fHome();
-            newform.Location = this.Location;
-            newform.StartPosition = FormStartPosition.Manual;
-            newform.ShowDialog();
-            this.Close();
-        }
-
-        private void btnStatistics_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            fThongKe newform = new fThongKe();
-            newform.Location = this.Location;
-            newform.StartPosition = FormStartPosition.Manual;
-            newform.ShowDialog();
-            this.Close();
         }
     }
 }

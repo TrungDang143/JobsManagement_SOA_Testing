@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,7 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs2B55.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vsD355.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,14 +47,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs2B55.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vsD355.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +67,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addJob.cs">
@@ -56,12 +75,6 @@
     </Compile>
     <Compile Include="addJob.Designer.cs">
       <DependentUpon>addJob.cs</DependentUpon>
-    </Compile>
-    <Compile Include="calendar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="calendar.Designer.cs">
-      <DependentUpon>calendar.cs</DependentUpon>
     </Compile>
     <Compile Include="connectDB.cs" />
     <Compile Include="fForgot.cs">
@@ -82,25 +95,40 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="home.cs">
+    <Compile Include="mainUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="home.Designer.cs">
-      <DependentUpon>home.cs</DependentUpon>
+    <Compile Include="mainUI.Designer.cs">
+      <DependentUpon>mainUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="thongke.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ucCalendar.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="thongke.Designer.cs">
-      <DependentUpon>thongke.cs</DependentUpon>
+    <Compile Include="ucCalendar.Designer.cs">
+      <DependentUpon>ucCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucHome.Designer.cs">
+      <DependentUpon>ucHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLapLai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLapLai.Designer.cs">
+      <DependentUpon>ucLapLai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucThongKe.Designer.cs">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="addJob.resx">
       <DependentUpon>addJob.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="calendar.resx">
-      <DependentUpon>calendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fForgot.resx">
       <DependentUpon>fForgot.cs</DependentUpon>
@@ -108,11 +136,11 @@
     <EmbeddedResource Include="fSignUp.resx">
       <DependentUpon>fSignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="home.resx">
-      <DependentUpon>home.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainUI.resx">
+      <DependentUpon>mainUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,9 +150,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="thongke.resx">
-      <DependentUpon>thongke.cs</DependentUpon>
+    <EmbeddedResource Include="ucCalendar.resx">
+      <DependentUpon>ucCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucHome.resx">
+      <DependentUpon>ucHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLapLai.resx">
+      <DependentUpon>ucLapLai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucThongKe.resx">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -139,6 +177,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\minus_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\multipy_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons8-calendar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons8-chart-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons8-settings-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
