@@ -69,5 +69,10 @@ namespace JobsManagement
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

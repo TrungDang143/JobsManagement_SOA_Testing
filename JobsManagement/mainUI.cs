@@ -169,5 +169,9 @@ namespace JobsManagement
         }
         #endregion
 
+        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

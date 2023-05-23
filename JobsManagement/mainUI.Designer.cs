@@ -233,6 +233,7 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1070, 694);
             this.pnlContent.TabIndex = 1;
+            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
             // lbTitle
             // 
