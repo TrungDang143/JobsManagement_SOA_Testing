@@ -68,7 +68,7 @@
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(212, 753);
+            this.pnlMenu.Size = new System.Drawing.Size(253, 753);
             this.pnlMenu.TabIndex = 0;
             // 
             // pnlHighLight4
@@ -123,9 +123,10 @@
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetting.Location = new System.Drawing.Point(5, 682);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(207, 71);
+            this.btnSetting.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnSetting.Size = new System.Drawing.Size(248, 71);
             this.btnSetting.TabIndex = 2;
-            this.btnSetting.Text = "    Cài đặt";
+            this.btnSetting.Text = "Cài đặt";
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             this.btnSetting.MouseEnter += new System.EventHandler(this.btnSetting_MouseHover);
@@ -143,7 +144,8 @@
             this.btnTK.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTK.Location = new System.Drawing.Point(5, 431);
             this.btnTK.Name = "btnTK";
-            this.btnTK.Size = new System.Drawing.Size(207, 68);
+            this.btnTK.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnTK.Size = new System.Drawing.Size(248, 68);
             this.btnTK.TabIndex = 2;
             this.btnTK.Text = "Thống kê";
             this.btnTK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,7 +166,8 @@
             this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCalendar.Location = new System.Drawing.Point(5, 363);
             this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Size = new System.Drawing.Size(207, 68);
+            this.btnCalendar.Padding = new System.Windows.Forms.Padding(23, 0, 20, 0);
+            this.btnCalendar.Size = new System.Drawing.Size(248, 68);
             this.btnCalendar.TabIndex = 2;
             this.btnCalendar.Text = "Lịch";
             this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -185,7 +188,8 @@
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHome.Location = new System.Drawing.Point(5, 295);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(207, 68);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnHome.Size = new System.Drawing.Size(248, 68);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -201,7 +205,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(212, 249);
+            this.panel1.Size = new System.Drawing.Size(253, 249);
             this.panel1.TabIndex = 1;
             // 
             // lbUserName
@@ -209,16 +213,17 @@
             this.lbUserName.AutoSize = true;
             this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.lbUserName.Location = new System.Drawing.Point(71, 199);
+            this.lbUserName.Location = new System.Drawing.Point(70, 198);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(71, 22);
+            this.lbUserName.Size = new System.Drawing.Size(103, 22);
             this.lbUserName.TabIndex = 1;
-            this.lbUserName.Text = "ADMIN";
+            this.lbUserName.Text = "UserName";
+            this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::JobsManagement.Properties.Resources.user_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 35);
+            this.pictureBox1.Location = new System.Drawing.Point(51, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -229,9 +234,9 @@
             // 
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlContent.Location = new System.Drawing.Point(212, 59);
+            this.pnlContent.Location = new System.Drawing.Point(253, 59);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1070, 694);
+            this.pnlContent.Size = new System.Drawing.Size(1060, 694);
             this.pnlContent.TabIndex = 1;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
@@ -274,9 +279,9 @@
             this.pnlTitle.Controls.Add(this.icoClose);
             this.pnlTitle.Controls.Add(this.icoMinus);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTitle.Location = new System.Drawing.Point(212, 0);
+            this.pnlTitle.Location = new System.Drawing.Point(253, 0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1070, 59);
+            this.pnlTitle.Size = new System.Drawing.Size(1060, 59);
             this.pnlTitle.TabIndex = 2;
             this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
@@ -284,11 +289,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1282, 753);
+            this.ClientSize = new System.Drawing.Size(1313, 753);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "mainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mainUI";
