@@ -136,7 +136,7 @@
             this.showPassword.AutoSize = true;
             this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.showPassword.ForeColor = System.Drawing.Color.LightGray;
+            this.showPassword.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.showPassword.Location = new System.Drawing.Point(49, 333);
             this.showPassword.Name = "showPassword";
             this.showPassword.Size = new System.Drawing.Size(155, 29);

@@ -17,10 +17,13 @@ namespace JobsManagement
             InitializeComponent();
         }
 
+        #region checkbox
+        private bool checkHN = true;//tranh bi bo check het cac ngay khi bo check cbxHN
         private void cbxtHN_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbxtHN.Checked && d = 1)
+            if(cbxtHN.Checked)
             {
+                checkHN = true;
                 cbt2.Checked = true;
                 cbt3.Checked = true;
                 cbt4.Checked = true;
@@ -29,7 +32,7 @@ namespace JobsManagement
                 cbt7.Checked = true;
                 cbcn.Checked = true;
             }
-            else if(!cbxtHN.Checked)
+            else if(!cbxtHN.Checked && checkHN)
             {
                 cbt2.Checked = false;
                 cbt3.Checked = false;
@@ -50,8 +53,22 @@ namespace JobsManagement
             }
             else
             {
+                checkHN = false;
                 cbxtHN.Checked = false;
             }
         }
+
+        public bool check()
+        {
+            if(cbt2.Checked || cbt3.Checked || cbt4.Checked || cbt5.Checked || cbt6.Checked || cbt7.Checked || cbcn.Checked)
+            { 
+                return true; 
+            }
+            return false;
+        }
+        #endregion
+
+
+
     }
 }
