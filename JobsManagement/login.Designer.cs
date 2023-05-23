@@ -106,12 +106,11 @@
             // showPassword
             // 
             this.showPassword.AutoSize = true;
-            this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.showPassword.ForeColor = System.Drawing.Color.LightGray;
             this.showPassword.Location = new System.Drawing.Point(31, 411);
             this.showPassword.Name = "showPassword";
-            this.showPassword.Size = new System.Drawing.Size(155, 29);
+            this.showPassword.Size = new System.Drawing.Size(159, 29);
             this.showPassword.TabIndex = 10;
             this.showPassword.Text = "Hiện mật khẩu";
             this.showPassword.UseVisualStyleBackColor = true;
@@ -271,7 +270,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(144, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 39);
+            this.label1.Size = new System.Drawing.Size(162, 38);
             this.label1.TabIndex = 20;
             this.label1.Text = "Xin chào!";
             // 
