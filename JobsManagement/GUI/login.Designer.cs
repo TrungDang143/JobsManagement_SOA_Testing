@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnDN = new System.Windows.Forms.Button();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.showPassword = new System.Windows.Forms.CheckBox();
@@ -59,21 +59,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // btnDN
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(0)))), ((int)(((byte)(149)))));
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(482, 86);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Đăng nhập ";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnDN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(0)))), ((int)(((byte)(149)))));
+            this.btnDN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDN.FlatAppearance.BorderSize = 0;
+            this.btnDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDN.Location = new System.Drawing.Point(0, 0);
+            this.btnDN.Name = "btnDN";
+            this.btnDN.Size = new System.Drawing.Size(482, 86);
+            this.btnDN.TabIndex = 6;
+            this.btnDN.Text = "Đăng nhập ";
+            this.btnDN.UseVisualStyleBackColor = false;
             // 
             // txbUsername
             // 
@@ -190,7 +189,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.btnDN);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 547);
             this.panel4.Name = "panel4";
@@ -319,7 +318,7 @@
         }
 
 		#endregion
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button btnDN;
 		private System.Windows.Forms.TextBox txbUsername;
 		private System.Windows.Forms.TextBox txbPassword;
         private System.Windows.Forms.CheckBox showPassword;

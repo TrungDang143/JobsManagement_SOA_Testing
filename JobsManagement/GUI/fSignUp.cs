@@ -98,25 +98,5 @@ namespace JobsManagement
             txbXNMK.UseSystemPasswordChar = !txbXNMK.UseSystemPasswordChar;
 
         }
-
-        private void fSignUp_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txbTK_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
