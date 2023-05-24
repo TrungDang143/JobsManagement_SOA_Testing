@@ -232,7 +232,7 @@
             // 
             // pnlContent
             // 
-            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlContent.Location = new System.Drawing.Point(253, 59);
             this.pnlContent.Name = "pnlContent";
@@ -274,7 +274,7 @@
             // 
             // pnlTitle
             // 
-            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.pnlTitle.Controls.Add(this.lbTitle);
             this.pnlTitle.Controls.Add(this.icoClose);
             this.pnlTitle.Controls.Add(this.icoMinus);

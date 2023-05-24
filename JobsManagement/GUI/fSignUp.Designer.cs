@@ -305,7 +305,7 @@
             // HLtraLoi
             // 
             this.HLtraLoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.HLtraLoi.Location = new System.Drawing.Point(3, 47);
+            this.HLtraLoi.Location = new System.Drawing.Point(0, 47);
             this.HLtraLoi.Name = "HLtraLoi";
             this.HLtraLoi.Size = new System.Drawing.Size(382, 2);
             this.HLtraLoi.TabIndex = 19;
