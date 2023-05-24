@@ -92,14 +92,14 @@
             this.panel1.Controls.Add(this.dtpk);
             this.panel1.Controls.Add(this.btnNgayMai);
             this.panel1.Controls.Add(this.btnHomNay);
-            this.panel1.Location = new System.Drawing.Point(23, 72);
+            this.panel1.Location = new System.Drawing.Point(23, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1019, 95);
             this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.panel4.BackColor = System.Drawing.Color.SeaGreen;
             this.panel4.Location = new System.Drawing.Point(763, 71);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(137, 2);
@@ -107,7 +107,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.panel3.BackColor = System.Drawing.Color.SeaGreen;
             this.panel3.Location = new System.Drawing.Point(113, 71);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(137, 2);
@@ -132,7 +132,7 @@
             this.btnNgayMai.FlatAppearance.BorderSize = 0;
             this.btnNgayMai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNgayMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNgayMai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnNgayMai.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.btnNgayMai.Location = new System.Drawing.Point(763, 18);
             this.btnNgayMai.Name = "btnNgayMai";
             this.btnNgayMai.Size = new System.Drawing.Size(137, 55);
@@ -147,7 +147,7 @@
             this.btnHomNay.FlatAppearance.BorderSize = 0;
             this.btnHomNay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHomNay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHomNay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnHomNay.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.btnHomNay.Location = new System.Drawing.Point(113, 18);
             this.btnHomNay.Name = "btnHomNay";
             this.btnHomNay.Size = new System.Drawing.Size(137, 55);
@@ -158,7 +158,7 @@
             // 
             // pnlTitle
             // 
-            this.pnlTitle.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.pnlTitle.Controls.Add(this.pictureBox1);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
@@ -179,7 +179,8 @@
             // 
             // pnlContent
             // 
-            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.pnlContent.Controls.Add(this.panel12);
             this.pnlContent.Controls.Add(this.panel5);
             this.pnlContent.Controls.Add(this.panel2);
             this.pnlContent.Controls.Add(this.panel1);
@@ -202,9 +203,9 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.panel8);
-            this.panel5.Location = new System.Drawing.Point(23, 188);
+            this.panel5.Location = new System.Drawing.Point(23, 171);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1019, 436);
+            this.panel5.Size = new System.Drawing.Size(1019, 447);
             this.panel5.TabIndex = 2;
             // 
             // lbLapLai
@@ -367,7 +368,7 @@
             this.btnThayDoi1.FlatAppearance.BorderSize = 0;
             this.btnThayDoi1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThayDoi1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnThayDoi1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnThayDoi1.ForeColor = System.Drawing.Color.MediumAquamarine;
             this.btnThayDoi1.Location = new System.Drawing.Point(318, 212);
             this.btnThayDoi1.Name = "btnThayDoi1";
             this.btnThayDoi1.Size = new System.Drawing.Size(118, 46);
@@ -382,7 +383,7 @@
             this.btnThayDoi2.FlatAppearance.BorderSize = 0;
             this.btnThayDoi2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThayDoi2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnThayDoi2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnThayDoi2.ForeColor = System.Drawing.Color.MediumAquamarine;
             this.btnThayDoi2.Location = new System.Drawing.Point(318, 359);
             this.btnThayDoi2.Name = "btnThayDoi2";
             this.btnThayDoi2.Size = new System.Drawing.Size(118, 46);
@@ -427,7 +428,7 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.panel7.BackColor = System.Drawing.Color.SeaGreen;
             this.panel7.Location = new System.Drawing.Point(0, 58);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(623, 2);
@@ -525,7 +526,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.panel12);
             this.panel2.Controls.Add(this.btnLuu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 646);
@@ -535,22 +535,22 @@
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.panel12.Location = new System.Drawing.Point(447, 59);
+            this.panel12.BackColor = System.Drawing.Color.Red;
+            this.panel12.Location = new System.Drawing.Point(0, 640);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(173, 2);
+            this.panel12.Size = new System.Drawing.Size(1067, 6);
             this.panel12.TabIndex = 3;
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLuu.FlatAppearance.BorderSize = 0;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnLuu.Location = new System.Drawing.Point(447, 15);
+            this.btnLuu.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.btnLuu.Location = new System.Drawing.Point(0, 0);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(173, 46);
+            this.btnLuu.Size = new System.Drawing.Size(1067, 78);
             this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
@@ -565,6 +565,7 @@
             this.Controls.Add(this.pnlContent);
             this.Name = "fAddJob";
             this.Text = "addJob";
+            this.TransparencyKey = System.Drawing.Color.Red;
             this.panel1.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

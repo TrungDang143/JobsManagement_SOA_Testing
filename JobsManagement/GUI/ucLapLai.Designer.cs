@@ -57,7 +57,7 @@
             // 
             this.lbLapLai.AutoSize = true;
             this.lbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbLapLai.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbLapLai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.lbLapLai.Location = new System.Drawing.Point(35, 15);
             this.lbLapLai.Name = "lbLapLai";
             this.lbLapLai.Size = new System.Drawing.Size(106, 32);
@@ -157,7 +157,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.panel3.BackColor = System.Drawing.Color.SeaGreen;
             this.panel3.Location = new System.Drawing.Point(0, 59);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(179, 2);
