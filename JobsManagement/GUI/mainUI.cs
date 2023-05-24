@@ -64,7 +64,7 @@ namespace JobsManagement
             
             ucHome ucHome = new ucHome();
             pnlContent.Controls.Add(ucHome);
-            btnHome.BackColor = Color.FromArgb(46, 51, 73);
+            btnHome.BackColor = Color.FromArgb(63, 68, 97);
             lbTitle.Text = "Trang chủ";
         }
         private void btnCalendar_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace JobsManagement
             
             ucCalendar ucCalendar = new ucCalendar();
             pnlContent.Controls.Add(ucCalendar);
-            btnCalendar.BackColor = Color.FromArgb(46, 51, 73);
+            btnCalendar.BackColor = Color.FromArgb(63, 68, 97);
             lbTitle.Text = "Lịch";
         }
 
@@ -85,7 +85,7 @@ namespace JobsManagement
             
             ucThongKe ucThongKe = new ucThongKe();  
             pnlContent.Controls.Add(ucThongKe);
-            btnTK.BackColor = Color.FromArgb(46, 51, 73);
+            btnTK.BackColor = Color.FromArgb(63, 68, 97);
             lbTitle.Text = "Thống kê";
         }
         private void btnSetting_Click(object sender, EventArgs e)
@@ -150,6 +150,7 @@ namespace JobsManagement
             }
         }
         #endregion
+
 
         private void pnlContent_Paint(object sender, PaintEventArgs e)
         {

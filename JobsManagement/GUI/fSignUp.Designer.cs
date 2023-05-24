@@ -93,7 +93,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(981, 77);
             this.panel1.TabIndex = 10;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // icoClose
@@ -157,7 +156,6 @@
             this.label2.Size = new System.Drawing.Size(151, 30);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên tài khoản:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label7
             // 
@@ -341,7 +339,6 @@
             this.txbTK.Size = new System.Drawing.Size(361, 28);
             this.txbTK.TabIndex = 1;
             this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
-            this.txbTK.TextChanged += new System.EventHandler(this.txbTK_TextChanged);
             // 
             // panel14
             // 
@@ -468,7 +465,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSignUp";
             this.TransparencyKey = System.Drawing.Color.Red;
-            this.Load += new System.EventHandler(this.fSignUp_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).EndInit();

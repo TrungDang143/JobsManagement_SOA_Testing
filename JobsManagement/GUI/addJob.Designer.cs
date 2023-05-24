@@ -37,6 +37,7 @@
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbLapLai = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -65,7 +66,6 @@
             this.nudH = new System.Windows.Forms.NumericUpDown();
             this.nudM = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
             this.btnLuu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -158,7 +158,7 @@
             // 
             // pnlTitle
             // 
-            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.pnlTitle.Controls.Add(this.pictureBox1);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
@@ -179,7 +179,7 @@
             // 
             // pnlContent
             // 
-            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.pnlContent.Controls.Add(this.panel12);
             this.pnlContent.Controls.Add(this.panel5);
             this.pnlContent.Controls.Add(this.panel2);
@@ -189,6 +189,14 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1067, 724);
             this.pnlContent.TabIndex = 4;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Red;
+            this.panel12.Location = new System.Drawing.Point(0, 640);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1067, 6);
+            this.panel12.TabIndex = 3;
             // 
             // panel5
             // 
@@ -203,9 +211,9 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.panel8);
-            this.panel5.Location = new System.Drawing.Point(23, 171);
+            this.panel5.Location = new System.Drawing.Point(23, 156);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1019, 447);
+            this.panel5.Size = new System.Drawing.Size(1019, 460);
             this.panel5.TabIndex = 2;
             // 
             // lbLapLai
@@ -213,12 +221,12 @@
             this.lbLapLai.AutoSize = true;
             this.lbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbLapLai.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbLapLai.Location = new System.Drawing.Point(73, 408);
+            this.lbLapLai.Location = new System.Drawing.Point(73, 424);
             this.lbLapLai.Name = "lbLapLai";
-            this.lbLapLai.Size = new System.Drawing.Size(813, 50);
+            this.lbLapLai.Size = new System.Drawing.Size(813, 25);
             this.lbLapLai.TabIndex = 12;
             this.lbLapLai.Text = "Chưa hỗ trợ lặp lại công việc diễn ra trong nhiều ngày. Sẽ update ngay khi Dev tì" +
-    "m ra cách :((\r\n\r\n";
+    "m ra cách :((";
             this.lbLapLai.Visible = false;
             // 
             // panel11
@@ -533,16 +541,9 @@
             this.panel2.Size = new System.Drawing.Size(1067, 78);
             this.panel2.TabIndex = 1;
             // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.Red;
-            this.panel12.Location = new System.Drawing.Point(0, 640);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1067, 6);
-            this.panel12.TabIndex = 3;
-            // 
             // btnLuu
             // 
+            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLuu.FlatAppearance.BorderSize = 0;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

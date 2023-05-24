@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace JobsManagement
 {
@@ -20,11 +22,6 @@ namespace JobsManagement
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
 
         }
-
-        private void button4_Click(object sender, EventArgs e)
-		{
-
-		}
 
         private void showPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -68,20 +65,20 @@ namespace JobsManagement
         #region high light
         void resetHL()
         {
-            HLtk.BackColor = Color.FromArgb(0, 126, 249);
-            HLmk.BackColor = Color.FromArgb(0, 126, 249);
+            HLtk.BackColor = System.Drawing.Color.FromArgb(0, 126, 249);
+            HLmk.BackColor = System.Drawing.Color.FromArgb(0, 126, 249);
         }
 
         private void txbUsername_Click(object sender, EventArgs e)
         {
             resetHL();
-            HLtk.BackColor = Color.SeaGreen;
+            HLtk.BackColor = System.Drawing.Color.SeaGreen;
         }
 
         private void txbPassword_Click(object sender, EventArgs e)
         {
             resetHL();
-            HLmk.BackColor = Color.SeaGreen;
+            HLmk.BackColor = System.Drawing.Color.SeaGreen;
         }
         #endregion
     }

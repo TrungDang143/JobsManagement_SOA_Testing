@@ -19,10 +19,5 @@ namespace JobsManagement.DAO
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
-
-        internal void boGoc()
-        {
-
-        }
     }
 }
