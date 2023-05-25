@@ -18,7 +18,8 @@ namespace JobsManagement
             createMatrix();
         }
 
-        #region Peoperties
+        #region ma tran lich
+        #region thong so
         private List<List<Button>> matrix;
 
         public List<List<Button>> Matrix
@@ -27,6 +28,9 @@ namespace JobsManagement
             set { matrix = value; }
         }
         private List<string> dateOfW = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        int btnW = 96;
+        int btnH = 62;
+        int margin = 6;
         #endregion
 
         void createMatrix()
@@ -36,7 +40,7 @@ namespace JobsManagement
             {
                 Width = 0,
                 Height = 0,
-                Location = new Point(-6, 0),
+                Location = new Point(-margin, 0),
             };
             for (int i = 0; i < 6; i++)
             {
@@ -45,14 +49,18 @@ namespace JobsManagement
                 {
                     Button btn = new Button()
                     {
-                        Width = 96,
-                        Height = 50,
-                        FlatStyle = FlatStyle.Flat
-                    };
-                    btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + 6, oldBtn.Location.Y + 1);
-
+                        Width = btnW,
+                        Height = btnH,
+                        FlatStyle = FlatStyle.Flat,
+                        BackColor = Color.White,
+                        ForeColor = Color.Black
+                };
+                    btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + margin, oldBtn.Location.Y);
                     paMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
+
+                    btn.Click += Btn_Click;
+                    btn.MouseEnter += Btn_MouseEnter;
 
                     oldBtn = btn;
                 }
@@ -60,13 +68,16 @@ namespace JobsManagement
                 {
                     Width = 0,
                     Height = 0,
-                    Location = new Point(-6, oldBtn.Location.Y + 50)
+                    Location = new Point(-margin, oldBtn.Location.Y + btnH + 4)
                 };
             }
-            SetDate();
+            HienNgay(DateTime.Now);
         }
 
-
+        bool compareTime(DateTime A, DateTime B)
+        {
+            return A.Year == B.Year && A.Month == B.Month && A.Day == B.Day;
+        }
         int dayOfM(DateTime date)
         {
             switch (date.Month)
@@ -88,7 +99,7 @@ namespace JobsManagement
                     return 30;
             }
         }
-        void AddDay(DateTime date)
+        private void HienNgay(DateTime date)
         {
             clear();
             DateTime useDate = new DateTime(date.Year, date.Month, 1);
@@ -100,14 +111,14 @@ namespace JobsManagement
                 Button btn = Matrix[line][column];
                 btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                 btn.Text = i.ToString();
-                if (compareTime(useDate, DateTime.Now))
-                {
-                    btn.BackColor = Color.Green;
-                    btn.ForeColor = Color.Red;
-                }
                 if (compareTime(useDate, date))
                 {
-                    btn.BackColor = Color.Cyan;
+                    clearColor();
+                    btn.BackColor = Color.Yellow;
+                }
+                if (compareTime(useDate, DateTime.Now))
+                {
+                    btn.BackColor = Color.Aqua;
                 }
 
                 if (column >= 6)
@@ -118,7 +129,7 @@ namespace JobsManagement
             }
         }
 
-        void clear()
+        private void clear()
         {
             for (int i = 0; i < Matrix.Count; i++)
             {
@@ -127,40 +138,156 @@ namespace JobsManagement
                     Button btn = Matrix[i][j];
                     btn.Text = "";
                     btn.BackColor = Color.White;
-                    btn.ForeColor = Color.Black;
                 }
             }
         }
+        private void clearColor()
+        {
+            for (int i = 0; i < Matrix.Count; i++)
+            {
+                for (int j = 0; j < Matrix[i].Count; j++)
+                {
+                    Button btn = Matrix[i][j];
+                    if(btn.BackColor != Color.Aqua)
+                    {
+                        btn.BackColor = Color.White;
+                        btn.ForeColor = Color.Black;
+                        btn.FlatAppearance.BorderSize = 0;
+                    }    
+                }
+            }
+        }
+        private void clearBorder()
+        {
+            for (int i = 0; i < Matrix.Count; i++)
+            {
+                for (int j = 0; j < Matrix[i].Count; j++)
+                {
+                    Button btn = Matrix[i][j];
+                    if (btn.BackColor != Color.Aqua)
+                    {
+                        btn.FlatAppearance.BorderSize = 0;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        private void chonThu(int vt)
+        {
+            clearColor();
+            for (int i = 0; i < Matrix.Count; i++)
+            {
+                for (int j = 0; j < Matrix[i].Count; j++)
+                {
+                    Button btn = Matrix[i][j];
+                    if (j == vt && !string.IsNullOrEmpty(btn.Text)&& btn.BackColor!=Color.Aqua)
+                    {
+                        btn.BackColor = Color.Yellow;
+                    }
+                }
+            }
+
+            string ngay = DateTime.Now.Day.ToString();
+            DateTime time = DateTime.Now;
+            for (int i = 0; i < Matrix.Count; i++)
+            {
+                bool done = false;
+                for (int j = 0; j < Matrix[i].Count; j++)
+                {
+                    if (Matrix[i][j].Text.ToString() == ngay)
+                    {
+                        if(vt < j)
+                        {
+                                time = time.AddDays(7 + vt - j);                
+                        }
+                        else
+                        {
+                            time = time.AddDays(vt - j);
+                        }
+                        done = true;
+                    }
+                }
+                if (done) break;
+            }
+            fAddJob f = new fAddJob(time, vt);
+            f.ShowDialog();
+        }
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            Button btn = (sender as Button);
+            
+            if (string.IsNullOrEmpty(btn.Text))
+                return;
+            DateTime date = new DateTime(dtpk.Value.Year, dtpk.Value.Month, Convert.ToInt32(btn.Text));
+            
+
+            dtpk.Value = date;
+            fAddJob f = new fAddJob(date, -1);
+            f.ShowDialog();
+
+            clearColor();
+            btn.BackColor = Color.Yellow;
+            btn.FlatAppearance.BorderSize = 1;
+        }
+
+        private void Btn_MouseEnter(object sender, EventArgs e)
+        {
+            clearBorder();
+            Button btn = (sender as Button);
+            btn.FlatAppearance.BorderColor = Color.Red;
+            btn.FlatAppearance.BorderSize = 1;
+        }
+
         void SetDate()
         {
-            dateTimePicker.Value = DateTime.Now;
+            dtpk.Value = DateTime.Now;
         }
+
         private void btnNext_Click(object sender, EventArgs e)
         {
-            dateTimePicker.Value = dateTimePicker.Value.AddMonths(1);
+            dtpk.Value = dtpk.Value.AddMonths(1);
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            dateTimePicker.Value = dateTimePicker.Value.AddMonths(-1);
+            dtpk.Value = dtpk.Value.AddMonths(-1);
         }
 
         private void btnTom_Click(object sender, EventArgs e)
         {
-            dateTimePicker.Value = dateTimePicker.Value.AddDays(1);
+            dtpk.Value = dtpk.Value.AddDays(1);
         }
         private void btnToday_Click(object sender, EventArgs e)
         {
             SetDate();
         }
 
-        bool compareTime(DateTime A, DateTime B)
-        {
-            return A.Year == B.Year && A.Month == B.Month && A.Day == B.Day;
-        }
         private void dtpkValueChanged(object sender, EventArgs e)
         {
-            AddDay((sender as DateTimePicker).Value);
+            HienNgay((sender as DateTimePicker).Value);
         }
+
+        private void btnThu_Click(object sender, EventArgs e)
+        {
+            Button btn = (sender as Button);
+            int vt;
+            if (btn.Text == "Thứ 2")
+                vt = 0;
+            else if (btn.Text == "Thứ 3")
+                vt = 1;
+            else if (btn.Text == "Thứ 4")
+                vt = 2;
+            else if (btn.Text == "Thứ 5")
+                vt = 3;
+            else if (btn.Text == "Thứ 6")
+                vt = 4;
+            else if (btn.Text == "Thứ 7")
+                vt = 5;
+            else vt = 6;
+            chonThu(vt);
+        }
+
     }
 }

@@ -25,52 +25,63 @@ namespace JobsManagement
             dgv.Columns["id"].Width = 500;
             dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
             conn.closeConn();
+            btnNgay.BackColor = Color.FromArgb(37, 42, 64);
         }
 
         #region high light
 
-        void reset()//37, 42, 64
+        void resetHL()//37, 42, 64
         {
             btnAdd.BackColor = Color.FromArgb(37, 42, 64);
             btnSua.BackColor = Color.FromArgb(37, 42, 64);
             btnXoa.BackColor = Color.FromArgb(37, 42, 64);
             btnHT.BackColor = Color.FromArgb(37, 42, 64);
-            btnBD.BackColor = Color.FromArgb(37, 42, 64);
+            btnRollBack.BackColor = Color.FromArgb(37, 42, 64);
+            plHL.Visible = true;
         }
+
+        void resetSelect()
+        {
+            resetHL();
+            plHL.Visible= false;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            reset();
+            resetHL();
             btnAdd.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnAdd.Left;
-
-            fAddJob f = new fAddJob();
+            
+            fAddJob f = new fAddJob(dtpk.Value, -1);
             f.ShowDialog();
+
+            resetSelect();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            reset();
+            resetHL();
             btnSua.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnSua.Left;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            reset();
+            resetHL();
             btnXoa.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnXoa.Left;
         }
 
-        private void btnBD_Click(object sender, EventArgs e)
+        private void btnRollBack_Click(object sender, EventArgs e)
         {
-            reset();
-            btnBD.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnBD.Left;
+            resetHL();
+            btnRollBack.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnRollBack.Left;
         }
 
         private void btnHT_Click(object sender, EventArgs e)
         {
-            reset();
+            resetHL();
             btnHT.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnHT.Left;
         }
@@ -102,5 +113,18 @@ namespace JobsManagement
             btnThang.BackColor = Color.FromArgb(37, 42, 64);
         }
         #endregion
+
+        #region datetimepicker
+        private void btnHomNay_Click(object sender, EventArgs e)
+        {
+            dtpk.Value = DateTime.Now;
+        }
+
+        private void btnNgayMai_Click(object sender, EventArgs e)
+        {
+            dtpk.Value = dtpk.Value.AddDays(1);
+        }
+        #endregion
+
     }
 }

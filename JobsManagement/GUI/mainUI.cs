@@ -55,7 +55,7 @@ namespace JobsManagement
             btnCalendar.BackColor = Color.FromArgb(24, 30, 54);
             btnTK.BackColor = Color.FromArgb(24, 30, 54);
             btnSetting.BackColor = Color.FromArgb(24, 30, 54);
-
+            pnlContent.Controls.Clear();
         }
         private void btnHome_Click(object sender, EventArgs e)
         {

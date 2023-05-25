@@ -600,7 +600,6 @@
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlContent;
-        private System.Windows.Forms.DateTimePicker dtpk;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
@@ -633,5 +632,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label lbLapLai;
+        private System.Windows.Forms.DateTimePicker dtpk;
     }
 }
