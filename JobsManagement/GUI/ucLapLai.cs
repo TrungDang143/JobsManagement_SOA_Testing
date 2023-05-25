@@ -66,6 +66,21 @@ namespace JobsManagement
             }
             return false;
         }
+
+        public void ThuLapLai(int a)
+        {
+            switch (a)
+            {
+                case 0: cbt2.Checked = true; break;
+                case 1: cbt3.Checked = true; break;
+                case 2: cbt4.Checked = true; break;
+                case 3: cbt5.Checked = true; break;
+                case 4: cbt6.Checked = true; break;
+                case 5: cbt7.Checked = true; break;
+                case 6: cbcn.Checked = true; break;
+                default: break;
+            }
+        }
         #endregion
 
 

@@ -13,13 +13,13 @@ namespace JobsManagement
 {
     public partial class fAddJob : Form
     {
-        public fAddJob()
+        public fAddJob(DateTime ngayThangNam, int lapLai)
         {
             InitializeComponent();
-            load();//37, 42, 64
+            load(lapLai);//37, 42, 64
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-
+            dtpk.Value = ngayThangNam;
         }
 
         #region title bar
@@ -39,20 +39,18 @@ namespace JobsManagement
         }
         #endregion
 
-        void load()
+        void load(int lapLai)
         {
             lbNgayBatDau.Text = dtpk.Value.ToShortDateString();
             lbNgayKetThuc.Text = dtpk.Value.ToShortDateString();
             nudH.Value = DateTime.Now.Hour;
             nudM.Value = DateTime.Now.Minute;
-            
+            ucLL.ThuLapLai(lapLai);
         }
         bool clickThayDoi1 = false;
         bool clickThayDoi2 = false;
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            //dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            //dateTimePicker2.CustomFormat = "DD/MM/YYYY";
             if(!clickThayDoi2)
                 lbNgayBatDau.Text = dtpk.Value.ToShortDateString();
             else lbNgayKetThuc.Text = dtpk.Value.ToShortDateString();
@@ -88,11 +86,6 @@ namespace JobsManagement
         {          
             if(ucLL.check())
             {
-                /*lbNgayKetThuc.ForeColor = SystemColors.ActiveBorder;
-                label6.ForeColor = SystemColors.ActiveCaption;
-                label7.ForeColor = SystemColors.ActiveCaption;
-                label9.ForeColor = SystemColors.ActiveCaption;
-                label10.ForeColor = SystemColors.ActiveCaption;*/
                 foreach (Control c in panel11.Controls)
                 {
                     if (c is Label)
@@ -112,11 +105,6 @@ namespace JobsManagement
         {
             if (ucLL.check())
             {
-                /*lbNgayKetThuc.ForeColor = SystemColors.ActiveBorder;
-                label6.ForeColor = SystemColors.ActiveCaption;
-                label7.ForeColor = SystemColors.ActiveCaption;
-                label9.ForeColor = SystemColors.ActiveCaption;
-                label10.ForeColor = SystemColors.ActiveCaption;*/
                 foreach (Control c in panel11.Controls)
                 {
                     if (c is Label)
