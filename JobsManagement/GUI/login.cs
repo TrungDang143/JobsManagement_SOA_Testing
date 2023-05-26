@@ -62,24 +62,5 @@ namespace JobsManagement
         }
         #endregion
 
-        #region high light
-        void resetHL()
-        {
-            HLtk.BackColor = System.Drawing.Color.FromArgb(0, 126, 249);
-            HLmk.BackColor = System.Drawing.Color.FromArgb(0, 126, 249);
-        }
-
-        private void txbUsername_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            HLtk.BackColor = System.Drawing.Color.SeaGreen;
-        }
-
-        private void txbPassword_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            HLmk.BackColor = System.Drawing.Color.SeaGreen;
-        }
-        #endregion
     }
 }
