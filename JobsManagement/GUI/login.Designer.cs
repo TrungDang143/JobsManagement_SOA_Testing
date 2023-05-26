@@ -48,6 +48,7 @@
             this.HLtk = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
@@ -86,7 +87,6 @@
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(289, 44);
             this.txbUsername.TabIndex = 0;
-            this.txbUsername.Click += new System.EventHandler(this.txbUsername_Click);
             // 
             // txbPassword
             // 
@@ -101,7 +101,6 @@
             this.txbPassword.PasswordChar = '●';
             this.txbPassword.Size = new System.Drawing.Size(292, 44);
             this.txbPassword.TabIndex = 2;
-            this.txbPassword.Click += new System.EventHandler(this.txbPassword_Click);
             // 
             // showPassword
             // 
@@ -205,7 +204,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(398, 72);
             this.panel2.TabIndex = 1;
-            this.panel2.Click += new System.EventHandler(this.txbUsername_Click);
             // 
             // pictureBox1
             // 
@@ -220,6 +218,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.HLmk);
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Controls.Add(this.txbPassword);
@@ -227,7 +226,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(398, 69);
             this.panel5.TabIndex = 17;
-            this.panel5.Click += new System.EventHandler(this.txbPassword_Click);
             // 
             // HLmk
             // 
@@ -257,10 +255,10 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::JobsManagement.Properties.Resources.user_icon;
-            this.pictureBox3.Location = new System.Drawing.Point(184, 32);
+            this.pictureBox3.Image = global::JobsManagement.Properties.Resources.logoFinal;
+            this.pictureBox3.Location = new System.Drawing.Point(175, 24);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(125, 125);
+            this.pictureBox3.Size = new System.Drawing.Size(150, 150);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 19;
             this.pictureBox3.TabStop = false;
@@ -270,12 +268,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(165, 160);
+            this.label1.Location = new System.Drawing.Point(169, 160);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label1.Size = new System.Drawing.Size(162, 41);
             this.label1.TabIndex = 20;
             this.label1.Text = "Xin chào!";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.panel6.Location = new System.Drawing.Point(0, 66);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(398, 3);
+            this.panel6.TabIndex = 19;
             // 
             // fLogin
             // 
@@ -337,6 +343,7 @@
         private System.Windows.Forms.Panel HLmk;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 

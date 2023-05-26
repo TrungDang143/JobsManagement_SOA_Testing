@@ -232,6 +232,7 @@
             // 
             // pnlContent
             // 
+            this.pnlContent.AutoScrollMinSize = new System.Drawing.Size(1137, 800);
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlContent.Location = new System.Drawing.Point(253, 59);

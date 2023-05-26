@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace JobsManagement
 {
@@ -15,6 +16,11 @@ namespace JobsManagement
         public ucThongKe()
         {
             InitializeComponent();
+        }
+
+        private void lbCVchuaHoanThanh_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

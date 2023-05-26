@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsManagement.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace JobsManagement
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            
+
         }
 
         #region new title bar
@@ -47,6 +48,7 @@ namespace JobsManagement
         
         void resetSelect()
         {
+            pnlContent.AutoScroll = false;
             pnlContent.Controls.Clear();
             pnlHighLight1.Visible = false;
             pnlHighLight2.Visible = false;
@@ -87,12 +89,26 @@ namespace JobsManagement
             
             ucThongKe ucThongKe = new ucThongKe();  
             pnlContent.Controls.Add(ucThongKe);
+
             btnTK.BackColor = Color.FromArgb(63, 68, 97);
             lbTitle.Text = "Thống kê";
         }
         private void btnSetting_Click(object sender, EventArgs e)
         {
+            resetSelect();
+            pnlHighLight4.Visible = true;
 
+            ucSetting ucSetting = new ucSetting();
+            pnlContent.Controls.Add(ucSetting);
+
+            pnlContent.AutoScroll = false;
+            pnlContent.HorizontalScroll.Enabled = false;
+            pnlContent.HorizontalScroll.Visible = false;
+            pnlContent.HorizontalScroll.Maximum = 0;
+            pnlContent.AutoScroll = true;
+
+            btnSetting.BackColor = Color.FromArgb(63, 68, 97);
+            lbTitle.Text = "Thống kê";
         }
 
         private void btnHome_MouseHover(object sender, EventArgs e)

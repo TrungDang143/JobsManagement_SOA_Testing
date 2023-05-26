@@ -20,6 +20,7 @@ namespace JobsManagement
 
         private void ucHome_Load(object sender, EventArgs e)
         {
+            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
             connectDB conn = new connectDB();
             conn.openConn();
 
