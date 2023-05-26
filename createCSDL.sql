@@ -35,6 +35,7 @@ go
 
 create table CongViec
 (
+	
 	id int primary key,
 	noiDungCV nvarchar(50) not null,
 	gioBD int not null,
@@ -44,7 +45,8 @@ create table CongViec
 	phutKT int not null,
 	ngayKT date not null,
 	trangThai nvarchar(20) foreign key references TrangThai(trangThai),
-	lapLai nvarchar(10) foreign key references LapLai(lapLai)
+	lapLai nvarchar(10) foreign key references LapLai(lapLai),
+	tenDangNhap varchar(20) foreign key references Acc(tenDangNhap)
 )
 go
 

@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Effects;
 
 namespace JobsManagement
 {
@@ -59,6 +60,7 @@ namespace JobsManagement
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
+            
             resetSelect();
             pnlHighLight1.Visible = true;
             
