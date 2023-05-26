@@ -34,13 +34,13 @@
             this.lbMK = new System.Windows.Forms.Label();
             this.lbCopied = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.icoClose = new System.Windows.Forms.PictureBox();
             this.icoMinus = new System.Windows.Forms.PictureBox();
             this.HLtenTK = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.txbTenTK = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.iconCopy = new System.Windows.Forms.PictureBox();
             this.HLchbm = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -65,7 +65,7 @@
             this.label1.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.label1.Location = new System.Drawing.Point(123, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 39);
+            this.label1.Size = new System.Drawing.Size(270, 38);
             this.label1.TabIndex = 7;
             this.label1.Text = "Lấy lại mật khẩu";
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
@@ -117,6 +117,14 @@
             this.panel1.Size = new System.Drawing.Size(509, 87);
             this.panel1.TabIndex = 17;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Red;
+            this.panel3.Location = new System.Drawing.Point(0, 82);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(655, 5);
+            this.panel3.TabIndex = 23;
             // 
             // icoClose
             // 
@@ -181,14 +189,6 @@
             this.label7.Size = new System.Drawing.Size(144, 30);
             this.label7.TabIndex = 20;
             this.label7.Text = "Tên tài khoản";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Red;
-            this.panel3.Location = new System.Drawing.Point(0, 82);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(655, 5);
-            this.panel3.TabIndex = 23;
             // 
             // iconCopy
             // 
@@ -296,6 +296,7 @@
             this.Controls.Add(this.lbmatkhau);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "fForgot";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fForgot";
             this.TransparencyKey = System.Drawing.Color.Red;

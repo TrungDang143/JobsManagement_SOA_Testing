@@ -94,5 +94,50 @@ namespace JobsManagement.GUI
                 nudM.Enabled = false;
             }
         }
+
+        private void txbTHT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlThayDoi_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnHomNay_Click(object sender, EventArgs e)
+        {
+            pnlChucNang.Controls.Clear();
+            pnlChucNang.Visible = true;
+            ucThayDoiThongTin ucThayDoiThongTin = new ucThayDoiThongTin();
+            pnlChucNang.Controls.Add(ucThayDoiThongTin);
+        }
+
+        private void btnDX_Click(object sender, EventArgs e)
+        {
+            Panel panel = this.Parent as Panel;
+            mainUI mainF = panel.Parent as mainUI;
+
+            Task.Delay(500).Wait();
+            mainF.isClose = false;
+            mainF.Close();
+
+        }
+
+        private void btnXoaTK_Click(object sender, EventArgs e)
+        {
+            pnlChucNang.Controls.Clear();
+            pnlChucNang.Visible = true;
+            ucXoaTK ucXoaTK= new ucXoaTK();
+            pnlChucNang.Controls.Add(ucXoaTK);
+        }
+
+        private void btnAD_Click(object sender, EventArgs e)
+        {
+            pnlChucNang.Controls.Clear();
+            pnlChucNang.Visible = true;
+            ucAD ucAD= new ucAD();
+            pnlChucNang.Controls.Add(ucAD);
+        }
     }
 }

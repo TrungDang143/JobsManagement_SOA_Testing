@@ -49,8 +49,12 @@
     <WarningLevel>4</WarningLevel>
     <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs84BF.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoFinal.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -98,6 +102,12 @@
     <Compile Include="GUI\fSignUp.Designer.cs">
       <DependentUpon>fSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fThongTinUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fThongTinUser.Designer.cs">
+      <DependentUpon>fThongTinUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +120,29 @@
     <Compile Include="GUI\mainUI.Designer.cs">
       <DependentUpon>mainUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucAD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucAD.Designer.cs">
+      <DependentUpon>ucAD.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\ucSetting.Designer.cs">
       <DependentUpon>ucSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ucThayDoiThongTin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucThayDoiThongTin.Designer.cs">
+      <DependentUpon>ucThayDoiThongTin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ucXoaTK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucXoaTK.Designer.cs">
+      <DependentUpon>ucXoaTK.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,14 +179,26 @@
     <EmbeddedResource Include="GUI\fSignUp.resx">
       <DependentUpon>fSignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fThongTinUser.resx">
+      <DependentUpon>fThongTinUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\mainUI.resx">
       <DependentUpon>mainUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucAD.resx">
+      <DependentUpon>ucAD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucSetting.resx">
       <DependentUpon>ucSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucThayDoiThongTin.resx">
+      <DependentUpon>ucThayDoiThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucXoaTK.resx">
+      <DependentUpon>ucXoaTK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -237,6 +277,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\logoFinal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_admin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\icon_admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\logoFinal.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\icons8-multiply-50.png" />
+    <None Include="image\icons8-tick-50.png" />
+    <None Include="image\icons8-close-eye-32.png" />
+    <None Include="image\icons8-open-eye-32.png" />
+    <Content Include="logoFinal.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

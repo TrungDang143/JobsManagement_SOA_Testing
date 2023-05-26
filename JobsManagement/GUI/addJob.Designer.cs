@@ -67,6 +67,9 @@
             this.nudM = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.lbKHopLeNgay = new System.Windows.Forms.Label();
+            this.lbKHopLeGio = new System.Windows.Forms.Label();
+            this.lbGioiHanCV = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,23 +97,23 @@
             this.panel1.Controls.Add(this.btnHomNay);
             this.panel1.Location = new System.Drawing.Point(23, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1019, 95);
+            this.panel1.Size = new System.Drawing.Size(1019, 69);
             this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel4.Location = new System.Drawing.Point(763, 71);
+            this.panel4.Location = new System.Drawing.Point(763, 53);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(137, 2);
+            this.panel4.Size = new System.Drawing.Size(136, 2);
             this.panel4.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel3.Location = new System.Drawing.Point(113, 71);
+            this.panel3.Location = new System.Drawing.Point(113, 53);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(137, 2);
+            this.panel3.Size = new System.Drawing.Size(136, 2);
             this.panel3.TabIndex = 1;
             // 
             // dtpk
@@ -120,7 +123,7 @@
             this.dtpk.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dtpk.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dtpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpk.Location = new System.Drawing.Point(308, 28);
+            this.dtpk.Location = new System.Drawing.Point(308, 10);
             this.dtpk.Name = "dtpk";
             this.dtpk.Size = new System.Drawing.Size(399, 34);
             this.dtpk.TabIndex = 1;
@@ -131,11 +134,11 @@
             this.btnNgayMai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.btnNgayMai.FlatAppearance.BorderSize = 0;
             this.btnNgayMai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNgayMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNgayMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnNgayMai.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.btnNgayMai.Location = new System.Drawing.Point(763, 18);
+            this.btnNgayMai.Location = new System.Drawing.Point(763, 3);
             this.btnNgayMai.Name = "btnNgayMai";
-            this.btnNgayMai.Size = new System.Drawing.Size(137, 55);
+            this.btnNgayMai.Size = new System.Drawing.Size(136, 52);
             this.btnNgayMai.TabIndex = 0;
             this.btnNgayMai.Text = "Ngày mai";
             this.btnNgayMai.UseVisualStyleBackColor = false;
@@ -146,11 +149,11 @@
             this.btnHomNay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.btnHomNay.FlatAppearance.BorderSize = 0;
             this.btnHomNay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHomNay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHomNay.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnHomNay.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.btnHomNay.Location = new System.Drawing.Point(113, 18);
+            this.btnHomNay.Location = new System.Drawing.Point(113, 3);
             this.btnHomNay.Name = "btnHomNay";
-            this.btnHomNay.Size = new System.Drawing.Size(137, 55);
+            this.btnHomNay.Size = new System.Drawing.Size(136, 52);
             this.btnHomNay.TabIndex = 0;
             this.btnHomNay.Text = "Hôm nay";
             this.btnHomNay.UseVisualStyleBackColor = false;
@@ -187,13 +190,13 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1067, 724);
+            this.pnlContent.Size = new System.Drawing.Size(1067, 670);
             this.pnlContent.TabIndex = 4;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Red;
-            this.panel12.Location = new System.Drawing.Point(0, 640);
+            this.panel12.Location = new System.Drawing.Point(0, 586);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1067, 6);
             this.panel12.TabIndex = 3;
@@ -201,6 +204,9 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.Controls.Add(this.lbKHopLeGio);
+            this.panel5.Controls.Add(this.lbKHopLeNgay);
+            this.panel5.Controls.Add(this.lbGioiHanCV);
             this.panel5.Controls.Add(this.lbLapLai);
             this.panel5.Controls.Add(this.panel11);
             this.panel5.Controls.Add(this.panel10);
@@ -211,9 +217,9 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.panel8);
-            this.panel5.Location = new System.Drawing.Point(23, 156);
+            this.panel5.Location = new System.Drawing.Point(23, 130);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1019, 460);
+            this.panel5.Size = new System.Drawing.Size(1019, 450);
             this.panel5.TabIndex = 2;
             // 
             // lbLapLai
@@ -221,9 +227,10 @@
             this.lbLapLai.AutoSize = true;
             this.lbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbLapLai.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbLapLai.Location = new System.Drawing.Point(73, 424);
+            this.lbLapLai.Location = new System.Drawing.Point(73, 412);
             this.lbLapLai.Name = "lbLapLai";
-            this.lbLapLai.Size = new System.Drawing.Size(813, 25);
+            this.lbLapLai.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.lbLapLai.Size = new System.Drawing.Size(813, 28);
             this.lbLapLai.TabIndex = 12;
             this.lbLapLai.Text = "Chưa hỗ trợ lặp lại công việc diễn ra trong nhiều ngày. Sẽ update ngay khi Dev tì" +
     "m ra cách :((";
@@ -260,6 +267,7 @@
             this.lbNgayKetThuc.Size = new System.Drawing.Size(32, 29);
             this.lbNgayKetThuc.TabIndex = 4;
             this.lbNgayKetThuc.Text = "N";
+            this.lbNgayKetThuc.TextChanged += new System.EventHandler(this.lbNgayKetThuc_TextChanged);
             // 
             // panel10
             // 
@@ -536,7 +544,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.btnLuu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 646);
+            this.panel2.Location = new System.Drawing.Point(0, 592);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1067, 78);
             this.panel2.TabIndex = 1;
@@ -557,14 +565,52 @@
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // lbKHopLeNgay
+            // 
+            this.lbKHopLeNgay.AutoSize = true;
+            this.lbKHopLeNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbKHopLeNgay.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbKHopLeNgay.Location = new System.Drawing.Point(78, 360);
+            this.lbKHopLeNgay.Name = "lbKHopLeNgay";
+            this.lbKHopLeNgay.Size = new System.Drawing.Size(111, 20);
+            this.lbKHopLeNgay.TabIndex = 13;
+            this.lbKHopLeNgay.Text = "Không hợp lệ!";
+            this.lbKHopLeNgay.Visible = false;
+            // 
+            // lbKHopLeGio
+            // 
+            this.lbKHopLeGio.AutoSize = true;
+            this.lbKHopLeGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbKHopLeGio.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbKHopLeGio.Location = new System.Drawing.Point(459, 360);
+            this.lbKHopLeGio.Name = "lbKHopLeGio";
+            this.lbKHopLeGio.Size = new System.Drawing.Size(111, 20);
+            this.lbKHopLeGio.TabIndex = 13;
+            this.lbKHopLeGio.Text = "Không hợp lệ!";
+            this.lbKHopLeGio.Visible = false;
+            // 
+            // lbGioiHanCV
+            // 
+            this.lbGioiHanCV.AutoSize = true;
+            this.lbGioiHanCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanCV.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbGioiHanCV.Location = new System.Drawing.Point(156, 97);
+            this.lbGioiHanCV.Name = "lbGioiHanCV";
+            this.lbGioiHanCV.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.lbGioiHanCV.Size = new System.Drawing.Size(165, 25);
+            this.lbGioiHanCV.TabIndex = 12;
+            this.lbGioiHanCV.Text = "Không quá 50 kí tự.";
+            this.lbGioiHanCV.Visible = false;
+            // 
             // fAddJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 724);
+            this.ClientSize = new System.Drawing.Size(1067, 670);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlContent);
             this.Name = "fAddJob";
+            this.ShowInTaskbar = false;
             this.Text = "addJob";
             this.TransparencyKey = System.Drawing.Color.Red;
             this.panel1.ResumeLayout(false);
@@ -633,5 +679,8 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label lbLapLai;
         private System.Windows.Forms.DateTimePicker dtpk;
+        private System.Windows.Forms.Label lbKHopLeGio;
+        private System.Windows.Forms.Label lbKHopLeNgay;
+        private System.Windows.Forms.Label lbGioiHanCV;
     }
 }

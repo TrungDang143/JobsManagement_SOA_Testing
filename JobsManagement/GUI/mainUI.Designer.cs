@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainUI));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlHighLight4 = new System.Windows.Forms.Panel();
             this.pnlHighLight3 = new System.Windows.Forms.Panel();
@@ -232,6 +233,7 @@
             // 
             // pnlContent
             // 
+            this.pnlContent.AutoScroll = true;
             this.pnlContent.AutoScrollMinSize = new System.Drawing.Size(1137, 800);
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -239,7 +241,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1137, 694);
             this.pnlContent.TabIndex = 1;
-            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
             // lbTitle
             // 
@@ -295,9 +296,11 @@
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mainUI";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainUI_FormClosed);
             this.Load += new System.EventHandler(this.btnHome_Click);
             this.pnlMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

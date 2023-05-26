@@ -32,7 +32,6 @@
             this.btnDN = new System.Windows.Forms.Button();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.txbPassword = new System.Windows.Forms.TextBox();
-            this.showPassword = new System.Windows.Forms.CheckBox();
             this.linkDangKy = new System.Windows.Forms.LinkLabel();
             this.linkQuenMK = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,12 +42,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.HLmk = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.HLtk = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.mat1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
@@ -58,6 +58,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDN
@@ -70,10 +71,11 @@
             this.btnDN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDN.Location = new System.Drawing.Point(0, 0);
             this.btnDN.Name = "btnDN";
-            this.btnDN.Size = new System.Drawing.Size(482, 86);
+            this.btnDN.Size = new System.Drawing.Size(496, 86);
             this.btnDN.TabIndex = 6;
             this.btnDN.Text = "Đăng nhập ";
             this.btnDN.UseVisualStyleBackColor = false;
+            this.btnDN.Click += new System.EventHandler(this.btnDN_Click);
             // 
             // txbUsername
             // 
@@ -99,21 +101,9 @@
             this.txbPassword.Multiline = true;
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '●';
-            this.txbPassword.Size = new System.Drawing.Size(292, 44);
+            this.txbPassword.Size = new System.Drawing.Size(289, 44);
             this.txbPassword.TabIndex = 2;
-            // 
-            // showPassword
-            // 
-            this.showPassword.AutoSize = true;
-            this.showPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.showPassword.ForeColor = System.Drawing.Color.LightGray;
-            this.showPassword.Location = new System.Drawing.Point(40, 411);
-            this.showPassword.Name = "showPassword";
-            this.showPassword.Size = new System.Drawing.Size(159, 29);
-            this.showPassword.TabIndex = 3;
-            this.showPassword.Text = "Hiện mật khẩu";
-            this.showPassword.UseVisualStyleBackColor = true;
-            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged);
+            this.txbPassword.WordWrap = false;
             // 
             // linkDangKy
             // 
@@ -122,7 +112,7 @@
             this.linkDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.linkDangKy.ForeColor = System.Drawing.Color.Aquamarine;
             this.linkDangKy.LinkColor = System.Drawing.Color.Turquoise;
-            this.linkDangKy.Location = new System.Drawing.Point(35, 472);
+            this.linkDangKy.Location = new System.Drawing.Point(33, 429);
             this.linkDangKy.Name = "linkDangKy";
             this.linkDangKy.Size = new System.Drawing.Size(106, 29);
             this.linkDangKy.TabIndex = 4;
@@ -136,7 +126,7 @@
             this.linkQuenMK.AutoSize = true;
             this.linkQuenMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.linkQuenMK.LinkColor = System.Drawing.Color.Turquoise;
-            this.linkQuenMK.Location = new System.Drawing.Point(253, 472);
+            this.linkQuenMK.Location = new System.Drawing.Point(273, 429);
             this.linkQuenMK.Name = "linkQuenMK";
             this.linkQuenMK.Size = new System.Drawing.Size(200, 29);
             this.linkQuenMK.TabIndex = 5;
@@ -152,14 +142,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(482, 57);
+            this.panel1.Size = new System.Drawing.Size(496, 57);
             this.panel1.TabIndex = 12;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // icoClose
             // 
             this.icoClose.Image = global::JobsManagement.Properties.Resources.multipy_icon;
-            this.icoClose.Location = new System.Drawing.Point(440, 11);
+            this.icoClose.Location = new System.Drawing.Point(454, 12);
             this.icoClose.Name = "icoClose";
             this.icoClose.Size = new System.Drawing.Size(30, 30);
             this.icoClose.TabIndex = 1;
@@ -169,7 +159,7 @@
             // icoMinus
             // 
             this.icoMinus.Image = global::JobsManagement.Properties.Resources.minus_icon;
-            this.icoMinus.Location = new System.Drawing.Point(401, 11);
+            this.icoMinus.Location = new System.Drawing.Point(415, 12);
             this.icoMinus.Name = "icoMinus";
             this.icoMinus.Size = new System.Drawing.Size(30, 30);
             this.icoMinus.TabIndex = 2;
@@ -179,7 +169,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Red;
-            this.panel3.Location = new System.Drawing.Point(0, 542);
+            this.panel3.Location = new System.Drawing.Point(0, 489);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(500, 5);
             this.panel3.TabIndex = 14;
@@ -190,9 +180,9 @@
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.Controls.Add(this.btnDN);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 547);
+            this.panel4.Location = new System.Drawing.Point(0, 496);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(482, 86);
+            this.panel4.Size = new System.Drawing.Size(496, 86);
             this.panel4.TabIndex = 15;
             // 
             // panel2
@@ -200,9 +190,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.txbUsername);
-            this.panel2.Location = new System.Drawing.Point(40, 226);
+            this.panel2.Location = new System.Drawing.Point(38, 226);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(398, 72);
+            this.panel2.Size = new System.Drawing.Size(421, 72);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox1
@@ -218,14 +208,23 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.Controls.Add(this.mat1);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.HLmk);
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Controls.Add(this.txbPassword);
-            this.panel5.Location = new System.Drawing.Point(40, 333);
+            this.panel5.Location = new System.Drawing.Point(38, 333);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(398, 69);
+            this.panel5.Size = new System.Drawing.Size(421, 69);
             this.panel5.TabIndex = 17;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.panel6.Location = new System.Drawing.Point(0, 66);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(421, 3);
+            this.panel6.TabIndex = 19;
             // 
             // HLmk
             // 
@@ -248,9 +247,9 @@
             // HLtk
             // 
             this.HLtk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.HLtk.Location = new System.Drawing.Point(40, 295);
+            this.HLtk.Location = new System.Drawing.Point(38, 295);
             this.HLtk.Name = "HLtk";
-            this.HLtk.Size = new System.Drawing.Size(398, 3);
+            this.HLtk.Size = new System.Drawing.Size(421, 3);
             this.HLtk.TabIndex = 18;
             // 
             // pictureBox3
@@ -275,13 +274,16 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Xin chào!";
             // 
-            // panel6
+            // mat1
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.panel6.Location = new System.Drawing.Point(0, 66);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(398, 3);
-            this.panel6.TabIndex = 19;
+            this.mat1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
+            this.mat1.Location = new System.Drawing.Point(388, 22);
+            this.mat1.Name = "mat1";
+            this.mat1.Size = new System.Drawing.Size(30, 30);
+            this.mat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mat1.TabIndex = 51;
+            this.mat1.TabStop = false;
+            this.mat1.Click += new System.EventHandler(this.mat1_Click);
             // 
             // fLogin
             // 
@@ -289,7 +291,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(482, 633);
+            this.ClientSize = new System.Drawing.Size(496, 582);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.HLtk);
@@ -300,9 +302,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.linkQuenMK);
             this.Controls.Add(this.linkDangKy);
-            this.Controls.Add(this.showPassword);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
@@ -318,6 +320,7 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +330,6 @@
 		private System.Windows.Forms.Button btnDN;
 		private System.Windows.Forms.TextBox txbUsername;
 		private System.Windows.Forms.TextBox txbPassword;
-        private System.Windows.Forms.CheckBox showPassword;
         private System.Windows.Forms.LinkLabel linkDangKy;
         private System.Windows.Forms.LinkLabel linkQuenMK;
         private System.Windows.Forms.Panel panel1;
@@ -344,6 +346,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox mat1;
     }
 }
 

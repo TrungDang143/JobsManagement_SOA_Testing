@@ -16,7 +16,7 @@ namespace JobsManagement
         public fAddJob(DateTime ngayThangNam, int lapLai)
         {
             InitializeComponent();
-            load(lapLai);//37, 42, 64
+            load(lapLai);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             dtpk.Value = ngayThangNam;
@@ -173,6 +173,11 @@ namespace JobsManagement
                 MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             }    
 
+        }
+
+        private void lbNgayKetThuc_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

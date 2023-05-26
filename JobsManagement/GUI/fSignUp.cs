@@ -88,15 +88,97 @@ namespace JobsManagement
 
         #endregion
 
-        private void showPassword_CheckedChanged(object sender, EventArgs e)
+        private bool isMat1 = false;
+        private bool isMat2 = false;
+        private void mat1_Click(object sender, EventArgs e)
         {
+            if (isMat1 == false)
+            {
+                mat1.Image = Properties.Resources.icons8_open_eye_32;
+                isMat1 = true;
+            }
+            else
+            {
+                mat1.Image = Properties.Resources.icons8_close_eye_32;
+                isMat1 = false;
+            }
             txbMK.UseSystemPasswordChar = !txbMK.UseSystemPasswordChar;
-
         }
-        private void showPassword_CheckedChanged2(object sender, EventArgs e)
-        {
-            txbXNMK.UseSystemPasswordChar = !txbXNMK.UseSystemPasswordChar;
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (isMat2 == false)
+            {
+                pictureBox1.Image = Properties.Resources.icons8_open_eye_32;
+                isMat2 = true;
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.icons8_close_eye_32;
+                isMat2 = false;
+            }
+            txbXNMK.UseSystemPasswordChar = !txbMK.UseSystemPasswordChar;
+        }
+
+
+        private void txbTK_TextChanged(object sender, EventArgs e)
+        {
+            if(txbTK.Text.Length == 19)
+            {
+                lbGioiHanTK.Visible = true;
+            }
+            else
+            {
+                lbGioiHanTK.Visible = false;
+            }
+        }
+
+        private void txbMK_TextChanged(object sender, EventArgs e)
+        {
+            if (txbMK.Text.Length == 19)
+            {
+                lbGioiHanMK.Visible = true;
+            }
+            else
+            {
+                lbGioiHanMK.Visible = false;
+            }
+        }
+
+        private void txbXNMK_TextChanged(object sender, EventArgs e)
+        {
+            if (txbXNMK.Text.Length == 19)
+            {
+                lbGioiHanXNMK.Visible = true;
+            }
+            else
+            {
+                lbGioiHanXNMK.Visible = false;
+            }
+        }
+
+        private void txbTen_TextChanged(object sender, EventArgs e)
+        {
+            if (txbTen.Text.Length == 29)
+            {
+                lbGioiHanTHT.Visible = true;
+            }
+            else
+            {
+                lbGioiHanTHT.Visible = false;
+            }
+        }
+
+        private void txbTraLoi_TextChanged(object sender, EventArgs e)
+        {
+            if (txbTraLoi.Text.Length == 29)
+            {
+                lbGioiHanTL.Visible = true;
+            }
+            else
+            {
+                lbGioiHanTL.Visible = false;
+            }
         }
     }
 }

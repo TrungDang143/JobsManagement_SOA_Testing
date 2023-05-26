@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsManagement.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -20,14 +22,15 @@ namespace JobsManagement
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-
         }
 
-        private void showPassword_CheckedChanged(object sender, EventArgs e)
+        public void reset()
         {
-            txbPassword.UseSystemPasswordChar = !txbPassword.UseSystemPasswordChar;
-            
+            txbPassword.Text = string.Empty;
+            txbUsername.Text = string.Empty;    
+            //  
         }
+
 
         private void linkDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -49,7 +52,7 @@ namespace JobsManagement
 
         private void icoClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         void pnlTitle_MouseDown(object sender, MouseEventArgs e)
@@ -62,5 +65,34 @@ namespace JobsManagement
         }
         #endregion
 
+        private void btnDN_Click(object sender, EventArgs e)
+        {
+            mainUI mainF = new mainUI();
+
+            this.Hide();
+            mainF.ShowDialog();
+            if(!mainF.isClose) 
+            {
+                reset();
+                this.Show();
+            }
+
+        }
+
+        private bool isMat1 = false;
+        private void mat1_Click(object sender, EventArgs e)
+        {
+            if (isMat1 == false)
+            {
+                mat1.Image = Properties.Resources.icons8_open_eye_32;
+                isMat1 = true;
+            }
+            else
+            {
+                mat1.Image = Properties.Resources.icons8_close_eye_32;
+                isMat1 = false;
+            }
+            txbPassword.UseSystemPasswordChar = !txbPassword.UseSystemPasswordChar;
+        }
     }
 }
