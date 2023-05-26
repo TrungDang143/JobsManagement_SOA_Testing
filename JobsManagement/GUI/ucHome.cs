@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Effects;
 
 namespace JobsManagement
 {
@@ -21,10 +22,14 @@ namespace JobsManagement
         {
             connectDB conn = new connectDB();
             conn.openConn();
+
             dgv.DataSource = conn.truyVan("select * from qLyNV");
+
             dgv.Columns["id"].Width = 500;
             dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
+            
             conn.closeConn();
+
             btnNgay.BackColor = Color.FromArgb(37, 42, 64);
         }
 
@@ -52,6 +57,10 @@ namespace JobsManagement
             btnAdd.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnAdd.Left;
             
+            Panel mainPanel = this.Parent as Panel;
+            Form mainForm = mainPanel.Parent as Form;
+            //mainForm.Opacity = 0.9;
+
             fAddJob f = new fAddJob(dtpk.Value, -1);
             f.ShowDialog();
 
