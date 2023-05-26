@@ -14,14 +14,16 @@ using System.Windows.Media.Effects;
 namespace JobsManagement
 {
     public partial class mainUI : Form
-    { 
+    {
+
         public mainUI()
         {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-
+                InitializeComponent();
+                this.FormBorderStyle = FormBorderStyle.None;
+                Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
+
+        public bool isClose = true;
 
         #region new title bar
         private void icoMinus_Click(object sender, EventArgs e)
@@ -31,7 +33,9 @@ namespace JobsManagement
 
         private void icoClose_Click(object sender, EventArgs e)
         {
+            isClose = true;
             this.Close();
+
         }
 
         void pnlTitle_MouseDown(object sender, MouseEventArgs e)
@@ -108,7 +112,7 @@ namespace JobsManagement
             pnlContent.AutoScroll = true;
 
             btnSetting.BackColor = Color.FromArgb(63, 68, 97);
-            lbTitle.Text = "Thống kê";
+            lbTitle.Text = "Cài đặt";
         }
 
         private void btnHome_MouseHover(object sender, EventArgs e)
@@ -169,10 +173,9 @@ namespace JobsManagement
         }
         #endregion
 
-
-        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        private void mainUI_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            if(isClose) { Application.Exit(); }
         }
     }
 }

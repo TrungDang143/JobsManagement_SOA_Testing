@@ -43,11 +43,11 @@
             // cbxtHN
             // 
             this.cbxtHN.AutoSize = true;
-            this.cbxtHN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbxtHN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbxtHN.ForeColor = System.Drawing.SystemColors.Control;
             this.cbxtHN.Location = new System.Drawing.Point(29, 77);
             this.cbxtHN.Name = "cbxtHN";
-            this.cbxtHN.Size = new System.Drawing.Size(138, 29);
+            this.cbxtHN.Size = new System.Drawing.Size(129, 29);
             this.cbxtHN.TabIndex = 0;
             this.cbxtHN.Text = "Hằng ngày";
             this.cbxtHN.UseVisualStyleBackColor = true;
@@ -56,11 +56,11 @@
             // lbLapLai
             // 
             this.lbLapLai.AutoSize = true;
-            this.lbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbLapLai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.lbLapLai.Location = new System.Drawing.Point(35, 15);
+            this.lbLapLai.Location = new System.Drawing.Point(44, 15);
             this.lbLapLai.Name = "lbLapLai";
-            this.lbLapLai.Size = new System.Drawing.Size(106, 32);
+            this.lbLapLai.Size = new System.Drawing.Size(91, 29);
             this.lbLapLai.TabIndex = 1;
             this.lbLapLai.Text = "Lặp lại";
             // 

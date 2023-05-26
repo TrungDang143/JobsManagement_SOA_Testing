@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSignUp));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.icoClose = new System.Windows.Forms.PictureBox();
@@ -50,25 +51,32 @@
             this.txbTraLoi = new System.Windows.Forms.TextBox();
             this.HLtraLoi = new System.Windows.Forms.Panel();
             this.HLxacNhanMK = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txbTK = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.txbTen = new System.Windows.Forms.TextBox();
             this.HLtenTK = new System.Windows.Forms.Panel();
             this.HLtenHT = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.showPasswordMK = new System.Windows.Forms.CheckBox();
-            this.showPasswordXNMK = new System.Windows.Forms.CheckBox();
             this.pnlDK = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txbTK = new System.Windows.Forms.TextBox();
+            this.mat1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbGioiHanXNMK = new System.Windows.Forms.Label();
+            this.lbGioiHanMK = new System.Windows.Forms.Label();
+            this.lbGioiHanTHT = new System.Windows.Forms.Label();
+            this.lbGioiHanTL = new System.Windows.Forms.Label();
+            this.lbGioiHanTK = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel14.SuspendLayout();
             this.pnlDK.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -174,7 +182,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(26, 118);
+            this.label3.Location = new System.Drawing.Point(26, 130);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.label3.Size = new System.Drawing.Size(108, 30);
@@ -198,7 +206,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(494, 118);
+            this.label5.Location = new System.Drawing.Point(494, 130);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.label5.Size = new System.Drawing.Size(177, 30);
@@ -220,8 +228,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.mat1);
             this.panel2.Controls.Add(this.txbMK);
-            this.panel2.Location = new System.Drawing.Point(31, 151);
+            this.panel2.Location = new System.Drawing.Point(31, 163);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(382, 49);
             this.panel2.TabIndex = 18;
@@ -237,14 +246,17 @@
             this.txbMK.MaxLength = 19;
             this.txbMK.Multiline = true;
             this.txbMK.Name = "txbMK";
-            this.txbMK.PasswordChar = '*';
+            this.txbMK.PasswordChar = '●';
             this.txbMK.Size = new System.Drawing.Size(361, 28);
             this.txbMK.TabIndex = 2;
+            this.txbMK.WordWrap = false;
             this.txbMK.Click += new System.EventHandler(this.txbMK_Click);
+            this.txbMK.TextChanged += new System.EventHandler(this.txbMK_TextChanged);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel7.Controls.Add(this.pictureBox1);
             this.panel7.Controls.Add(this.txbXNMK);
             this.panel7.Location = new System.Drawing.Point(31, 285);
             this.panel7.Name = "panel7";
@@ -262,15 +274,17 @@
             this.txbXNMK.MaxLength = 19;
             this.txbXNMK.Multiline = true;
             this.txbXNMK.Name = "txbXNMK";
-            this.txbXNMK.PasswordChar = '*';
+            this.txbXNMK.PasswordChar = '●';
             this.txbXNMK.Size = new System.Drawing.Size(361, 28);
             this.txbXNMK.TabIndex = 3;
+            this.txbXNMK.WordWrap = false;
             this.txbXNMK.Click += new System.EventHandler(this.txbXNMK_Click);
+            this.txbXNMK.TextChanged += new System.EventHandler(this.txbXNMK_TextChanged);
             // 
             // HLmatkhau
             // 
             this.HLmatkhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.HLmatkhau.Location = new System.Drawing.Point(31, 199);
+            this.HLmatkhau.Location = new System.Drawing.Point(31, 211);
             this.HLmatkhau.Name = "HLmatkhau";
             this.HLmatkhau.Size = new System.Drawing.Size(382, 2);
             this.HLmatkhau.TabIndex = 19;
@@ -298,7 +312,9 @@
             this.txbTraLoi.Name = "txbTraLoi";
             this.txbTraLoi.Size = new System.Drawing.Size(361, 28);
             this.txbTraLoi.TabIndex = 6;
+            this.txbTraLoi.WordWrap = false;
             this.txbTraLoi.Click += new System.EventHandler(this.txbTraLoi_Click);
+            this.txbTraLoi.TextChanged += new System.EventHandler(this.txbTraLoi_TextChanged);
             // 
             // HLtraLoi
             // 
@@ -315,30 +331,6 @@
             this.HLxacNhanMK.Name = "HLxacNhanMK";
             this.HLxacNhanMK.Size = new System.Drawing.Size(382, 2);
             this.HLxacNhanMK.TabIndex = 19;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel5.Controls.Add(this.txbTK);
-            this.panel5.Location = new System.Drawing.Point(31, 34);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(382, 49);
-            this.panel5.TabIndex = 18;
-            // 
-            // txbTK
-            // 
-            this.txbTK.AcceptsTab = true;
-            this.txbTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.txbTK.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTK.ForeColor = System.Drawing.Color.White;
-            this.txbTK.Location = new System.Drawing.Point(18, 14);
-            this.txbTK.MaxLength = 19;
-            this.txbTK.Multiline = true;
-            this.txbTK.Name = "txbTK";
-            this.txbTK.Size = new System.Drawing.Size(361, 28);
-            this.txbTK.TabIndex = 1;
-            this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
             // 
             // panel14
             // 
@@ -357,12 +349,14 @@
             this.txbTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTen.ForeColor = System.Drawing.Color.White;
             this.txbTen.Location = new System.Drawing.Point(18, 14);
-            this.txbTen.MaxLength = 19;
+            this.txbTen.MaxLength = 29;
             this.txbTen.Multiline = true;
             this.txbTen.Name = "txbTen";
             this.txbTen.Size = new System.Drawing.Size(361, 28);
             this.txbTen.TabIndex = 4;
+            this.txbTen.WordWrap = false;
             this.txbTen.Click += new System.EventHandler(this.txbTen_Click);
+            this.txbTen.TextChanged += new System.EventHandler(this.txbTen_TextChanged);
             // 
             // HLtenTK
             // 
@@ -393,41 +387,18 @@
             "dsf",
             "sdfsdfsdfsdjgfsdf",
             "sdfsdfsd"});
-            this.comboBox1.Location = new System.Drawing.Point(499, 163);
+            this.comboBox1.Location = new System.Drawing.Point(499, 175);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(379, 37);
             this.comboBox1.TabIndex = 5;
             // 
-            // showPasswordMK
-            // 
-            this.showPasswordMK.AutoSize = true;
-            this.showPasswordMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.showPasswordMK.ForeColor = System.Drawing.Color.LightGray;
-            this.showPasswordMK.Location = new System.Drawing.Point(31, 206);
-            this.showPasswordMK.Name = "showPasswordMK";
-            this.showPasswordMK.Size = new System.Drawing.Size(159, 29);
-            this.showPasswordMK.TabIndex = 20;
-            this.showPasswordMK.Text = "Hiện mật khẩu";
-            this.showPasswordMK.UseVisualStyleBackColor = true;
-            this.showPasswordMK.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged);
-            // 
-            // showPasswordXNMK
-            // 
-            this.showPasswordXNMK.AutoSize = true;
-            this.showPasswordXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.showPasswordXNMK.ForeColor = System.Drawing.Color.LightGray;
-            this.showPasswordXNMK.Location = new System.Drawing.Point(31, 340);
-            this.showPasswordXNMK.Name = "showPasswordXNMK";
-            this.showPasswordXNMK.Size = new System.Drawing.Size(159, 29);
-            this.showPasswordXNMK.TabIndex = 20;
-            this.showPasswordXNMK.Text = "Hiện mật khẩu";
-            this.showPasswordXNMK.UseVisualStyleBackColor = true;
-            this.showPasswordXNMK.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged2);
-            // 
             // pnlDK
             // 
-            this.pnlDK.Controls.Add(this.showPasswordXNMK);
-            this.pnlDK.Controls.Add(this.showPasswordMK);
+            this.pnlDK.Controls.Add(this.lbGioiHanXNMK);
+            this.pnlDK.Controls.Add(this.lbGioiHanTK);
+            this.pnlDK.Controls.Add(this.lbGioiHanMK);
+            this.pnlDK.Controls.Add(this.lbGioiHanTL);
+            this.pnlDK.Controls.Add(this.lbGioiHanTHT);
             this.pnlDK.Controls.Add(this.comboBox1);
             this.pnlDK.Controls.Add(this.HLtenHT);
             this.pnlDK.Controls.Add(this.HLtenTK);
@@ -449,6 +420,114 @@
             this.pnlDK.Size = new System.Drawing.Size(915, 377);
             this.pnlDK.TabIndex = 21;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.Controls.Add(this.txbTK);
+            this.panel5.Location = new System.Drawing.Point(31, 34);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(382, 49);
+            this.panel5.TabIndex = 18;
+            // 
+            // txbTK
+            // 
+            this.txbTK.AcceptsTab = true;
+            this.txbTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.txbTK.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTK.ForeColor = System.Drawing.Color.White;
+            this.txbTK.Location = new System.Drawing.Point(18, 14);
+            this.txbTK.MaxLength = 19;
+            this.txbTK.Multiline = true;
+            this.txbTK.Name = "txbTK";
+            this.txbTK.Size = new System.Drawing.Size(361, 28);
+            this.txbTK.TabIndex = 1;
+            this.txbTK.WordWrap = false;
+            this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
+            this.txbTK.TextChanged += new System.EventHandler(this.txbTK_TextChanged);
+            // 
+            // mat1
+            // 
+            this.mat1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
+            this.mat1.Location = new System.Drawing.Point(354, 14);
+            this.mat1.Name = "mat1";
+            this.mat1.Size = new System.Drawing.Size(25, 25);
+            this.mat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mat1.TabIndex = 51;
+            this.mat1.TabStop = false;
+            this.mat1.Click += new System.EventHandler(this.mat1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
+            this.pictureBox1.Location = new System.Drawing.Point(354, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 52;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // lbGioiHanXNMK
+            // 
+            this.lbGioiHanXNMK.AutoSize = true;
+            this.lbGioiHanXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanXNMK.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanXNMK.Location = new System.Drawing.Point(28, 338);
+            this.lbGioiHanXNMK.Name = "lbGioiHanXNMK";
+            this.lbGioiHanXNMK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanXNMK.TabIndex = 47;
+            this.lbGioiHanXNMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanXNMK.Visible = false;
+            // 
+            // lbGioiHanMK
+            // 
+            this.lbGioiHanMK.AutoSize = true;
+            this.lbGioiHanMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanMK.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanMK.Location = new System.Drawing.Point(28, 216);
+            this.lbGioiHanMK.Name = "lbGioiHanMK";
+            this.lbGioiHanMK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanMK.TabIndex = 48;
+            this.lbGioiHanMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanMK.Visible = false;
+            // 
+            // lbGioiHanTHT
+            // 
+            this.lbGioiHanTHT.AutoSize = true;
+            this.lbGioiHanTHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTHT.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanTHT.Location = new System.Drawing.Point(496, 87);
+            this.lbGioiHanTHT.Name = "lbGioiHanTHT";
+            this.lbGioiHanTHT.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTHT.TabIndex = 49;
+            this.lbGioiHanTHT.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanTHT.Visible = false;
+            // 
+            // lbGioiHanTL
+            // 
+            this.lbGioiHanTL.AutoSize = true;
+            this.lbGioiHanTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTL.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanTL.Location = new System.Drawing.Point(496, 338);
+            this.lbGioiHanTL.Name = "lbGioiHanTL";
+            this.lbGioiHanTL.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTL.TabIndex = 49;
+            this.lbGioiHanTL.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanTL.Visible = false;
+            // 
+            // lbGioiHanTK
+            // 
+            this.lbGioiHanTK.AutoSize = true;
+            this.lbGioiHanTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTK.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanTK.Location = new System.Drawing.Point(28, 87);
+            this.lbGioiHanTK.Name = "lbGioiHanTK";
+            this.lbGioiHanTK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTK.TabIndex = 48;
+            this.lbGioiHanTK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanTK.Visible = false;
+            // 
             // fSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -461,7 +540,9 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fSignUp";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSignUp";
             this.TransparencyKey = System.Drawing.Color.Red;
@@ -475,12 +556,14 @@
             this.panel7.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.pnlDK.ResumeLayout(false);
             this.pnlDK.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -501,23 +584,28 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txbMK;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txbXNMK;
         private System.Windows.Forms.Panel HLmatkhau;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txbTraLoi;
         private System.Windows.Forms.Panel HLtraLoi;
         private System.Windows.Forms.Panel HLxacNhanMK;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txbTK;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TextBox txbTen;
         private System.Windows.Forms.Panel HLtenTK;
         private System.Windows.Forms.Panel HLtenHT;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.CheckBox showPasswordMK;
-        private System.Windows.Forms.CheckBox showPasswordXNMK;
         private System.Windows.Forms.Panel pnlDK;
+        private System.Windows.Forms.TextBox txbXNMK;
+        private System.Windows.Forms.TextBox txbMK;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox txbTK;
+        private System.Windows.Forms.PictureBox mat1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbGioiHanXNMK;
+        private System.Windows.Forms.Label lbGioiHanTK;
+        private System.Windows.Forms.Label lbGioiHanMK;
+        private System.Windows.Forms.Label lbGioiHanTL;
+        private System.Windows.Forms.Label lbGioiHanTHT;
     }
 }
