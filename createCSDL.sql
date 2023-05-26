@@ -16,9 +16,15 @@ create table Acc
 	matKhau varchar(20) not null,
 	tenHienThi nvarchar(30) not null,
 	cauhoi nvarchar(30) foreign key references CauHoiBaoMat(cauhoi),
-	traLoi nvarchar(30) not null
+	traLoi nvarchar(30) not null,
+	khoiDong bit default 1,
+	ghiNho bit default 1,
+	nhacNho bit default 1,
+	hNhacNho int default 0,
+	mNhacNho int default 30
 )
 go
+--drop database JobsManagement
 --insert into Acc values('Admin','1111','ADMIN',N'Số điện thoai của bạn?','0123456789')
 
 create table TrangThai
