@@ -43,8 +43,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.mat1 = new System.Windows.Forms.PictureBox();
             this.txbMK = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txbXNMK = new System.Windows.Forms.TextBox();
             this.HLmatkhau = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -57,26 +59,24 @@
             this.HLtenHT = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pnlDK = new System.Windows.Forms.Panel();
+            this.lbGioiHanXNMK = new System.Windows.Forms.Label();
+            this.lbGioiHanTK = new System.Windows.Forms.Label();
+            this.lbGioiHanMK = new System.Windows.Forms.Label();
+            this.lbGioiHanTL = new System.Windows.Forms.Label();
+            this.lbGioiHanTHT = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txbTK = new System.Windows.Forms.TextBox();
-            this.mat1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbGioiHanXNMK = new System.Windows.Forms.Label();
-            this.lbGioiHanMK = new System.Windows.Forms.Label();
-            this.lbGioiHanTHT = new System.Windows.Forms.Label();
-            this.lbGioiHanTL = new System.Windows.Forms.Label();
-            this.lbGioiHanTK = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel14.SuspendLayout();
             this.pnlDK.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mat1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -152,6 +152,7 @@
             this.btnTaoTK.TabIndex = 7;
             this.btnTaoTK.Text = "Tạo tài khoản";
             this.btnTaoTK.UseVisualStyleBackColor = false;
+            this.btnTaoTK.Click += new System.EventHandler(this.btnTaoTK_Click);
             // 
             // label2
             // 
@@ -235,6 +236,17 @@
             this.panel2.Size = new System.Drawing.Size(382, 49);
             this.panel2.TabIndex = 18;
             // 
+            // mat1
+            // 
+            this.mat1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
+            this.mat1.Location = new System.Drawing.Point(343, 12);
+            this.mat1.Name = "mat1";
+            this.mat1.Size = new System.Drawing.Size(36, 27);
+            this.mat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mat1.TabIndex = 51;
+            this.mat1.TabStop = false;
+            this.mat1.Click += new System.EventHandler(this.mat1_Click);
+            // 
             // txbMK
             // 
             this.txbMK.AcceptsTab = true;
@@ -262,6 +274,17 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(382, 49);
             this.panel7.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
+            this.pictureBox1.Location = new System.Drawing.Point(343, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 52;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // txbXNMK
             // 
@@ -420,6 +443,66 @@
             this.pnlDK.Size = new System.Drawing.Size(915, 377);
             this.pnlDK.TabIndex = 21;
             // 
+            // lbGioiHanXNMK
+            // 
+            this.lbGioiHanXNMK.AutoSize = true;
+            this.lbGioiHanXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanXNMK.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanXNMK.Location = new System.Drawing.Point(28, 338);
+            this.lbGioiHanXNMK.Name = "lbGioiHanXNMK";
+            this.lbGioiHanXNMK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanXNMK.TabIndex = 47;
+            this.lbGioiHanXNMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanXNMK.Visible = false;
+            // 
+            // lbGioiHanTK
+            // 
+            this.lbGioiHanTK.AutoSize = true;
+            this.lbGioiHanTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTK.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanTK.Location = new System.Drawing.Point(28, 87);
+            this.lbGioiHanTK.Name = "lbGioiHanTK";
+            this.lbGioiHanTK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTK.TabIndex = 48;
+            this.lbGioiHanTK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanTK.Visible = false;
+            // 
+            // lbGioiHanMK
+            // 
+            this.lbGioiHanMK.AutoSize = true;
+            this.lbGioiHanMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanMK.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanMK.Location = new System.Drawing.Point(28, 216);
+            this.lbGioiHanMK.Name = "lbGioiHanMK";
+            this.lbGioiHanMK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanMK.TabIndex = 48;
+            this.lbGioiHanMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanMK.Visible = false;
+            // 
+            // lbGioiHanTL
+            // 
+            this.lbGioiHanTL.AutoSize = true;
+            this.lbGioiHanTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTL.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanTL.Location = new System.Drawing.Point(496, 338);
+            this.lbGioiHanTL.Name = "lbGioiHanTL";
+            this.lbGioiHanTL.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTL.TabIndex = 49;
+            this.lbGioiHanTL.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanTL.Visible = false;
+            // 
+            // lbGioiHanTHT
+            // 
+            this.lbGioiHanTHT.AutoSize = true;
+            this.lbGioiHanTHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTHT.ForeColor = System.Drawing.Color.White;
+            this.lbGioiHanTHT.Location = new System.Drawing.Point(496, 87);
+            this.lbGioiHanTHT.Name = "lbGioiHanTHT";
+            this.lbGioiHanTHT.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTHT.TabIndex = 49;
+            this.lbGioiHanTHT.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
+            this.lbGioiHanTHT.Visible = false;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
@@ -446,88 +529,6 @@
             this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
             this.txbTK.TextChanged += new System.EventHandler(this.txbTK_TextChanged);
             // 
-            // mat1
-            // 
-            this.mat1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
-            this.mat1.Location = new System.Drawing.Point(354, 14);
-            this.mat1.Name = "mat1";
-            this.mat1.Size = new System.Drawing.Size(25, 25);
-            this.mat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.mat1.TabIndex = 51;
-            this.mat1.TabStop = false;
-            this.mat1.Click += new System.EventHandler(this.mat1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
-            this.pictureBox1.Location = new System.Drawing.Point(354, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 52;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // lbGioiHanXNMK
-            // 
-            this.lbGioiHanXNMK.AutoSize = true;
-            this.lbGioiHanXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbGioiHanXNMK.ForeColor = System.Drawing.Color.White;
-            this.lbGioiHanXNMK.Location = new System.Drawing.Point(28, 338);
-            this.lbGioiHanXNMK.Name = "lbGioiHanXNMK";
-            this.lbGioiHanXNMK.Size = new System.Drawing.Size(319, 18);
-            this.lbGioiHanXNMK.TabIndex = 47;
-            this.lbGioiHanXNMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
-            this.lbGioiHanXNMK.Visible = false;
-            // 
-            // lbGioiHanMK
-            // 
-            this.lbGioiHanMK.AutoSize = true;
-            this.lbGioiHanMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbGioiHanMK.ForeColor = System.Drawing.Color.White;
-            this.lbGioiHanMK.Location = new System.Drawing.Point(28, 216);
-            this.lbGioiHanMK.Name = "lbGioiHanMK";
-            this.lbGioiHanMK.Size = new System.Drawing.Size(319, 18);
-            this.lbGioiHanMK.TabIndex = 48;
-            this.lbGioiHanMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
-            this.lbGioiHanMK.Visible = false;
-            // 
-            // lbGioiHanTHT
-            // 
-            this.lbGioiHanTHT.AutoSize = true;
-            this.lbGioiHanTHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbGioiHanTHT.ForeColor = System.Drawing.Color.White;
-            this.lbGioiHanTHT.Location = new System.Drawing.Point(496, 87);
-            this.lbGioiHanTHT.Name = "lbGioiHanTHT";
-            this.lbGioiHanTHT.Size = new System.Drawing.Size(319, 18);
-            this.lbGioiHanTHT.TabIndex = 49;
-            this.lbGioiHanTHT.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
-            this.lbGioiHanTHT.Visible = false;
-            // 
-            // lbGioiHanTL
-            // 
-            this.lbGioiHanTL.AutoSize = true;
-            this.lbGioiHanTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbGioiHanTL.ForeColor = System.Drawing.Color.White;
-            this.lbGioiHanTL.Location = new System.Drawing.Point(496, 338);
-            this.lbGioiHanTL.Name = "lbGioiHanTL";
-            this.lbGioiHanTL.Size = new System.Drawing.Size(319, 18);
-            this.lbGioiHanTL.TabIndex = 49;
-            this.lbGioiHanTL.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
-            this.lbGioiHanTL.Visible = false;
-            // 
-            // lbGioiHanTK
-            // 
-            this.lbGioiHanTK.AutoSize = true;
-            this.lbGioiHanTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbGioiHanTK.ForeColor = System.Drawing.Color.White;
-            this.lbGioiHanTK.Location = new System.Drawing.Point(28, 87);
-            this.lbGioiHanTK.Name = "lbGioiHanTK";
-            this.lbGioiHanTK.Size = new System.Drawing.Size(319, 18);
-            this.lbGioiHanTK.TabIndex = 48;
-            this.lbGioiHanTK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
-            this.lbGioiHanTK.Visible = false;
-            // 
             // fSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -552,8 +553,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel14.ResumeLayout(false);
@@ -562,8 +565,6 @@
             this.pnlDK.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mat1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

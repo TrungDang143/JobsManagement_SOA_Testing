@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -15,8 +16,6 @@ namespace JobsManagement
 {
     public partial class fSignUp : Form
     {
-        
-
         public fSignUp()
         {
             InitializeComponent();
@@ -178,6 +177,65 @@ namespace JobsManagement
             else
             {
                 lbGioiHanTL.Visible = false;
+            }
+        }
+
+        public bool KiemTraThongTin()
+        {
+
+            if (txbTK.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tài khoản", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txbTK.Focus();
+                return false;
+            }
+            if (txbTen.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên hiển thị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txbTen.Focus();
+                return false;
+            }
+            if (txbMK.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txbMK.Focus();
+                return false;
+            }
+            if (txbTraLoi.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập câu trả lời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txbTraLoi.Focus();
+                return false;
+            }
+            return true;
+        }
+        private void btnTaoTK_Click(object sender, EventArgs e)
+        {
+            if (KiemTraThongTin())
+            {
+                try
+                {
+                    SqlConnection conn = new SqlConnection();
+                    conn.ConnectionString = @"Data Source=HANDSOME-OWNER\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
+                    SqlCommand cmd = new SqlCommand();
+
+                    cmd.CommandText = "SP_ThemTaiKhoan";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@TaiKhoan", SqlDbType.NVarChar).Value = txbTK.Text;
+                    cmd.Parameters.Add("@TenHienThi", SqlDbType.NVarChar).Value = txbTen.Text;
+                    cmd.Parameters.Add("@MatKhau", SqlDbType.NVarChar).Value = txbMK.Text;
+                    cmd.Parameters.Add("@CauHoiBaoMat", SqlDbType.NVarChar).Value = txbTraLoi.Text;
+
+                    cmd.Connection = conn;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

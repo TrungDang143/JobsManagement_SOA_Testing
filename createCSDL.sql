@@ -24,8 +24,38 @@ create table Acc
 	mNhacNho int default 30
 )
 go
---drop database JobsManagement
---insert into Acc values('Admin','1111','ADMIN',N'Số điện thoai của bạn?','0123456789')
+
+drop database JobsManagement
+insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','0123456789')
+select * from Acc
+
+create proc [dbo].[SP_AuthorizationLogin]
+@UserName nvarchar(20),
+@PassWord nvarchar(20)
+as
+begin
+    if exists (select * from Acc where tenDangNhap = @UserName and matKhau = @PassWord)
+        select 0 as code
+	else  
+        select 1 as code
+end
+
+create proc [dbo].[SP_Retrieve_User]
+as
+begin
+    select * from Acc
+end
+
+create proc [dbo].[SP_ThemTaiKhoan]
+@TaiKhoan nvarchar(50),
+@TenHienThi nvarchar(50),
+@MatKhau nvarchar(50),
+@CauHoiBaoMat nvarchar(50)
+as
+begin
+    Insert into Acc values(@TaiKhoan,@MatKhau,@TenHienThi,@CauHoiBaoMat)
+end
+
 
 create table TrangThai
 (

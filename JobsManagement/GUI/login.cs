@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,11 +13,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace JobsManagement
 {
+    
     public partial class fLogin : Form
     {
+        public static string UserName = "";
         public fLogin()
         {
             InitializeComponent();
@@ -67,7 +71,39 @@ namespace JobsManagement
 
         private void btnDN_Click(object sender, EventArgs e)
         {
-            mainUI mainF = new mainUI();
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+
+                conn.ConnectionString = @"Data Source=HANDSOME-OWNER\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_AuthorizationLogin";
+                cmd.Parameters.AddWithValue("@UserName", txbUsername.Text);
+                cmd.Parameters.AddWithValue("@PassWord", txbPassword.Text);
+                cmd.Connection = conn;
+                UserName = txbUsername.Text;
+                object kq = cmd.ExecuteScalar();
+                int code = Convert.ToInt32(kq);
+                if (code == 0)
+                {
+                    MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mainUI m = new mainUI();
+                    m.ShowDialog();
+                }
+                else if (code == 1)
+                {
+                    MessageBox.Show("Tài khoản không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            /*mainF = new mainUI();
 
             this.Hide();
             mainF.ShowDialog();
@@ -75,7 +111,20 @@ namespace JobsManagement
             {
                 reset();
                 this.Show();
-            }
+            }*/
+        }
+        private void txtUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            txbUsername.SelectAll();
+        }
+
+        private void txtPass_MouseClick(object sender, MouseEventArgs e)
+        {
+            txbPassword.SelectAll();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
 
         }
 
