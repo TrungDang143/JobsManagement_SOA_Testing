@@ -75,22 +75,32 @@ namespace JobsManagement
             try
             {
 
-                conn.ConnectionString = @"Data Source=HANDSOME-OWNER\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
+                conn.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
                 conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_AuthorizationLogin";
-                cmd.Parameters.AddWithValue("@UserName", txbUsername.Text);
-                cmd.Parameters.AddWithValue("@PassWord", txbPassword.Text);
-                cmd.Connection = conn;
-                UserName = txbUsername.Text;
-                object kq = cmd.ExecuteScalar();
-                int code = Convert.ToInt32(kq);
+
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "SP_AuthorizationLogin";
+                //cmd.Parameters.AddWithValue("@UserName", txbUsername.Text);
+                //cmd.Parameters.AddWithValue("@PassWord", txbPassword.Text);
+                //cmd.Connection = conn;
+
+                //UserName = txbUsername.Text;
+                //object kq = cmd.ExecuteScalar();
+                //int code = Convert.ToInt32(kq);
+                int code = 0;
                 if (code == 0)
                 {
                     MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     mainUI m = new mainUI();
+                    this.Hide();
                     m.ShowDialog();
+                    if (!m.isClose)
+                    {
+                        reset();
+                        this.Show();
+                    }
                 }
                 else if (code == 1)
                 {
@@ -121,11 +131,6 @@ namespace JobsManagement
         private void txtPass_MouseClick(object sender, MouseEventArgs e)
         {
             txbPassword.SelectAll();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
 
         private bool isMat1 = false;

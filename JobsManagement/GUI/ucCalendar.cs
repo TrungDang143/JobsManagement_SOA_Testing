@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsManagement.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace JobsManagement
         {
             InitializeComponent();
             createMatrix();
+            dtpk.Value = timeOfDtpk.TimeSelection;
         }
 
         #region ma tran lich
@@ -54,7 +56,7 @@ namespace JobsManagement
                         FlatStyle = FlatStyle.Flat,
                         BackColor = Color.White,
                         ForeColor = Color.Black
-                };
+                    };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + margin, oldBtn.Location.Y);
                     paMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
@@ -71,7 +73,8 @@ namespace JobsManagement
                     Location = new Point(-margin, oldBtn.Location.Y + btnH + 4)
                 };
             }
-            HienNgay(DateTime.Now);
+            HienNgay(timeOfDtpk.TimeSelection);
+            
         }
 
         bool compareTime(DateTime A, DateTime B)
@@ -109,8 +112,10 @@ namespace JobsManagement
             {
                 int column = dateOfW.IndexOf(useDate.DayOfWeek.ToString());
                 Button btn = Matrix[line][column];
+                
                 btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                 btn.Text = i.ToString();
+                
                 if (compareTime(useDate, date))
                 {
                     clearColor();
@@ -211,6 +216,7 @@ namespace JobsManagement
                 }
                 if (done) break;
             }
+
             fAddJob f = new fAddJob(time, vt);
             f.ShowDialog();
         }
@@ -220,12 +226,10 @@ namespace JobsManagement
             
             if (string.IsNullOrEmpty(btn.Text))
                 return;
-            DateTime date = new DateTime(dtpk.Value.Year, dtpk.Value.Month, Convert.ToInt32(btn.Text));
-            
 
-            dtpk.Value = date;
-            fAddJob f = new fAddJob(date, -1);
-            f.ShowDialog();
+            DateTime dateOfCalendar = new DateTime(dtpk.Value.Year, dtpk.Value.Month, Convert.ToInt32(btn.Text));
+
+            dtpk.Value = dateOfCalendar;
 
             clearColor();
             btn.BackColor = Color.Yellow;
@@ -238,11 +242,6 @@ namespace JobsManagement
             Button btn = (sender as Button);
             btn.FlatAppearance.BorderColor = Color.Red;
             btn.FlatAppearance.BorderSize = 1;
-        }
-
-        void SetDate()
-        {
-            dtpk.Value = DateTime.Now;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -261,12 +260,13 @@ namespace JobsManagement
         }
         private void btnToday_Click(object sender, EventArgs e)
         {
-            SetDate();
+            dtpk.Value = DateTime.Now;
         }
 
         private void dtpkValueChanged(object sender, EventArgs e)
         {
             HienNgay((sender as DateTimePicker).Value);
+            timeOfDtpk.TimeSelection = dtpk.Value;
         }
 
         private void btnThu_Click(object sender, EventArgs e)
@@ -289,5 +289,20 @@ namespace JobsManagement
             chonThu(vt);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Panel panel = this.Parent as Panel;
+            mainUI mainF = panel.Parent as mainUI;
+
+            mainF.dateOfdtpk = timeOfDtpk.TimeSelection;
+
+            button2.Click += mainF.btnHome_Click;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fAddJob f = new fAddJob(dtpk.Value, -1);
+            f.ShowDialog();
+        }
     }
 }

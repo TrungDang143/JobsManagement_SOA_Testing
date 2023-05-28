@@ -46,6 +46,8 @@
             this.btnHomNay = new System.Windows.Forms.Button();
             this.dtpk = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,10 +55,10 @@
             // 
             // paMatrix
             // 
-            this.paMatrix.Location = new System.Drawing.Point(179, 121);
+            this.paMatrix.Location = new System.Drawing.Point(179, 107);
             this.paMatrix.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paMatrix.Name = "paMatrix";
-            this.paMatrix.Size = new System.Drawing.Size(708, 436);
+            this.paMatrix.Size = new System.Drawing.Size(708, 399);
             this.paMatrix.TabIndex = 4;
             // 
             // panel4
@@ -268,12 +270,44 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.paMatrix);
             this.panel2.Location = new System.Drawing.Point(30, 105);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1068, 559);
+            this.panel2.Size = new System.Drawing.Size(1068, 568);
             this.panel2.TabIndex = 6;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button2.ForeColor = System.Drawing.Color.Aqua;
+            this.button2.Location = new System.Drawing.Point(551, 510);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(146, 47);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Chi tiết";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.ForeColor = System.Drawing.Color.Aqua;
+            this.button1.Location = new System.Drawing.Point(373, 510);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 47);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Thêm";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ucCalendar
             // 
@@ -284,6 +318,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "ucCalendar";
             this.Size = new System.Drawing.Size(1130, 686);
+            this.Load += new System.EventHandler(this.button2_Click);
             this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -311,5 +346,7 @@
         private System.Windows.Forms.Button btnHomNay;
         private System.Windows.Forms.DateTimePicker dtpk;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

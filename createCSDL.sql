@@ -21,41 +21,10 @@ create table Acc
 	ghiNho bit default 1,
 	nhacNho bit default 1,
 	hNhacNho int default 0,
-	mNhacNho int default 30
+	mNhacNho int default 30,
+	isAD bit default 0
 )
 go
-
-drop database JobsManagement
-insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','0123456789')
-select * from Acc
-
-create proc [dbo].[SP_AuthorizationLogin]
-@UserName nvarchar(20),
-@PassWord nvarchar(20)
-as
-begin
-    if exists (select * from Acc where tenDangNhap = @UserName and matKhau = @PassWord)
-        select 0 as code
-	else  
-        select 1 as code
-end
-
-create proc [dbo].[SP_Retrieve_User]
-as
-begin
-    select * from Acc
-end
-
-create proc [dbo].[SP_ThemTaiKhoan]
-@TaiKhoan nvarchar(50),
-@TenHienThi nvarchar(50),
-@MatKhau nvarchar(50),
-@CauHoiBaoMat nvarchar(50)
-as
-begin
-    Insert into Acc values(@TaiKhoan,@MatKhau,@TenHienThi,@CauHoiBaoMat)
-end
-
 
 create table TrangThai
 (
@@ -86,6 +55,7 @@ create table CongViec
 )
 go
 
+
 --cau hoi bao mat
 insert into CauHoiBaoMat values(N'Tên giáo viên bạn quý nhất?')
 insert into CauHoiBaoMat values(N'Tên idol của bạn?')
@@ -109,3 +79,36 @@ insert into LapLai values(N'T7')
 insert into LapLai values(N'CN')
 insert into LapLai values(N'Hàng ngày')
 
+
+--drop database JobsManagement
+/*
+insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','0123456789')
+select * from Acc
+
+create proc [dbo].[SP_AuthorizationLogin]
+@UserName nvarchar(20),
+@PassWord nvarchar(20)
+as
+begin
+    if exists (select * from Acc where tenDangNhap = @UserName and matKhau = @PassWord)
+        select 0 as code
+	else  
+        select 1 as code
+end
+
+create proc [dbo].[SP_Retrieve_User]
+as
+begin
+    select * from Acc
+end
+
+create proc [dbo].[SP_ThemTaiKhoan]
+@TaiKhoan varchar(20),
+@TenHienThi nvarchar(30),
+@MatKhau varchar(20),
+@traLoi nvarchar(30)
+as
+begin
+    Insert into Acc values(@TaiKhoan,@MatKhau,@TenHienThi,@traLoi)
+end
+*/

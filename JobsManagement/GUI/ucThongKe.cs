@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsManagement.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace JobsManagement
         public ucThongKe()
         {
             InitializeComponent();
+            dtpk.Value = timeOfDtpk.TimeSelection;
         }
 
         private void lbCVchuaHoanThanh_Click(object sender, EventArgs e)

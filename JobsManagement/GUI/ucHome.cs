@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsManagement.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,18 +17,24 @@ namespace JobsManagement
         public ucHome()
         {
             InitializeComponent();
+            loadCV();
         }
 
-        private void ucHome_Load(object sender, EventArgs e)
+        private void loadCV()
         {
+            dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
             connectDB conn = new connectDB();
             conn.openConn();
 
-            dgv.DataSource = conn.truyVan("select * from qLyNV");
+            dgv.DataSource = conn.truyVan("select * from cauhoibaomat");
+            dgv.DefaultCellStyle.BackColor = Color.White;
+            dgv.DefaultCellStyle.ForeColor = Color.Black;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
-            dgv.Columns["id"].Width = 500;
-            dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
+            //dgv.Columns["id"].Width = 500;
+            //dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
             
             conn.closeConn();
 

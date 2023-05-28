@@ -43,8 +43,10 @@ namespace JobsManagement
         {
             lbNgayBatDau.Text = dtpk.Value.ToShortDateString();
             lbNgayKetThuc.Text = dtpk.Value.ToShortDateString();
-            nudH.Value = DateTime.Now.Hour;
-            nudM.Value = DateTime.Now.Minute;
+
+            nudH1.Value = DateTime.Now.Hour;
+            nudM1.Value = DateTime.Now.Minute;
+
             ucLL.ThuLapLai(lapLai);
         }
         bool clickThayDoi1 = false;
@@ -75,49 +77,15 @@ namespace JobsManagement
         private void btnHomNay_Click(object sender, EventArgs e)
         {
             dtpk.Value = DateTime.Now;
+            lbNgayBatDau.Text = dtpk.Value.ToShortDateString();
+            lbNgayKetThuc.Text = dtpk.Value.AddDays(1).ToLongDateString();
         }
 
         private void btnNgayMai_Click(object sender, EventArgs e)
         {
             dtpk.Value = dtpk.Value.AddDays(1);
-        }
-
-        private void ucLL_Click(object sender, EventArgs e)
-        {          
-            if(ucLL.check())
-            {
-                foreach (Control c in panel11.Controls)
-                {
-                    if (c is Label)
-                    {
-                        ((Label)c).ForeColor = SystemColors.ActiveCaption;
-                    }
-                }
-            }
-            else
-            {
-                label6.ForeColor = Color.FromArgb(0, 126, 249);
-                label7.ForeColor = Color.FromArgb(0, 126, 249);
-            }
-        }
-
-        private void ucLL_Click(object sender, MouseEventArgs e)
-        {
-            if (ucLL.check())
-            {
-                foreach (Control c in panel11.Controls)
-                {
-                    if (c is Label)
-                    {
-                        ((Label)c).ForeColor = SystemColors.ActiveCaption;
-                    }
-                }
-            }
-            else
-            {
-                label6.ForeColor = Color.FromArgb(0, 126, 249);
-                label7.ForeColor = Color.FromArgb(0, 126, 249);
-            }
+            lbNgayBatDau.Text = dtpk.Value.ToShortDateString();
+            lbNgayKetThuc.Text = dtpk.Value.AddDays(1).ToLongDateString();
         }
 
         void xuLyLapLai()
@@ -153,10 +121,10 @@ namespace JobsManagement
                 label9.ForeColor = Color.White;
                 label10.ForeColor = Color.White;
                 lbNgayKetThuc.ForeColor = Color.White;
-                numericUpDown1.ForeColor = SystemColors.WindowText;
-                numericUpDown1.Enabled = true;
-                numericUpDown2.ForeColor = SystemColors.WindowText;
-                numericUpDown2.Enabled = true;
+                nudH2.ForeColor = SystemColors.WindowText;
+                nudH2.Enabled = true;
+                nudM2.ForeColor = SystemColors.WindowText;
+                nudM2.Enabled = true;
                 btnThayDoi2.Enabled = true;
                 lbLapLai.Visible = false;
             }

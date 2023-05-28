@@ -22,11 +22,6 @@ namespace JobsManagement.GUI
 
         #region title bar
 
-        private void icoMinus_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void icoClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -44,6 +39,43 @@ namespace JobsManagement.GUI
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool isXacNhan= false;
+        private void btnXoaTK_Click(object sender, EventArgs e)
+        {
+            if(!isXacNhan)
+            {
+                lbCanhBao.Visible = true;
+                btnXoaTK.Text = string.Empty;
+                btnXoaTK.Enabled = false;
+                for( int i = 9; i >= 0; i-- )
+                {
+                    btnXoaTK.Text = string.Format("Xác nhận ({0})", i);
+                    Task.Delay(1000).Wait();
+                }
+                btnXoaTK.Text = "Xác nhận";
+                btnXoaTK.Enabled = true;
+                isXacNhan = true;
+            }
+            else
+            {
+                //sql
+                Task.Delay(1000).Wait();
+                this.Close();
+                isXacNhan = false;
+                lbCanhBao.Visible = false;
+            }
         }
     }
 }
