@@ -61,6 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlAbout = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -357,7 +357,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel2.Location = new System.Drawing.Point(-4, 501);
+            this.panel2.Location = new System.Drawing.Point(0, 504);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1050, 3);
             this.panel2.TabIndex = 5;
@@ -484,6 +484,20 @@
             this.pnlAbout.Size = new System.Drawing.Size(1050, 342);
             this.pnlAbout.TabIndex = 2;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label18.ForeColor = System.Drawing.Color.Turquoise;
+            this.label18.Location = new System.Drawing.Point(3, 274);
+            this.label18.Name = "label18";
+            this.label18.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label18.Size = new System.Drawing.Size(1033, 50);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "\"Cuộc sống là một công việc đặc biệt, nó luôn diễn ra, diễn ra liên tục, \r\nhãy qu" +
+    "ản lý thời gian của bạn một cách hiệu quả để có thể cân bằng được cuộc sống và đ" +
+    "ạt được mục tiêu của mình.\"\r\n";
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.SeaGreen;
@@ -573,20 +587,6 @@
             this.label13.Size = new System.Drawing.Size(176, 25);
             this.label13.TabIndex = 4;
             this.label13.Text = "Đinh Thanh Sáng";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label18.ForeColor = System.Drawing.Color.Turquoise;
-            this.label18.Location = new System.Drawing.Point(3, 274);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label18.Size = new System.Drawing.Size(1033, 50);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "\"Cuộc sống là một công việc đặc biệt, nó luôn diễn ra, diễn ra liên tục, \r\nhãy qu" +
-    "ản lý thời gian của bạn một cách hiệu quả để có thể cân bằng được cuộc sống và đ" +
-    "ạt được mục tiêu của mình.\"\r\n";
             // 
             // label12
             // 

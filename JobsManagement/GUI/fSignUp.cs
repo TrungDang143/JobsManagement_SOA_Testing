@@ -21,7 +21,22 @@ namespace JobsManagement
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+            loadCBB();
+        }
 
+        private void loadCBB()
+        {
+            DataTable dt = new DataTable();
+            connectDB conn = new connectDB();
+            conn.openConn();
+            dt = conn.truyVan("select * from CauHoiBaoMat");
+            conn.closeConn();
+
+
+            for (int i = dt.Rows.Count - 1; i >= 0; i--)
+            {
+                cbb.Items.Add(dt.Rows[i][0].ToString());
+            }
         }
         #region title bar
 
@@ -237,6 +252,11 @@ namespace JobsManagement
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void cbb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(cbb.SelectedItem.ToString());
         }
     }
 }

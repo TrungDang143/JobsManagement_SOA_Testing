@@ -57,7 +57,7 @@
             this.txbTen = new System.Windows.Forms.TextBox();
             this.HLtenTK = new System.Windows.Forms.Panel();
             this.HLtenHT = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbb = new System.Windows.Forms.ComboBox();
             this.pnlDK = new System.Windows.Forms.Panel();
             this.lbGioiHanXNMK = new System.Windows.Forms.Label();
             this.lbGioiHanTK = new System.Windows.Forms.Label();
@@ -397,23 +397,18 @@
             this.HLtenHT.Size = new System.Drawing.Size(382, 2);
             this.HLtenHT.TabIndex = 19;
             // 
-            // comboBox1
+            // cbb
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 29;
-            this.comboBox1.Items.AddRange(new object[] {
-            "ádkasnfdk",
-            "sdf",
-            "dsf",
-            "sdfsdfsdfsdjgfsdf",
-            "sdfsdfsd"});
-            this.comboBox1.Location = new System.Drawing.Point(499, 175);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(379, 37);
-            this.comboBox1.TabIndex = 5;
+            this.cbb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.cbb.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbb.ForeColor = System.Drawing.Color.White;
+            this.cbb.FormattingEnabled = true;
+            this.cbb.ItemHeight = 29;
+            this.cbb.Location = new System.Drawing.Point(499, 175);
+            this.cbb.Name = "cbb";
+            this.cbb.Size = new System.Drawing.Size(379, 37);
+            this.cbb.TabIndex = 5;
+            this.cbb.SelectedIndexChanged += new System.EventHandler(this.cbb_SelectedIndexChanged);
             // 
             // pnlDK
             // 
@@ -422,7 +417,7 @@
             this.pnlDK.Controls.Add(this.lbGioiHanMK);
             this.pnlDK.Controls.Add(this.lbGioiHanTL);
             this.pnlDK.Controls.Add(this.lbGioiHanTHT);
-            this.pnlDK.Controls.Add(this.comboBox1);
+            this.pnlDK.Controls.Add(this.cbb);
             this.pnlDK.Controls.Add(this.HLtenHT);
             this.pnlDK.Controls.Add(this.HLtenTK);
             this.pnlDK.Controls.Add(this.panel14);
@@ -595,7 +590,7 @@
         private System.Windows.Forms.TextBox txbTen;
         private System.Windows.Forms.Panel HLtenTK;
         private System.Windows.Forms.Panel HLtenHT;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbb;
         private System.Windows.Forms.Panel pnlDK;
         private System.Windows.Forms.TextBox txbXNMK;
         private System.Windows.Forms.TextBox txbMK;

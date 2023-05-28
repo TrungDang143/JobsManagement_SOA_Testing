@@ -15,15 +15,14 @@ namespace JobsManagement
 {
     public partial class mainUI : Form
     {
-
+        public DateTime dateOfdtpk = DateTime.Now;
+        public bool isClose = true;
         public mainUI()
         {
-                InitializeComponent();
-                this.FormBorderStyle = FormBorderStyle.None;
-                Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
-
-        public bool isClose = true;
 
         #region new title bar
         private void icoMinus_Click(object sender, EventArgs e)
@@ -64,13 +63,14 @@ namespace JobsManagement
             btnSetting.BackColor = Color.FromArgb(24, 30, 54);
             pnlContent.Controls.Clear();
         }
-        private void btnHome_Click(object sender, EventArgs e)
+        public void btnHome_Click(object sender, EventArgs e)
         {
             
             resetSelect();
             pnlHighLight1.Visible = true;
-            
+
             ucHome ucHome = new ucHome();
+
             pnlContent.Controls.Add(ucHome);
             btnHome.BackColor = Color.FromArgb(63, 68, 97);
             lbTitle.Text = "Trang chủ";

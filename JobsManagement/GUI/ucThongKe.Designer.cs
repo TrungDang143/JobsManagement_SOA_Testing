@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.dtpk = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -135,7 +136,7 @@
             this.btnNam.Name = "btnNam";
             this.btnNam.Size = new System.Drawing.Size(170, 40);
             this.btnNam.TabIndex = 0;
-            this.btnNam.Text = "Năm nay";
+            this.btnNam.Text = "Theo năm";
             this.btnNam.UseVisualStyleBackColor = false;
             // 
             // btnThang
@@ -150,7 +151,7 @@
             this.btnThang.Name = "btnThang";
             this.btnThang.Size = new System.Drawing.Size(170, 40);
             this.btnThang.TabIndex = 0;
-            this.btnThang.Text = "Tháng này";
+            this.btnThang.Text = "Theo tháng";
             this.btnThang.UseVisualStyleBackColor = false;
             // 
             // btnTuan
@@ -165,7 +166,7 @@
             this.btnTuan.Name = "btnTuan";
             this.btnTuan.Size = new System.Drawing.Size(170, 40);
             this.btnTuan.TabIndex = 0;
-            this.btnTuan.Text = "Tuần này";
+            this.btnTuan.Text = "Theo tuần";
             this.btnTuan.UseVisualStyleBackColor = false;
             // 
             // panel4
@@ -210,11 +211,21 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Có tất cả ... công việc trong ngày hôm nay/ tuần này /...";
             // 
+            // dtpk
+            // 
+            this.dtpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtpk.Location = new System.Drawing.Point(49, 27);
+            this.dtpk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpk.Name = "dtpk";
+            this.dtpk.Size = new System.Drawing.Size(330, 30);
+            this.dtpk.TabIndex = 11;
+            // 
             // ucThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.Controls.Add(this.dtpk);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -249,5 +260,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpk;
     }
 }

@@ -10,8 +10,10 @@ namespace JobsManagement
 {
     internal class connectDB
     {
-        public static string connString = "Data Source=.\\SQLEXPRESS;Initial Catalog=testThemXoaSua;Integrated Security=True";
-        static SqlConnection conn = new SqlConnection(connString);
+        private static string connString = "Data Source=.\\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
+        static SqlConnection conn = new SqlConnection(ConnString);
+
+        public static string ConnString { get => connString; set => connString = value; }
 
         public void openConn()
         { 

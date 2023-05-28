@@ -39,6 +39,9 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbKHopLeGio = new System.Windows.Forms.Label();
+            this.lbKHopLeNgay = new System.Windows.Forms.Label();
+            this.lbGioiHanCV = new System.Windows.Forms.Label();
             this.lbLapLai = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,8 +53,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nudH2 = new System.Windows.Forms.NumericUpDown();
+            this.nudM2 = new System.Windows.Forms.NumericUpDown();
             this.btnThayDoi1 = new System.Windows.Forms.Button();
             this.btnThayDoi2 = new System.Windows.Forms.Button();
             this.ucLL = new JobsManagement.ucLapLai();
@@ -63,13 +66,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.nudH = new System.Windows.Forms.NumericUpDown();
-            this.nudM = new System.Windows.Forms.NumericUpDown();
+            this.nudH1 = new System.Windows.Forms.NumericUpDown();
+            this.nudM1 = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.lbKHopLeNgay = new System.Windows.Forms.Label();
-            this.lbKHopLeGio = new System.Windows.Forms.Label();
-            this.lbGioiHanCV = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,12 +78,12 @@
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudH2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudM2)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudH1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudM1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,6 +222,43 @@
             this.panel5.Size = new System.Drawing.Size(1019, 450);
             this.panel5.TabIndex = 2;
             // 
+            // lbKHopLeGio
+            // 
+            this.lbKHopLeGio.AutoSize = true;
+            this.lbKHopLeGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbKHopLeGio.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbKHopLeGio.Location = new System.Drawing.Point(459, 360);
+            this.lbKHopLeGio.Name = "lbKHopLeGio";
+            this.lbKHopLeGio.Size = new System.Drawing.Size(111, 20);
+            this.lbKHopLeGio.TabIndex = 13;
+            this.lbKHopLeGio.Text = "Không hợp lệ!";
+            this.lbKHopLeGio.Visible = false;
+            // 
+            // lbKHopLeNgay
+            // 
+            this.lbKHopLeNgay.AutoSize = true;
+            this.lbKHopLeNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbKHopLeNgay.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbKHopLeNgay.Location = new System.Drawing.Point(78, 360);
+            this.lbKHopLeNgay.Name = "lbKHopLeNgay";
+            this.lbKHopLeNgay.Size = new System.Drawing.Size(111, 20);
+            this.lbKHopLeNgay.TabIndex = 13;
+            this.lbKHopLeNgay.Text = "Không hợp lệ!";
+            this.lbKHopLeNgay.Visible = false;
+            // 
+            // lbGioiHanCV
+            // 
+            this.lbGioiHanCV.AutoSize = true;
+            this.lbGioiHanCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanCV.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbGioiHanCV.Location = new System.Drawing.Point(156, 97);
+            this.lbGioiHanCV.Name = "lbGioiHanCV";
+            this.lbGioiHanCV.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.lbGioiHanCV.Size = new System.Drawing.Size(165, 25);
+            this.lbGioiHanCV.TabIndex = 12;
+            this.lbGioiHanCV.Text = "Không quá 50 kí tự.";
+            this.lbGioiHanCV.Visible = false;
+            // 
             // lbLapLai
             // 
             this.lbLapLai.AutoSize = true;
@@ -307,8 +344,8 @@
             this.panel9.Controls.Add(this.label7);
             this.panel9.Controls.Add(this.label9);
             this.panel9.Controls.Add(this.label10);
-            this.panel9.Controls.Add(this.numericUpDown1);
-            this.panel9.Controls.Add(this.numericUpDown2);
+            this.panel9.Controls.Add(this.nudH2);
+            this.panel9.Controls.Add(this.nudM2);
             this.panel9.Location = new System.Drawing.Point(463, 280);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(320, 73);
@@ -347,36 +384,36 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "m";
             // 
-            // numericUpDown1
+            // nudH2
             // 
-            this.numericUpDown1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.numericUpDown1.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDown1.Location = new System.Drawing.Point(152, 19);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudH2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.nudH2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudH2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudH2.ForeColor = System.Drawing.Color.Black;
+            this.nudH2.Location = new System.Drawing.Point(152, 19);
+            this.nudH2.Maximum = new decimal(new int[] {
             23,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(50, 30);
-            this.numericUpDown1.TabIndex = 6;
+            this.nudH2.Name = "nudH2";
+            this.nudH2.Size = new System.Drawing.Size(50, 30);
+            this.nudH2.TabIndex = 6;
             // 
-            // numericUpDown2
+            // nudM2
             // 
-            this.numericUpDown2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.numericUpDown2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.numericUpDown2.Location = new System.Drawing.Point(233, 18);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.nudM2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.nudM2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudM2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudM2.Location = new System.Drawing.Point(233, 18);
+            this.nudM2.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(50, 30);
-            this.numericUpDown2.TabIndex = 6;
+            this.nudM2.Name = "nudM2";
+            this.nudM2.Size = new System.Drawing.Size(50, 30);
+            this.nudM2.TabIndex = 6;
             // 
             // btnThayDoi1
             // 
@@ -467,8 +504,8 @@
             this.panel8.Controls.Add(this.label3);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.label5);
-            this.panel8.Controls.Add(this.nudH);
-            this.panel8.Controls.Add(this.nudM);
+            this.panel8.Controls.Add(this.nudH1);
+            this.panel8.Controls.Add(this.nudM1);
             this.panel8.Location = new System.Drawing.Point(463, 133);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(320, 73);
@@ -507,37 +544,37 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "m";
             // 
-            // nudH
+            // nudH1
             // 
-            this.nudH.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.nudH.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.nudH.ForeColor = System.Drawing.Color.Black;
-            this.nudH.Location = new System.Drawing.Point(150, 19);
-            this.nudH.Maximum = new decimal(new int[] {
+            this.nudH1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.nudH1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudH1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudH1.ForeColor = System.Drawing.Color.Black;
+            this.nudH1.Location = new System.Drawing.Point(150, 19);
+            this.nudH1.Maximum = new decimal(new int[] {
             23,
             0,
             0,
             0});
-            this.nudH.Name = "nudH";
-            this.nudH.Size = new System.Drawing.Size(50, 30);
-            this.nudH.TabIndex = 6;
+            this.nudH1.Name = "nudH1";
+            this.nudH1.Size = new System.Drawing.Size(50, 30);
+            this.nudH1.TabIndex = 6;
             // 
-            // nudM
+            // nudM1
             // 
-            this.nudM.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.nudM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.nudM.ForeColor = System.Drawing.Color.Black;
-            this.nudM.Location = new System.Drawing.Point(231, 18);
-            this.nudM.Maximum = new decimal(new int[] {
+            this.nudM1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.nudM1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudM1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudM1.ForeColor = System.Drawing.Color.Black;
+            this.nudM1.Location = new System.Drawing.Point(231, 18);
+            this.nudM1.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.nudM.Name = "nudM";
-            this.nudM.Size = new System.Drawing.Size(50, 30);
-            this.nudM.TabIndex = 6;
+            this.nudM1.Name = "nudM1";
+            this.nudM1.Size = new System.Drawing.Size(50, 30);
+            this.nudM1.TabIndex = 6;
             // 
             // panel2
             // 
@@ -561,46 +598,9 @@
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(1067, 78);
             this.btnLuu.TabIndex = 2;
-            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Text = "Tạo mới";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // lbKHopLeNgay
-            // 
-            this.lbKHopLeNgay.AutoSize = true;
-            this.lbKHopLeNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbKHopLeNgay.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbKHopLeNgay.Location = new System.Drawing.Point(78, 360);
-            this.lbKHopLeNgay.Name = "lbKHopLeNgay";
-            this.lbKHopLeNgay.Size = new System.Drawing.Size(111, 20);
-            this.lbKHopLeNgay.TabIndex = 13;
-            this.lbKHopLeNgay.Text = "Không hợp lệ!";
-            this.lbKHopLeNgay.Visible = false;
-            // 
-            // lbKHopLeGio
-            // 
-            this.lbKHopLeGio.AutoSize = true;
-            this.lbKHopLeGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbKHopLeGio.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbKHopLeGio.Location = new System.Drawing.Point(459, 360);
-            this.lbKHopLeGio.Name = "lbKHopLeGio";
-            this.lbKHopLeGio.Size = new System.Drawing.Size(111, 20);
-            this.lbKHopLeGio.TabIndex = 13;
-            this.lbKHopLeGio.Text = "Không hợp lệ!";
-            this.lbKHopLeGio.Visible = false;
-            // 
-            // lbGioiHanCV
-            // 
-            this.lbGioiHanCV.AutoSize = true;
-            this.lbGioiHanCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbGioiHanCV.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbGioiHanCV.Location = new System.Drawing.Point(156, 97);
-            this.lbGioiHanCV.Name = "lbGioiHanCV";
-            this.lbGioiHanCV.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.lbGioiHanCV.Size = new System.Drawing.Size(165, 25);
-            this.lbGioiHanCV.TabIndex = 12;
-            this.lbGioiHanCV.Text = "Không quá 50 kí tự.";
-            this.lbGioiHanCV.Visible = false;
             // 
             // fAddJob
             // 
@@ -625,14 +625,14 @@
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudH2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudM2)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudH1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudM1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -656,14 +656,14 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lbNgayBatDau;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown nudM;
-        private System.Windows.Forms.NumericUpDown nudH;
+        private System.Windows.Forms.NumericUpDown nudM1;
+        private System.Windows.Forms.NumericUpDown nudH1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudM2;
+        private System.Windows.Forms.NumericUpDown nudH2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbNgayKetThuc;
