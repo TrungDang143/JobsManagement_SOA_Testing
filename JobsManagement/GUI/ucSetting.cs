@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,66 +15,112 @@ namespace JobsManagement.GUI
 {
     public partial class ucSetting : UserControl
     {
-        public ucSetting()
+        private TaiKhoan loginAccount;
+
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+        public ucSetting(TaiKhoan loginAcc)
         {
             InitializeComponent();
+            LoginAccount = loginAcc;
+            loadInfor(loginAcc);
 
         }
+        
+        bool isONkd;
+        bool isONdn;
+        bool isONnn;
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void  loadInfor(TaiKhoan loginAcc)
         {
+            if (loginAcc.IsAD)
+            {
+                btnAD.Visible = true;
+                panel15.Visible = true;
+                pictureBox2.Image = Properties.Resources.icon_adminFix;
+                lbTDN.ForeColor = Color.Gold;
+                lbTHT.ForeColor = Color.Gold;
+            }
+            lbTDN.Text = loginAcc.TenDN;
+            lbTHT.Text = loginAcc.TenHT;
+            
+            isONdn = loginAcc.GhiNho;
+            isONkd = loginAcc.KhoiDong;
+            isONnn = loginAcc.NhacNho;
+            
+            switchNhacNho( isONnn);
+            switchKhoiDong( isONkd);
+            switchGhiNho( isONdn);
 
+            //decimal i = 10;
+            //nudH.Value = i;
+
+            //System.Drawing.Point point = loginAccount.TgNN;
+            //nudH.Value = (int)point.X;
+            //nudM.Value = (int)point.Y;
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
+        #region cai dat he thong
 
-        }
-
-        bool isONkd = true;
-        private void switchKD_Click(object sender, EventArgs e)
+        private void switchKhoiDong(bool isONkd)
         {
-            if (isONkd)
+            if (!isONkd)
             {
                 switchKD.Image = global::JobsManagement.Properties.Resources.switch_off64;
-                isONkd = false;
             }
             else
             {
                 switchKD.Image = Properties.Resources.switch_on64;
-                isONkd = true ;
             }
         }
-
-        bool isONdn = true;
-        private void switchDN_Click(object sender, EventArgs e)
+        private void switchGhiNho(bool isONdn)
         {
-            if (isONdn)
+            if (!isONdn)
             {
                 switchDN.Image = global::JobsManagement.Properties.Resources.switch_off64;
-                isONdn = false;
             }
             else
             {
                 switchDN.Image = Properties.Resources.switch_on64;
-                isONdn = true;
             }
         }
-
-        bool isONnn = true;
-        private void switchNN_Click(object sender, EventArgs e)
+        private void switchNhacNho(bool isONnn)
         {
-            if (isONnn)
+            if (!isONnn)
             {
                 switchNN.Image = global::JobsManagement.Properties.Resources.switch_off64;
-                isONnn = false;
             }
             else
             {
                 switchNN.Image = Properties.Resources.switch_on64;
-                isONnn = true;
             }
             thongBao(isONnn);
+        }
+        private void switchKD_Click(object sender, EventArgs e)
+        {
+            isONkd = !isONkd;
+            LoginAccount.KhoiDong = isONdn;
+            switchKhoiDong(isONkd);
+            TaiKhoanDAO.Instance.setKhoiDong(LoginAccount.TenDN, isONkd);
+        }
+
+        private void switchDN_Click(object sender, EventArgs e)
+        {
+            isONdn = !isONdn;
+            LoginAccount.GhiNho = isONdn;
+            switchGhiNho(isONdn);
+            TaiKhoanDAO.Instance.setGhiNho(LoginAccount.TenDN, isONdn);
+        }
+
+        private void switchNN_Click(object sender, EventArgs e)
+        {
+            isONnn = !isONnn;
+            LoginAccount.NhacNho = isONnn;
+            switchNhacNho(isONnn);
+            TaiKhoanDAO.Instance.setNhacNho(LoginAccount.TenDN, isONnn);
         }
 
         private void thongBao(bool isON)
@@ -95,11 +143,7 @@ namespace JobsManagement.GUI
             }
         }
 
-        private void txbTHT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        #endregion
         private void pnlThayDoi_Paint(object sender, PaintEventArgs e)
         {
 
@@ -128,6 +172,7 @@ namespace JobsManagement.GUI
         {
             pnlChucNang.Controls.Clear();
             pnlChucNang.Visible = true;
+
             ucXoaTK ucXoaTK= new ucXoaTK();
             pnlChucNang.Controls.Add(ucXoaTK);
         }
@@ -138,6 +183,18 @@ namespace JobsManagement.GUI
             pnlChucNang.Visible = true;
             ucAD ucAD= new ucAD();
             pnlChucNang.Controls.Add(ucAD);
+        }
+
+        private void nudH_ValueChanged(object sender, EventArgs e)
+        {
+            Point p = new Point((int)nudH.Value, (int)nudM.Value);
+            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN,p );
+        }
+
+        private void nudM_ValueChanged(object sender, EventArgs e)
+        {
+            Point p = new Point((int)nudH.Value, (int)nudM.Value);
+            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, p);
         }
     }
 }

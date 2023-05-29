@@ -1,4 +1,5 @@
 ﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,28 +15,25 @@ namespace JobsManagement
 {
     public partial class ucHome : UserControl
     {
-        public ucHome()
+        private TaiKhoan loginAccount;
+
+        public TaiKhoan LoginAccount { get => loginAccount; private set => loginAccount = value; }
+
+        public ucHome(TaiKhoan loginAcc)
         {
             InitializeComponent();
-            loadCV();
+            this.LoginAccount = loginAcc;
+            loadCV(loginAccount);
         }
 
-        private void loadCV()
+        private void loadCV(TaiKhoan loginAcc)
         {
+
+            //load công việc theo loginAcc
+            
+
             dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
-            try
-            {
-                bool kq = DAO.DataProvider.truyVanKTraVe("insert into cauhoibaomat values(N'Nơi đầu tiên bạn gặp ny minh')");
-
-            }
-            catch {
-                //MessageBox.Show("loi");
-            }
-            //DataTable dt = DAO.DataProvider.truyVanCoKetQua("select * from cauhoibaomat");
-            dgv.DataSource = DAO.DataProvider.truyVanCoKetQua("select * from cauhoibaomat");
-
-            //MessageBox.Show(dt.Rows.Count.ToString());
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.ForeColor = Color.Black;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
@@ -43,11 +41,9 @@ namespace JobsManagement
 
             //dgv.Columns["id"].Width = 500;
             //dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
-
-            //btnNgay.BackColor = Color.FromArgb(37, 42, 64);
         }
 
-        #region high light
+        #region highlight and function
 
         void resetHL()//37, 42, 64
         {
@@ -76,7 +72,7 @@ namespace JobsManagement
 
             //mainForm.showBlurForm();
 
-            fAddJob f = new fAddJob(dtpk.Value, -1);
+            fAddJob f = new fAddJob(dtpk.Value, -1,loginAccount);
             f.ShowDialog();
 
             //mainForm.closeBlurForm();

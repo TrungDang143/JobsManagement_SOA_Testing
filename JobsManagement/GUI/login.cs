@@ -1,4 +1,5 @@
 ﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
 using JobsManagement.GUI;
 using System;
 using System.Collections.Generic;
@@ -29,10 +30,13 @@ namespace JobsManagement
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
         }
 
-        public void reset()
+        public void reset(TaiKhoan loginAcc)
         {
-            txbPassword.Text = string.Empty;
-            txbUsername.Text = string.Empty;    
+            if(!loginAcc.GhiNho)
+            {
+                txbPassword.Text = string.Empty;
+                txbUsername.Text = string.Empty;    
+            }    
             //  
         }
 
@@ -87,18 +91,20 @@ namespace JobsManagement
                 //int code = Convert.ToInt32(kq);
                 bool code = false;
 
-                code = TaiKhoanDAO.login(txbUsername.Text, txbPassword.Text);
+                code = TaiKhoanDAO.Instance.login(txbUsername.Text, txbPassword.Text);
 
                 if (code)
                 {
                     MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                    mainUI m = new mainUI(txbUsername.Text);
+
+                    TaiKhoan loginAcc = DAO.TaiKhoanDAO.Instance.CurrentAcc(txbUsername.Text);
+
+                    mainUI m = new mainUI(loginAcc);
                     this.Hide();
                     m.ShowDialog();
                     if (!m.isClose)
                     {
-                        reset();
+                        reset(loginAcc);
                         this.Show();
                     }
                 }
@@ -121,15 +127,6 @@ namespace JobsManagement
                 reset();
                 this.Show();
             }*/
-        }
-        private void txtUser_MouseClick(object sender, MouseEventArgs e)
-        {
-            txbUsername.SelectAll();
-        }
-
-        private void txtPass_MouseClick(object sender, MouseEventArgs e)
-        {
-            txbPassword.SelectAll();
         }
 
         private bool isMat1 = false;

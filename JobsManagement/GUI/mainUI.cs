@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,21 +24,32 @@ namespace JobsManagement
         public DateTime dateOfdtpk = DateTime.Now;
         public bool isClose = true;
 
-        public mainUI(string tenDN)
+        private TaiKhoan loginAccount;
+
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+
+        public mainUI(TaiKhoan loginAcc)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            phanLoaiUser(tenDN);
+            
+            this.LoginAccount = loginAcc;
+            
+            phanLoaiUser(loginAcc);
         }
 
-        private void phanLoaiUser(string tenDN)
+        private void phanLoaiUser(TaiKhoan loginAcc)
         {
-            lbUserName.Text = TaiKhoanDAO.getUserName(tenDN);
+            lbUserName.Text = loginAcc.TenHT;
             int vt = (253 - lbUserName.Size.Width)/2;
             lbUserName.Location = new Point(vt,198);
 
-            bool isAD = TaiKhoanDAO.isAdmin(tenDN);
+            bool isAD = loginAcc.IsAD;
             if (isAD)
             {
                 pictureBox1.Image = Properties.Resources.icon_adminFix;
@@ -90,7 +102,7 @@ namespace JobsManagement
             resetSelect();
             pnlHighLight1.Visible = true;
 
-            ucHome ucHome = new ucHome();
+            ucHome ucHome = new ucHome(loginAccount);
 
             pnlContent.Controls.Add(ucHome);
             btnHome.BackColor = Color.FromArgb(63, 68, 97);
@@ -101,7 +113,7 @@ namespace JobsManagement
             resetSelect();
             pnlHighLight2.Visible = true;
             
-            ucCalendar ucCalendar = new ucCalendar();
+            ucCalendar ucCalendar = new ucCalendar(LoginAccount);
             pnlContent.Controls.Add(ucCalendar);
             btnCalendar.BackColor = Color.FromArgb(63, 68, 97);
             lbTitle.Text = "Lịch";
@@ -123,7 +135,7 @@ namespace JobsManagement
             resetSelect();
             pnlHighLight4.Visible = true;
 
-            ucSetting ucSetting = new ucSetting();
+            ucSetting ucSetting = new ucSetting(loginAccount);
             pnlContent.Controls.Add(ucSetting);
 
             pnlContent.AutoScroll = false;

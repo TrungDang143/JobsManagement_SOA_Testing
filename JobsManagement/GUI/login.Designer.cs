@@ -72,7 +72,7 @@
             this.btnDN.Location = new System.Drawing.Point(0, 0);
             this.btnDN.Name = "btnDN";
             this.btnDN.Size = new System.Drawing.Size(496, 86);
-            this.btnDN.TabIndex = 4;
+            this.btnDN.TabIndex = 0;
             this.btnDN.Text = "Đăng nhập ";
             this.btnDN.UseVisualStyleBackColor = false;
             this.btnDN.Click += new System.EventHandler(this.btnDN_Click);
@@ -116,7 +116,7 @@
             this.linkDangKy.Location = new System.Drawing.Point(33, 429);
             this.linkDangKy.Name = "linkDangKy";
             this.linkDangKy.Size = new System.Drawing.Size(106, 29);
-            this.linkDangKy.TabIndex = 2;
+            this.linkDangKy.TabIndex = 4;
             this.linkDangKy.TabStop = true;
             this.linkDangKy.Text = "Đăng ký";
             this.linkDangKy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDangKy_LinkClicked);
@@ -130,7 +130,7 @@
             this.linkQuenMK.Location = new System.Drawing.Point(273, 429);
             this.linkQuenMK.Name = "linkQuenMK";
             this.linkQuenMK.Size = new System.Drawing.Size(200, 29);
-            this.linkQuenMK.TabIndex = 3;
+            this.linkQuenMK.TabIndex = 5;
             this.linkQuenMK.TabStop = true;
             this.linkQuenMK.Text = "Quên mật khẩu?";
             this.linkQuenMK.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkQuenMK_LinkClicked);
@@ -173,7 +173,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 489);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(500, 5);
-            this.panel3.TabIndex = 14;
+            this.panel3.TabIndex = 0;
             // 
             // panel4
             // 
@@ -217,7 +217,7 @@
             this.panel5.Location = new System.Drawing.Point(38, 333);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(421, 69);
-            this.panel5.TabIndex = 17;
+            this.panel5.TabIndex = 2;
             // 
             // mat1
             // 
@@ -283,7 +283,7 @@
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label1.Size = new System.Drawing.Size(162, 41);
-            this.label1.TabIndex = 20;
+            this.label1.TabIndex = 2;
             this.label1.Text = "Xin chào!";
             // 
             // fLogin

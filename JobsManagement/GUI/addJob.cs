@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsManagement.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,20 @@ namespace JobsManagement
 {
     public partial class fAddJob : Form
     {
-        public fAddJob(DateTime ngayThangNam, int lapLai)
+        private TaiKhoan loginAccount;
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+        public fAddJob(DateTime ngayThangNam, int lapLai, TaiKhoan loginAcc)
         {
             InitializeComponent();
             load(lapLai);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             dtpk.Value = ngayThangNam;
+            this.LoginAccount = loginAcc;
         }
 
         #region title bar
@@ -136,6 +144,7 @@ namespace JobsManagement
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            //luu cong viec
             if(ucLL.check())
             {
                 MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
