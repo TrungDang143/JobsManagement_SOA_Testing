@@ -54,7 +54,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logoFinal.ico</ApplicationIcon>
+    <ApplicationIcon>logoTo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -75,7 +75,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AccDAO.cs" />
+    <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\BoForm.cs" />
     <Compile Include="DAO\CauHoiBaoMatDAO.cs" />
     <Compile Include="DAO\CongViecADO.cs" />
@@ -84,14 +84,17 @@
     <Compile Include="DAO\timeOfDtpk.cs" />
     <Compile Include="DAO\TitleBar.cs" />
     <Compile Include="DAO\TrangThaiDAO.cs" />
-    <Compile Include="DTO\Acc.cs" />
+    <Compile Include="DTO\CHBM.cs" />
+    <Compile Include="DTO\CongViec.cs" />
+    <Compile Include="DTO\LapLai.cs" />
+    <Compile Include="DTO\TaiKhoan.cs" />
+    <Compile Include="DTO\TrangThai.cs" />
     <Compile Include="GUI\addJob.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\addJob.Designer.cs">
       <DependentUpon>addJob.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAO\connectDB.cs" />
     <Compile Include="GUI\fForgot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +293,9 @@
     <None Include="image\logoFinal.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="image\rsz_icons8-dot-30.png" />
+    <None Include="image\icon_adminFix.png" />
+    <Content Include="logoTo.ico" />
     <None Include="image\icons8-multiply-50.png" />
     <None Include="image\icons8-tick-50.png" />
     <None Include="image\icons8-close-eye-32.png" />

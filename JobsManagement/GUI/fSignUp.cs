@@ -1,4 +1,5 @@
 ﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,23 +22,10 @@ namespace JobsManagement
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-            loadCBB();
+            
+            CauHoiBaoMatDAO.loadCHBM(cbb);
         }
 
-        private void loadCBB()
-        {
-            DataTable dt = new DataTable();
-            connectDB conn = new connectDB();
-            conn.openConn();
-            dt = conn.truyVan("select * from CauHoiBaoMat");
-            conn.closeConn();
-
-
-            for (int i = dt.Rows.Count - 1; i >= 0; i--)
-            {
-                cbb.Items.Add(dt.Rows[i][0].ToString());
-            }
-        }
         #region title bar
 
         private void icoMinus_Click(object sender, EventArgs e)
@@ -102,6 +90,7 @@ namespace JobsManagement
 
         #endregion
 
+        #region trang tri
         private bool isMat1 = false;
         private bool isMat2 = false;
         private void mat1_Click(object sender, EventArgs e)
@@ -131,7 +120,7 @@ namespace JobsManagement
                 pictureBox1.Image = Properties.Resources.icons8_close_eye_32;
                 isMat2 = false;
             }
-            txbXNMK.UseSystemPasswordChar = !txbMK.UseSystemPasswordChar;
+            txbXNMK.UseSystemPasswordChar = !txbXNMK.UseSystemPasswordChar;
         }
 
 
@@ -194,6 +183,7 @@ namespace JobsManagement
                 lbGioiHanTL.Visible = false;
             }
         }
+        #endregion
 
         public bool KiemTraThongTin()
         {
@@ -231,7 +221,7 @@ namespace JobsManagement
                 try
                 {
                     SqlConnection conn = new SqlConnection();
-                    conn.ConnectionString = @"Data Source=HANDSOME-OWNER\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
+                    conn.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
                     SqlCommand cmd = new SqlCommand();
 
                     cmd.CommandText = "SP_ThemTaiKhoan";

@@ -254,13 +254,14 @@
             this.txbMK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbMK.ForeColor = System.Drawing.Color.White;
-            this.txbMK.Location = new System.Drawing.Point(18, 14);
+            this.txbMK.Location = new System.Drawing.Point(18, 12);
             this.txbMK.MaxLength = 19;
             this.txbMK.Multiline = true;
             this.txbMK.Name = "txbMK";
             this.txbMK.PasswordChar = '●';
-            this.txbMK.Size = new System.Drawing.Size(361, 28);
+            this.txbMK.Size = new System.Drawing.Size(361, 38);
             this.txbMK.TabIndex = 2;
+            this.txbMK.Text = "gggg";
             this.txbMK.WordWrap = false;
             this.txbMK.Click += new System.EventHandler(this.txbMK_Click);
             this.txbMK.TextChanged += new System.EventHandler(this.txbMK_TextChanged);
@@ -293,12 +294,12 @@
             this.txbXNMK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbXNMK.ForeColor = System.Drawing.Color.White;
-            this.txbXNMK.Location = new System.Drawing.Point(18, 14);
+            this.txbXNMK.Location = new System.Drawing.Point(18, 9);
             this.txbXNMK.MaxLength = 19;
             this.txbXNMK.Multiline = true;
             this.txbXNMK.Name = "txbXNMK";
             this.txbXNMK.PasswordChar = '●';
-            this.txbXNMK.Size = new System.Drawing.Size(361, 28);
+            this.txbXNMK.Size = new System.Drawing.Size(361, 41);
             this.txbXNMK.TabIndex = 3;
             this.txbXNMK.WordWrap = false;
             this.txbXNMK.Click += new System.EventHandler(this.txbXNMK_Click);
@@ -315,8 +316,8 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel10.Controls.Add(this.txbTraLoi);
             this.panel10.Controls.Add(this.HLtraLoi);
+            this.panel10.Controls.Add(this.txbTraLoi);
             this.panel10.Location = new System.Drawing.Point(499, 286);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(382, 49);
@@ -329,11 +330,11 @@
             this.txbTraLoi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTraLoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTraLoi.ForeColor = System.Drawing.Color.White;
-            this.txbTraLoi.Location = new System.Drawing.Point(18, 14);
+            this.txbTraLoi.Location = new System.Drawing.Point(18, 8);
             this.txbTraLoi.MaxLength = 29;
             this.txbTraLoi.Multiline = true;
             this.txbTraLoi.Name = "txbTraLoi";
-            this.txbTraLoi.Size = new System.Drawing.Size(361, 28);
+            this.txbTraLoi.Size = new System.Drawing.Size(361, 40);
             this.txbTraLoi.TabIndex = 6;
             this.txbTraLoi.WordWrap = false;
             this.txbTraLoi.Click += new System.EventHandler(this.txbTraLoi_Click);
@@ -371,11 +372,11 @@
             this.txbTen.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTen.ForeColor = System.Drawing.Color.White;
-            this.txbTen.Location = new System.Drawing.Point(18, 14);
+            this.txbTen.Location = new System.Drawing.Point(18, 10);
             this.txbTen.MaxLength = 29;
             this.txbTen.Multiline = true;
             this.txbTen.Name = "txbTen";
-            this.txbTen.Size = new System.Drawing.Size(361, 28);
+            this.txbTen.Size = new System.Drawing.Size(361, 40);
             this.txbTen.TabIndex = 4;
             this.txbTen.WordWrap = false;
             this.txbTen.Click += new System.EventHandler(this.txbTen_Click);
@@ -514,12 +515,13 @@
             this.txbTK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTK.ForeColor = System.Drawing.Color.White;
-            this.txbTK.Location = new System.Drawing.Point(18, 14);
+            this.txbTK.Location = new System.Drawing.Point(18, 10);
             this.txbTK.MaxLength = 19;
             this.txbTK.Multiline = true;
             this.txbTK.Name = "txbTK";
-            this.txbTK.Size = new System.Drawing.Size(361, 28);
+            this.txbTK.Size = new System.Drawing.Size(361, 36);
             this.txbTK.TabIndex = 1;
+            this.txbTK.Text = "gggg";
             this.txbTK.WordWrap = false;
             this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
             this.txbTK.TextChanged += new System.EventHandler(this.txbTK_TextChanged);

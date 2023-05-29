@@ -44,8 +44,8 @@
             this.iconCopy = new System.Windows.Forms.PictureBox();
             this.HLchbm = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.tcbCHBM = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txbCHBM = new System.Windows.Forms.TextBox();
+            this.lbCHBM = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnXN = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -210,38 +210,38 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel4.Controls.Add(this.tcbCHBM);
+            this.panel4.Controls.Add(this.txbCHBM);
             this.panel4.Location = new System.Drawing.Point(59, 252);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(377, 49);
             this.panel4.TabIndex = 25;
             // 
-            // tcbCHBM
+            // txbCHBM
             // 
-            this.tcbCHBM.AcceptsTab = true;
-            this.tcbCHBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.tcbCHBM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tcbCHBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcbCHBM.ForeColor = System.Drawing.Color.White;
-            this.tcbCHBM.Location = new System.Drawing.Point(18, 14);
-            this.tcbCHBM.MaxLength = 19;
-            this.tcbCHBM.Multiline = true;
-            this.tcbCHBM.Name = "tcbCHBM";
-            this.tcbCHBM.Size = new System.Drawing.Size(341, 28);
-            this.tcbCHBM.TabIndex = 4;
-            this.tcbCHBM.Click += new System.EventHandler(this.tcbCHBM_Click);
+            this.txbCHBM.AcceptsTab = true;
+            this.txbCHBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.txbCHBM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbCHBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbCHBM.ForeColor = System.Drawing.Color.White;
+            this.txbCHBM.Location = new System.Drawing.Point(18, 14);
+            this.txbCHBM.MaxLength = 19;
+            this.txbCHBM.Multiline = true;
+            this.txbCHBM.Name = "txbCHBM";
+            this.txbCHBM.Size = new System.Drawing.Size(341, 28);
+            this.txbCHBM.TabIndex = 4;
+            this.txbCHBM.Click += new System.EventHandler(this.tcbCHBM_Click);
             // 
-            // label3
+            // lbCHBM
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(54, 218);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.label3.Size = new System.Drawing.Size(183, 30);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Câu hỏi bảo mật: ";
+            this.lbCHBM.AutoSize = true;
+            this.lbCHBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbCHBM.ForeColor = System.Drawing.Color.White;
+            this.lbCHBM.Location = new System.Drawing.Point(54, 218);
+            this.lbCHBM.Name = "lbCHBM";
+            this.lbCHBM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lbCHBM.Size = new System.Drawing.Size(183, 30);
+            this.lbCHBM.TabIndex = 24;
+            this.lbCHBM.Text = "Câu hỏi bảo mật: ";
             // 
             // panel12
             // 
@@ -285,7 +285,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.HLchbm);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbCHBM);
             this.Controls.Add(this.iconCopy);
             this.Controls.Add(this.HLtenTK);
             this.Controls.Add(this.panel14);
@@ -331,8 +331,8 @@
         private System.Windows.Forms.PictureBox iconCopy;
         private System.Windows.Forms.Panel HLchbm;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox tcbCHBM;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txbCHBM;
+        private System.Windows.Forms.Label lbCHBM;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button btnXN;
         private System.Windows.Forms.Panel panel2;

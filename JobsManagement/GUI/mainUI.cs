@@ -1,15 +1,20 @@
-﻿using JobsManagement.GUI;
+﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
+using JobsManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 using System.Windows.Media.Effects;
+using Color = System.Drawing.Color;
 
 namespace JobsManagement
 {
@@ -17,11 +22,27 @@ namespace JobsManagement
     {
         public DateTime dateOfdtpk = DateTime.Now;
         public bool isClose = true;
-        public mainUI()
+
+        public mainUI(string tenDN)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            phanLoaiUser(tenDN);
+        }
+
+        private void phanLoaiUser(string tenDN)
+        {
+            lbUserName.Text = TaiKhoanDAO.getUserName(tenDN);
+            int vt = (253 - lbUserName.Size.Width)/2;
+            lbUserName.Location = new Point(vt,198);
+
+            bool isAD = TaiKhoanDAO.isAdmin(tenDN);
+            if (isAD)
+            {
+                pictureBox1.Image = Properties.Resources.icon_adminFix;
+                lbUserName.ForeColor = Color.Gold;
+            }
         }
 
         #region new title bar
@@ -57,10 +78,10 @@ namespace JobsManagement
             pnlHighLight2.Visible = false;
             pnlHighLight3.Visible = false;
             pnlHighLight4.Visible = false;
-            btnHome.BackColor = Color.FromArgb(24, 30, 54);
-            btnCalendar.BackColor = Color.FromArgb(24, 30, 54);
-            btnTK.BackColor = Color.FromArgb(24, 30, 54);
-            btnSetting.BackColor = Color.FromArgb(24, 30, 54);
+            btnHome.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            btnCalendar.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            btnTK.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            btnSetting.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
             pnlContent.Controls.Clear();
         }
         public void btnHome_Click(object sender, EventArgs e)
@@ -161,8 +182,6 @@ namespace JobsManagement
                 btnTK.BackColor = Color.FromArgb(24, 30, 54);
             }
         }
-
-
         private void btnSetting_MouseLeave(object sender, EventArgs e)
         {
             if (string.Compare(lbTitle.Text, "Cài đặt", true) != 0)
@@ -177,5 +196,21 @@ namespace JobsManagement
         {
             if(isClose) { Application.Exit(); }
         }
+
+        public void showBlurForm()
+        {
+            //Form blurF = new Form();
+            //blurF.Size = new Size(1408, 800);
+            ////blurF.Location = located;
+            //blurF.StartPosition = FormStartPosition.CenterParent;
+            //blurF.Opacity = 0.9;
+            //blurF.Show();
+        }
+        public void closeBlurForm()
+        {
+            //blurF.Close();
+            //blurF = null;
+        }
+
     }
 }

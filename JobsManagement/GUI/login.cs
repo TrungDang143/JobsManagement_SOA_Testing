@@ -1,4 +1,5 @@
-﻿using JobsManagement.GUI;
+﻿using JobsManagement.DAO;
+using JobsManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,13 +72,8 @@ namespace JobsManagement
 
         private void btnDN_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection();
             try
             {
-
-                conn.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
-                conn.Open();
-
                 //SqlCommand cmd = new SqlCommand();
                 //cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.CommandText = "SP_AuthorizationLogin";
@@ -85,15 +81,19 @@ namespace JobsManagement
                 //cmd.Parameters.AddWithValue("@PassWord", txbPassword.Text);
                 //cmd.Connection = conn;
 
+
                 //UserName = txbUsername.Text;
                 //object kq = cmd.ExecuteScalar();
                 //int code = Convert.ToInt32(kq);
-                int code = 0;
-                if (code == 0)
+                bool code = false;
+
+                code = TaiKhoanDAO.login(txbUsername.Text, txbPassword.Text);
+
+                if (code)
                 {
                     MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
-                    mainUI m = new mainUI();
+                    mainUI m = new mainUI(txbUsername.Text);
                     this.Hide();
                     m.ShowDialog();
                     if (!m.isClose)
@@ -102,15 +102,14 @@ namespace JobsManagement
                         this.Show();
                     }
                 }
-                else if (code == 1)
+                else
                 {
                     MessageBox.Show("Tài khoản không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
 
             }
             /*mainF = new mainUI();
@@ -147,6 +146,11 @@ namespace JobsManagement
                 isMat1 = false;
             }
             txbPassword.UseSystemPasswordChar = !txbPassword.UseSystemPasswordChar;
+        }
+
+        private void txbUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

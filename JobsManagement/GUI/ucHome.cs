@@ -24,10 +24,18 @@ namespace JobsManagement
         {
             dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
-            connectDB conn = new connectDB();
-            conn.openConn();
+            try
+            {
+                bool kq = DAO.DataProvider.truyVanKTraVe("insert into cauhoibaomat values(N'Nơi đầu tiên bạn gặp ny minh')");
 
-            dgv.DataSource = conn.truyVan("select * from cauhoibaomat");
+            }
+            catch {
+                //MessageBox.Show("loi");
+            }
+            //DataTable dt = DAO.DataProvider.truyVanCoKetQua("select * from cauhoibaomat");
+            dgv.DataSource = DAO.DataProvider.truyVanCoKetQua("select * from cauhoibaomat");
+
+            //MessageBox.Show(dt.Rows.Count.ToString());
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.ForeColor = Color.Black;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
@@ -35,10 +43,8 @@ namespace JobsManagement
 
             //dgv.Columns["id"].Width = 500;
             //dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
-            
-            conn.closeConn();
 
-            btnNgay.BackColor = Color.FromArgb(37, 42, 64);
+            //btnNgay.BackColor = Color.FromArgb(37, 42, 64);
         }
 
         #region high light
@@ -66,12 +72,14 @@ namespace JobsManagement
             plHL.Left = btnAdd.Left;
             
             Panel mainPanel = this.Parent as Panel;
-            Form mainForm = mainPanel.Parent as Form;
-            //mainForm.Opacity = 0.9;
+            mainUI mainForm = mainPanel.Parent as mainUI;
+
+            //mainForm.showBlurForm();
 
             fAddJob f = new fAddJob(dtpk.Value, -1);
             f.ShowDialog();
 
+            //mainForm.closeBlurForm();
             resetSelect();
         }
 
@@ -104,20 +112,15 @@ namespace JobsManagement
         }
         #endregion
 
-        #region filter
+        #region hieu ung button
         void resetFilter()
         {
-            btnNgay.BackColor = Color.FromArgb(63, 68, 97);
+            btnDaHT.BackColor = Color.FromArgb(63, 68, 97);
+            btnSDR.BackColor = Color.FromArgb(63, 68, 97);
             btnThang.BackColor = Color.FromArgb(63, 68, 97);
             btnTuan.BackColor = Color.FromArgb(63, 68, 97);
 
         }
-        private void btnNgay_Click(object sender, EventArgs e)
-        {
-            resetFilter();
-            btnNgay.BackColor = Color.FromArgb(37, 42, 64);
-        }
-
         private void btnTuan_Click(object sender, EventArgs e)
         {
             resetFilter();
@@ -128,6 +131,17 @@ namespace JobsManagement
         {
             resetFilter();
             btnThang.BackColor = Color.FromArgb(37, 42, 64);
+        }
+        private void btnDaHT_Click(object sender, EventArgs e)
+        {
+            resetFilter();
+            btnDaHT.BackColor = Color.FromArgb(37, 42, 64);
+        }
+
+        private void btnSDR_Click(object sender, EventArgs e)
+        {
+            resetFilter();
+            btnSDR.BackColor = Color.FromArgb(37, 42, 64);
         }
         #endregion
 

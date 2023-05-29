@@ -10,7 +10,7 @@ create table CauHoiBaoMat
 )
 go
 
-create table Acc
+create table TaiKhoan
 (
 	tenDangNhap varchar(20) primary key,
 	matKhau varchar(20) not null,
@@ -51,17 +51,18 @@ create table CongViec
 	ngayKT date not null,
 	trangThai nvarchar(20) foreign key references TrangThai(trangThai),
 	lapLai nvarchar(10) foreign key references LapLai(lapLai),
-	tenDangNhap varchar(20) foreign key references Acc(tenDangNhap)
+	tenDangNhap varchar(20) foreign key references TaiKhoan(tenDangNhap)
 )
 go
 
 
 --cau hoi bao mat
-insert into CauHoiBaoMat values(N'Tên giáo viên bạn quý nhất?')
-insert into CauHoiBaoMat values(N'Tên idol của bạn?')
-insert into CauHoiBaoMat values(N'Tên người yêu của bạn?')
-insert into CauHoiBaoMat values(N'Quê hương bạn ở đâu?')
-insert into CauHoiBaoMat values(N'Số điện thoai của bạn?')
+insert into CauHoiBaoMat values(N'Giáo viên bạn quý nhất?')
+insert into CauHoiBaoMat values(N'Nơi bạn và ny gặp lần đầu?')
+insert into CauHoiBaoMat values(N'Nơi bạn thích đến nhất?')
+insert into CauHoiBaoMat values(N'Kỉ niệm đáng nhớ?')
+insert into CauHoiBaoMat values(N'Biệt danh lúc nhỏ?')
+insert into CauHoiBaoMat values(N'Tên thú cưng đầu tiên?')
 
 --trang thai
 insert into TrangThai values(N'Sắp diễn ra')
@@ -79,10 +80,15 @@ insert into LapLai values(N'T7')
 insert into LapLai values(N'CN')
 insert into LapLai values(N'Hàng ngày')
 
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Admin','1111','ADMIN',N'Kỉ niệm đáng nhớ?','abc', 1)
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('trungdang','1403','TrungDang',N'Kỉ niệm đáng nhớ?','abcd', 0)
 
+--select tenHienThi from taikhoan where tendangnhap ='trungdang'
+select * from TaiKhoan
 --drop database JobsManagement
+delete from TaiKhoan
 /*
-insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','0123456789')
+insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')
 select * from Acc
 
 create proc [dbo].[SP_AuthorizationLogin]
@@ -112,3 +118,4 @@ begin
     Insert into Acc values(@TaiKhoan,@MatKhau,@TenHienThi,@traLoi)
 end
 */
+

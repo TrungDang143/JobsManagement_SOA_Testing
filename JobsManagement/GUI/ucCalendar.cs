@@ -116,6 +116,9 @@ namespace JobsManagement
                 btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                 btn.Text = i.ToString();
                 
+                //btn.Image = Properties.Resources.rsz_icons8_dot_30;
+                //btn.ImageAlign = ContentAlignment.BottomRight;
+
                 if (compareTime(useDate, date))
                 {
                     clearColor();
