@@ -42,13 +42,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.mat1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.HLmk = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.HLtk = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.mat1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
@@ -56,9 +56,9 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mat1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDN
@@ -72,7 +72,7 @@
             this.btnDN.Location = new System.Drawing.Point(0, 0);
             this.btnDN.Name = "btnDN";
             this.btnDN.Size = new System.Drawing.Size(496, 86);
-            this.btnDN.TabIndex = 6;
+            this.btnDN.TabIndex = 4;
             this.btnDN.Text = "Đăng nhập ";
             this.btnDN.UseVisualStyleBackColor = false;
             this.btnDN.Click += new System.EventHandler(this.btnDN_Click);
@@ -89,6 +89,7 @@
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(289, 44);
             this.txbUsername.TabIndex = 0;
+            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
             // 
             // txbPassword
             // 
@@ -102,7 +103,7 @@
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '●';
             this.txbPassword.Size = new System.Drawing.Size(289, 44);
-            this.txbPassword.TabIndex = 2;
+            this.txbPassword.TabIndex = 0;
             this.txbPassword.WordWrap = false;
             // 
             // linkDangKy
@@ -115,7 +116,7 @@
             this.linkDangKy.Location = new System.Drawing.Point(33, 429);
             this.linkDangKy.Name = "linkDangKy";
             this.linkDangKy.Size = new System.Drawing.Size(106, 29);
-            this.linkDangKy.TabIndex = 4;
+            this.linkDangKy.TabIndex = 2;
             this.linkDangKy.TabStop = true;
             this.linkDangKy.Text = "Đăng ký";
             this.linkDangKy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDangKy_LinkClicked);
@@ -129,7 +130,7 @@
             this.linkQuenMK.Location = new System.Drawing.Point(273, 429);
             this.linkQuenMK.Name = "linkQuenMK";
             this.linkQuenMK.Size = new System.Drawing.Size(200, 29);
-            this.linkQuenMK.TabIndex = 5;
+            this.linkQuenMK.TabIndex = 3;
             this.linkQuenMK.TabStop = true;
             this.linkQuenMK.Text = "Quên mật khẩu?";
             this.linkQuenMK.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkQuenMK_LinkClicked);
@@ -218,6 +219,17 @@
             this.panel5.Size = new System.Drawing.Size(421, 69);
             this.panel5.TabIndex = 17;
             // 
+            // mat1
+            // 
+            this.mat1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
+            this.mat1.Location = new System.Drawing.Point(388, 22);
+            this.mat1.Name = "mat1";
+            this.mat1.Size = new System.Drawing.Size(30, 30);
+            this.mat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mat1.TabIndex = 51;
+            this.mat1.TabStop = false;
+            this.mat1.Click += new System.EventHandler(this.mat1_Click);
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
@@ -274,17 +286,6 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Xin chào!";
             // 
-            // mat1
-            // 
-            this.mat1.Image = global::JobsManagement.Properties.Resources.icons8_close_eye_32;
-            this.mat1.Location = new System.Drawing.Point(388, 22);
-            this.mat1.Name = "mat1";
-            this.mat1.Size = new System.Drawing.Size(30, 30);
-            this.mat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.mat1.TabIndex = 51;
-            this.mat1.TabStop = false;
-            this.mat1.Click += new System.EventHandler(this.mat1_Click);
-            // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -318,9 +319,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mat1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

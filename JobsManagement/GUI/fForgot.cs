@@ -62,6 +62,7 @@ namespace JobsManagement
         private void btnXN_Click(object sender, EventArgs e)
         {
             //this.Size = new System.Drawing.Size(527, 534);
+            lbCHBM.Text += "khanh sky";
 
         }
     }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucHome));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -47,18 +47,18 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbTK = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnNgay = new System.Windows.Forms.Button();
             this.btnThang = new System.Windows.Forms.Button();
             this.btnTuan = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnSDR = new System.Windows.Forms.Button();
+            this.btnDaHT = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -145,27 +145,27 @@
             // 
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.GridColor = System.Drawing.Color.RoyalBlue;
             this.dgv.Location = new System.Drawing.Point(0, 0);
@@ -298,67 +298,14 @@
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(695, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tìm kiếm công việc:";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.button1.Location = new System.Drawing.Point(999, 98);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // tbTK
-            // 
-            this.tbTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.tbTK.Location = new System.Drawing.Point(699, 102);
-            this.tbTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbTK.Name = "tbTK";
-            this.tbTK.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbTK.Size = new System.Drawing.Size(294, 30);
-            this.tbTK.TabIndex = 1;
-            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnNgay);
             this.panel2.Controls.Add(this.btnThang);
             this.panel2.Controls.Add(this.btnTuan);
             this.panel2.Location = new System.Drawing.Point(15, 93);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(520, 40);
+            this.panel2.Size = new System.Drawing.Size(356, 40);
             this.panel2.TabIndex = 8;
-            // 
-            // btnNgay
-            // 
-            this.btnNgay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
-            this.btnNgay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnNgay.FlatAppearance.BorderSize = 2;
-            this.btnNgay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNgay.ForeColor = System.Drawing.Color.Turquoise;
-            this.btnNgay.Location = new System.Drawing.Point(0, 0);
-            this.btnNgay.Name = "btnNgay";
-            this.btnNgay.Size = new System.Drawing.Size(170, 40);
-            this.btnNgay.TabIndex = 0;
-            this.btnNgay.Text = "Hôm nay";
-            this.btnNgay.UseVisualStyleBackColor = false;
-            this.btnNgay.Click += new System.EventHandler(this.btnNgay_Click);
             // 
             // btnThang
             // 
@@ -368,7 +315,7 @@
             this.btnThang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnThang.ForeColor = System.Drawing.Color.Turquoise;
-            this.btnThang.Location = new System.Drawing.Point(340, 0);
+            this.btnThang.Location = new System.Drawing.Point(178, 0);
             this.btnThang.Name = "btnThang";
             this.btnThang.Size = new System.Drawing.Size(170, 40);
             this.btnThang.TabIndex = 0;
@@ -384,7 +331,7 @@
             this.btnTuan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTuan.ForeColor = System.Drawing.Color.Turquoise;
-            this.btnTuan.Location = new System.Drawing.Point(170, 0);
+            this.btnTuan.Location = new System.Drawing.Point(8, 0);
             this.btnTuan.Name = "btnTuan";
             this.btnTuan.Size = new System.Drawing.Size(170, 40);
             this.btnTuan.TabIndex = 0;
@@ -392,17 +339,56 @@
             this.btnTuan.UseVisualStyleBackColor = false;
             this.btnTuan.Click += new System.EventHandler(this.btnTuan_Click);
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnSDR);
+            this.panel7.Controls.Add(this.btnDaHT);
+            this.panel7.Location = new System.Drawing.Point(759, 93);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(356, 40);
+            this.panel7.TabIndex = 9;
+            // 
+            // btnSDR
+            // 
+            this.btnSDR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.btnSDR.FlatAppearance.BorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSDR.FlatAppearance.BorderSize = 2;
+            this.btnSDR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSDR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSDR.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSDR.Location = new System.Drawing.Point(178, 0);
+            this.btnSDR.Name = "btnSDR";
+            this.btnSDR.Size = new System.Drawing.Size(170, 40);
+            this.btnSDR.TabIndex = 0;
+            this.btnSDR.Text = "Sắp diễn ra";
+            this.btnSDR.UseVisualStyleBackColor = false;
+            this.btnSDR.Click += new System.EventHandler(this.btnSDR_Click);
+            // 
+            // btnDaHT
+            // 
+            this.btnDaHT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.btnDaHT.FlatAppearance.BorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnDaHT.FlatAppearance.BorderSize = 2;
+            this.btnDaHT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDaHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDaHT.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnDaHT.Location = new System.Drawing.Point(8, 0);
+            this.btnDaHT.Name = "btnDaHT";
+            this.btnDaHT.Size = new System.Drawing.Size(170, 40);
+            this.btnDaHT.TabIndex = 0;
+            this.btnDaHT.Text = "Đã hoàn thành";
+            this.btnDaHT.UseVisualStyleBackColor = false;
+            this.btnDaHT.Click += new System.EventHandler(this.btnDaHT_Click);
+            // 
             // ucHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.tbTK);
             this.Controls.Add(this.panel3);
             this.Name = "ucHome";
             this.Size = new System.Drawing.Size(1130, 686);
@@ -411,8 +397,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -428,17 +414,16 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnRollBack;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbTK;
         private System.Windows.Forms.Panel plHL;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnTuan;
         private System.Windows.Forms.Button btnThang;
-        private System.Windows.Forms.Button btnNgay;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnSDR;
+        private System.Windows.Forms.Button btnDaHT;
     }
 }

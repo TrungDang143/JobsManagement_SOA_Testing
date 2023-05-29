@@ -113,6 +113,16 @@ namespace JobsManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_adminFix {
+            get {
+                object obj = ResourceManager.GetObject("icon_adminFix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_calendar_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-calendar-48", resourceCulture);
@@ -236,6 +246,16 @@ namespace JobsManagement.Properties {
         internal static System.Drawing.Bitmap multipy_icon {
             get {
                 object obj = ResourceManager.GetObject("multipy_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_icons8_dot_30 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_icons8-dot-30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
