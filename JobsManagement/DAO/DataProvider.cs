@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace JobsManagement.DAO
 {
@@ -31,18 +32,24 @@ namespace JobsManagement.DAO
 
         public static bool truyVanKTraVe(string query)
         {
-            bool kq = false; 
-
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            bool kq = false;
+            try
             {
-                conn.Open();
+                DataTable dt = new DataTable();
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
 
-                SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlCommand cmd = new SqlCommand(query, conn);
 
-                if (cmd.ExecuteNonQuery() > 0) kq = true;
+                    if (cmd.ExecuteNonQuery() > 0) kq = true;
 
-                conn.Close();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             return kq;
         }

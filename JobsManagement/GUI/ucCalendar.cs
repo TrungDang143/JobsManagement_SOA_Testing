@@ -1,4 +1,5 @@
 ﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,17 @@ namespace JobsManagement
 {
     public partial class ucCalendar : UserControl
     {
-        public ucCalendar()
+        private TaiKhoan loginAccount;
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+        public ucCalendar(TaiKhoan loginAcc)
         {
             InitializeComponent();
             createMatrix();
+            this.LoginAccount = loginAcc;
             dtpk.Value = timeOfDtpk.TimeSelection;
         }
 
@@ -220,7 +228,7 @@ namespace JobsManagement
                 if (done) break;
             }
 
-            fAddJob f = new fAddJob(time, vt);
+            fAddJob f = new fAddJob(time, vt, loginAccount);
             f.ShowDialog();
         }
         private void Btn_Click(object sender, EventArgs e)
@@ -304,7 +312,7 @@ namespace JobsManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fAddJob f = new fAddJob(dtpk.Value, -1);
+            fAddJob f = new fAddJob(dtpk.Value, -1, loginAccount);
             f.ShowDialog();
         }
     }
