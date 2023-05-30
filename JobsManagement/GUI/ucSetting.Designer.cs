@@ -40,12 +40,14 @@
             this.nudM = new System.Windows.Forms.NumericUpDown();
             this.lbThongBao = new System.Windows.Forms.Label();
             this.switchNN = new System.Windows.Forms.PictureBox();
-            this.switchDN = new System.Windows.Forms.PictureBox();
+            this.switchNNCV = new System.Windows.Forms.PictureBox();
             this.switchKD = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnlAcc = new System.Windows.Forms.Panel();
+            this.lbTHT = new System.Windows.Forms.Label();
+            this.lbTDN = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.btnDX = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -73,14 +75,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lbTDN = new System.Windows.Forms.Label();
-            this.lbTHT = new System.Windows.Forms.Label();
             this.pnlAll.SuspendLayout();
             this.pnlHeThong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchNN)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.switchDN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.switchNNCV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchKD)).BeginInit();
             this.pnlAcc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -143,7 +143,7 @@
             this.pnlHeThong.Controls.Add(this.nudM);
             this.pnlHeThong.Controls.Add(this.lbThongBao);
             this.pnlHeThong.Controls.Add(this.switchNN);
-            this.pnlHeThong.Controls.Add(this.switchDN);
+            this.pnlHeThong.Controls.Add(this.switchNNCV);
             this.pnlHeThong.Controls.Add(this.switchKD);
             this.pnlHeThong.Controls.Add(this.label9);
             this.pnlHeThong.Controls.Add(this.label8);
@@ -223,7 +223,7 @@
             // switchNN
             // 
             this.switchNN.Image = global::JobsManagement.Properties.Resources.switch_on64;
-            this.switchNN.Location = new System.Drawing.Point(238, 113);
+            this.switchNN.Location = new System.Drawing.Point(260, 113);
             this.switchNN.Name = "switchNN";
             this.switchNN.Size = new System.Drawing.Size(82, 53);
             this.switchNN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,21 +231,21 @@
             this.switchNN.TabStop = false;
             this.switchNN.Click += new System.EventHandler(this.switchNN_Click);
             // 
-            // switchDN
+            // switchNNCV
             // 
-            this.switchDN.Image = global::JobsManagement.Properties.Resources.switch_on64;
-            this.switchDN.Location = new System.Drawing.Point(238, 59);
-            this.switchDN.Name = "switchDN";
-            this.switchDN.Size = new System.Drawing.Size(82, 53);
-            this.switchDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.switchDN.TabIndex = 5;
-            this.switchDN.TabStop = false;
-            this.switchDN.Click += new System.EventHandler(this.switchDN_Click);
+            this.switchNNCV.Image = global::JobsManagement.Properties.Resources.switch_on64;
+            this.switchNNCV.Location = new System.Drawing.Point(260, 59);
+            this.switchNNCV.Name = "switchNNCV";
+            this.switchNNCV.Size = new System.Drawing.Size(82, 53);
+            this.switchNNCV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.switchNNCV.TabIndex = 5;
+            this.switchNNCV.TabStop = false;
+            this.switchNNCV.Click += new System.EventHandler(this.switchDN_Click);
             // 
             // switchKD
             // 
             this.switchKD.Image = global::JobsManagement.Properties.Resources.switch_on64;
-            this.switchKD.Location = new System.Drawing.Point(238, 5);
+            this.switchKD.Location = new System.Drawing.Point(260, 5);
             this.switchKD.Name = "switchKD";
             this.switchKD.Size = new System.Drawing.Size(82, 53);
             this.switchKD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -273,9 +273,9 @@
             this.label8.Location = new System.Drawing.Point(3, 73);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label8.Size = new System.Drawing.Size(188, 25);
+            this.label8.Size = new System.Drawing.Size(250, 25);
             this.label8.TabIndex = 4;
-            this.label8.Text = "Ghi nhớ đăng nhập";
+            this.label8.Text = "Nhắc khi công việc diễn ra";
             // 
             // label7
             // 
@@ -312,6 +312,30 @@
             this.pnlAcc.Name = "pnlAcc";
             this.pnlAcc.Size = new System.Drawing.Size(1050, 507);
             this.pnlAcc.TabIndex = 3;
+            // 
+            // lbTHT
+            // 
+            this.lbTHT.AutoSize = true;
+            this.lbTHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbTHT.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbTHT.Location = new System.Drawing.Point(144, 293);
+            this.lbTHT.Name = "lbTHT";
+            this.lbTHT.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbTHT.Size = new System.Drawing.Size(149, 25);
+            this.lbTHT.TabIndex = 7;
+            this.lbTHT.Text = "Tên hiển thị: ";
+            // 
+            // lbTDN
+            // 
+            this.lbTDN.AutoSize = true;
+            this.lbTDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbTDN.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbTDN.Location = new System.Drawing.Point(175, 245);
+            this.lbTDN.Name = "lbTDN";
+            this.lbTDN.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbTDN.Size = new System.Drawing.Size(181, 25);
+            this.lbTDN.TabIndex = 6;
+            this.lbTDN.Text = "Tên đăng nhập: ";
             // 
             // panel16
             // 
@@ -386,7 +410,6 @@
             this.pnlChucNang.Size = new System.Drawing.Size(554, 467);
             this.pnlChucNang.TabIndex = 4;
             this.pnlChucNang.Visible = false;
-            this.pnlChucNang.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlThayDoi_Paint);
             // 
             // panel1
             // 
@@ -625,30 +648,6 @@
             this.panel4.Size = new System.Drawing.Size(1050, 3);
             this.panel4.TabIndex = 6;
             // 
-            // lbTDN
-            // 
-            this.lbTDN.AutoSize = true;
-            this.lbTDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbTDN.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lbTDN.Location = new System.Drawing.Point(175, 245);
-            this.lbTDN.Name = "lbTDN";
-            this.lbTDN.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lbTDN.Size = new System.Drawing.Size(181, 25);
-            this.lbTDN.TabIndex = 6;
-            this.lbTDN.Text = "Tên đăng nhập: ";
-            // 
-            // lbTHT
-            // 
-            this.lbTHT.AutoSize = true;
-            this.lbTHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbTHT.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lbTHT.Location = new System.Drawing.Point(144, 293);
-            this.lbTHT.Name = "lbTHT";
-            this.lbTHT.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lbTHT.Size = new System.Drawing.Size(149, 25);
-            this.lbTHT.TabIndex = 7;
-            this.lbTHT.Text = "Tên hiển thị: ";
-            // 
             // ucSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -665,7 +664,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchNN)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.switchDN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.switchNNCV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchKD)).EndInit();
             this.pnlAcc.ResumeLayout(false);
             this.pnlAcc.PerformLayout();
@@ -695,7 +694,7 @@
         private System.Windows.Forms.Button btnXoaTK;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox switchKD;
-        private System.Windows.Forms.PictureBox switchDN;
+        private System.Windows.Forms.PictureBox switchNNCV;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox switchNN;
         private System.Windows.Forms.Label label9;

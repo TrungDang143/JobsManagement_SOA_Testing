@@ -1,4 +1,5 @@
 ﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,13 @@ namespace JobsManagement
 {
     public partial class fForgot : Form
     {
+        private TaiKhoan loginAccount;
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+
         public fForgot()
         {
             InitializeComponent();
@@ -41,6 +49,8 @@ namespace JobsManagement
             }
         }
         #endregion
+
+        #region mau me
         void resetHL()
         {
             HLtenTK.BackColor = Color.FromArgb(0, 126, 249);
@@ -58,12 +68,60 @@ namespace JobsManagement
             resetHL();
             HLchbm.BackColor = Color.SeaGreen;
         }
+        #endregion
 
+        #region xu ly input
+        bool isCorrect = false;
         private void btnXN_Click(object sender, EventArgs e)
         {
-            //this.Size = new System.Drawing.Size(527, 534);
-            lbCHBM.Text += "khanh sky";
+            bool isEqual = txbCHBM.Text == LoginAccount.TraLoi.ToString() ? true : false;
+            if(string.IsNullOrEmpty(txbCHBM.Text) || isEqual == false || isCorrect == false)
+            {
+                lbCanhBao.Visible = true;
+            }
+            else
+            {
+                lbCanhBao.Visible = false;
+                lbMK.Text = LoginAccount.Mk.ToString();
+                lbMK.Visible = true;
+                iconCopy.Visible = true;
+                iconCopy.Location = new Point(lbMK.Width + lbMK.Location.X + 5,lbMK.Location.Y);
+            }
+        }
 
+        private void txbTenTK_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt = DataProvider.Instance.truyVanCoKetQua(string.Format("select * from TaiKhoan where tenDangNhap = '{0}'", txbTenTK.Text));
+
+            lbCanhBao.Visible = false;
+            picCheck.Visible = true;
+            if (dt.Rows.Count == 0)
+            {
+                picCheck.Image = Properties.Resources.icons8_multiply_50;
+                isCorrect = false;
+            }
+            else
+            {
+                TaiKhoan llmk = new TaiKhoan(dt.Rows[0]);
+                LoginAccount = llmk;
+                picCheck.Image = Properties.Resources.icons8_tick_501;
+                lbCHBM.Text = LoginAccount.CauHoi.ToString();
+                isCorrect = true;
+            }
+        }
+        #endregion
+
+        private void iconCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lbMK.Text);
+            lbCopied.Visible = true;
+        }
+
+        private void txbCHBM_TextChanged(object sender, EventArgs e)
+        {
+            lbCanhBao.Visible = false;
         }
     }
 }

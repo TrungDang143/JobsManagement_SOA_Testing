@@ -19,12 +19,11 @@ namespace JobsManagement.DTO
         private string traLoi;
         private bool khoiDong = true;
         private bool nhacNho = true;
-        private bool ghiNho = true;
+        private bool nhacNhoCV = true;
         private System.Drawing.Point tgNN = new System.Drawing.Point(0, 30);
         bool isAD = false;
         public TaiKhoan(DataRow row) 
         {
-            //
             this.TenDN = row["tenDangNhap"].ToString();
             this.Mk = row["matKhau"].ToString();
             this.TenHT = row["tenHienThi"].ToString();
@@ -42,12 +41,11 @@ namespace JobsManagement.DTO
             }
             else this.NhacNho = false;
 
-            if (row["ghiNho"].ToString() == "True")
+            if (row["nhacNhoCV"].ToString() == "True")
             {
-                this.GhiNho = true;
-            //MessageBox.Show(row["ghiNho"].ToString()+"turng");
+                this.NhacNhoCV = true;
             }
-            else this.GhiNho = false;
+            else this.NhacNhoCV = false;
             
             int h, m;
             h = (int)row["hNhacNho"];
@@ -56,17 +54,18 @@ namespace JobsManagement.DTO
 
             string ad = row["isAD"].ToString();
             this.IsAD = ad == "True"?true:false;
+            
         }
 
         public string TenDN { get => tenDN; set => tenDN = value; }
-        public string Mk { private get => mk; set => mk = value; }
-        public string TraLoi { private get => traLoi; set => traLoi = value; }
+        public string Mk { get => mk; set => mk = value; }
+        public string TraLoi { get => traLoi; set => traLoi = value; }
         public string TenHT { get => tenHT; set => tenHT = value; }
         public bool KhoiDong { get => khoiDong; set => khoiDong = value; }
         public bool NhacNho { get => nhacNho; set => nhacNho = value; }
-        public bool GhiNho { get => ghiNho; set => ghiNho = value; }
+        public bool NhacNhoCV { get => nhacNhoCV; set => nhacNhoCV = value; }
         public System.Drawing.Point TgNN { get => tgNN; set => tgNN = value; }
         public bool IsAD { get => isAD; private set => isAD = value; }
-        public string CauHoi { private get => cauHoi; set => cauHoi = value; }
+        public string CauHoi { get => cauHoi; set => cauHoi = value; }
     }
 }

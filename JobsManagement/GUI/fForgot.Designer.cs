@@ -45,10 +45,13 @@
             this.HLchbm = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txbCHBM = new System.Windows.Forms.TextBox();
-            this.lbCHBM = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnXN = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbCHBM = new System.Windows.Forms.Label();
+            this.picCheck = new System.Windows.Forms.PictureBox();
+            this.lbCanhBao = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
@@ -56,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconCopy)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +78,7 @@
             // 
             this.lbmatkhau.AutoSize = true;
             this.lbmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbmatkhau.ForeColor = System.Drawing.Color.Turquoise;
+            this.lbmatkhau.ForeColor = System.Drawing.Color.White;
             this.lbmatkhau.Location = new System.Drawing.Point(54, 330);
             this.lbmatkhau.Name = "lbmatkhau";
             this.lbmatkhau.Size = new System.Drawing.Size(114, 25);
@@ -84,11 +88,11 @@
             // lbMK
             // 
             this.lbMK.AutoSize = true;
-            this.lbMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMK.ForeColor = System.Drawing.Color.White;
-            this.lbMK.Location = new System.Drawing.Point(174, 332);
+            this.lbMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbMK.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbMK.Location = new System.Drawing.Point(174, 330);
             this.lbMK.Name = "lbMK";
-            this.lbMK.Size = new System.Drawing.Size(98, 25);
+            this.lbMK.Size = new System.Drawing.Size(106, 25);
             this.lbMK.TabIndex = 15;
             this.lbMK.Text = "Password";
             this.lbMK.Visible = false;
@@ -174,9 +178,10 @@
             this.txbTenTK.MaxLength = 19;
             this.txbTenTK.Multiline = true;
             this.txbTenTK.Name = "txbTenTK";
-            this.txbTenTK.Size = new System.Drawing.Size(341, 28);
+            this.txbTenTK.Size = new System.Drawing.Size(341, 33);
             this.txbTenTK.TabIndex = 4;
             this.txbTenTK.Click += new System.EventHandler(this.txbTenTK_Click);
+            this.txbTenTK.TextChanged += new System.EventHandler(this.txbTenTK_TextChanged);
             // 
             // label7
             // 
@@ -193,16 +198,18 @@
             // iconCopy
             // 
             this.iconCopy.Image = ((System.Drawing.Image)(resources.GetObject("iconCopy.Image")));
-            this.iconCopy.Location = new System.Drawing.Point(408, 332);
+            this.iconCopy.Location = new System.Drawing.Point(408, 334);
             this.iconCopy.Name = "iconCopy";
             this.iconCopy.Size = new System.Drawing.Size(28, 23);
             this.iconCopy.TabIndex = 23;
             this.iconCopy.TabStop = false;
+            this.iconCopy.Visible = false;
+            this.iconCopy.Click += new System.EventHandler(this.iconCopy_Click);
             // 
             // HLchbm
             // 
             this.HLchbm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.HLchbm.Location = new System.Drawing.Point(59, 300);
+            this.HLchbm.Location = new System.Drawing.Point(59, 293);
             this.HLchbm.Name = "HLchbm";
             this.HLchbm.Size = new System.Drawing.Size(377, 2);
             this.HLchbm.TabIndex = 26;
@@ -211,7 +218,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel4.Controls.Add(this.txbCHBM);
-            this.panel4.Location = new System.Drawing.Point(59, 252);
+            this.panel4.Location = new System.Drawing.Point(59, 245);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(377, 49);
             this.panel4.TabIndex = 25;
@@ -227,21 +234,22 @@
             this.txbCHBM.MaxLength = 19;
             this.txbCHBM.Multiline = true;
             this.txbCHBM.Name = "txbCHBM";
-            this.txbCHBM.Size = new System.Drawing.Size(341, 28);
+            this.txbCHBM.Size = new System.Drawing.Size(341, 36);
             this.txbCHBM.TabIndex = 4;
             this.txbCHBM.Click += new System.EventHandler(this.tcbCHBM_Click);
+            this.txbCHBM.TextChanged += new System.EventHandler(this.txbCHBM_TextChanged);
             // 
-            // lbCHBM
+            // lb
             // 
-            this.lbCHBM.AutoSize = true;
-            this.lbCHBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCHBM.ForeColor = System.Drawing.Color.White;
-            this.lbCHBM.Location = new System.Drawing.Point(54, 218);
-            this.lbCHBM.Name = "lbCHBM";
-            this.lbCHBM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lbCHBM.Size = new System.Drawing.Size(183, 30);
-            this.lbCHBM.TabIndex = 24;
-            this.lbCHBM.Text = "Câu hỏi bảo mật: ";
+            this.lb.AutoSize = true;
+            this.lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb.ForeColor = System.Drawing.Color.White;
+            this.lb.Location = new System.Drawing.Point(54, 212);
+            this.lb.Name = "lb";
+            this.lb.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lb.Size = new System.Drawing.Size(162, 30);
+            this.lb.TabIndex = 24;
+            this.lb.Text = "Trả lời câu hỏi: ";
             // 
             // panel12
             // 
@@ -276,16 +284,53 @@
             this.panel2.Size = new System.Drawing.Size(509, 88);
             this.panel2.TabIndex = 27;
             // 
+            // lbCHBM
+            // 
+            this.lbCHBM.AutoSize = true;
+            this.lbCHBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbCHBM.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbCHBM.Location = new System.Drawing.Point(222, 211);
+            this.lbCHBM.Name = "lbCHBM";
+            this.lbCHBM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lbCHBM.Size = new System.Drawing.Size(0, 30);
+            this.lbCHBM.TabIndex = 24;
+            // 
+            // picCheck
+            // 
+            this.picCheck.Image = global::JobsManagement.Properties.Resources.icons8_tick_50;
+            this.picCheck.Location = new System.Drawing.Point(442, 154);
+            this.picCheck.Name = "picCheck";
+            this.picCheck.Size = new System.Drawing.Size(45, 45);
+            this.picCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCheck.TabIndex = 48;
+            this.picCheck.TabStop = false;
+            this.picCheck.Visible = false;
+            // 
+            // lbCanhBao
+            // 
+            this.lbCanhBao.AutoSize = true;
+            this.lbCanhBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbCanhBao.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbCanhBao.Location = new System.Drawing.Point(59, 297);
+            this.lbCanhBao.Name = "lbCanhBao";
+            this.lbCanhBao.Size = new System.Drawing.Size(191, 20);
+            this.lbCanhBao.TabIndex = 49;
+            this.lbCanhBao.Text = "Kiểm tra lại thông tin!";
+            this.lbCanhBao.Visible = false;
+            // 
             // fForgot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(509, 474);
+            this.Controls.Add(this.lbCanhBao);
+            this.Controls.Add(this.picCheck);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.HLchbm);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.lbCHBM);
+            this.Controls.Add(this.lb);
             this.Controls.Add(this.iconCopy);
             this.Controls.Add(this.HLtenTK);
             this.Controls.Add(this.panel14);
@@ -310,6 +355,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCheck)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,9 +378,12 @@
         private System.Windows.Forms.Panel HLchbm;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txbCHBM;
-        private System.Windows.Forms.Label lbCHBM;
+        private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button btnXN;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbCHBM;
+        private System.Windows.Forms.PictureBox picCheck;
+        private System.Windows.Forms.Label lbCanhBao;
     }
 }

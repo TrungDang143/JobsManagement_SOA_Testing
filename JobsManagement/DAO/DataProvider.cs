@@ -11,9 +11,17 @@ namespace JobsManagement.DAO
 {
     internal class DataProvider
     {
+        private static DataProvider instance;
+        public static DataProvider Instance
+        {
+            get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
+            private set { DataProvider.instance = value; }
+        }
+        private DataProvider() { }
+
         private static string ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
 
-        public static DataTable truyVanCoKetQua(string query)
+        public DataTable truyVanCoKetQua(string query)
         {
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -30,26 +38,19 @@ namespace JobsManagement.DAO
             return dt;
         }
 
-        public static bool truyVanKTraVe(string query)
+        public bool truyVanKTraVe(string query)
         {
             bool kq = false;
-            try
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                DataTable dt = new DataTable();
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
-                {
-                    conn.Open();
+                conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(query, conn);
 
-                    if (cmd.ExecuteNonQuery() > 0) kq = true;
+                if (cmd.ExecuteNonQuery() > 0) kq = true;
 
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                conn.Close();
             }
             return kq;
         }
