@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Markup;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace JobsManagement.DAO
 {
@@ -23,9 +24,24 @@ namespace JobsManagement.DAO
         }
         public TaiKhoanDAO() { }
 
+        //public TaiKhoan CurrentAcc(string username)
+        //{
+        //    DataTable data = DataProvider.Instance.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "'");
+        //    foreach (DataRow item in data.Rows)
+        //    {
+        //        return new TaiKhoan(item);
+        //    }
+        //    return null;
+        //}
+        public bool DKTK(string username, string password, string tenHT, string chbm, string tl)
+        {
+            bool kq = DataProvider.Instance.truyVanKTraVe(string.Format("insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi) values('{0}','{1}',N'{2}',N'{3}',N'{4}')",username,password,tenHT,chbm,tl));
+            return kq;
+        }
+
         public TaiKhoan CurrentAcc(string username)
         {
-            DataTable data = DataProvider.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "'");
+            DataTable data = DataProvider.Instance.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "'");
             foreach (DataRow item in data.Rows)
             {
                 return new TaiKhoan(item);
@@ -35,13 +51,15 @@ namespace JobsManagement.DAO
         }
         public bool login(string username, string password)
         {
-            DataTable kq =  DataProvider.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "' and matkhau = '" + password+"'");
+            DataTable kq = DataProvider.Instance.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "' and matkhau = '" + password + "'");
             try
             {
-                if (kq.Rows.Count == 1 ) {
+                if (kq.Rows.Count == 1)
+                {
                     return true;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -51,29 +69,29 @@ namespace JobsManagement.DAO
         {
             if (isOn)
             {
-                DataProvider.truyVanKTraVe("update TaiKhoan set khoiDong = 1 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set khoiDong = 1 where tenDangNhap ='" + userName + "'");
 
             }
-            else DataProvider.truyVanKTraVe("update TaiKhoan set khoiDong = 0 where tenDangNhap ='" + userName + "'");
+            else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set khoiDong = 0 where tenDangNhap ='" + userName + "'");
         }
         public void setNhacNho(string userName, bool isOn)
         {
             if (isOn)
             {
-                DataProvider.truyVanKTraVe("update TaiKhoan set nhacNho = 1 where tenDangNhap ='" + userName + "'");
-            }else DataProvider.truyVanKTraVe("update TaiKhoan set nhacNho = 0 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNho = 1 where tenDangNhap ='" + userName + "'");
+            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNho = 0 where tenDangNhap ='" + userName + "'");
         }
         public void setGhiNho(string userName, bool isOn)
         {
             if (isOn)
             {
-                DataProvider.truyVanKTraVe("update TaiKhoan set ghiNho = 1 where tenDangNhap ='" + userName + "'");
-            }else DataProvider.truyVanKTraVe("update TaiKhoan set ghiNho = 0 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set ghiNho = 1 where tenDangNhap ='" + userName + "'");
+            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set ghiNho = 0 where tenDangNhap ='" + userName + "'");
         }
 
         public void setTimeNhacNho(string userName, Point tg)
         {
-            DataProvider.truyVanKTraVe(string.Format("update TaiKhoan set hNhacNho = {0}, mNhacNho = {1} where tenDangNhap = '{3}'",tg.X,tg.Y,userName));
+            DataProvider.Instance.truyVanKTraVe(string.Format("update TaiKhoan set hNhacNho = {0}, mNhacNho = {1} where tenDangNhap = '{2}'",tg.X,tg.Y,userName));
         }
     }
 }

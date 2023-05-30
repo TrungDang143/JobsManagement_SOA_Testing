@@ -22,6 +22,7 @@ namespace JobsManagement.GUI
             get { return loginAccount; }
             private set { loginAccount = value; }
         }
+
         public ucSetting(TaiKhoan loginAcc)
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace JobsManagement.GUI
         }
         
         bool isONkd;
-        bool isONdn;
+        bool isONnncv;
         bool isONnn;
 
         private void  loadInfor(TaiKhoan loginAcc)
@@ -47,20 +48,17 @@ namespace JobsManagement.GUI
             lbTDN.Text = loginAcc.TenDN;
             lbTHT.Text = loginAcc.TenHT;
             
-            isONdn = loginAcc.GhiNho;
+            isONnncv = loginAcc.NhacNhoCV;
             isONkd = loginAcc.KhoiDong;
             isONnn = loginAcc.NhacNho;
             
             switchNhacNho( isONnn);
             switchKhoiDong( isONkd);
-            switchGhiNho( isONdn);
+            switchGhiNho( isONnncv);
 
-            //decimal i = 10;
-            //nudH.Value = i;
-
-            //System.Drawing.Point point = loginAccount.TgNN;
-            //nudH.Value = (int)point.X;
-            //nudM.Value = (int)point.Y;
+            System.Drawing.Point point = loginAccount.TgNN;
+            nudH.Value = (int)point.X;
+            nudM.Value = (int)point.Y;
         }
 
         #region cai dat he thong
@@ -76,15 +74,15 @@ namespace JobsManagement.GUI
                 switchKD.Image = Properties.Resources.switch_on64;
             }
         }
-        private void switchGhiNho(bool isONdn)
+        private void switchGhiNho(bool isONnncv)
         {
-            if (!isONdn)
+            if (!isONnncv)
             {
-                switchDN.Image = global::JobsManagement.Properties.Resources.switch_off64;
+                switchNNCV.Image = global::JobsManagement.Properties.Resources.switch_off64;
             }
             else
             {
-                switchDN.Image = Properties.Resources.switch_on64;
+                switchNNCV.Image = Properties.Resources.switch_on64;
             }
         }
         private void switchNhacNho(bool isONnn)
@@ -102,17 +100,17 @@ namespace JobsManagement.GUI
         private void switchKD_Click(object sender, EventArgs e)
         {
             isONkd = !isONkd;
-            LoginAccount.KhoiDong = isONdn;
+            LoginAccount.KhoiDong = isONnncv;
             switchKhoiDong(isONkd);
             TaiKhoanDAO.Instance.setKhoiDong(LoginAccount.TenDN, isONkd);
         }
 
         private void switchDN_Click(object sender, EventArgs e)
         {
-            isONdn = !isONdn;
-            LoginAccount.GhiNho = isONdn;
-            switchGhiNho(isONdn);
-            TaiKhoanDAO.Instance.setGhiNho(LoginAccount.TenDN, isONdn);
+            isONnncv = !isONnncv;
+            LoginAccount.NhacNhoCV = isONnncv;
+            switchGhiNho(isONnncv);
+            TaiKhoanDAO.Instance.setGhiNho(LoginAccount.TenDN, isONnncv);
         }
 
         private void switchNN_Click(object sender, EventArgs e)
@@ -142,13 +140,21 @@ namespace JobsManagement.GUI
                 nudM.Enabled = false;
             }
         }
-
-        #endregion
-        private void pnlThayDoi_Paint(object sender, PaintEventArgs e)
+        private void nudH_ValueChanged(object sender, EventArgs e)
         {
-
+            Point p = new Point((int)nudH.Value, LoginAccount.TgNN.Y);
+            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, p);
         }
 
+        private void nudM_ValueChanged(object sender, EventArgs e)
+        {
+            Point p = new Point(LoginAccount.TgNN.X, (int)nudM.Value);
+            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, p);
+        }
+
+        #endregion
+
+        #region thong tin ng dung
         private void btnHomNay_Click(object sender, EventArgs e)
         {
             pnlChucNang.Controls.Clear();
@@ -184,17 +190,7 @@ namespace JobsManagement.GUI
             ucAD ucAD= new ucAD();
             pnlChucNang.Controls.Add(ucAD);
         }
+        #endregion
 
-        private void nudH_ValueChanged(object sender, EventArgs e)
-        {
-            Point p = new Point((int)nudH.Value, (int)nudM.Value);
-            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN,p );
-        }
-
-        private void nudM_ValueChanged(object sender, EventArgs e)
-        {
-            Point p = new Point((int)nudH.Value, (int)nudM.Value);
-            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, p);
-        }
     }
 }

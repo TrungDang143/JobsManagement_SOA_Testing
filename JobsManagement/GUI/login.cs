@@ -22,7 +22,13 @@ namespace JobsManagement
     
     public partial class fLogin : Form
     {
-        public static string UserName = "";
+        private TaiKhoan loginAccount;
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+
         public fLogin()
         {
             InitializeComponent();
@@ -30,14 +36,10 @@ namespace JobsManagement
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
         }
 
-        public void reset(TaiKhoan loginAcc)
+        public void reset()
         {
-            if(!loginAcc.GhiNho)
-            {
-                txbPassword.Text = string.Empty;
-                txbUsername.Text = string.Empty;    
-            }    
-            //  
+            txbPassword.Text = string.Empty;
+            txbUsername.Text = string.Empty;    
         }
 
 
@@ -89,22 +91,21 @@ namespace JobsManagement
                 //UserName = txbUsername.Text;
                 //object kq = cmd.ExecuteScalar();
                 //int code = Convert.ToInt32(kq);
-                bool code = false;
 
-                code = TaiKhoanDAO.Instance.login(txbUsername.Text, txbPassword.Text);
 
-                if (code)
+                if (TaiKhoanDAO.Instance.login(txbUsername.Text, txbPassword.Text))
                 {
                     MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    TaiKhoan loginAcc = DAO.TaiKhoanDAO.Instance.CurrentAcc(txbUsername.Text);
-
-                    mainUI m = new mainUI(loginAcc);
+ 
+                    TaiKhoan loginAcc = TaiKhoanDAO.Instance.CurrentAcc(txbUsername.Text);
+                    LoginAccount = loginAcc;
+                    
+                    mainUI m = new mainUI(LoginAccount);
                     this.Hide();
                     m.ShowDialog();
                     if (!m.isClose)
                     {
-                        reset(loginAcc);
+                        reset();
                         this.Show();
                     }
                 }
@@ -115,18 +116,9 @@ namespace JobsManagement
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
 
             }
-            /*mainF = new mainUI();
-
-            this.Hide();
-            mainF.ShowDialog();
-            if(!mainF.isClose) 
-            {
-                reset();
-                this.Show();
-            }*/
         }
 
         private bool isMat1 = false;

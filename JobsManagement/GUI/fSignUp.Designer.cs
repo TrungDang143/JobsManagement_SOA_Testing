@@ -50,8 +50,8 @@
             this.txbXNMK = new System.Windows.Forms.TextBox();
             this.HLmatkhau = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.txbTraLoi = new System.Windows.Forms.TextBox();
             this.HLtraLoi = new System.Windows.Forms.Panel();
+            this.txbTraLoi = new System.Windows.Forms.TextBox();
             this.HLxacNhanMK = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.txbTen = new System.Windows.Forms.TextBox();
@@ -261,7 +261,6 @@
             this.txbMK.PasswordChar = '●';
             this.txbMK.Size = new System.Drawing.Size(361, 38);
             this.txbMK.TabIndex = 2;
-            this.txbMK.Text = "gggg";
             this.txbMK.WordWrap = false;
             this.txbMK.Click += new System.EventHandler(this.txbMK_Click);
             this.txbMK.TextChanged += new System.EventHandler(this.txbMK_TextChanged);
@@ -323,6 +322,14 @@
             this.panel10.Size = new System.Drawing.Size(382, 49);
             this.panel10.TabIndex = 18;
             // 
+            // HLtraLoi
+            // 
+            this.HLtraLoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.HLtraLoi.Location = new System.Drawing.Point(0, 47);
+            this.HLtraLoi.Name = "HLtraLoi";
+            this.HLtraLoi.Size = new System.Drawing.Size(382, 2);
+            this.HLtraLoi.TabIndex = 19;
+            // 
             // txbTraLoi
             // 
             this.txbTraLoi.AcceptsTab = true;
@@ -339,14 +346,6 @@
             this.txbTraLoi.WordWrap = false;
             this.txbTraLoi.Click += new System.EventHandler(this.txbTraLoi_Click);
             this.txbTraLoi.TextChanged += new System.EventHandler(this.txbTraLoi_TextChanged);
-            // 
-            // HLtraLoi
-            // 
-            this.HLtraLoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.HLtraLoi.Location = new System.Drawing.Point(0, 47);
-            this.HLtraLoi.Name = "HLtraLoi";
-            this.HLtraLoi.Size = new System.Drawing.Size(382, 2);
-            this.HLtraLoi.TabIndex = 19;
             // 
             // HLxacNhanMK
             // 
@@ -521,7 +520,6 @@
             this.txbTK.Name = "txbTK";
             this.txbTK.Size = new System.Drawing.Size(361, 36);
             this.txbTK.TabIndex = 1;
-            this.txbTK.Text = "gggg";
             this.txbTK.WordWrap = false;
             this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
             this.txbTK.TextChanged += new System.EventHandler(this.txbTK_TextChanged);

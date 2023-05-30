@@ -18,7 +18,7 @@ create table TaiKhoan
 	cauhoi nvarchar(30) foreign key references CauHoiBaoMat(cauhoi),
 	traLoi nvarchar(30) not null,
 	khoiDong bit default 1,
-	ghiNho bit default 1,
+	nhacNhoCV bit default 1,
 	nhacNho bit default 1,
 	hNhacNho int default 0,
 	mNhacNho int default 30,
@@ -83,10 +83,13 @@ insert into LapLai values(N'Hàng ngày')
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Admin','1111','ADMIN',N'Kỉ niệm đáng nhớ?','abc', 1)
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('trungdang','1403','TrungDang',N'Kỉ niệm đáng nhớ?','abcd', 0)
 
+
+
 --select tenHienThi from taikhoan where tendangnhap ='trungdang'
 select * from TaiKhoan
---drop database JobsManagement
+drop database JobsManagement
 delete from TaiKhoan
+
 /*
 insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')
 select * from Acc
@@ -118,4 +121,3 @@ begin
     Insert into Acc values(@TaiKhoan,@MatKhau,@TenHienThi,@traLoi)
 end
 */
-
