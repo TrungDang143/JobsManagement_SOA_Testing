@@ -261,10 +261,5 @@ namespace JobsManagement
             //    }
             //}
         }
-
-        private void cbb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show(cbb.SelectedItem.ToString());
-        }
     }
 }

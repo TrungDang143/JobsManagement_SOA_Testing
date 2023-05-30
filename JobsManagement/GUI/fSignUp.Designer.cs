@@ -149,7 +149,7 @@
             this.btnTaoTK.Location = new System.Drawing.Point(391, 506);
             this.btnTaoTK.Name = "btnTaoTK";
             this.btnTaoTK.Size = new System.Drawing.Size(215, 46);
-            this.btnTaoTK.TabIndex = 7;
+            this.btnTaoTK.TabIndex = 0;
             this.btnTaoTK.Text = "Tạo tài khoản";
             this.btnTaoTK.UseVisualStyleBackColor = false;
             this.btnTaoTK.Click += new System.EventHandler(this.btnTaoTK_Click);
@@ -249,7 +249,6 @@
             // 
             // txbMK
             // 
-            this.txbMK.AcceptsTab = true;
             this.txbMK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.txbMK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,7 +259,7 @@
             this.txbMK.Name = "txbMK";
             this.txbMK.PasswordChar = '●';
             this.txbMK.Size = new System.Drawing.Size(361, 38);
-            this.txbMK.TabIndex = 2;
+            this.txbMK.TabIndex = 0;
             this.txbMK.WordWrap = false;
             this.txbMK.Click += new System.EventHandler(this.txbMK_Click);
             this.txbMK.TextChanged += new System.EventHandler(this.txbMK_TextChanged);
@@ -288,7 +287,6 @@
             // 
             // txbXNMK
             // 
-            this.txbXNMK.AcceptsTab = true;
             this.txbXNMK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.txbXNMK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -299,7 +297,7 @@
             this.txbXNMK.Name = "txbXNMK";
             this.txbXNMK.PasswordChar = '●';
             this.txbXNMK.Size = new System.Drawing.Size(361, 41);
-            this.txbXNMK.TabIndex = 3;
+            this.txbXNMK.TabIndex = 0;
             this.txbXNMK.WordWrap = false;
             this.txbXNMK.Click += new System.EventHandler(this.txbXNMK_Click);
             this.txbXNMK.TextChanged += new System.EventHandler(this.txbXNMK_TextChanged);
@@ -332,7 +330,6 @@
             // 
             // txbTraLoi
             // 
-            this.txbTraLoi.AcceptsTab = true;
             this.txbTraLoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.txbTraLoi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTraLoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -342,7 +339,7 @@
             this.txbTraLoi.Multiline = true;
             this.txbTraLoi.Name = "txbTraLoi";
             this.txbTraLoi.Size = new System.Drawing.Size(361, 40);
-            this.txbTraLoi.TabIndex = 6;
+            this.txbTraLoi.TabIndex = 0;
             this.txbTraLoi.WordWrap = false;
             this.txbTraLoi.Click += new System.EventHandler(this.txbTraLoi_Click);
             this.txbTraLoi.TextChanged += new System.EventHandler(this.txbTraLoi_TextChanged);
@@ -366,7 +363,6 @@
             // 
             // txbTen
             // 
-            this.txbTen.AcceptsTab = true;
             this.txbTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.txbTen.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -376,7 +372,7 @@
             this.txbTen.Multiline = true;
             this.txbTen.Name = "txbTen";
             this.txbTen.Size = new System.Drawing.Size(361, 40);
-            this.txbTen.TabIndex = 4;
+            this.txbTen.TabIndex = 0;
             this.txbTen.WordWrap = false;
             this.txbTen.Click += new System.EventHandler(this.txbTen_Click);
             this.txbTen.TextChanged += new System.EventHandler(this.txbTen_TextChanged);
@@ -407,8 +403,7 @@
             this.cbb.Location = new System.Drawing.Point(499, 175);
             this.cbb.Name = "cbb";
             this.cbb.Size = new System.Drawing.Size(379, 37);
-            this.cbb.TabIndex = 5;
-            this.cbb.SelectedIndexChanged += new System.EventHandler(this.cbb_SelectedIndexChanged);
+            this.cbb.TabIndex = 0;
             // 
             // pnlDK
             // 
@@ -509,7 +504,6 @@
             // 
             // txbTK
             // 
-            this.txbTK.AcceptsTab = true;
             this.txbTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.txbTK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -519,7 +513,7 @@
             this.txbTK.Multiline = true;
             this.txbTK.Name = "txbTK";
             this.txbTK.Size = new System.Drawing.Size(361, 36);
-            this.txbTK.TabIndex = 1;
+            this.txbTK.TabIndex = 0;
             this.txbTK.WordWrap = false;
             this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
             this.txbTK.TextChanged += new System.EventHandler(this.txbTK_TextChanged);

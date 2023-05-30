@@ -20,7 +20,9 @@ namespace JobsManagement.DTO
         private bool khoiDong = true;
         private bool nhacNho = true;
         private bool nhacNhoCV = true;
-        private System.Drawing.Point tgNN = new System.Drawing.Point(0, 30);
+        private int hNN;
+        private int mNN;
+
         bool isAD = false;
         public TaiKhoan(DataRow row) 
         {
@@ -47,14 +49,11 @@ namespace JobsManagement.DTO
             }
             else this.NhacNhoCV = false;
             
-            int h, m;
-            h = (int)row["hNhacNho"];
-            m = (int)row["mNhacNho"];
-            this.TgNN = new System.Drawing.Point(h,m);
+            hNN = (int)row["hNhacNho"];
+            mNN = (int)row["mNhacNho"];
 
             string ad = row["isAD"].ToString();
-            this.IsAD = ad == "True"?true:false;
-            
+            this.IsAD = ad == "True"?true:false; 
         }
 
         public string TenDN { get => tenDN; set => tenDN = value; }
@@ -64,8 +63,9 @@ namespace JobsManagement.DTO
         public bool KhoiDong { get => khoiDong; set => khoiDong = value; }
         public bool NhacNho { get => nhacNho; set => nhacNho = value; }
         public bool NhacNhoCV { get => nhacNhoCV; set => nhacNhoCV = value; }
-        public System.Drawing.Point TgNN { get => tgNN; set => tgNN = value; }
         public bool IsAD { get => isAD; private set => isAD = value; }
         public string CauHoi { get => cauHoi; set => cauHoi = value; }
+        public int HNN { get => hNN; set => hNN = value; }
+        public int MNN { get => mNN; set => mNN = value; }
     }
 }

@@ -18,7 +18,7 @@ namespace JobsManagement
         }
 
         #region checkbox
-        private bool checkHN = true;//tranh bi bo check het cac ngay khi bo check cbxHN
+        private bool checkHN = true;//tránh bi bo check het cac ngay khi bo check cbxHN
         private void cbxtHN_CheckedChanged(object sender, EventArgs e)
         {
             if(cbxtHN.Checked)

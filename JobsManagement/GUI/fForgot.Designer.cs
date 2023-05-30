@@ -169,7 +169,6 @@
             // 
             // txbTenTK
             // 
-            this.txbTenTK.AcceptsTab = true;
             this.txbTenTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.txbTenTK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTenTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,7 +224,6 @@
             // 
             // txbCHBM
             // 
-            this.txbCHBM.AcceptsTab = true;
             this.txbCHBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.txbCHBM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbCHBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

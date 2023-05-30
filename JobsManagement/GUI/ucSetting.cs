@@ -56,9 +56,8 @@ namespace JobsManagement.GUI
             switchKhoiDong( isONkd);
             switchGhiNho( isONnncv);
 
-            System.Drawing.Point point = loginAccount.TgNN;
-            nudH.Value = (int)point.X;
-            nudM.Value = (int)point.Y;
+            nudH.Value = LoginAccount.HNN;
+            nudM.Value = LoginAccount.MNN;
         }
 
         #region cai dat he thong
@@ -142,14 +141,12 @@ namespace JobsManagement.GUI
         }
         private void nudH_ValueChanged(object sender, EventArgs e)
         {
-            Point p = new Point((int)nudH.Value, LoginAccount.TgNN.Y);
-            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, p);
+            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, (int)nudH.Value, LoginAccount.MNN);
         }
 
         private void nudM_ValueChanged(object sender, EventArgs e)
         {
-            Point p = new Point(LoginAccount.TgNN.X, (int)nudM.Value);
-            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, p);
+            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, (int)nudM.Value, LoginAccount.MNN);
         }
 
         #endregion

@@ -183,7 +183,7 @@
             this.nudH.ForeColor = System.Drawing.Color.Black;
             this.nudH.Location = new System.Drawing.Point(717, 123);
             this.nudH.Maximum = new decimal(new int[] {
-            23,
+            47,
             0,
             0,
             0});

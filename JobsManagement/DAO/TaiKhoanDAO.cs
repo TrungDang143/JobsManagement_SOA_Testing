@@ -89,9 +89,9 @@ namespace JobsManagement.DAO
             }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set ghiNho = 0 where tenDangNhap ='" + userName + "'");
         }
 
-        public void setTimeNhacNho(string userName, Point tg)
+        public void setTimeNhacNho(string userName, int h, int m)
         {
-            DataProvider.Instance.truyVanKTraVe(string.Format("update TaiKhoan set hNhacNho = {0}, mNhacNho = {1} where tenDangNhap = '{2}'",tg.X,tg.Y,userName));
+            DataProvider.Instance.truyVanKTraVe(string.Format("update TaiKhoan set hNhacNho = {0}, mNhacNho = {1} where tenDangNhap = '{2}'",h,m,userName));
         }
     }
 }

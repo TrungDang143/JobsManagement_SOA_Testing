@@ -23,14 +23,14 @@ namespace JobsManagement
         {
             InitializeComponent();
             this.LoginAccount = loginAcc;
-            loadCV(loginAccount);
+            loadCV();
         }
 
-        private void loadCV(TaiKhoan loginAcc)
+        private void loadCV()
         {
 
             //load công việc theo loginAcc
-            
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(string.Format("select * from CongViec where tenDangNhap = '{0}'",LoginAccount.TenDN));
 
             dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
@@ -153,5 +153,9 @@ namespace JobsManagement
         }
         #endregion
 
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

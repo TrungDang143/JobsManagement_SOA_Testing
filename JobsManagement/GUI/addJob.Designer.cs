@@ -70,6 +70,8 @@
             this.nudM1 = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -204,6 +206,8 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.Controls.Add(this.label11);
+            this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.lbKHopLeGio);
             this.panel5.Controls.Add(this.lbKHopLeNgay);
             this.panel5.Controls.Add(this.lbGioiHanCV);
@@ -225,11 +229,11 @@
             // lbKHopLeGio
             // 
             this.lbKHopLeGio.AutoSize = true;
-            this.lbKHopLeGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbKHopLeGio.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbKHopLeGio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbKHopLeGio.ForeColor = System.Drawing.Color.OrangeRed;
             this.lbKHopLeGio.Location = new System.Drawing.Point(459, 360);
             this.lbKHopLeGio.Name = "lbKHopLeGio";
-            this.lbKHopLeGio.Size = new System.Drawing.Size(111, 20);
+            this.lbKHopLeGio.Size = new System.Drawing.Size(124, 20);
             this.lbKHopLeGio.TabIndex = 13;
             this.lbKHopLeGio.Text = "Không hợp lệ!";
             this.lbKHopLeGio.Visible = false;
@@ -237,11 +241,11 @@
             // lbKHopLeNgay
             // 
             this.lbKHopLeNgay.AutoSize = true;
-            this.lbKHopLeNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbKHopLeNgay.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbKHopLeNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbKHopLeNgay.ForeColor = System.Drawing.Color.OrangeRed;
             this.lbKHopLeNgay.Location = new System.Drawing.Point(78, 360);
             this.lbKHopLeNgay.Name = "lbKHopLeNgay";
-            this.lbKHopLeNgay.Size = new System.Drawing.Size(111, 20);
+            this.lbKHopLeNgay.Size = new System.Drawing.Size(124, 20);
             this.lbKHopLeNgay.TabIndex = 13;
             this.lbKHopLeNgay.Text = "Không hợp lệ!";
             this.lbKHopLeNgay.Visible = false;
@@ -399,6 +403,7 @@
             this.nudH2.Name = "nudH2";
             this.nudH2.Size = new System.Drawing.Size(50, 30);
             this.nudH2.TabIndex = 6;
+            this.nudH2.ValueChanged += new System.EventHandler(this.nudH2_ValueChanged);
             // 
             // nudM2
             // 
@@ -414,6 +419,7 @@
             this.nudM2.Name = "nudM2";
             this.nudM2.Size = new System.Drawing.Size(50, 30);
             this.nudM2.TabIndex = 6;
+            this.nudM2.ValueChanged += new System.EventHandler(this.nudH2_ValueChanged);
             // 
             // btnThayDoi1
             // 
@@ -559,6 +565,7 @@
             this.nudH1.Name = "nudH1";
             this.nudH1.Size = new System.Drawing.Size(50, 30);
             this.nudH1.TabIndex = 6;
+            this.nudH1.ValueChanged += new System.EventHandler(this.nudH1_ValueChanged_1);
             // 
             // nudM1
             // 
@@ -575,6 +582,7 @@
             this.nudM1.Name = "nudM1";
             this.nudM1.Size = new System.Drawing.Size(50, 30);
             this.nudM1.TabIndex = 6;
+            this.nudM1.ValueChanged += new System.EventHandler(this.nudH1_ValueChanged_1);
             // 
             // panel2
             // 
@@ -601,6 +609,28 @@
             this.btnLuu.Text = "Tạo mới";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label8.Location = new System.Drawing.Point(101, 212);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 20);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "label8";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label11.Location = new System.Drawing.Point(101, 252);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 20);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "label8";
             // 
             // fAddJob
             // 
@@ -682,5 +712,7 @@
         private System.Windows.Forms.Label lbKHopLeGio;
         private System.Windows.Forms.Label lbKHopLeNgay;
         private System.Windows.Forms.Label lbGioiHanCV;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -20,6 +20,9 @@ namespace JobsManagement
             get { return loginAccount; }
             private set { loginAccount = value; }
         }
+
+        private DateTime startTime = new DateTime();
+        private DateTime finishTime = new DateTime();
         public fAddJob(DateTime ngayThangNam, int lapLai, TaiKhoan loginAcc)
         {
             InitializeComponent();
@@ -47,6 +50,29 @@ namespace JobsManagement
         }
         #endregion
 
+        void setTimeBD()
+        {
+            startTime = new DateTime(dtpk.Value.Year, dtpk.Value.Month, dtpk.Value.Day, (int)nudH1.Value, (int)nudM1.Value, 0);
+        }
+        void setTimeKT()
+        {
+            finishTime = new DateTime(dtpk.Value.Year, dtpk.Value.Month, dtpk.Value.Day, (int)nudH2.Value, (int)nudM2.Value, 0);
+        }
+        void checkHopLe()
+        {
+            if(DateTime.Compare(startTime, finishTime) > 0)
+            {
+                lbKHopLeNgay.Visible = true;
+                lbKHopLeGio.Visible = true;
+                btnLuu.Enabled = false;
+            }
+            else
+            {
+                lbKHopLeNgay.Visible = false;
+                lbKHopLeGio.Visible = false;
+                btnLuu.Enabled = true;
+            }    
+        }
         void load(int lapLai)
         {
             lbNgayBatDau.Text = dtpk.Value.ToShortDateString();
@@ -61,9 +87,24 @@ namespace JobsManagement
         bool clickThayDoi2 = false;
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            if(!clickThayDoi2)
+            if (!clickThayDoi2)
+            {
                 lbNgayBatDau.Text = dtpk.Value.ToShortDateString();
-            else lbNgayKetThuc.Text = dtpk.Value.ToShortDateString();
+
+                setTimeBD();
+                label8.Text = startTime.ToString();
+
+            }
+            else
+            {
+                lbNgayKetThuc.Text = dtpk.Value.ToShortDateString();
+                finishTime = dtpk.Value;
+
+                setTimeKT();
+                label11.Text = finishTime.ToString();
+            }
+            checkHopLe();
+
         }
 
         private void btnThayDoi1_Click(object sender, EventArgs e)
@@ -148,13 +189,28 @@ namespace JobsManagement
             if(ucLL.check())
             {
                 MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            }    
+            }  
 
         }
 
         private void lbNgayKetThuc_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void nudH1_ValueChanged_1(object sender, EventArgs e)
+        {
+
+            setTimeBD();
+            checkHopLe();
+            label8.Text = startTime.ToString();
+        }
+
+        private void nudH2_ValueChanged(object sender, EventArgs e)
+        {
+            setTimeKT();
+            checkHopLe();
+            label11.Text = finishTime.ToString();
         }
     }
 }
