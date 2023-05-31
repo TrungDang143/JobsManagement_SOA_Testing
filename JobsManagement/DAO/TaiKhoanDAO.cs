@@ -96,6 +96,12 @@ namespace JobsManagement.DAO
         }
         #endregion
 
+        public bool xoaTK(string password)
+        {
+            bool xoa = DataProvider.Instance.truyVanKTraVe(string.Format("delete from TaiKhoan where matKhau = '" + password + "'"));
+            return xoa;
+        }
+
 
     }
 }
