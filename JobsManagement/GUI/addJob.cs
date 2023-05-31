@@ -186,6 +186,13 @@ namespace JobsManagement
         private void btnLuu_Click(object sender, EventArgs e)
         {
             //luu cong viec
+            CongViec newCV = new CongViec(txbCV.Text, startTime, finishTime, ucLL.getLapLai(), LoginAccount.TenDN);
+            if (DAO.CongViecDAO.addJob(newCV))
+            {
+                MessageBox.Show("thanh cong");
+            }
+            else MessageBox.Show("Loi");
+
             if(ucLL.check())
             {
                 MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);

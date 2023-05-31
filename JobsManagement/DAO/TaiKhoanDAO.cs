@@ -65,6 +65,7 @@ namespace JobsManagement.DAO
             }
             return false;
         }
+        #region cai dat he thong
         public void setKhoiDong(string userName, bool isOn)
         {
             if (isOn)
@@ -93,5 +94,8 @@ namespace JobsManagement.DAO
         {
             DataProvider.Instance.truyVanKTraVe(string.Format("update TaiKhoan set hNhacNho = {0}, mNhacNho = {1} where tenDangNhap = '{2}'",h,m,userName));
         }
+        #endregion
+
+
     }
 }

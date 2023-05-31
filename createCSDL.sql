@@ -73,12 +73,8 @@ create table CongViec
 	
 	id int primary key,
 	noiDungCV nvarchar(50) not null,
-	gioBD int not null,
-	phutBD int not null,
-	ngayBD date not null,
-	gioKT int not null,
-	phutKT int not null,
-	ngayKT date not null,
+	tgBD datetime not null,
+	tgKT datetime not null,
 	trangThai nvarchar(20) default N'Sắp diễn ra' foreign key references TrangThai(trangThai),
 	lapLaiT2 bit default 0,
 	lapLaiT3 bit default 0,
@@ -105,21 +101,21 @@ insert into TrangThai values(N'Đang diễn ra')
 insert into TrangThai values(N'Đã hoàn thành')
 insert into TrangThai values(N'Chưa hoàn thành')
 
---lap lai
 
 
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Admin','1111','ADMIN',N'Kỉ niệm đáng nhớ?','abc', 1)
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('trungdang','1403','TrungDang',N'Kỉ niệm đáng nhớ?','abcd', 0)
-insert into CongViec values (0,N'Học OOP',6,30,'5/31/2023',9,30,'5/31/2023', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
+insert into CongViec values (0,N'Học OOP','5/31/2023 6:30:00','5/31/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
 -----------------------------------------------------------------------------------------
 
-
+insert into CongViec values (1, N'trungdangtets', '5/31/2023 6:19:00 PM', '6/2/2023 12:00:00 AM', N'Sắp diễn ra', 0, 0, 0, 0, 0, 0, 0, 'trungdang')
 --select tenHienThi from taikhoan where tendangnhap ='trungdang'
 select * from CongViec
 select * from TaiKhoan
 drop database JobsManagement
 delete from TaiKhoan
 
+select top(1) id from CongViec where tenDangNhap = 'trungdang' order by id desc
 /*
 insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')
 select * from Acc

@@ -81,6 +81,30 @@ namespace JobsManagement
                 default: break;
             }
         }
+
+        public bool[] getLapLai()
+        {
+            bool[] ll = new bool[9];
+
+            if (cbxtHN.Checked)
+                ll[1] = true;
+            else if (cbt2.Checked) ll[2] = true;
+            else if (cbt3.Checked) ll[3] = true;
+            else if (cbt4.Checked) ll[4] = true;
+            else if (cbt5.Checked) ll[5] = true;
+            else if (cbt6.Checked) ll[6] = true;
+            else if (cbt7.Checked) ll[7] = true;
+            else if (cbcn.Checked) ll[8] = true;
+
+            ll[0] = true;
+            for (int i = 1; i < ll.Length; i++)
+                if (ll[i] == true)
+                {
+                    ll[0] = false;
+                    break;
+                }
+            return ll;
+        }
         #endregion
 
 
