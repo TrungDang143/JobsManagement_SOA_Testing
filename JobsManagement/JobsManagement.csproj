@@ -78,7 +78,7 @@
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\BoForm.cs" />
     <Compile Include="DAO\CauHoiBaoMatDAO.cs" />
-    <Compile Include="DAO\CongViecADO.cs" />
+    <Compile Include="DAO\CongViecDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\LapLaiDAO.cs" />
     <Compile Include="DAO\timeOfDtpk.cs" />
@@ -86,7 +86,6 @@
     <Compile Include="DAO\TrangThaiDAO.cs" />
     <Compile Include="DTO\CHBM.cs" />
     <Compile Include="DTO\CongViec.cs" />
-    <Compile Include="DTO\LapLai.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="DTO\TrangThai.cs" />
     <Compile Include="GUI\addJob.cs">

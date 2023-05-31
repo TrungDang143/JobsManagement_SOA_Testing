@@ -51,9 +51,10 @@
             this.btnThang = new System.Windows.Forms.Button();
             this.btnTuan = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnAll = new System.Windows.Forms.Button();
             this.btnSDR = new System.Windows.Forms.Button();
             this.btnDaHT = new System.Windows.Forms.Button();
-            this.btnAll = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -351,6 +352,21 @@
             this.panel7.Size = new System.Drawing.Size(525, 40);
             this.panel7.TabIndex = 9;
             // 
+            // btnAll
+            // 
+            this.btnAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.btnAll.FlatAppearance.BorderColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnAll.FlatAppearance.BorderSize = 2;
+            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnAll.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAll.Location = new System.Drawing.Point(348, 0);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(170, 40);
+            this.btnAll.TabIndex = 1;
+            this.btnAll.Text = "Tất cả";
+            this.btnAll.UseVisualStyleBackColor = false;
+            // 
             // btnSDR
             // 
             this.btnSDR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
@@ -383,26 +399,23 @@
             this.btnDaHT.UseVisualStyleBackColor = false;
             this.btnDaHT.Click += new System.EventHandler(this.btnDaHT_Click);
             // 
-            // btnAll
+            // label1
             // 
-            this.btnAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
-            this.btnAll.FlatAppearance.BorderColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnAll.FlatAppearance.BorderSize = 2;
-            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnAll.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnAll.Location = new System.Drawing.Point(348, 0);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(170, 40);
-            this.btnAll.TabIndex = 1;
-            this.btnAll.Text = "Tất cả";
-            this.btnAll.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(400, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "label1";
             // 
             // ucHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
@@ -417,6 +430,7 @@
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -444,5 +458,6 @@
         private System.Windows.Forms.Button btnSDR;
         private System.Windows.Forms.Button btnDaHT;
         private System.Windows.Forms.Button btnAll;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -48,7 +48,25 @@ namespace JobsManagement.DAO
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                if (cmd.ExecuteNonQuery() > 0) kq = true;
+                int k = cmd.ExecuteNonQuery();
+                if ( k > 0) kq = true;
+
+                conn.Close();
+            }
+            return kq;
+        }
+        
+        public object truyVanCoMotKetQua(string query)
+        {
+            object kq = 0;
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                kq = cmd.ExecuteScalar();
 
                 conn.Close();
             }

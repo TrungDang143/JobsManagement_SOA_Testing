@@ -157,7 +157,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel3.BackColor = System.Drawing.Color.SpringGreen;
             this.panel3.Location = new System.Drawing.Point(0, 59);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(179, 2);
