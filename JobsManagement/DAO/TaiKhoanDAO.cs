@@ -101,7 +101,5 @@ namespace JobsManagement.DAO
             bool xoa = DataProvider.Instance.truyVanKTraVe(string.Format("delete from TaiKhoan where matKhau = '" + password + "'"));
             return xoa;
         }
-
-
     }
 }

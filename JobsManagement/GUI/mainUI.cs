@@ -223,6 +223,5 @@ namespace JobsManagement
             //blurF.Close();
             //blurF = null;
         }
-
     }
 }
