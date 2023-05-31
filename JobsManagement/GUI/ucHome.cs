@@ -30,7 +30,7 @@ namespace JobsManagement
         {
 
             //load công việc theo loginAcc
-            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(string.Format("select * from CongViec where tenDangNhap = '{0}'",LoginAccount.TenDN));
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(string.Format("select noiDungCV from CongViec where tenDangNhap = '{0}'",LoginAccount.TenDN));
 
             dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;

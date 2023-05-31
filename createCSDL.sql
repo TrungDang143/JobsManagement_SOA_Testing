@@ -31,13 +31,43 @@ create table TrangThai
 	trangThai nvarchar(20) primary key
 )
 go
-
-create table LapLai
+/*
+create table LapLaiT2
 (
-	lapLai nvarchar(10) primary key
+	lapLai bit default 0 primary key
 )
 go
-
+create table LapLaiT3
+(
+	lapLai bit default 0 primary key
+)
+go
+create table LapLaiT4
+(
+	lapLai bit default 0 primary key
+)
+go
+create table LapLaiT5
+(
+	lapLai bit default 0 primary key
+)
+go
+create table LapLaiT6
+(
+	lapLai bit default 0 primary key
+)
+go
+create table LapLaiT7
+(
+	lapLai bit default 0 primary key
+)
+go
+create table LapLaiCN
+(
+	lapLai bit default 0 primary key 
+)
+go
+*/
 create table CongViec
 (
 	
@@ -49,12 +79,17 @@ create table CongViec
 	gioKT int not null,
 	phutKT int not null,
 	ngayKT date not null,
-	trangThai nvarchar(20) foreign key references TrangThai(trangThai),
-	lapLai nvarchar(10) foreign key references LapLai(lapLai),
+	trangThai nvarchar(20) default N'Sắp diễn ra' foreign key references TrangThai(trangThai),
+	lapLaiT2 bit default 0,
+	lapLaiT3 bit default 0,
+	lapLaiT4 bit default 0,
+	lapLaiT5 bit default 0,
+	lapLaiT6 bit default 0,
+	lapLaiT7 bit default 0,
+	lapLaiCN bit default 0,
 	tenDangNhap varchar(20) foreign key references TaiKhoan(tenDangNhap)
 )
 go
-
 
 --cau hoi bao mat
 insert into CauHoiBaoMat values(N'Giáo viên bạn quý nhất?')
@@ -71,21 +106,16 @@ insert into TrangThai values(N'Đã hoàn thành')
 insert into TrangThai values(N'Chưa hoàn thành')
 
 --lap lai
-insert into LapLai values(N'T2')
-insert into LapLai values(N'T3')
-insert into LapLai values(N'T4')
-insert into LapLai values(N'T5')
-insert into LapLai values(N'T6')
-insert into LapLai values(N'T7')
-insert into LapLai values(N'CN')
-insert into LapLai values(N'Hàng ngày')
+
 
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Admin','1111','ADMIN',N'Kỉ niệm đáng nhớ?','abc', 1)
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('trungdang','1403','TrungDang',N'Kỉ niệm đáng nhớ?','abcd', 0)
-
+insert into CongViec values (0,N'Học OOP',6,30,'5/31/2023',9,30,'5/31/2023', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
+-----------------------------------------------------------------------------------------
 
 
 --select tenHienThi from taikhoan where tendangnhap ='trungdang'
+select * from CongViec
 select * from TaiKhoan
 drop database JobsManagement
 delete from TaiKhoan
