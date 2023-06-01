@@ -49,6 +49,7 @@
             this.HLtk = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbSaiThongTin = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
@@ -89,7 +90,7 @@
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(289, 44);
             this.txbUsername.TabIndex = 0;
-            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
+            this.txbUsername.TextChanged += new System.EventHandler(this.fLogin_TextChanged);
             // 
             // txbPassword
             // 
@@ -105,6 +106,7 @@
             this.txbPassword.Size = new System.Drawing.Size(289, 44);
             this.txbPassword.TabIndex = 0;
             this.txbPassword.WordWrap = false;
+            this.txbPassword.TextChanged += new System.EventHandler(this.fLogin_TextChanged);
             // 
             // linkDangKy
             // 
@@ -286,6 +288,19 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Xin chào!";
             // 
+            // lbSaiThongTin
+            // 
+            this.lbSaiThongTin.AutoSize = true;
+            this.lbSaiThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSaiThongTin.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lbSaiThongTin.Location = new System.Drawing.Point(35, 405);
+            this.lbSaiThongTin.Name = "lbSaiThongTin";
+            this.lbSaiThongTin.Size = new System.Drawing.Size(288, 20);
+            this.lbSaiThongTin.TabIndex = 20;
+            this.lbSaiThongTin.Text = "Sai tên đăng nhập hoặc mật khẩu";
+            this.lbSaiThongTin.Visible = false;
+            this.lbSaiThongTin.Click += new System.EventHandler(this.label2_Click);
+            // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -293,6 +308,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(496, 582);
+            this.Controls.Add(this.lbSaiThongTin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.HLtk);
@@ -310,6 +326,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.TransparencyKey = System.Drawing.Color.Red;
+            this.Load += new System.EventHandler(this.fLogin_Load);
+            this.TextChanged += new System.EventHandler(this.fLogin_TextChanged);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).EndInit();
@@ -348,6 +366,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox mat1;
+        private System.Windows.Forms.Label lbSaiThongTin;
     }
 }
 

@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+﻿using System;
+=======
 ﻿using JobsManagement.DTO;
 using System;
+>>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +14,10 @@ using System.Windows.Input;
 namespace JobsManagement.DAO
 {
     internal class CongViecDAO
+<<<<<<< HEAD
+
+    {
+=======
     {
         public static bool addJob(CongViec cv)
         {

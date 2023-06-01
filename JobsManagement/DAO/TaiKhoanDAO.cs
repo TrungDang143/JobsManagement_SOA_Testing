@@ -19,8 +19,18 @@ namespace JobsManagement.DAO
 
         public static TaiKhoanDAO Instance
         {
+            /*
             get { if (instance == null) instance = new TaiKhoanDAO(); return instance; }
             private set { instance = value; }
+            */
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new TaiKhoanDAO();
+                }
+                return instance;
+            }
         }
         public TaiKhoanDAO() { }
 
@@ -33,15 +43,33 @@ namespace JobsManagement.DAO
         //    }
         //    return null;
         //}
+
+
+        /*
         public bool DKTK(string username, string password, string tenHT, string chbm, string tl)
         {
             bool kq = DataProvider.Instance.truyVanKTraVe(string.Format("insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi) values('{0}','{1}',N'{2}',N'{3}',N'{4}')",username,password,tenHT,chbm,tl));
             return kq;
         }
-
-        public TaiKhoan CurrentAcc(string username)
+        */
+        public bool signUp(string tenDN, string MK, string MK1, string tenHT, string cauHoi, string traLoi)
         {
-            DataTable data = DataProvider.Instance.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "'");
+            if (tenDN == "" || MK != MK1 || MK == "" || tenHT == "" || traLoi == "" || cauHoi == null)
+            {
+                return false;
+            }
+            else
+            {
+                string query = "exec DangKy_1 @tenDN , @MK , @tenHT , @cauHoi , @traLoi ";
+                DataTable data = DataProvider.Instance.truyVanCoKetQua(query, new object[] { tenDN, MK, tenHT, cauHoi, traLoi });
+                return true;
+            }
+        }
+
+        public TaiKhoan CurrentAcc(string userName)
+        {
+            string query = "exec DangNhap_2 @userName ";
+            DataTable data = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
             foreach (DataRow item in data.Rows)
             {
                 return new TaiKhoan(item);
@@ -49,6 +77,8 @@ namespace JobsManagement.DAO
 
             return null;
         }
+        
+        /*
         public bool login(string username, string password)
         {
             DataTable kq = DataProvider.Instance.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "' and matkhau = '" + password + "'");
@@ -65,7 +95,17 @@ namespace JobsManagement.DAO
             }
             return false;
         }
+<<<<<<< HEAD
+        */
+        public bool Login(string userName, string passWord)
+        {
+            string query = "exec DangNhap_1 @userName , @passWord ";
+            DataTable data = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, passWord });
+            return data.Rows.Count > 0;
+        }
+=======
         #region cai dat he thong
+>>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
         public void setKhoiDong(string userName, bool isOn)
         {
             if (isOn)
@@ -96,6 +136,10 @@ namespace JobsManagement.DAO
         }
         #endregion
 
-
+        public bool xoaTK(string password)
+        {
+            bool xoa = DataProvider.Instance.truyVanKTraVe(string.Format("delete from TaiKhoan where matKhau = '" + password + "'"));
+            return xoa;
+        }
     }
 }

@@ -26,6 +26,13 @@ namespace JobsManagement
             CauHoiBaoMatDAO.loadCHBM(cbb);
         }
 
+        private TaiKhoan loginAccount;
+
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
         #region title bar
 
         private void icoMinus_Click(object sender, EventArgs e)
@@ -185,6 +192,7 @@ namespace JobsManagement
         }
         #endregion
 
+        /*
         public bool KiemTraThongTin()
         {
 
@@ -220,8 +228,10 @@ namespace JobsManagement
             }
             return true;
         }
+        */
         private void btnTaoTK_Click(object sender, EventArgs e)
         {
+            /*
             if (!KiemTraThongTin()) return;
             
             if (TaiKhoanDAO.Instance.DKTK(txbTK.Text, txbMK.Text, txbTen.Text, cbb.SelectedItem.ToString(), txbTraLoi.Text))
@@ -233,6 +243,33 @@ namespace JobsManagement
             {
                 MessageBox.Show("dk k thanh cong, xem lai thong tin");
 
+            }
+            */
+            string userName = txbTK.Text;
+            string passWord = txbMK.Text;
+            string passWord1 = txbXNMK.Text;
+            string displayName = txbTen.Text;
+            string question = "";
+            string answer = txbTraLoi.Text;
+            if(cbb.SelectedItem != null)
+            {
+                question = cbb.SelectedItem.ToString();
+            }
+            if (signUp(userName, passWord, passWord1, displayName, question, answer))
+              { 
+                MessageBox.Show("Đăng kí thành công");
+
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ các thông tin");
+            }
+
+            bool signUp(string tenDN, string MK, string MK1, string tenHT, string cauHoi, string traLoi)
+            {
+                return TaiKhoanDAO.Instance.signUp(tenDN, MK, MK1, tenHT, cauHoi, traLoi);
             }
             //if (KiemTraThongTin())
             //{

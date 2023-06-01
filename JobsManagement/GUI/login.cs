@@ -83,6 +83,7 @@ namespace JobsManagement
 
         private void btnDN_Click(object sender, EventArgs e)
         {
+
             try
             {
                 //SqlCommand cmd = new SqlCommand();
@@ -98,10 +99,11 @@ namespace JobsManagement
                 //int code = Convert.ToInt32(kq);
 
 
-                if (TaiKhoanDAO.Instance.login(txbUsername.Text, txbPassword.Text))
+                if (TaiKhoanDAO.Instance.Login(txbUsername.Text, txbPassword.Text))
                 {
                     MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
  
+                    
                     TaiKhoan loginAcc = TaiKhoanDAO.Instance.CurrentAcc(txbUsername.Text);
                     LoginAccount = loginAcc;
                     
@@ -116,7 +118,7 @@ namespace JobsManagement
                 }
                 else
                 {
-                    MessageBox.Show("Tài khoản không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lbSaiThongTin.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -124,6 +126,12 @@ namespace JobsManagement
                 MessageBox.Show(ex.Message);
 
             }
+           
+        }
+
+        bool Login(string userName, string passWord)
+        {
+            return TaiKhoanDAO.Instance.Login(userName, passWord);
         }
 
         private bool isMat1 = false;
@@ -142,7 +150,17 @@ namespace JobsManagement
             txbPassword.UseSystemPasswordChar = !txbPassword.UseSystemPasswordChar;
         }
 
-        private void txbUsername_TextChanged(object sender, EventArgs e)
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fLogin_TextChanged(object sender, EventArgs e)
+        {
+            lbSaiThongTin.Visible = false;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
