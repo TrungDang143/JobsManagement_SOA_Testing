@@ -36,8 +36,6 @@
             this.pnlHeThong = new System.Windows.Forms.Panel();
             this.lbH = new System.Windows.Forms.Label();
             this.lbM = new System.Windows.Forms.Label();
-            this.nudH = new System.Windows.Forms.NumericUpDown();
-            this.nudM = new System.Windows.Forms.NumericUpDown();
             this.lbThongBao = new System.Windows.Forms.Label();
             this.switchNN = new System.Windows.Forms.PictureBox();
             this.switchNNCV = new System.Windows.Forms.PictureBox();
@@ -75,10 +73,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.nudM = new System.Windows.Forms.NumericUpDown();
+            this.nudH = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlAll.SuspendLayout();
             this.pnlHeThong.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchNN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchNNCV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchKD)).BeginInit();
@@ -86,10 +85,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudH)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAll
             // 
+            this.pnlAll.Controls.Add(this.label4);
             this.pnlAll.Controls.Add(this.label3);
             this.pnlAll.Controls.Add(this.label2);
             this.pnlAll.Controls.Add(this.label1);
@@ -158,7 +160,7 @@
             this.lbH.AutoSize = true;
             this.lbH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbH.ForeColor = System.Drawing.Color.White;
-            this.lbH.Location = new System.Drawing.Point(766, 125);
+            this.lbH.Location = new System.Drawing.Point(804, 19);
             this.lbH.Name = "lbH";
             this.lbH.Size = new System.Drawing.Size(27, 29);
             this.lbH.TabIndex = 7;
@@ -169,51 +171,18 @@
             this.lbM.AutoSize = true;
             this.lbM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbM.ForeColor = System.Drawing.Color.White;
-            this.lbM.Location = new System.Drawing.Point(845, 124);
+            this.lbM.Location = new System.Drawing.Point(883, 18);
             this.lbM.Name = "lbM";
             this.lbM.Size = new System.Drawing.Size(34, 29);
             this.lbM.TabIndex = 8;
             this.lbM.Text = "m";
-            // 
-            // nudH
-            // 
-            this.nudH.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.nudH.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.nudH.ForeColor = System.Drawing.Color.Black;
-            this.nudH.Location = new System.Drawing.Point(717, 123);
-            this.nudH.Maximum = new decimal(new int[] {
-            47,
-            0,
-            0,
-            0});
-            this.nudH.Name = "nudH";
-            this.nudH.Size = new System.Drawing.Size(50, 30);
-            this.nudH.TabIndex = 9;
-            this.nudH.ValueChanged += new System.EventHandler(this.nudH_ValueChanged);
-            // 
-            // nudM
-            // 
-            this.nudM.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.nudM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.nudM.Location = new System.Drawing.Point(798, 122);
-            this.nudM.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.nudM.Name = "nudM";
-            this.nudM.Size = new System.Drawing.Size(50, 30);
-            this.nudM.TabIndex = 10;
-            this.nudM.ValueChanged += new System.EventHandler(this.nudM_ValueChanged);
             // 
             // lbThongBao
             // 
             this.lbThongBao.AutoSize = true;
             this.lbThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbThongBao.ForeColor = System.Drawing.Color.Turquoise;
-            this.lbThongBao.Location = new System.Drawing.Point(378, 127);
+            this.lbThongBao.Location = new System.Drawing.Point(416, 21);
             this.lbThongBao.Name = "lbThongBao";
             this.lbThongBao.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lbThongBao.Size = new System.Drawing.Size(332, 25);
@@ -223,7 +192,7 @@
             // switchNN
             // 
             this.switchNN.Image = global::JobsManagement.Properties.Resources.switch_on64;
-            this.switchNN.Location = new System.Drawing.Point(260, 113);
+            this.switchNN.Location = new System.Drawing.Point(260, 5);
             this.switchNN.Name = "switchNN";
             this.switchNN.Size = new System.Drawing.Size(82, 53);
             this.switchNN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -245,7 +214,7 @@
             // switchKD
             // 
             this.switchKD.Image = global::JobsManagement.Properties.Resources.switch_on64;
-            this.switchKD.Location = new System.Drawing.Point(260, 5);
+            this.switchKD.Location = new System.Drawing.Point(260, 113);
             this.switchKD.Name = "switchKD";
             this.switchKD.Size = new System.Drawing.Size(82, 53);
             this.switchKD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -258,7 +227,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.ForeColor = System.Drawing.Color.Turquoise;
-            this.label9.Location = new System.Drawing.Point(3, 127);
+            this.label9.Location = new System.Drawing.Point(3, 22);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.label9.Size = new System.Drawing.Size(194, 25);
@@ -282,7 +251,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.ForeColor = System.Drawing.Color.Turquoise;
-            this.label7.Location = new System.Drawing.Point(3, 19);
+            this.label7.Location = new System.Drawing.Point(3, 124);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.label7.Size = new System.Drawing.Size(240, 25);
@@ -648,6 +617,50 @@
             this.panel4.Size = new System.Drawing.Size(1050, 3);
             this.panel4.TabIndex = 6;
             // 
+            // nudM
+            // 
+            this.nudM.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.nudM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudM.Location = new System.Drawing.Point(836, 16);
+            this.nudM.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nudM.Name = "nudM";
+            this.nudM.Size = new System.Drawing.Size(50, 30);
+            this.nudM.TabIndex = 10;
+            this.nudM.ValueChanged += new System.EventHandler(this.nudH_ValueChanged_1);
+            // 
+            // nudH
+            // 
+            this.nudH.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.nudH.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.nudH.ForeColor = System.Drawing.Color.Black;
+            this.nudH.Location = new System.Drawing.Point(755, 17);
+            this.nudH.Maximum = new decimal(new int[] {
+            47,
+            0,
+            0,
+            0});
+            this.nudH.Name = "nudH";
+            this.nudH.Size = new System.Drawing.Size(50, 30);
+            this.nudH.TabIndex = 9;
+            this.nudH.ValueChanged += new System.EventHandler(this.nudH_ValueChanged_1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label4.Location = new System.Drawing.Point(118, 609);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(414, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "(Những thay đổi sẽ có hiệu lực khi khởi động lại)";
+            // 
             // ucSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -661,8 +674,6 @@
             this.pnlAll.PerformLayout();
             this.pnlHeThong.ResumeLayout(false);
             this.pnlHeThong.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchNN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchNNCV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchKD)).EndInit();
@@ -672,6 +683,8 @@
             this.pnlAbout.ResumeLayout(false);
             this.pnlAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,8 +714,6 @@
         private System.Windows.Forms.Label lbThongBao;
         private System.Windows.Forms.Label lbH;
         private System.Windows.Forms.Label lbM;
-        private System.Windows.Forms.NumericUpDown nudH;
-        private System.Windows.Forms.NumericUpDown nudM;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
@@ -724,5 +735,8 @@
         private System.Windows.Forms.Panel pnlChucNang;
         private System.Windows.Forms.Label lbTHT;
         private System.Windows.Forms.Label lbTDN;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nudH;
+        private System.Windows.Forms.NumericUpDown nudM;
     }
 }

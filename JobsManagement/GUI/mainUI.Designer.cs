@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainUI));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.dongHo = new System.Windows.Forms.Label();
             this.pnlHighLight4 = new System.Windows.Forms.Panel();
             this.pnlHighLight3 = new System.Windows.Forms.Panel();
             this.pnlHighLight2 = new System.Windows.Forms.Panel();
@@ -46,6 +48,9 @@
             this.icoMinus = new System.Windows.Forms.PictureBox();
             this.icoClose = new System.Windows.Forms.PictureBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.tmThongBaoAll = new System.Windows.Forms.Timer(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,6 +62,7 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pnlMenu.Controls.Add(this.dongHo);
             this.pnlMenu.Controls.Add(this.pnlHighLight4);
             this.pnlMenu.Controls.Add(this.pnlHighLight3);
             this.pnlMenu.Controls.Add(this.pnlHighLight2);
@@ -72,11 +78,23 @@
             this.pnlMenu.Size = new System.Drawing.Size(253, 753);
             this.pnlMenu.TabIndex = 0;
             // 
+            // dongHo
+            // 
+            this.dongHo.AutoSize = true;
+            this.dongHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dongHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.dongHo.Location = new System.Drawing.Point(44, 690);
+            this.dongHo.Name = "dongHo";
+            this.dongHo.Size = new System.Drawing.Size(151, 38);
+            this.dongHo.TabIndex = 6;
+            this.dongHo.Text = "00:00:00";
+            this.dongHo.Click += new System.EventHandler(this.dongHo_Click);
+            // 
             // pnlHighLight4
             // 
             this.pnlHighLight4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlHighLight4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight4.Location = new System.Drawing.Point(0, 682);
+            this.pnlHighLight4.Location = new System.Drawing.Point(0, 601);
             this.pnlHighLight4.Name = "pnlHighLight4";
             this.pnlHighLight4.Size = new System.Drawing.Size(5, 71);
             this.pnlHighLight4.TabIndex = 5;
@@ -86,7 +104,7 @@
             // 
             this.pnlHighLight3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlHighLight3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight3.Location = new System.Drawing.Point(0, 431);
+            this.pnlHighLight3.Location = new System.Drawing.Point(0, 404);
             this.pnlHighLight3.Name = "pnlHighLight3";
             this.pnlHighLight3.Size = new System.Drawing.Size(5, 68);
             this.pnlHighLight3.TabIndex = 4;
@@ -96,7 +114,7 @@
             // 
             this.pnlHighLight2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlHighLight2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight2.Location = new System.Drawing.Point(0, 363);
+            this.pnlHighLight2.Location = new System.Drawing.Point(0, 336);
             this.pnlHighLight2.Name = "pnlHighLight2";
             this.pnlHighLight2.Size = new System.Drawing.Size(5, 68);
             this.pnlHighLight2.TabIndex = 4;
@@ -106,7 +124,7 @@
             // 
             this.pnlHighLight1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlHighLight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlHighLight1.Location = new System.Drawing.Point(0, 295);
+            this.pnlHighLight1.Location = new System.Drawing.Point(0, 268);
             this.pnlHighLight1.Name = "pnlHighLight1";
             this.pnlHighLight1.Size = new System.Drawing.Size(5, 68);
             this.pnlHighLight1.TabIndex = 3;
@@ -122,7 +140,7 @@
             this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnSetting.Image = global::JobsManagement.Properties.Resources.icons8_settings_50;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(5, 682);
+            this.btnSetting.Location = new System.Drawing.Point(5, 601);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnSetting.Size = new System.Drawing.Size(248, 71);
@@ -143,7 +161,7 @@
             this.btnTK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnTK.Image = global::JobsManagement.Properties.Resources.icons8_chart_48;
             this.btnTK.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTK.Location = new System.Drawing.Point(5, 431);
+            this.btnTK.Location = new System.Drawing.Point(5, 404);
             this.btnTK.Name = "btnTK";
             this.btnTK.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnTK.Size = new System.Drawing.Size(248, 68);
@@ -165,7 +183,7 @@
             this.btnCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnCalendar.Image = global::JobsManagement.Properties.Resources.icons8_calendar_48;
             this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCalendar.Location = new System.Drawing.Point(5, 363);
+            this.btnCalendar.Location = new System.Drawing.Point(5, 336);
             this.btnCalendar.Name = "btnCalendar";
             this.btnCalendar.Padding = new System.Windows.Forms.Padding(23, 0, 20, 0);
             this.btnCalendar.Size = new System.Drawing.Size(248, 68);
@@ -187,7 +205,7 @@
             this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnHome.Image = global::JobsManagement.Properties.Resources.home;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHome.Location = new System.Drawing.Point(5, 295);
+            this.btnHome.Location = new System.Drawing.Point(5, 268);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnHome.Size = new System.Drawing.Size(248, 68);
@@ -287,6 +305,25 @@
             this.pnlTitle.TabIndex = 2;
             this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
+            // tmThongBaoAll
+            // 
+            this.tmThongBaoAll.Enabled = true;
+            this.tmThongBaoAll.Interval = 10000;
+            this.tmThongBaoAll.Tick += new System.EventHandler(this.tmThongBaoAll_Tick);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            // 
             // mainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -300,9 +337,11 @@
             this.Name = "mainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mainUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainUI_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainUI_FormClosed);
             this.Load += new System.EventHandler(this.btnHome_Click);
             this.pnlMenu.ResumeLayout(false);
+            this.pnlMenu.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -333,5 +372,9 @@
         private System.Windows.Forms.PictureBox icoMinus;
         private System.Windows.Forms.PictureBox icoClose;
         private System.Windows.Forms.Panel pnlTitle;
+        public System.Windows.Forms.Label dongHo;
+        public System.Windows.Forms.Timer tmThongBaoAll;
+        public System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

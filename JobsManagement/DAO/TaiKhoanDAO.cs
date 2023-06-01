@@ -86,8 +86,8 @@ namespace JobsManagement.DAO
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set ghiNho = 1 where tenDangNhap ='" + userName + "'");
-            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set ghiNho = 0 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNhoCV = 1 where tenDangNhap ='" + userName + "'");
+            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNhoCV = 0 where tenDangNhap ='" + userName + "'");
         }
 
         public void setTimeNhacNho(string userName, int h, int m)

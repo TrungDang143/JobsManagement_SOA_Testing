@@ -8,12 +8,17 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using Color = System.Drawing.Color;
 
@@ -32,6 +37,8 @@ namespace JobsManagement
             private set { loginAccount = value; }
         }
 
+        private System.Timers.Timer t = null;
+
         public mainUI(TaiKhoan loginAcc)
         {
             InitializeComponent();
@@ -39,12 +46,25 @@ namespace JobsManagement
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             
             this.LoginAccount = loginAcc;
-            
-            phanLoaiUser(loginAcc);
+
+            backgroundWorker1.RunWorkerAsync();
+            loadDuLieuVao(loginAcc);
+
+            setTimeThongBao(LoginAccount.HNN, LoginAccount.MNN);
+
+            tmThongBaoAll.Start();
         }
 
-        private void phanLoaiUser(TaiKhoan loginAcc)
+        public void setTimeThongBao(int h, int m)
         {
+            tmThongBaoAll.Interval = (h * 3600 + m * 60) * 1000;
+        }
+        private void loadDuLieuVao(TaiKhoan loginAcc)
+        {
+            dongHo.Text = DateTime.Now.ToString("HH:MM:ss");
+            //addFont.newFont();
+            //dongHo.Font = new Font("DIGIFACE", 20, FontStyle.Bold);
+
             lbUserName.Text = loginAcc.TenHT;
             int vt = (253 - lbUserName.Size.Width)/2;
             lbUserName.Location = new Point(vt,198);
@@ -206,7 +226,9 @@ namespace JobsManagement
 
         private void mainUI_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(isClose) { Application.Exit(); }
+            if(isClose) {
+                Application.Exit(); 
+            }
         }
 
         public void showBlurForm()
@@ -224,5 +246,48 @@ namespace JobsManagement
             //blurF = null;
         }
 
+        private void dongHo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tmThongBaoAll_Tick(object sender, EventArgs e)
+        {
+            
+            if (LoginAccount.NhacNho == false)
+                return;
+
+            notifyIcon1.ShowBalloonTip(2000, "Welcome", "Hello " + LoginAccount.TenHT, ToolTipIcon.Info);
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            while (!worker.CancellationPending)
+            {
+                // Get the current time
+                string currentTime = DateTime.Now.ToLongTimeString();
+
+                // Report the progress back to the UI thread
+                worker.ReportProgress(0, currentTime);
+
+                // Wait for one second before repeating
+                Thread.Sleep(1000);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            string currentTime = e.UserState as string;
+            dongHo.Text = currentTime;
+        }
+
+        private void mainUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.CancelAsync();
+            }
+        }
     }
 }

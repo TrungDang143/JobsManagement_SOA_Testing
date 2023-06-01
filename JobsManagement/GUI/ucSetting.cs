@@ -138,15 +138,12 @@ namespace JobsManagement.GUI
                 nudH.Enabled = false;
                 nudM.Enabled = false;
             }
-        }
-        private void nudH_ValueChanged(object sender, EventArgs e)
+        }         
+        private void nudH_ValueChanged_1(object sender, EventArgs e)
         {
-            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, (int)nudH.Value, LoginAccount.MNN);
-        }
-
-        private void nudM_ValueChanged(object sender, EventArgs e)
-        {
-            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, (int)nudM.Value, LoginAccount.MNN);
+            LoginAccount.HNN = (int)nudH.Value;
+            LoginAccount.MNN = (int)nudM.Value;
+            TaiKhoanDAO.Instance.setTimeNhacNho(loginAccount.TenDN, (int)nudH.Value, (int)nudM.Value);
         }
 
         #endregion
