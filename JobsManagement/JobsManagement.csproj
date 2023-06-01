@@ -37,7 +37,11 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs37AA.tmp\Debug\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vs3E8.tmp\Debug\</IntermediateOutputPath>
+>>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +51,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs37AA.tmp\Release\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vs3E8.tmp\Release\</IntermediateOutputPath>
+>>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -75,6 +83,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\addFont.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\BoForm.cs" />
     <Compile Include="DAO\CauHoiBaoMatDAO.cs" />
@@ -86,7 +95,6 @@
     <Compile Include="DAO\TrangThaiDAO.cs" />
     <Compile Include="DTO\CHBM.cs" />
     <Compile Include="DTO\CongViec.cs" />
-    <Compile Include="DTO\LapLai.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="DTO\TrangThai.cs" />
     <Compile Include="GUI\addJob.cs">
@@ -228,6 +236,7 @@
       <DependentUpon>ucThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
+    <None Include="Font\DIGIFACE.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

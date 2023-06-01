@@ -10,39 +10,35 @@ namespace JobsManagement.DTO
 {
     internal class CongViec
     {
-        private static int id;
+        private int id;
         private string noiDung;
-        private DateTime ngayBD = new DateTime();
-        private Point gioBD = new Point();
-        private DateTime ngayKT = new DateTime();
-        private Point gioKT = new Point();
+        private DateTime tgBD = new DateTime();
+        private DateTime tgKT = new DateTime();
         private string trangThai;
-        private string lapLai;
+        private bool[] lapLai = new bool[9];//0,hn,2,3,4,5,6,7,cn
         private string tenDN;
+
+        public CongViec(string nd, DateTime nbd, DateTime nkt, bool[] lap, string userName)
+        {
+            //chuyển id thành hàm lấy id tiếp theo, để trong congviecDAO
+            Id = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select top(1) id from CongViec where tenDangNhap = '{0}' order by id desc", userName)) + 1;
+            NoiDung = nd;
+            tgBD = nbd;
+            tgKT = nkt;
+            TrangThai = DAO.TrangThaiDAO.getTT(0);
+            for(int i = 0; i < 9; i++)
+            {
+                LapLai[i] = lap[i];
+            }
+            TenDN = userName;
+        }
 
         public int Id { get => id; set => id = value; }
         public string NoiDung { get => noiDung; set => noiDung = value; }
-        public DateTime NgayBD { get => ngayBD; set => ngayBD = value; }
-        public Point GioBD { get => gioBD; set => gioBD = value; }
-        public DateTime NgayKT { get => ngayKT; set => ngayKT = value; }
-        public Point GioKT { get => gioKT; set => gioKT = value; }
+        public DateTime TgBD { get => tgBD; set => tgBD = value; }
+        public DateTime TgKT { get => tgKT; set => tgKT = value; }
         public string TrangThai { get => trangThai; set => trangThai = value; }
-        public string LapLai { get => lapLai; set => lapLai = value; }
-
-        public CongViec(string nd, DateTime nbd, Point gbd, DateTime nkt, Point gkt, int kieuLap)
-        {
-            NoiDung = nd;
-            NgayBD = nbd;
-            GioBD = gbd;
-            NgayKT = nkt;
-            GioKT = gkt;
-            
-            DTO.LapLai stringLap = new DTO.LapLai(kieuLap);
-            LapLai = stringLap.Lap;
-            
-            DTO.TrangThai stringTT = new DTO.TrangThai(0);
-            TrangThai = stringTT.tt;
-
-        }
+        public string TenDN { get => tenDN; set => tenDN = value; }
+        public bool[] LapLai { get => lapLai; set => lapLai = value; }
     }
 }

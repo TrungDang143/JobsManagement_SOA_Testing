@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.dgv = new System.Windows.Forms.DataGridView();
+            this.dgvAdmin = new System.Windows.Forms.DataGridView();
+            this.tenDangNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenHienThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel15 = new System.Windows.Forms.Panel();
             this.btnAD = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -48,17 +50,35 @@
             this.label2.TabIndex = 60;
             this.label2.Text = "Administrator";
             // 
-            // dgv
+            // dgvAdmin
             // 
-            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(13, 128);
-            this.dgv.Name = "dgv";
-            this.dgv.RowHeadersWidth = 51;
-            this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(541, 262);
-            this.dgv.TabIndex = 61;
+            this.dgvAdmin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAdmin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.dgvAdmin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tenDangNhap,
+            this.tenHienThi});
+            this.dgvAdmin.Location = new System.Drawing.Point(13, 129);
+            this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.RowHeadersWidth = 51;
+            this.dgvAdmin.RowTemplate.Height = 24;
+            this.dgvAdmin.Size = new System.Drawing.Size(541, 262);
+            this.dgvAdmin.TabIndex = 61;
+            // 
+            // tenDangNhap
+            // 
+            this.tenDangNhap.DataPropertyName = "tenDangNhap";
+            this.tenDangNhap.HeaderText = "Tên Tài Khoản";
+            this.tenDangNhap.MinimumWidth = 6;
+            this.tenDangNhap.Name = "tenDangNhap";
+            // 
+            // tenHienThi
+            // 
+            this.tenHienThi.DataPropertyName = "tenHienThi";
+            this.tenHienThi.HeaderText = "Tên Người Dùng";
+            this.tenHienThi.MinimumWidth = 6;
+            this.tenHienThi.Name = "tenHienThi";
             // 
             // panel15
             // 
@@ -112,12 +132,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.btnAD);
-            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.dgvAdmin);
             this.Controls.Add(this.label2);
             this.Name = "ucAD";
             this.Size = new System.Drawing.Size(554, 467);
             this.Load += new System.EventHandler(this.ucAD_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,10 +146,12 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.DataGridView dgvAdmin;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button btnAD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenDangNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenHienThi;
     }
 }

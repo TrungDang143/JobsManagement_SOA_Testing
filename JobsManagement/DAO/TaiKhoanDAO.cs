@@ -95,6 +95,7 @@ namespace JobsManagement.DAO
             }
             return false;
         }
+<<<<<<< HEAD
         */
         public bool Login(string userName, string passWord)
         {
@@ -102,6 +103,9 @@ namespace JobsManagement.DAO
             DataTable data = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, passWord });
             return data.Rows.Count > 0;
         }
+=======
+        #region cai dat he thong
+>>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
         public void setKhoiDong(string userName, bool isOn)
         {
             if (isOn)
@@ -122,13 +126,20 @@ namespace JobsManagement.DAO
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set ghiNho = 1 where tenDangNhap ='" + userName + "'");
-            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set ghiNho = 0 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNhoCV = 1 where tenDangNhap ='" + userName + "'");
+            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNhoCV = 0 where tenDangNhap ='" + userName + "'");
         }
 
         public void setTimeNhacNho(string userName, int h, int m)
         {
             DataProvider.Instance.truyVanKTraVe(string.Format("update TaiKhoan set hNhacNho = {0}, mNhacNho = {1} where tenDangNhap = '{2}'",h,m,userName));
+        }
+        #endregion
+
+        public bool xoaTK(string password)
+        {
+            bool xoa = DataProvider.Instance.truyVanKTraVe(string.Format("delete from TaiKhoan where matKhau = '" + password + "'"));
+            return xoa;
         }
     }
 }
