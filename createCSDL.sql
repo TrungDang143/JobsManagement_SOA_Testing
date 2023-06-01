@@ -89,6 +89,7 @@ insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) val
 select * from TaiKhoan
 drop database JobsManagement
 delete from TaiKhoan
+select * from CauHoiBaoMat
 
 /*
 insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')
@@ -121,3 +122,31 @@ begin
     Insert into Acc values(@TaiKhoan,@MatKhau,@TenHienThi,@traLoi)
 end
 */
+
+create proc DangNhap_1 (@userName varchar(20), @passWord varchar(20))
+as
+begin	
+	select * from TaiKhoan where tenDangNhap = @userName AND matKhau = @passWord
+end
+
+exec DangNhap_1 'Admin', '1111'
+
+create proc DangNhap_2 (@userName varchar(20))
+as
+begin
+	select * from TaiKhoan where tenDangNhap = @userName
+end
+drop proc DangNhap_2
+exec DangNhap_2 'Admin'
+
+
+create proc DangKy_1 (@userName varchar(20), @passWord varchar(20), @tenHT nvarchar(30), @cauHoi nvarchar(30), @traLoi nvarchar(30))
+as
+begin
+	insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi) values(@userName, @passWord, @tenHT, @cauHoi, @traLoi)
+end
+drop proc DangKy
+go
+
+exec DangKy_1 'dinhtri', '1111', 'tri', N'Kỉ niệm đáng nhớ?', 'xyz'
+exec DangKy_1 'tridinh', '1111', 'tri', N'Tên thú cưng đầu tiên?', 'xyz'

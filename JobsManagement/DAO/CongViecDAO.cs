@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace JobsManagement.DAO
 {
-    internal class CongViecADO
+    internal class CongViecDAO
+
     {
     }
 }

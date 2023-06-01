@@ -37,7 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs1125.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs37AA.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs1125.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs37AA.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -78,7 +78,7 @@
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\BoForm.cs" />
     <Compile Include="DAO\CauHoiBaoMatDAO.cs" />
-    <Compile Include="DAO\CongViecADO.cs" />
+    <Compile Include="DAO\CongViecDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\LapLaiDAO.cs" />
     <Compile Include="DAO\timeOfDtpk.cs" />
