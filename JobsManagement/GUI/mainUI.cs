@@ -246,6 +246,7 @@ namespace JobsManagement
             //blurF = null;
         }
 
+        #region thong bao + dong ho
         private void dongHo_Click(object sender, EventArgs e)
         {
 
@@ -256,8 +257,30 @@ namespace JobsManagement
             
             if (LoginAccount.NhacNho == false)
                 return;
-
-            notifyIcon1.ShowBalloonTip(2000, "Welcome", "Hello " + LoginAccount.TenHT, ToolTipIcon.Info);
+            //notifyIcon1.Visible = true;
+            int cv = DAO.CongViecDAO.tongCV(LoginAccount.TenDN);
+            int cvddr = DAO.CongViecDAO.CVdangDienRa(LoginAccount.TenDN);
+            string tb = string.Empty;
+            if(cv > 0)
+            {
+                if(cvddr > 0 && cvddr < cv)
+                {
+                    tb = string.Format("Có {0} công việc đang diễn ra\nvà {1} công việc sắp diễn ra", cvddr, cv-cvddr);
+                }
+                else if(cvddr > 0 && cvddr == cv)
+                {
+                    tb = string.Format("Có {0} công việc đang diễn ra", cvddr);
+                }
+                else
+                {
+                    tb = string.Format("Có {0} công việc sắp diễn ra", cv);
+                }
+            }
+            else
+            {
+                tb = "Bạn không có công việc ";
+            }
+            notifyIcon1.ShowBalloonTip(2000, string.Format("Thông báo công việc ngày {0}",DateTime.Now.ToShortDateString()), tb, ToolTipIcon.Info);
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -266,7 +289,7 @@ namespace JobsManagement
             while (!worker.CancellationPending)
             {
                 // Get the current time
-                string currentTime = DateTime.Now.ToLongTimeString();
+                string currentTime = DateTime.Now.ToString("HH:mm:ss");
 
                 // Report the progress back to the UI thread
                 worker.ReportProgress(0, currentTime);
@@ -289,5 +312,6 @@ namespace JobsManagement
                 backgroundWorker1.CancelAsync();
             }
         }
+        #endregion
     }
 }
