@@ -245,7 +245,6 @@ namespace JobsManagement
             //blurF.Close();
             //blurF = null;
         }
-
         private void dongHo_Click(object sender, EventArgs e)
         {
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsManagement.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +32,7 @@ namespace JobsManagement.GUI
             mainF.isClose = false;
             
             lbSYS.Visible = true;
-
+            TaiKhoanDAO.Instance.xoaTK(txbXNMK.Text);
             Task.Delay(2000).Wait();
             mainF.Close();
 
