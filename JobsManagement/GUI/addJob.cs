@@ -202,7 +202,7 @@ namespace JobsManagement
 
         private void lbNgayKetThuc_TextChanged(object sender, EventArgs e)
         {
-            
+               
         }
 
         private void nudH1_ValueChanged_1(object sender, EventArgs e)
