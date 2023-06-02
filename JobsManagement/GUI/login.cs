@@ -34,13 +34,8 @@ namespace JobsManagement
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-            load();
         }
 
-        void load()
-        {
-            label1.Text = (string)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("declare @time datetime set @time = '{0}' print @time",DateTime.Now.ToString()));
-        }
         public void reset()
         {
             txbPassword.Text = string.Empty;
@@ -108,8 +103,8 @@ namespace JobsManagement
                     LoginAccount = loginAcc;
                     
                     mainUI m = new mainUI(LoginAccount);
-                    this.Hide();
                     m.ShowDialog();
+                    this.Hide();
                     if (!m.isClose)
                     {
                         reset();

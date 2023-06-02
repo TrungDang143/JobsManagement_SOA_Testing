@@ -24,5 +24,10 @@ namespace JobsManagement
         {
 
         }
+
+        private void dtpk_ValueChanged(object sender, EventArgs e)
+        {
+            timeOfDtpk.TimeSelection = dtpk.Value;
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace JobsManagement
             this.LoginAccount = loginAcc;
 
             backgroundWorker1.RunWorkerAsync();
+
             loadDuLieuVao(loginAcc);
 
             setTimeThongBao(LoginAccount.HNN, LoginAccount.MNN);
@@ -231,21 +232,6 @@ namespace JobsManagement
             }
         }
 
-        public void showBlurForm()
-        {
-            //Form blurF = new Form();
-            //blurF.Size = new Size(1408, 800);
-            ////blurF.Location = located;
-            //blurF.StartPosition = FormStartPosition.CenterParent;
-            //blurF.Opacity = 0.9;
-            //blurF.Show();
-        }
-        public void closeBlurForm()
-        {
-            //blurF.Close();
-            //blurF = null;
-        }
-
         #region thong bao + dong ho
         private void dongHo_Click(object sender, EventArgs e)
         {
@@ -280,7 +266,7 @@ namespace JobsManagement
             {
                 tb = "Bạn không có công việc ";
             }
-            notifyIcon1.ShowBalloonTip(2000, string.Format("Thông báo công việc ngày {0}",DateTime.Now.ToShortDateString()), tb, ToolTipIcon.Info);
+            ThongBao.ShowBalloonTip(2000, string.Format("Thông báo công việc ngày {0}",DateTime.Now.ToString("dd/MM/yyyy")), tb, ToolTipIcon.Info);
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -298,7 +284,6 @@ namespace JobsManagement
                 Thread.Sleep(1000);
             }
         }
-
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             string currentTime = e.UserState as string;

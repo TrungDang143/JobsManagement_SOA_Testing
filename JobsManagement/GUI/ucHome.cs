@@ -24,13 +24,16 @@ namespace JobsManagement
             InitializeComponent();
             this.LoginAccount = loginAcc;
             loadCV();
+            dtpk.Value = timeOfDtpk.TimeSelection;
         }
 
         private void loadCV()
         {
 
+            string query = "exec hienThiCV @userName ";
+            string userName = LoginAccount.TenDN;
             //load công việc theo loginAcc
-            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(string.Format("select noiDungCV from CongViec where tenDangNhap = '{0}'",LoginAccount.TenDN));
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
 
             dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
@@ -151,7 +154,11 @@ namespace JobsManagement
         {
             dtpk.Value = dtpk.Value.AddDays(1);
         }
-        #endregion
 
+        private void dtpk_ValueChanged(object sender, EventArgs e)
+        {
+            timeOfDtpk.TimeSelection = dtpk.Value;
+        }
+        #endregion
     }
 }

@@ -255,6 +255,10 @@ namespace JobsManagement
             {
                 question = cbb.SelectedItem.ToString();
             }
+            else
+            {
+                //
+            }
             if (signUp(userName, passWord, passWord1, displayName, question, answer))
               { 
                 MessageBox.Show("Đăng kí thành công");

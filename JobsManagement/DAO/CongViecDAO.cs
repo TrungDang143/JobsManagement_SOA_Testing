@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using System;
-=======
 ﻿using JobsManagement.DTO;
 using System;
->>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +10,6 @@ using System.Windows.Input;
 namespace JobsManagement.DAO
 {
     internal class CongViecDAO
-<<<<<<< HEAD
-
-    {
-=======
     {
         public static bool addJob(CongViec cv)
         {
@@ -76,7 +68,7 @@ namespace JobsManagement.DAO
 
         public static int tongCV(string userName)
         {
-            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select COUNT(*) from CongViec where tenDangNhap = '{0}'",userName));
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select COUNT(*) from CongViec where tenDangNhap = '{0}'", userName));
             return kq;
         }
         public static int CVdangDienRa(string userName)
