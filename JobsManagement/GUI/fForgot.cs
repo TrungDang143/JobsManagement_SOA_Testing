@@ -93,7 +93,7 @@ namespace JobsManagement
         {
             DataTable dt = new DataTable();
             dt.Clear();
-            dt = DataProvider.Instance.truyVanCoKetQua(string.Format("select * from TaiKhoan where tenDangNhap = '{0}'", txbTenTK.Text));
+            dt = DataProvider.Instance.truyVanCoKetQua("exec GetTTTK @username", new object[] { txbTenTK.Text });
 
             lbCanhBao.Visible = false;
             picCheck.Visible = true;

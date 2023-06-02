@@ -251,4 +251,10 @@ exec ThangNay 'trungdang'
 select datepart(year, tgKT),
 datepart(month, tgKT),
 datepart(day, tgKT)
-from CongViec where tenDangNhap = 'trungdang'
+go
+--from CongViec where tenDangNhap = 'trungdang'
+----------------------------------
+
+
+exec DoiTrangThai 6, trungdang, N'Chưa hoàn thành'
+SELECT	 * FROM CongViec

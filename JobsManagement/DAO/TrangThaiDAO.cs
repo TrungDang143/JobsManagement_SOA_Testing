@@ -14,5 +14,12 @@ namespace JobsManagement.DAO
             TrangThai trangThai = new TrangThai(i);
             return trangThai.tt;
         }
+        public static void setTT(int id, string userName, int i)
+        { 
+            string tt = getTT(i);
+
+
+        }
+
     }
 }

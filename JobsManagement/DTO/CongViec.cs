@@ -21,7 +21,7 @@ namespace JobsManagement.DTO
         public CongViec(string nd, DateTime nbd, DateTime nkt, bool[] lap, string userName)
         {
             //chuyển id thành hàm lấy id tiếp theo, để trong congviecDAO
-            Id = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select top(1) id from CongViec where tenDangNhap = '{0}' order by id desc", userName)) + 1;
+            Id = CongViecDAO.nextID(userName);
             NoiDung = nd;
             tgBD = nbd;
             tgKT = nkt;
