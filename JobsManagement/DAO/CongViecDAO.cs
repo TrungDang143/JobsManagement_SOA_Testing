@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace JobsManagement.DAO
 {
@@ -65,5 +67,18 @@ namespace JobsManagement.DAO
         {
             return 0;
         }
+
+
+        public static int tongCV(string userName)
+        {
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select COUNT(*) from CongViec where tenDangNhap = '{0}'",userName));
+            return kq;
+        }
+        public static int CVdangDienRa(string userName)
+        {
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select COUNT(*) from CongViec where trangThai = N'Đang diễn ra' and tenDangNhap = '{0}'", userName));
+            return kq;
+        }
+
     }
 }

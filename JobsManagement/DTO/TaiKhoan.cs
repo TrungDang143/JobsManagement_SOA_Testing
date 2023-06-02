@@ -24,7 +24,7 @@ namespace JobsManagement.DTO
         private int mNN;
 
         bool isAD = false;
-        public TaiKhoan(DataRow row) 
+        public TaiKhoan(DataRow row)
         {
             this.TenDN = row["tenDangNhap"].ToString();
             this.Mk = row["matKhau"].ToString();
@@ -32,7 +32,7 @@ namespace JobsManagement.DTO
             this.CauHoi = row["cauhoi"].ToString();
             this.TraLoi = row["traLoi"].ToString();
 
-            if(row["khoiDong"].ToString() == "True")
+            if (row["khoiDong"].ToString() == "True")
             {
                 this.KhoiDong = true;
             } else this.KhoiDong = false;
@@ -48,23 +48,48 @@ namespace JobsManagement.DTO
                 this.NhacNhoCV = true;
             }
             else this.NhacNhoCV = false;
-            
+
             hNN = (int)row["hNhacNho"];
             mNN = (int)row["mNhacNho"];
 
             string ad = row["isAD"].ToString();
-            this.IsAD = ad == "True"?true:false; 
+            this.IsAD = ad == "True" ? true : false;
         }
 
         public string TenDN { get => tenDN; set => tenDN = value; }
-        public string Mk { get => mk; set => mk = value; }
-        public string TraLoi { get => traLoi; set => traLoi = value; }
+        public string Mk
+        {
+            get
+            {
+                if (isAD == true)
+                    return mk;
+                return null;
+            }
+            private set => mk = value; 
+        }
+        public string TraLoi {
+            get
+            {
+                if (isAD == true)
+                    return traLoi;
+                return null;
+            }
+            set => traLoi = value; 
+        }
         public string TenHT { get => tenHT; set => tenHT = value; }
         public bool KhoiDong { get => khoiDong; set => khoiDong = value; }
         public bool NhacNho { get => nhacNho; set => nhacNho = value; }
         public bool NhacNhoCV { get => nhacNhoCV; set => nhacNhoCV = value; }
         public bool IsAD { get => isAD; private set => isAD = value; }
-        public string CauHoi { get => cauHoi; set => cauHoi = value; }
+        public string CauHoi {
+            get
+            {
+                if (isAD == true)
+                    return cauHoi;
+                return null;
+            }
+            private set => cauHoi = value; 
+        }
         public int HNN { get => hNN; set => hNN = value; }
         public int MNN { get => mNN; set => mNN = value; }
     }
