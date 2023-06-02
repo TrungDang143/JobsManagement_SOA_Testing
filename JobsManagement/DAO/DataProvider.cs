@@ -62,7 +62,7 @@ namespace JobsManagement.DAO
             return dt;
         }
 
-        public bool truyVanKTraVe(string query)
+        public bool truyVanKTraVe(string query, object[] parameter = null)
         {
             bool kq = false;
             DataTable dt = new DataTable();
@@ -72,6 +72,19 @@ namespace JobsManagement.DAO
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            cmd.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
                 int k = cmd.ExecuteNonQuery();
                 if ( k > 0) kq = true;
 
@@ -80,7 +93,7 @@ namespace JobsManagement.DAO
             return kq;
         }
         
-        public object truyVanCoMotKetQua(string query)
+        public object truyVanCoMotKetQua(string query, object[] parameter = null)
         {
             object kq = 0;
             DataTable dt = new DataTable();
@@ -90,6 +103,19 @@ namespace JobsManagement.DAO
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            cmd.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
                 kq = cmd.ExecuteScalar();
 
                 conn.Close();

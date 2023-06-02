@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace JobsManagement.DAO
 {
@@ -57,24 +58,23 @@ namespace JobsManagement.DAO
                 cn = cv.LapLai[8] == true ? 1 : 0;
             }
 
-            bool kq = DAO.DataProvider.Instance.truyVanKTraVe(string.Format("insert into CongViec values({0}, N'{1}', '{2}', '{3}', N'{4}', {5}, {6}, {7}, {8}, {9}, {10}, {11}, '{12}')", id, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN));
-            //insert into CongViec values(0,N'Học OOP',6,30,'5/31/2023',9,30,'5/31/2023', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
+            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec AddJob @id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap",new object[] { id, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
             return kq;
         }
-        public static int nextID(CongViec cv)
+        public static int nextID(string userName)
         {
-            return 0;
+            return (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("print dbo.getNextID(@username)", new object[] { userName });
         }
 
 
         public static int tongCV(string userName)
         {
-            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select COUNT(*) from CongViec where tenDangNhap = '{0}'", userName));
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCV @username", new object[] { userName });
             return kq;
         }
         public static int CVdangDienRa(string userName)
         {
-            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("select COUNT(*) from CongViec where trangThai = N'Đang diễn ra' and tenDangNhap = '{0}'", userName));
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetCoSVbyTT @tt @username", new object[] { "Đang diễn ra", userName });
             return kq;
         }
 

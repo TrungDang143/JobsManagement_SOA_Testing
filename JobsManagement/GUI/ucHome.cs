@@ -84,33 +84,6 @@ namespace JobsManagement
             resetSelect();
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnSua.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnSua.Left;
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnXoa.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnXoa.Left;
-        }
-
-        private void btnRollBack_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnRollBack.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnRollBack.Left;
-        }
-
-        private void btnHT_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnHT.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnHT.Left;
-        }
         #endregion
 
         #region hieu ung button
@@ -175,9 +148,42 @@ namespace JobsManagement
         }
         #endregion
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        #region taskbar
+        int idSelected;
+        private void btnSua_Click(object sender, EventArgs e)
         {
-
+            resetHL();
+            btnSua.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnSua.Left;
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnXoa.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnXoa.Left;
+        }
+
+        private void btnRollBack_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnRollBack.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnRollBack.Left;
+        }
+
+        private void btnHT_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnHT.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnHT.Left;
+            
+        }
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            DataGridViewRow dataRow = dgv.Rows[row];
+            MessageBox.Show(dataRow.Cells["noiDungCV"].Value.ToString());
+        }
+        #endregion
     }
 }

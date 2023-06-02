@@ -20,7 +20,7 @@ namespace JobsManagement.DAO
 
         public static void loadCHBM(System.Windows.Forms.ComboBox cbb)
         {
-            DataTable dt = DataProvider.Instance.truyVanCoKetQua("select * from cauhoibaomat");
+            DataTable dt = DataProvider.Instance.truyVanCoKetQua("exec GetCHBM");
 
             foreach (DataRow row in dt.Rows)
             {

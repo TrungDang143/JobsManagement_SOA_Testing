@@ -108,35 +108,37 @@ namespace JobsManagement.DAO
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set khoiDong = 1 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("exec SetKD @i @username", new object[] { 1, userName});
 
             }
-            else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set khoiDong = 0 where tenDangNhap ='" + userName + "'");
+            else DataProvider.Instance.truyVanKTraVe("exec SetKD @i @username", new object[] { 0, userName });
         }
         public void setNhacNho(string userName, bool isOn)
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNho = 1 where tenDangNhap ='" + userName + "'");
-            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNho = 0 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("exec SetNN @i @username", new object[] { 1, userName });
+            }
+            else DataProvider.Instance.truyVanKTraVe("exec SetNN @i @username", new object[] { 0, userName });
         }
         public void setGhiNho(string userName, bool isOn)
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNhoCV = 1 where tenDangNhap ='" + userName + "'");
-            }else DataProvider.Instance.truyVanKTraVe("update TaiKhoan set nhacNhoCV = 0 where tenDangNhap ='" + userName + "'");
+                DataProvider.Instance.truyVanKTraVe("exec SetNNCV @i @username", new object[] { 1, userName });
+            }
+            else DataProvider.Instance.truyVanKTraVe("exec SetNNCV @i @username", new object[] { 0, userName });
         }
 
         public void setTimeNhacNho(string userName, int h, int m)
         {
-            DataProvider.Instance.truyVanKTraVe(string.Format("update TaiKhoan set hNhacNho = {0}, mNhacNho = {1} where tenDangNhap = '{2}'",h,m,userName));
+            DataProvider.Instance.truyVanKTraVe("exec SetTimeNN", new object[] { h, m, userName });
         }
         #endregion
 
         public bool xoaTK(string password)
         {
-            bool xoa = DataProvider.Instance.truyVanKTraVe(string.Format("delete from TaiKhoan where matKhau = '" + password + "'"));
+            bool xoa = DataProvider.Instance.truyVanKTraVe("exec XoaTK @password", new object[] {password});
             return xoa;
         }
     }

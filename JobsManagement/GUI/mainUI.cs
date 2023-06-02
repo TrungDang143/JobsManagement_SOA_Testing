@@ -286,6 +286,11 @@ namespace JobsManagement
         {
             string currentTime = e.UserState as string;
             dongHo.Text = currentTime;
+
+            if(DateTime.Now.Second == 0)
+            {
+
+            }    
         }
 
         private void mainUI_FormClosing(object sender, FormClosingEventArgs e)
