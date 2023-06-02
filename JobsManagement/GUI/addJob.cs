@@ -219,5 +219,10 @@ namespace JobsManagement
             checkHopLe();
             label11.Text = finishTime.ToString();
         }
+
+        private void fAddJob_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

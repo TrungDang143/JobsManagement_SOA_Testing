@@ -37,11 +37,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<<<<<<< HEAD
+
     <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs37AA.tmp\Debug\</IntermediateOutputPath>
-=======
-    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vs3E8.tmp\Debug\</IntermediateOutputPath>
->>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
+
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,11 +49,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<<<<<<< HEAD
+
     <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs37AA.tmp\Release\</IntermediateOutputPath>
-=======
-    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vs3E8.tmp\Release\</IntermediateOutputPath>
->>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
+
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>

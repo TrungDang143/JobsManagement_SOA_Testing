@@ -643,6 +643,7 @@
             this.ShowInTaskbar = false;
             this.Text = "addJob";
             this.TransparencyKey = System.Drawing.Color.Red;
+            this.Load += new System.EventHandler(this.fAddJob_Load);
             this.panel1.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

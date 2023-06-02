@@ -29,7 +29,7 @@ namespace JobsManagement.DAO
         }
         private DataProvider() { }
 
-        private static string ConnectionString = "Data Source=DESKTOP-JUT8TOT\\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
+        private static string ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
 
         public DataTable truyVanCoKetQua(string query, object[] parameter = null)
         {

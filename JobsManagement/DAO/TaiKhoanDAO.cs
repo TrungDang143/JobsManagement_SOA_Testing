@@ -95,17 +95,16 @@ namespace JobsManagement.DAO
             }
             return false;
         }
-<<<<<<< HEAD
+
         */
+        #region cai dat he thong
         public bool Login(string userName, string passWord)
         {
             string query = "exec DangNhap_1 @userName , @passWord ";
             DataTable data = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, passWord });
             return data.Rows.Count > 0;
         }
-=======
-        #region cai dat he thong
->>>>>>> 0e6ad25b933844dc8756ecfd6d75646722a7a756
+
         public void setKhoiDong(string userName, bool isOn)
         {
             if (isOn)
