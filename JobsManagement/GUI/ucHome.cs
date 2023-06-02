@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Effects;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace JobsManagement
 {
@@ -29,11 +30,10 @@ namespace JobsManagement
 
         private void loadCV()
         {
-
-            string query = "exec hienThiCV @userName ";
+            string query = "exec HomNay @userName ";
             string userName = LoginAccount.TenDN;
             //load công việc theo loginAcc
-            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] {userName});
 
             dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
@@ -42,7 +42,9 @@ namespace JobsManagement
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
             dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
-            //dgv.Columns["id"].Width = 500;
+            //dgv.Columns["tgBD"].Width = 500;
+            //dgv.Columns["tgKT"].Width = 500;
+            //dgv.Columns["trangThai"].Width = 500;
             //dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
         }
 
@@ -124,12 +126,18 @@ namespace JobsManagement
         {
             resetFilter();
             btnTuan.BackColor = Color.FromArgb(37, 42, 64);
+            string query = "exec TuanNay @userName ";
+            string userName = LoginAccount.TenDN;
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
         }
 
         private void btnThang_Click(object sender, EventArgs e)
         {
             resetFilter();
             btnThang.BackColor = Color.FromArgb(37, 42, 64);
+            string query = "exec ThangNay @userName ";
+            string userName = LoginAccount.TenDN;
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
         }
         private void btnDaHT_Click(object sender, EventArgs e)
         {
@@ -148,11 +156,17 @@ namespace JobsManagement
         private void btnHomNay_Click(object sender, EventArgs e)
         {
             dtpk.Value = DateTime.Now;
+            string query = "exec HomNay @userName ";
+            string userName = LoginAccount.TenDN;
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
         }
 
         private void btnNgayMai_Click(object sender, EventArgs e)
         {
             dtpk.Value = dtpk.Value.AddDays(1);
+            string query = "exec NgayMai @userName ";
+            string userName = LoginAccount.TenDN;
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
         }
 
         private void dtpk_ValueChanged(object sender, EventArgs e)
@@ -160,5 +174,10 @@ namespace JobsManagement
             timeOfDtpk.TimeSelection = dtpk.Value;
         }
         #endregion
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

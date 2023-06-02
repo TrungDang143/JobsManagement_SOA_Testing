@@ -37,8 +37,6 @@ namespace JobsManagement
             private set { loginAccount = value; }
         }
 
-        private System.Timers.Timer t = null;
-
         public mainUI(TaiKhoan loginAcc)
         {
             InitializeComponent();

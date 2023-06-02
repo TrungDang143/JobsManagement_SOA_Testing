@@ -104,11 +104,13 @@ namespace JobsManagement
                     
                     mainUI m = new mainUI(LoginAccount);
                     m.ShowDialog();
+                    this.ShowInTaskbar = false;
                     this.Hide();
                     if (!m.isClose)
                     {
                         reset();
                         this.Show();
+                        this.ShowInTaskbar = true;
                     }
                 }
                 else

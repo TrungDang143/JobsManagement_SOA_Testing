@@ -132,16 +132,19 @@ namespace JobsManagement
 
             if (cbxtHN.Checked)
                 ll[1] = true;
-            else if (cbt2.Checked) ll[2] = true;
-            else if (cbt3.Checked) ll[3] = true;
-            else if (cbt4.Checked) ll[4] = true;
-            else if (cbt5.Checked) ll[5] = true;
-            else if (cbt6.Checked) ll[6] = true;
-            else if (cbt7.Checked) ll[7] = true;
-            else if (cbcn.Checked) ll[8] = true;
+            else
+            {
+                if (cbt2.Checked) ll[2] = true;
+                if (cbt3.Checked) ll[3] = true;
+                if (cbt4.Checked) ll[4] = true;
+                if (cbt5.Checked) ll[5] = true;
+                if (cbt6.Checked) ll[6] = true;
+                if (cbt7.Checked) ll[7] = true;
+                if (cbcn.Checked) ll[8] = true;
+            }
 
             ll[0] = true;
-            for (int i = 1; i < ll.Length; i++)
+            for (int i = 1; i < 9; i++)
                 if (ll[i] == true)
                 {
                     ll[0] = false;
@@ -170,9 +173,7 @@ namespace JobsManagement
                 }
                 else dtpk.Enabled = false;
 
-                setTimeKT() ;
-                nudH2.Value = 23;
-                nudM2.Value = 59;
+                
                 btnThayDoi2.Enabled = false;
                 lbLapLai.Visible = true;
                 pnlHL.Location = new Point(btnThayDoi1.Location.X, btnThayDoi1.Location.Y + btnThayDoi1.Height);
@@ -209,15 +210,15 @@ namespace JobsManagement
             }
             else
             {
-                nudH2.Value = 0;
-                nudM2.Value = 0;
-                setTimeKT(true);
                 btnThayDoi2.Enabled = true;
                 lbLapLai.Visible = false;
                 label11.Text = finishTime.ToString();
 
                 dtpk.Enabled = true;
             }
+            setTimeKT();
+            nudH2.Value = 23;
+            nudM2.Value = 59;
             checkHopLe();
         }
         #endregion
@@ -227,17 +228,9 @@ namespace JobsManagement
             lbNgayBatDau.Text = dtpk.Value.ToString("dd/MM/yyyy");
             startTime = new DateTime(dtpk.Value.Year, dtpk.Value.Month, dtpk.Value.Day, (int)nudH1.Value, (int)nudM1.Value, 0);
         }
-        void setTimeKT(bool first = false)
+        void setTimeKT()
         {
-            DateTime kq = new DateTime(dtpk.Value.Year, dtpk.Value.Month, dtpk.Value.Day, (int)nudH2.Value, (int)nudM2.Value, 0);
-            if (first)
-            {
-                finishTime = kq.AddDays(1);
-            }
-            else
-            {
-                finishTime = kq;
-            }
+            finishTime = new DateTime(dtpk.Value.Year, dtpk.Value.Month, dtpk.Value.Day, (int)nudH2.Value, (int)nudM2.Value, 0);
             lbNgayKetThuc.Text = finishTime.ToString("dd/MM/yyyy");
         }
 
@@ -301,10 +294,11 @@ namespace JobsManagement
             }
             else
             {
-                setTimeKT(true);
+                setTimeKT();
                 label11.Text = finishTime.ToString();
             }
             timeOfDtpk.TimeSelection = dtpk.Value;
+            checkHopLe();
         }
 
         private void btnThayDoi1_Click(object sender, EventArgs e)
@@ -337,7 +331,7 @@ namespace JobsManagement
         {
             dtpk.Value = DateTime.Now;
             setTimeBD();
-            setTimeKT(true);
+            setTimeKT();
             if(cbxtHN.Checked == false)
             {
                 dtpk.Enabled = true;
@@ -350,7 +344,7 @@ namespace JobsManagement
         {
             dtpk.Value = dtpk.Value.AddDays(1);
             setTimeBD();
-            setTimeKT(true);
+            setTimeKT();
             if (cbxtHN.Checked == false)
             {
                 dtpk.Enabled = true;
@@ -384,15 +378,18 @@ namespace JobsManagement
                     {
                         ngayLap = 7;
                     }
+
+                    int vtCu = 0;
+                    bool firstTime = true;
                     for (int i = 1; i < 9; i++)
                     {
-                        int vtCu = 0;
                         if (lap[i] == true)
                         {
+                            if (firstTime == true) vtCu = i;
                             startTime = startTime.AddDays(i - vtCu);
                             finishTime = finishTime.AddDays(i - vtCu);
                             int j = 0;
-                            for (DateTime date = startTime; date <= startTime.AddYears(1); date.AddDays(ngayLap))
+                            for (DateTime date = startTime; date <= startTime.AddMonths(1); date = date.AddDays(ngayLap))
                             {
                                 CongViec newCV = new CongViec(txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), LoginAccount.TenDN);
                                 if(!CongViecDAO.addJob(newCV))
@@ -402,7 +399,12 @@ namespace JobsManagement
                                 j += ngayLap;
                             }
                             vtCu = i;
-                        }      
+                            firstTime = false;
+                        }  
+                        else
+                        {
+
+                        }
                     }
                     MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
