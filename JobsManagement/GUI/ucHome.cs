@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Effects;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace JobsManagement
 {
@@ -155,23 +156,33 @@ namespace JobsManagement
         private void btnHomNay_Click(object sender, EventArgs e)
         {
             dtpk.Value = DateTime.Now;
-            string query = "exec HomNay @userName ";
+            DateTime time = dtpk.Value;
+            string query = "exec hienCV @userName , @time";
             string userName = LoginAccount.TenDN;
-            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, time });
         }
 
         private void btnNgayMai_Click(object sender, EventArgs e)
         {
             dtpk.Value = dtpk.Value.AddDays(1);
-            string query = "exec NgayMai @userName ";
+            DateTime time = dtpk.Value;
+            string query = "exec hienCV @userName , @time";
             string userName = LoginAccount.TenDN;
-            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName });
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, time });
         }
         #endregion
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dtpk_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime time = dtpk.Value;
+            string query = "exec hienCV @userName , @time";
+            string userName = LoginAccount.TenDN;
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, time });
         }
     }
 }

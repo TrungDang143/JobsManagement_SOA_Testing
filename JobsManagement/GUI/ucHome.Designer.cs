@@ -132,6 +132,7 @@
             this.dtpk.Name = "dtpk";
             this.dtpk.Size = new System.Drawing.Size(396, 30);
             this.dtpk.TabIndex = 0;
+            this.dtpk.ValueChanged += new System.EventHandler(this.dtpk_ValueChanged);
             // 
             // panel3
             // 

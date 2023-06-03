@@ -238,13 +238,22 @@ end
 exec hienThiCV 'tridinh'
 
 --HOM NAY
-create proc HomNay (@userName varchar(20))
+create proc hienCV (@userName varchar(20), @time datetime)
 as 
 begin
 	select noiDungCV, tgBD, tgKT, trangThai from CongViec
-	where ((year(tgBD) = year(getdate()) AND month(tgBD) = month(getdate()) AND day(tgBD) = day(getdate())) 
-	OR (year(tgKT) = year(getdate()) AND month(tgKT) = month(getdate()) AND day(tgKT) = day(getdate()))
-	OR (tgBD < getdate() AND getdate() < tgKT)) AND tenDangNhap = @userName
+	where ((year(tgBD) = year(@time) AND month(tgBD) = month(@time) AND day(tgBD) = day(@time)) 
+	OR (year(tgKT) = year(@time) AND month(tgKT) = month(@time) AND day(tgKT) = day(@time))
+	OR (tgBD < @time AND @time < tgKT)) AND tenDangNhap = @userName
+end
+exec hienCV 'trungdang', '6/3/2023'
+
+create proc hienCV_1 (@userName varchar(20), @time datetime)
+as 
+begin
+	select noiDungCV, tgBD, tgKT, trangThai from CongViec
+	where ((year(tgBD) = year(@time) AND month(tgBD) = month(@time) AND day(tgBD) = day(@time)) 
+	OR (year(tgKT) = year(@time) AND month(tgKT) = month(@time) AND day(tgKT) = day(@time))) AND tenDangNhap = @userName
 end
 
 --- TUAN NAYY
