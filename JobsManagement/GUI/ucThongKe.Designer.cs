@@ -219,6 +219,7 @@
             this.dtpk.Name = "dtpk";
             this.dtpk.Size = new System.Drawing.Size(330, 30);
             this.dtpk.TabIndex = 11;
+            this.dtpk.ValueChanged += new System.EventHandler(this.dtpk_ValueChanged);
             // 
             // ucThongKe
             // 

@@ -1,5 +1,6 @@
 ﻿using JobsManagement.DAO;
 using JobsManagement.DTO;
+using JobsManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,11 +27,12 @@ namespace JobsManagement
             InitializeComponent();
             this.LoginAccount = loginAcc;
             loadCV();
+            dtpk.Value = timeOfDtpk.TimeSelection;
         }
 
         private void loadCV()
         {
-            string query = "exec hienThiCV @userName ";
+            string query = "exec HomNay @userName ";
             string userName = LoginAccount.TenDN;
             //load công việc theo loginAcc
             dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] {userName});
@@ -48,7 +50,7 @@ namespace JobsManagement
             //dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
         }
 
-        #region highlight and function
+        #region highlight
 
         void resetHL()//37, 42, 64
         {
@@ -66,51 +68,6 @@ namespace JobsManagement
             plHL.Visible= false;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnAdd.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnAdd.Left;
-            
-            Panel mainPanel = this.Parent as Panel;
-            mainUI mainForm = mainPanel.Parent as mainUI;
-
-            //mainForm.showBlurForm();
-
-            fAddJob f = new fAddJob(dtpk.Value, -1,loginAccount);
-            f.ShowDialog();
-            loadCV();
-            //mainForm.closeBlurForm();
-            resetSelect();
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnSua.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnSua.Left;
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnXoa.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnXoa.Left;
-        }
-
-        private void btnRollBack_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnRollBack.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnRollBack.Left;
-        }
-
-        private void btnHT_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnHT.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnHT.Left;
-        }
         #endregion
 
         #region hieu ung button
@@ -170,14 +127,74 @@ namespace JobsManagement
             string userName = LoginAccount.TenDN;
             dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, time });
         }
+
+        private void dtpk_ValueChanged(object sender, EventArgs e)
+        {
+            timeOfDtpk.TimeSelection = dtpk.Value;
+        }
         #endregion
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        #region taskbar
+        int idSelected;
+        private void btnAdd_Click(object sender, EventArgs e)
         {
+            resetHL();
+            btnAdd.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnAdd.Left;
+            
+            Panel mainPanel = this.Parent as Panel;
+            mainUI mainForm = mainPanel.Parent as mainUI;
+
+            mainForm.showBlur();
+            
+            fAddJob f = new fAddJob(dtpk.Value, -1,loginAccount);
+            f.ShowDialog();
+            
+            mainForm.closeBlur();
+            loadCV();
+
+            resetSelect();
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnSua.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnSua.Left;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnXoa.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnXoa.Left;
+        }
+
+        private void btnRollBack_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnRollBack.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnRollBack.Left;
+        }
+
+        private void btnHT_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnHT.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnHT.Left;
 
         }
 
-        private void dtpk_ValueChanged(object sender, EventArgs e)
+
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            DataGridViewRow dataRow = dgv.Rows[row];
+            MessageBox.Show(dataRow.Cells["noiDungCV"].Value.ToString());
+        }
+        #endregion
+
+        private void dtpk_ValueChanged_1(object sender, EventArgs e)
         {
             DateTime time = dtpk.Value;
             string query = "exec hienCV @userName , @time";

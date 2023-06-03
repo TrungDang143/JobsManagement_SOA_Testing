@@ -39,6 +39,18 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlLL = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.cbcn = new System.Windows.Forms.CheckBox();
+            this.cbt4 = new System.Windows.Forms.CheckBox();
+            this.cbt7 = new System.Windows.Forms.CheckBox();
+            this.cbt3 = new System.Windows.Forms.CheckBox();
+            this.cbt6 = new System.Windows.Forms.CheckBox();
+            this.cbt2 = new System.Windows.Forms.CheckBox();
+            this.cbt5 = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbxtHN = new System.Windows.Forms.CheckBox();
+            this.pnlHL = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbKHopLeGio = new System.Windows.Forms.Label();
@@ -59,7 +71,6 @@
             this.nudM2 = new System.Windows.Forms.NumericUpDown();
             this.btnThayDoi1 = new System.Windows.Forms.Button();
             this.btnThayDoi2 = new System.Windows.Forms.Button();
-            this.ucLL = new JobsManagement.ucLapLai();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txbCV = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -77,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlContent.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.pnlLL.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -91,7 +103,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.dtpk);
@@ -163,7 +175,7 @@
             // 
             // pnlTitle
             // 
-            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.pnlTitle.Controls.Add(this.pictureBox1);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
@@ -184,7 +196,7 @@
             // 
             // pnlContent
             // 
-            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.pnlContent.Controls.Add(this.panel12);
             this.pnlContent.Controls.Add(this.panel5);
             this.pnlContent.Controls.Add(this.panel2);
@@ -205,7 +217,9 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
+            this.panel5.Controls.Add(this.pnlLL);
+            this.panel5.Controls.Add(this.pnlHL);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.lbKHopLeGio);
@@ -217,7 +231,6 @@
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.btnThayDoi1);
             this.panel5.Controls.Add(this.btnThayDoi2);
-            this.panel5.Controls.Add(this.ucLL);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.panel8);
@@ -225,6 +238,155 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1019, 450);
             this.panel5.TabIndex = 2;
+            // 
+            // pnlLL
+            // 
+            this.pnlLL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.pnlLL.Controls.Add(this.panel14);
+            this.pnlLL.Controls.Add(this.cbcn);
+            this.pnlLL.Controls.Add(this.cbt4);
+            this.pnlLL.Controls.Add(this.cbt7);
+            this.pnlLL.Controls.Add(this.cbt3);
+            this.pnlLL.Controls.Add(this.cbt6);
+            this.pnlLL.Controls.Add(this.cbt2);
+            this.pnlLL.Controls.Add(this.cbt5);
+            this.pnlLL.Controls.Add(this.label12);
+            this.pnlLL.Controls.Add(this.cbxtHN);
+            this.pnlLL.Location = new System.Drawing.Point(816, 34);
+            this.pnlLL.Name = "pnlLL";
+            this.pnlLL.Size = new System.Drawing.Size(179, 375);
+            this.pnlLL.TabIndex = 16;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.SpringGreen;
+            this.panel14.Location = new System.Drawing.Point(0, 60);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(179, 2);
+            this.panel14.TabIndex = 13;
+            // 
+            // cbcn
+            // 
+            this.cbcn.AutoSize = true;
+            this.cbcn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbcn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbcn.Location = new System.Drawing.Point(29, 330);
+            this.cbcn.Name = "cbcn";
+            this.cbcn.Size = new System.Drawing.Size(114, 29);
+            this.cbcn.TabIndex = 4;
+            this.cbcn.Text = "Chủ nhật";
+            this.cbcn.UseVisualStyleBackColor = true;
+            this.cbcn.Click += new System.EventHandler(this.cbcn_CheckedChanged);
+            // 
+            // cbt4
+            // 
+            this.cbt4.AutoSize = true;
+            this.cbt4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbt4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbt4.Location = new System.Drawing.Point(29, 186);
+            this.cbt4.Name = "cbt4";
+            this.cbt4.Size = new System.Drawing.Size(58, 29);
+            this.cbt4.TabIndex = 5;
+            this.cbt4.Text = "T4";
+            this.cbt4.UseVisualStyleBackColor = true;
+            this.cbt4.Click += new System.EventHandler(this.cbcn_CheckedChanged);
+            // 
+            // cbt7
+            // 
+            this.cbt7.AutoSize = true;
+            this.cbt7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbt7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbt7.Location = new System.Drawing.Point(29, 294);
+            this.cbt7.Name = "cbt7";
+            this.cbt7.Size = new System.Drawing.Size(58, 29);
+            this.cbt7.TabIndex = 6;
+            this.cbt7.Text = "T7";
+            this.cbt7.UseVisualStyleBackColor = true;
+            this.cbt7.Click += new System.EventHandler(this.cbcn_CheckedChanged);
+            // 
+            // cbt3
+            // 
+            this.cbt3.AutoSize = true;
+            this.cbt3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbt3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbt3.Location = new System.Drawing.Point(29, 150);
+            this.cbt3.Name = "cbt3";
+            this.cbt3.Size = new System.Drawing.Size(58, 29);
+            this.cbt3.TabIndex = 7;
+            this.cbt3.Text = "T3";
+            this.cbt3.UseVisualStyleBackColor = true;
+            this.cbt3.Click += new System.EventHandler(this.cbcn_CheckedChanged);
+            // 
+            // cbt6
+            // 
+            this.cbt6.AutoSize = true;
+            this.cbt6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbt6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbt6.Location = new System.Drawing.Point(29, 258);
+            this.cbt6.Name = "cbt6";
+            this.cbt6.Size = new System.Drawing.Size(58, 29);
+            this.cbt6.TabIndex = 8;
+            this.cbt6.Text = "T6";
+            this.cbt6.UseVisualStyleBackColor = true;
+            this.cbt6.Click += new System.EventHandler(this.cbcn_CheckedChanged);
+            // 
+            // cbt2
+            // 
+            this.cbt2.AutoSize = true;
+            this.cbt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbt2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbt2.Location = new System.Drawing.Point(29, 114);
+            this.cbt2.Name = "cbt2";
+            this.cbt2.Size = new System.Drawing.Size(58, 29);
+            this.cbt2.TabIndex = 9;
+            this.cbt2.Text = "T2";
+            this.cbt2.UseVisualStyleBackColor = true;
+            this.cbt2.Click += new System.EventHandler(this.cbcn_CheckedChanged);
+            // 
+            // cbt5
+            // 
+            this.cbt5.AutoSize = true;
+            this.cbt5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbt5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbt5.Location = new System.Drawing.Point(29, 222);
+            this.cbt5.Name = "cbt5";
+            this.cbt5.Size = new System.Drawing.Size(58, 29);
+            this.cbt5.TabIndex = 10;
+            this.cbt5.Text = "T5";
+            this.cbt5.UseVisualStyleBackColor = true;
+            this.cbt5.Click += new System.EventHandler(this.cbcn_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label12.Location = new System.Drawing.Point(44, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(91, 29);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Lặp lại";
+            // 
+            // cbxtHN
+            // 
+            this.cbxtHN.AutoSize = true;
+            this.cbxtHN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbxtHN.ForeColor = System.Drawing.SystemColors.Control;
+            this.cbxtHN.Location = new System.Drawing.Point(29, 78);
+            this.cbxtHN.Name = "cbxtHN";
+            this.cbxtHN.Size = new System.Drawing.Size(129, 29);
+            this.cbxtHN.TabIndex = 11;
+            this.cbxtHN.Text = "Hằng ngày";
+            this.cbxtHN.UseVisualStyleBackColor = true;
+            this.cbxtHN.CheckedChanged += new System.EventHandler(this.cbxtHN_CheckedChanged);
+            // 
+            // pnlHL
+            // 
+            this.pnlHL.BackColor = System.Drawing.Color.SpringGreen;
+            this.pnlHL.Location = new System.Drawing.Point(318, 256);
+            this.pnlHL.Name = "pnlHL";
+            this.pnlHL.Size = new System.Drawing.Size(118, 2);
+            this.pnlHL.TabIndex = 15;
             // 
             // label11
             // 
@@ -290,13 +452,12 @@
             this.lbLapLai.AutoSize = true;
             this.lbLapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbLapLai.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbLapLai.Location = new System.Drawing.Point(73, 412);
+            this.lbLapLai.Location = new System.Drawing.Point(155, 415);
             this.lbLapLai.Name = "lbLapLai";
             this.lbLapLai.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.lbLapLai.Size = new System.Drawing.Size(813, 28);
+            this.lbLapLai.Size = new System.Drawing.Size(583, 28);
             this.lbLapLai.TabIndex = 12;
-            this.lbLapLai.Text = "Chưa hỗ trợ lặp lại công việc diễn ra trong nhiều ngày. Sẽ update ngay khi Dev tì" +
-    "m ra cách :((";
+            this.lbLapLai.Text = "Phần mềm chưa hỗ trợ lặp lại công việc diễn ra trong nhiều ngày :(";
             this.lbLapLai.Visible = false;
             // 
             // panel11
@@ -330,7 +491,6 @@
             this.lbNgayKetThuc.Size = new System.Drawing.Size(32, 29);
             this.lbNgayKetThuc.TabIndex = 4;
             this.lbNgayKetThuc.Text = "N";
-            this.lbNgayKetThuc.TextChanged += new System.EventHandler(this.lbNgayKetThuc_TextChanged);
             // 
             // panel10
             // 
@@ -473,15 +633,6 @@
             this.btnThayDoi2.UseVisualStyleBackColor = false;
             this.btnThayDoi2.Click += new System.EventHandler(this.btnThayDoi2_Click);
             // 
-            // ucLL
-            // 
-            this.ucLL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ucLL.Location = new System.Drawing.Point(807, 34);
-            this.ucLL.Name = "ucLL";
-            this.ucLL.Size = new System.Drawing.Size(179, 375);
-            this.ucLL.TabIndex = 7;
-            this.ucLL.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ucLL_MouseMove);
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
@@ -503,9 +654,11 @@
             this.txbCV.MaxLength = 49;
             this.txbCV.Multiline = true;
             this.txbCV.Name = "txbCV";
+            this.txbCV.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txbCV.Size = new System.Drawing.Size(597, 36);
             this.txbCV.TabIndex = 1;
             this.txbCV.Tag = "";
+            this.txbCV.TextChanged += new System.EventHandler(this.txbCV_TextChanged);
             // 
             // panel7
             // 
@@ -618,7 +771,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLuu.FlatAppearance.BorderSize = 0;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -628,12 +781,13 @@
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(1067, 78);
             this.btnLuu.TabIndex = 2;
-            this.btnLuu.Text = "Tạo mới";
+            this.btnLuu.Text = "Thêm công việc";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // fAddJob
             // 
+            this.AcceptButton = this.btnLuu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 670);
@@ -641,15 +795,17 @@
             this.Controls.Add(this.pnlContent);
             this.Name = "fAddJob";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addJob";
             this.TransparencyKey = System.Drawing.Color.Red;
-            this.Load += new System.EventHandler(this.fAddJob_Load);
             this.panel1.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlContent.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.pnlLL.ResumeLayout(false);
+            this.pnlLL.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -700,7 +856,6 @@
         private System.Windows.Forms.Label lbNgayKetThuc;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private ucLapLai ucLL;
         private System.Windows.Forms.Button btnThayDoi2;
         private System.Windows.Forms.Button btnThayDoi1;
         private System.Windows.Forms.Panel panel11;
@@ -715,5 +870,17 @@
         private System.Windows.Forms.Label lbGioiHanCV;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel pnlHL;
+        private System.Windows.Forms.Panel pnlLL;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.CheckBox cbcn;
+        private System.Windows.Forms.CheckBox cbt4;
+        private System.Windows.Forms.CheckBox cbt7;
+        private System.Windows.Forms.CheckBox cbt3;
+        private System.Windows.Forms.CheckBox cbt6;
+        private System.Windows.Forms.CheckBox cbt2;
+        private System.Windows.Forms.CheckBox cbt5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox cbxtHN;
     }
 }

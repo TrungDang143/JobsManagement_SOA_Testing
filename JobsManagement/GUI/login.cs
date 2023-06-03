@@ -34,13 +34,8 @@ namespace JobsManagement
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(DAO.BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-            load();
         }
 
-        void load()
-        {
-            label1.Text = (string)DAO.DataProvider.Instance.truyVanCoMotKetQua(string.Format("declare @time datetime set @time = '{0}' print @time",DateTime.Now.ToString()));
-        }
         public void reset()
         {
             txbPassword.Text = string.Empty;
@@ -83,37 +78,27 @@ namespace JobsManagement
 
         private void btnDN_Click(object sender, EventArgs e)
         {
-
             try
             {
-                //SqlCommand cmd = new SqlCommand();
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.CommandText = "SP_AuthorizationLogin";
-                //cmd.Parameters.AddWithValue("@UserName", txbUsername.Text);
-                //cmd.Parameters.AddWithValue("@PassWord", txbPassword.Text);
-                //cmd.Connection = conn;
-
-
-                //UserName = txbUsername.Text;
-                //object kq = cmd.ExecuteScalar();
-                //int code = Convert.ToInt32(kq);
-
-
                 if (TaiKhoanDAO.Instance.Login(txbUsername.Text, txbPassword.Text))
                 {
-                    MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
- 
                     
                     TaiKhoan loginAcc = TaiKhoanDAO.Instance.CurrentAcc(txbUsername.Text);
                     LoginAccount = loginAcc;
                     
+                    //MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     mainUI m = new mainUI(LoginAccount);
+                    
+                    this.ShowInTaskbar = false;
                     this.Hide();
+                    
                     m.ShowDialog();
                     if (!m.isClose)
                     {
                         reset();
                         this.Show();
+                        this.ShowInTaskbar = true;
                     }
                 }
                 else
@@ -127,11 +112,6 @@ namespace JobsManagement
 
             }
            
-        }
-
-        bool Login(string userName, string passWord)
-        {
-            return TaiKhoanDAO.Instance.Login(userName, passWord);
         }
 
         private bool isMat1 = false;

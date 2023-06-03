@@ -49,7 +49,7 @@
             this.icoClose = new System.Windows.Forms.PictureBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.tmThongBaoAll = new System.Windows.Forms.Timer(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ThongBao = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -311,11 +311,11 @@
             this.tmThongBaoAll.Interval = 10000;
             this.tmThongBaoAll.Tick += new System.EventHandler(this.tmThongBaoAll_Tick);
             // 
-            // notifyIcon1
+            // ThongBao
             // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.ThongBao.Icon = ((System.Drawing.Icon)(resources.GetObject("ThongBao.Icon")));
+            this.ThongBao.Text = "Thông báo công việc";
+            this.ThongBao.Visible = true;
             // 
             // backgroundWorker1
             // 
@@ -374,7 +374,7 @@
         private System.Windows.Forms.Panel pnlTitle;
         public System.Windows.Forms.Label dongHo;
         public System.Windows.Forms.Timer tmThongBaoAll;
-        public System.Windows.Forms.NotifyIcon notifyIcon1;
+        public System.Windows.Forms.NotifyIcon ThongBao;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

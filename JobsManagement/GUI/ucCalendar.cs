@@ -123,7 +123,7 @@ namespace JobsManagement
                 
                 btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                 btn.Text = i.ToString();
-                
+
                 //btn.Image = Properties.Resources.rsz_icons8_dot_30;
                 //btn.ImageAlign = ContentAlignment.BottomRight;
 
@@ -144,7 +144,6 @@ namespace JobsManagement
                 useDate = useDate.AddDays(1);
             }
         }
-
         private void clear()
         {
             for (int i = 0; i < Matrix.Count; i++)
@@ -227,9 +226,13 @@ namespace JobsManagement
                 }
                 if (done) break;
             }
+            Panel mainPanel = this.Parent as Panel;
+            mainUI mainForm = mainPanel.Parent as mainUI;
 
+            mainForm.showBlur();
             fAddJob f = new fAddJob(time, vt, loginAccount);
             f.ShowDialog();
+            mainForm.closeBlur();
         }
         private void Btn_Click(object sender, EventArgs e)
         {
@@ -312,8 +315,13 @@ namespace JobsManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Panel mainPanel = this.Parent as Panel;
+            mainUI mainForm = mainPanel.Parent as mainUI;
+
+            mainForm.showBlur();
             fAddJob f = new fAddJob(dtpk.Value, -1, loginAccount);
             f.ShowDialog();
+            mainForm.closeBlur();
         }
 
     }

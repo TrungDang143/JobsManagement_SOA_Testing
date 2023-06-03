@@ -31,43 +31,7 @@ create table TrangThai
 	trangThai nvarchar(20) primary key
 )
 go
-/*
-create table LapLaiT2
-(
-	lapLai bit default 0 primary key
-)
-go
-create table LapLaiT3
-(
-	lapLai bit default 0 primary key
-)
-go
-create table LapLaiT4
-(
-	lapLai bit default 0 primary key
-)
-go
-create table LapLaiT5
-(
-	lapLai bit default 0 primary key
-)
-go
-create table LapLaiT6
-(
-	lapLai bit default 0 primary key
-)
-go
-create table LapLaiT7
-(
-	lapLai bit default 0 primary key
-)
-go
-create table LapLaiCN
-(
-	lapLai bit default 0 primary key 
-)
-go
-*/
+
 create table CongViec
 (
 	
@@ -116,7 +80,7 @@ select * from TaiKhoan
 drop database JobsManagement
 delete from TaiKhoan
 select * from CauHoiBaoMat
-
+print datepart(getdate())
 select top(1) id from CongViec where tenDangNhap = 'trungdang' order by id desc
 /*
 insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')
@@ -163,7 +127,7 @@ as
 begin
 	select * from TaiKhoan where tenDangNhap = @userName
 end
-drop proc DangNhap_2
+--drop proc DangNhap_2
 exec DangNhap_2 'Admin'
 
 
@@ -172,7 +136,7 @@ as
 begin
 	insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi) values(@userName, @passWord, @tenHT, @cauHoi, @traLoi)
 end
-drop proc DangKy
+--drop proc DangKy
 go
 
 exec DangKy_1 'dinhtri', '1111', 'tri', N'Kỉ niệm đáng nhớ?', 'xyz'
@@ -296,4 +260,10 @@ exec ThangNay 'trungdang'
 select datepart(year, tgKT),
 datepart(month, tgKT),
 datepart(day, tgKT)
-from CongViec where tenDangNhap = 'trungdang'
+go
+--from CongViec where tenDangNhap = 'trungdang'
+----------------------------------
+
+
+exec DoiTrangThai 6, trungdang, N'Chưa hoàn thành'
+SELECT	 * FROM CongViec

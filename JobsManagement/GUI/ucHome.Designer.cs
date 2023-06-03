@@ -74,7 +74,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 57);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel6
             // 
@@ -132,7 +131,7 @@
             this.dtpk.Name = "dtpk";
             this.dtpk.Size = new System.Drawing.Size(396, 30);
             this.dtpk.TabIndex = 0;
-            this.dtpk.ValueChanged += new System.EventHandler(this.dtpk_ValueChanged);
+            this.dtpk.ValueChanged += new System.EventHandler(this.dtpk_ValueChanged_1);
             // 
             // panel3
             // 
@@ -176,8 +175,10 @@
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
+            this.dgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv.Size = new System.Drawing.Size(1100, 411);
             this.dgv.TabIndex = 0;
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             // 
             // panel4
             // 
