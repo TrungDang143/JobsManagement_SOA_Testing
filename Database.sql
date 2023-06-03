@@ -154,3 +154,53 @@ begin
 	insert into CongViec values(@id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
 end
 go
+
+-- Dang NHAP
+create proc DangNhap_1 (@userName varchar(20), @passWord varchar(20))
+as
+begin	
+	select * from TaiKhoan where tenDangNhap = @userName AND matKhau = @passWord
+end
+
+create proc DangNhap_2 (@userName varchar(20))
+as
+begin
+	select * from TaiKhoan where tenDangNhap = @userName
+end
+
+-- DANG KY
+create proc DangKy_1 (@userName varchar(20), @passWord varchar(20), @tenHT nvarchar(30), @cauHoi nvarchar(30), @traLoi nvarchar(30))
+as
+begin
+	insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi) values(@userName, @passWord, @tenHT, @cauHoi, @traLoi)
+end
+
+-- HIEN CONG VIEC THEO HOM NAY, NGAY MAI
+create proc hienCV (@userName varchar(20), @time datetime)
+as 
+begin
+	select noiDungCV as  N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as 'Kết thúc', trangThai as N'Trạng thái' from CongViec
+	where ((year(tgBD) = year(@time) AND month(tgBD) = month(@time) AND day(tgBD) = day(@time)) 
+	OR (year(tgKT) = year(@time) AND month(tgKT) = month(@time) AND day(tgKT) = day(@time))
+	OR (tgBD < @time AND @time < tgKT)) AND tenDangNhap = @userName
+end
+
+--HIEN CONG VIEC THEO TUAN NAY
+create proc TuanNay (@userName varchar(20))
+as 
+begin
+	select noiDungCV as  N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as 'Kết thúc', trangThai as N'Trạng thái' from CongViec
+	where (year(tgBD) = year(getdate()) AND datepart(week, getdate()) = datepart(week, tgBD)
+	OR year(tgKT) = year(getdate()) AND datepart(week, getdate()) = datepart(week, tgKT))
+	AND tenDangNhap = @userName
+end
+
+--HIEN CONG VIEC THEO THANG
+create proc ThangNay (@userName varchar(20))
+as 
+begin
+	select noiDungCV as  N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as 'Kết thúc', trangThai as N'Trạng thái' from CongViec
+	where (year(tgBD) = year(getdate()) AND month(tgBD) = month(getdate())
+	OR year(tgKT) = year(getdate()) AND month(tgKT) = month(getdate()))
+	AND tenDangNhap = @userName
+end
