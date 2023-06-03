@@ -357,11 +357,10 @@ namespace JobsManagement
         {
             if (string.IsNullOrEmpty(txbCV.Text))
             {
-                MessageBox.Show("vui long nhap cong viec");
+                lbGioiHanCV.Text = "Vui lòng nhập nội dung công việc.";
+                lbGioiHanCV.ForeColor = Color.OrangeRed;
                 return;
             }
-
-            //luu cong viec
             
             try
             {
@@ -406,7 +405,7 @@ namespace JobsManagement
 
                         }
                     }
-                    MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -422,7 +421,7 @@ namespace JobsManagement
             }
             catch (Exception ex)
             { 
-                MessageBox.Show(ex.Message); 
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             } 
         }
         private void nudH1_ValueChanged_1(object sender, EventArgs e)
@@ -452,7 +451,10 @@ namespace JobsManagement
                 lbGioiHanCV.Visible=false;
                 btnLuu.Enabled=true;
             }
-            
+
+            lbGioiHanCV.Text = "Không quá 50 kí tự";
+            lbGioiHanCV.ForeColor = SystemColors.ActiveCaption;
+
         }
     }
 }

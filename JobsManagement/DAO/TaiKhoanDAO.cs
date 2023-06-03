@@ -78,24 +78,7 @@ namespace JobsManagement.DAO
             return null;
         }
         
-        /*
-        public bool login(string username, string password)
-        {
-            DataTable kq = DataProvider.Instance.truyVanCoKetQua("select * from taikhoan where tendangnhap ='" + username + "' and matkhau = '" + password + "'");
-            try
-            {
-                if (kq.Rows.Count == 1)
-                {
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return false;
-        }
-        */
+        
         #region cai dat he thong
         public bool Login(string userName, string passWord)
         {
@@ -108,31 +91,31 @@ namespace JobsManagement.DAO
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("exec SetKD @i @username", new object[] { 1, userName});
+                DataProvider.Instance.truyVanKTraVe("exec SetKD @i , @username", new object[] { 1, userName});
 
             }
-            else DataProvider.Instance.truyVanKTraVe("exec SetKD @i @username", new object[] { 0, userName });
+            else DataProvider.Instance.truyVanKTraVe("exec SetKD @i , @username", new object[] { 0, userName });
         }
         public void setNhacNho(string userName, bool isOn)
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("exec SetNN @i @username", new object[] { 1, userName });
+                DataProvider.Instance.truyVanKTraVe("exec SetNN @i , @username", new object[] { 1, userName });
             }
-            else DataProvider.Instance.truyVanKTraVe("exec SetNN @i @username", new object[] { 0, userName });
+            else DataProvider.Instance.truyVanKTraVe("exec SetNN @i , @username", new object[] { 0, userName });
         }
         public void setGhiNho(string userName, bool isOn)
         {
             if (isOn)
             {
-                DataProvider.Instance.truyVanKTraVe("exec SetNNCV @i @username", new object[] { 1, userName });
+                DataProvider.Instance.truyVanKTraVe("exec SetNNCV @i , @username", new object[] { 1, userName });
             }
-            else DataProvider.Instance.truyVanKTraVe("exec SetNNCV @i @username", new object[] { 0, userName });
+            else DataProvider.Instance.truyVanKTraVe("exec SetNNCV @i , @username", new object[] { 0, userName });
         }
 
         public void setTimeNhacNho(string userName, int h, int m)
         {
-            DataProvider.Instance.truyVanKTraVe("exec SetTimeNN", new object[] { h, m, userName });
+            DataProvider.Instance.truyVanKTraVe("exec SetTimeNN @h , @m , @username", new object[] { h, m, userName });
         }
         #endregion
 

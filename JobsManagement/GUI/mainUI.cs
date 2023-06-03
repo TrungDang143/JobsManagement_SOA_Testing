@@ -289,7 +289,8 @@ namespace JobsManagement
 
             if(DateTime.Now.Second == 0)
             {
-
+                
+            
             }    
         }
 
@@ -299,6 +300,22 @@ namespace JobsManagement
             {
                 backgroundWorker1.CancelAsync();
             }
+        }
+        #endregion
+
+        #region blur old form
+        static blurForm f;
+        public void showBlur()
+        {
+            f = new blurForm();
+            f.Owner = this;
+            f.Location = this.Location;
+            f.Size = this.ClientSize;
+            f.Show();
+        }
+        public void closeBlur()
+        {
+            f.Close();
         }
         #endregion
     }

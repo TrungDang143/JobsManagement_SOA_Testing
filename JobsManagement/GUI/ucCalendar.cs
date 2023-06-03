@@ -226,9 +226,13 @@ namespace JobsManagement
                 }
                 if (done) break;
             }
+            Panel mainPanel = this.Parent as Panel;
+            mainUI mainForm = mainPanel.Parent as mainUI;
 
+            mainForm.showBlur();
             fAddJob f = new fAddJob(time, vt, loginAccount);
             f.ShowDialog();
+            mainForm.closeBlur();
         }
         private void Btn_Click(object sender, EventArgs e)
         {
@@ -311,8 +315,13 @@ namespace JobsManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Panel mainPanel = this.Parent as Panel;
+            mainUI mainForm = mainPanel.Parent as mainUI;
+
+            mainForm.showBlur();
             fAddJob f = new fAddJob(dtpk.Value, -1, loginAccount);
             f.ShowDialog();
+            mainForm.closeBlur();
         }
 
     }
