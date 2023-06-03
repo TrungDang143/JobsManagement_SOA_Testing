@@ -1,6 +1,7 @@
 ﻿using JobsManagement.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +77,17 @@ namespace JobsManagement.DAO
         {
             int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTT @tt , @username", new object[] { "Đang diễn ra", userName });
             return kq;
+        }
+
+        public static void checkCV(string username)
+        {
+            DataTable dt = new DataTable();
+            dt = DAO.DataProvider.Instance.truyVanCoKetQua("select * from Today");
+            foreach(DataRow items in dt.Rows)
+            {
+                DateTime start = (DateTime)items["tgBD"];
+                DateTime finish = (DateTime)items["tgKT"];
+            }
         }
 
     }
