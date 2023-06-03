@@ -58,7 +58,7 @@ namespace JobsManagement.DAO
                 cn = cv.LapLai[8] == true ? 1 : 0;
             }
 
-            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec AddJob @id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap",new object[] { id, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
+            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec AddJob @id , @noiDungCV , @tgBD , @tgKT , @trangThai , @t2 , @t3 , @t4 , @t5 , @t6 , @t7 , @cn , @tenDangNhap",new object[] { id, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
             return kq;
         }
         public static int nextID(string userName)
@@ -74,7 +74,7 @@ namespace JobsManagement.DAO
         }
         public static int CVdangDienRa(string userName)
         {
-            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetCoSVbyTT @tt @username", new object[] { "Đang diễn ra", userName });
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTT @tt , @username", new object[] { "Đang diễn ra", userName });
             return kq;
         }
 

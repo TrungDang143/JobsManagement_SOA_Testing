@@ -95,6 +95,12 @@
     <Compile Include="GUI\addJob.Designer.cs">
       <DependentUpon>addJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\blurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\blurForm.Designer.cs">
+      <DependentUpon>blurForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fForgot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="GUI\addJob.resx">
       <DependentUpon>addJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\blurForm.resx">
+      <DependentUpon>blurForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fForgot.resx">
       <DependentUpon>fForgot.cs</DependentUpon>

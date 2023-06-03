@@ -1,5 +1,6 @@
 ﻿using JobsManagement.DAO;
 using JobsManagement.DTO;
+using JobsManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,7 @@ namespace JobsManagement
             //dgv.Sort(dgv.Columns["maNV"], ListSortDirection.Descending);
         }
 
-        #region highlight and function
+        #region highlight
 
         void resetHL()//37, 42, 64
         {
@@ -64,24 +65,6 @@ namespace JobsManagement
         {
             resetHL();
             plHL.Visible= false;
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            resetHL();
-            btnAdd.BackColor = Color.FromArgb(46, 51, 73);
-            plHL.Left = btnAdd.Left;
-            
-            Panel mainPanel = this.Parent as Panel;
-            mainUI mainForm = mainPanel.Parent as mainUI;
-
-            //mainForm.showBlurForm();
-
-            fAddJob f = new fAddJob(dtpk.Value, -1,loginAccount);
-            f.ShowDialog();
-            loadCV();
-            //mainForm.closeBlurForm();
-            resetSelect();
         }
 
         #endregion
@@ -150,6 +133,25 @@ namespace JobsManagement
 
         #region taskbar
         int idSelected;
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            resetHL();
+            btnAdd.BackColor = Color.FromArgb(46, 51, 73);
+            plHL.Left = btnAdd.Left;
+            
+            Panel mainPanel = this.Parent as Panel;
+            mainUI mainForm = mainPanel.Parent as mainUI;
+
+            mainForm.showBlur();
+            
+            fAddJob f = new fAddJob(dtpk.Value, -1,loginAccount);
+            f.ShowDialog();
+            
+            mainForm.closeBlur();
+            loadCV();
+
+            resetSelect();
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             resetHL();
@@ -176,7 +178,7 @@ namespace JobsManagement
             resetHL();
             btnHT.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnHT.Left;
-            
+
         }
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
