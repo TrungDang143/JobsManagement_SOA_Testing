@@ -45,6 +45,8 @@ namespace JobsManagement
             
             this.LoginAccount = loginAcc;
 
+            //CongViecDAO.checkCV(LoginAccount.TenDN);
+
             backgroundWorker1.RunWorkerAsync();
 
             loadDuLieuVao(loginAcc);

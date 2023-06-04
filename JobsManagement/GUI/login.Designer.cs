@@ -65,14 +65,14 @@
             // btnDN
             // 
             this.btnDN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(0)))), ((int)(((byte)(149)))));
-            this.btnDN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDN.FlatAppearance.BorderSize = 0;
             this.btnDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDN.Location = new System.Drawing.Point(0, 0);
+            this.btnDN.ForeColor = System.Drawing.Color.White;
+            this.btnDN.Location = new System.Drawing.Point(-10, 0);
+            this.btnDN.Margin = new System.Windows.Forms.Padding(0);
             this.btnDN.Name = "btnDN";
-            this.btnDN.Size = new System.Drawing.Size(496, 86);
+            this.btnDN.Size = new System.Drawing.Size(510, 96);
             this.btnDN.TabIndex = 0;
             this.btnDN.Text = "Đăng nhập ";
             this.btnDN.UseVisualStyleBackColor = false;
@@ -172,7 +172,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Red;
-            this.panel3.Location = new System.Drawing.Point(0, 489);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(500, 5);
             this.panel3.TabIndex = 0;
@@ -181,6 +181,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.panel3);
             this.panel4.Controls.Add(this.btnDN);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 496);
@@ -316,7 +317,6 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.linkQuenMK);
             this.Controls.Add(this.linkDangKy);

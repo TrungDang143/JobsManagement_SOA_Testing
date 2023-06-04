@@ -37,7 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs6F77.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs6ACA.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\1174\AppData\Local\Temp\vs6F77.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs6ACA.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -89,6 +89,12 @@
     <Compile Include="DTO\CongViec.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
     <Compile Include="DTO\TrangThai.cs" />
+    <Compile Include="GUI\changeJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\changeJob.Designer.cs">
+      <DependentUpon>changeJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\addJob.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <Compile Include="GUI\ucThongKe.Designer.cs">
       <DependentUpon>ucThongKe.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\changeJob.resx">
+      <DependentUpon>changeJob.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\addJob.resx">
       <DependentUpon>addJob.cs</DependentUpon>
     </EmbeddedResource>

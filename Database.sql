@@ -67,6 +67,7 @@ insert into TrangThai values(N'Chưa hoàn thành')
 go
 
 -----------------------Hàm và thủ tục--------------
+
 --next ID cong viec
 create function getNextID(@userName varchar(20)) returns int
 as
@@ -90,7 +91,6 @@ begin
 	select COUNT(*) from CongViec where trangThai = @tt and tenDangNhap = @username
 end
 go
-
 
 --Doi trang thai cong viec
 create proc DoiTrangThai (@id int, @username varchar(20), @tt nvarchar(20)) as
@@ -134,6 +134,7 @@ begin
 end
 go
 
+
 --cai dat nhắc nhở công việc bắt đầu diễn ra
 create proc SetNNCV(@i bit, @username varchar(20))as
 begin
@@ -152,5 +153,35 @@ go
 create proc AddJob (@id int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
 begin
 	insert into CongViec values(@id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
+end
+go
+
+--sua cong viec
+create proc ChangeJob (@id int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	update CongViec set noiDungCV = @noiDungCV, tgBD = @tgBD, tgKT = @tgKT, trangThai = @trangThai, lapLaiT2 =  @t2, lapLaiT3 =  @t3, lapLaiT4 =  @t4, lapLaiT5 =  @t5, lapLaiT6 =  @t6, lapLaiT7 =  @t7, lapLaiCN =  @cn where tenDangNhap = @tenDangNhap and id = @id
+end
+go
+
+--lay cong viec theo khoảng
+CREATE PROCEDURE GetCongViecByDateRange
+    @startDate DATE,
+    @endDate DATE,
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT id, noiDungCV as N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as N'Kết thúc', trangThai as N'Trạng thái'
+    FROM congviec
+    WHERE CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
+	and tenDangNhap = @username
+END
+go
+
+--lay cong viec theo id username
+create proc GetCongViecByID_Username (@id int, @username varchar(20)) as
+begin
+	select * from CongViec where id = @id and tenDangNhap = @username
 end
 go

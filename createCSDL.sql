@@ -82,6 +82,7 @@ delete from TaiKhoan
 select * from CauHoiBaoMat
 print datepart(getdate())
 select top(1) id from CongViec where tenDangNhap = 'trungdang' order by id desc
+
 /*
 insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')
 select * from Acc
@@ -202,22 +203,13 @@ end
 exec hienThiCV 'tridinh'
 
 --HOM NAY
-create proc hienCV (@userName varchar(20), @time datetime)
+create proc HomNay (@userName varchar(20))
 as 
 begin
 	select noiDungCV, tgBD, tgKT, trangThai from CongViec
-	where ((year(tgBD) = year(@time) AND month(tgBD) = month(@time) AND day(tgBD) = day(@time)) 
-	OR (year(tgKT) = year(@time) AND month(tgKT) = month(@time) AND day(tgKT) = day(@time))
-	OR (tgBD < @time AND @time < tgKT)) AND tenDangNhap = @userName
-end
-exec hienCV 'trungdang', '6/3/2023'
-
-create proc hienCV_1 (@userName varchar(20), @time datetime)
-as 
-begin
-	select noiDungCV, tgBD, tgKT, trangThai from CongViec
-	where ((year(tgBD) = year(@time) AND month(tgBD) = month(@time) AND day(tgBD) = day(@time)) 
-	OR (year(tgKT) = year(@time) AND month(tgKT) = month(@time) AND day(tgKT) = day(@time))) AND tenDangNhap = @userName
+	where ((year(tgBD) = year(getdate()) AND month(tgBD) = month(getdate()) AND day(tgBD) = day(getdate())) 
+	OR (year(tgKT) = year(getdate()) AND month(tgKT) = month(getdate()) AND day(tgKT) = day(getdate()))
+	OR (tgBD < getdate() AND getdate() < tgKT)) AND tenDangNhap = @userName
 end
 
 --- TUAN NAYY
@@ -267,3 +259,37 @@ go
 
 exec DoiTrangThai 6, trungdang, N'Chưa hoàn thành'
 SELECT	 * FROM CongViec
+
+exec GetSoCVbyTT 'Đang diễn ra', 'trungdang'
+go
+
+CREATE PROCEDURE GetCongViecByDateRange
+    @startDate DATE,
+    @endDate DATE,
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT id, noiDungCV as N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as N'Kết thúc', trangThai as N'Trạng thái'
+    FROM congviec
+    WHERE CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
+	and tenDangNhap = @username
+END
+
+drop proc GetCongViecByDateRange
+exec GetCongViecByDateRange '2023-6-3', '2023-6-5', 'trungdang'
+
+CREATE PROCEDURE GetCongViecByDateRange1
+    @startDate DATE,
+    @endDate DATE,
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT id, noiDungCV , tgBD, tgKT, trangThai
+    FROM congviec
+    WHERE CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
+	and tenDangNhap = @username
+END

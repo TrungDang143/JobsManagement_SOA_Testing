@@ -1,14 +1,17 @@
 ﻿using JobsManagement.DAO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace JobsManagement.DTO
 {
-    internal class CongViec
+    public class CongViec
     {
         private int id;
         private string noiDung;
@@ -23,14 +26,38 @@ namespace JobsManagement.DTO
             //chuyển id thành hàm lấy id tiếp theo, để trong congviecDAO
             Id = CongViecDAO.nextID(userName);
             NoiDung = nd;
-            tgBD = nbd;
-            tgKT = nkt;
+            TgBD = nbd;
+            TgKT = nkt;
             TrangThai = DAO.TrangThaiDAO.getTT(0);
             for(int i = 0; i < 9; i++)
             {
                 LapLai[i] = lap[i];
             }
             TenDN = userName;
+        }
+        public CongViec(DataRow dr)
+        {
+            Id = (int)dr[0];
+            NoiDung = (string)dr[1];
+            TgBD = (DateTime)dr[2];
+            TgKT = (DateTime)dr[3];
+            TrangThai = (string)dr[4];
+
+            int dem = 0;
+            for ( int i = 5; i < 12; i++)
+            {
+                if (dr[i].ToString() == "True")
+                {
+                    LapLai[i - 3] = true;
+                    dem++;
+                }
+                else LapLai[i - 3] = false;
+            }
+
+            LapLai[0] = dem > 0 ? false : true;
+            LapLai[1] = dem == 7 ? true : false;
+
+            TenDN = (string)dr[12];
         }
 
         public int Id { get => id; set => id = value; }
