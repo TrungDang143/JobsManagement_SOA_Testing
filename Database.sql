@@ -47,10 +47,9 @@ create table CongViec
 	lapLaiT6 bit default 0,
 	lapLaiT7 bit default 0,
 	lapLaiCN bit default 0,
-	tenDangNhap varchar(20) foreign key references TaiKhoan(tenDangNhap)
+	tenDangNhap varchar(20) foreign key references TaiKhoan(tenDangNhap) on delete cascade on update cascade
 )
 go
-
 --cau hoi bao mat
 insert into CauHoiBaoMat values(N'Giáo viên bạn quý nhất?')
 insert into CauHoiBaoMat values(N'Nơi bạn và ny gặp lần đầu?')
@@ -149,12 +148,39 @@ begin
 end
 go
 
+--xoa tai khoan admin
+create proc DeleteAcc(@userName varchar(20))as
+begin
+	delete from TaiKhoan where tenDangNhap =@userName
+end
+go
+
 --them cong viec
 create proc AddJob (@id int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
 begin
 	insert into CongViec values(@id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
 end
 go
+
+-- Dang NHAP
+create proc DangNhap_1 (@userName varchar(20), @passWord varchar(20))
+as
+begin	
+	select * from TaiKhoan where tenDangNhap = @userName AND matKhau = @passWord
+end
+
+create proc DangNhap_2 (@userName varchar(20))
+as
+begin
+	select * from TaiKhoan where tenDangNhap = @userName
+end
+
+-- DANG KY
+create proc DangKy_1 (@userName varchar(20), @passWord varchar(20), @tenHT nvarchar(30), @cauHoi nvarchar(30), @traLoi nvarchar(30))
+as
+begin
+	insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi) values(@userName, @passWord, @tenHT, @cauHoi, @traLoi)
+end
 
 --sua cong viec
 create proc ChangeJob (@id int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as

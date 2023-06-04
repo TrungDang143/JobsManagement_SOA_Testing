@@ -295,6 +295,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "fThongTinUser";
             this.TransparencyKey = System.Drawing.Color.IndianRed;
+            this.Load += new System.EventHandler(this.fThongTinUser_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).EndInit();

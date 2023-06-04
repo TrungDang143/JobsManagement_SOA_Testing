@@ -1,4 +1,5 @@
 ﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,19 @@ namespace JobsManagement.GUI
 {
     public partial class fThongTinUser : Form
     {
-        public fThongTinUser()
+        private TaiKhoan loginAccount;
+
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+        public fThongTinUser(TaiKhoan loginAcc)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(BoForm.CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+            LoginAccount = loginAcc;
         }
 
         #region title bar
@@ -71,11 +80,21 @@ namespace JobsManagement.GUI
             else
             {
                 //sql
+                TaiKhoanDAO.Instance.DeleteAcc(loginAccount.TenDN);
                 Task.Delay(1000).Wait();
                 this.Close();
                 isXacNhan = false;
                 lbCanhBao.Visible = false;
             }
+        }
+
+        private void fThongTinUser_Load(object sender, EventArgs e)
+        {
+            lbTDN.Text = LoginAccount.TenDN;
+            lbTHT.Text = LoginAccount.TenHT;
+            lbMK.Text = LoginAccount.Mk;
+            lbCHBM.Text = LoginAccount.CauHoi;
+            lbTL.Text = LoginAccount.TraLoi;
         }
     }
 }
