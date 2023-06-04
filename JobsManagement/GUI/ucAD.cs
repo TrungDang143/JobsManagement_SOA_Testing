@@ -16,47 +16,52 @@ namespace JobsManagement.GUI
 {
     public partial class ucAD : UserControl
     {
+        private TaiKhoan loginAccount;
+
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+
+
         public ucAD()
         {
             InitializeComponent();
-        }
-
-        private void panel15_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ucAD_Load(object sender, EventArgs e)
-        {
             adminView();
-        }
-
-        private void btnXoaTK_Click(object sender, EventArgs e)
-        {
-
+            string query = "select count(*) from TaiKhoan where isAD = 0";
+            label1.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(query).ToString() + " tài khoản người dùng";
         }
 
         private void btnAD_Click(object sender, EventArgs e)
         {
-            fThongTinUser fThongTinUser = new fThongTinUser();
+
+            fThongTinUser fThongTinUser = new fThongTinUser(loginAccount);
+
             fThongTinUser.ShowDialog();
+
+            adminView();
+            string query = "select count(*) from TaiKhoan where isAD = 0";
+            label1.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(query).ToString() + " tài khoản người dùng";
         }
 
-        SqlConnection cnn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True");
         private void adminView()
         {
-            cnn.Open();
-            string sql = "select tenDangNhap,tenHienThi from TaiKhoan where isAD = 0";  
-            SqlCommand com = new SqlCommand(sql, cnn); 
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); 
-            DataTable dt = new DataTable(); 
-            da.Fill(dt);  
-            cnn.Close();  
-            dgvAdmin.DataSource = dt; 
+            string sql = "select tenDangNhap,tenHienThi from TaiKhoan where isAD = 0"; 
+            dgvAdmin.DataSource = DataProvider.Instance.truyVanCoKetQua(sql); 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+  
+
+        private void dgvAdmin_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            DataGridViewRow dataRow = dgvAdmin.Rows[row];
+            MessageBox.Show(dataRow.Cells[0].Value.ToString());
+            loginAccount = TaiKhoanDAO.Instance.CurrentAcc(dataRow.Cells[0].Value.ToString());
+        }
+
+        private void dgvAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

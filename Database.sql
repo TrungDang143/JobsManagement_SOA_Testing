@@ -47,10 +47,9 @@ create table CongViec
 	lapLaiT6 bit default 0,
 	lapLaiT7 bit default 0,
 	lapLaiCN bit default 0,
-	tenDangNhap varchar(20) foreign key references TaiKhoan(tenDangNhap)
+	tenDangNhap varchar(20) foreign key references TaiKhoan(tenDangNhap) on delete cascade on update cascade
 )
 go
-
 --cau hoi bao mat
 insert into CauHoiBaoMat values(N'Giáo viên bạn quý nhất?')
 insert into CauHoiBaoMat values(N'Nơi bạn và ny gặp lần đầu?')
@@ -148,12 +147,21 @@ begin
 end
 go
 
+create proc DeleteAcc(@userName varchar(20))as
+begin
+	delete from TaiKhoan where tenDangNhap =@userName
+end
+go
+exec DeleteAcc 'tridinh'
+
+drop proc DeleteAcc
 --them cong viec
 create proc AddJob (@id int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
 begin
 	insert into CongViec values(@id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
 end
 go
+
 
 -- Dang NHAP
 create proc DangNhap_1 (@userName varchar(20), @passWord varchar(20))
@@ -204,3 +212,17 @@ begin
 	OR year(tgKT) = year(getdate()) AND month(tgKT) = month(getdate()))
 	AND tenDangNhap = @userName
 end
+
+drop database JobsManagement
+
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Admin','1111','ADMIN',N'Kỉ niệm đáng nhớ?','abc', 1)
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('trungdang','1403','TrungDang',N'Kỉ niệm đáng nhớ?','abcd', 0)
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('tridinh','0000','Tri',N'Kỉ niệm đáng nhớ?','xyzt', 0)
+
+
+insert into CongViec values (0,N'Học OOP','5/31/2023 6:30:00','5/31/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
+insert into CongViec values (1,N'Học CTDL','6/15/2023 6:30:00','6/30/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'Admin')
+insert into CongViec values (2,N'Học SQL','5/30/2023 6:30:00','6/15/2023 22:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'tridinh')
+insert into CongViec values (3,N'Training','6/2/2023 6:30:00','6/2/2023 22:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'tridinh')
+insert into CongViec values (4,N'di lam','6/1/2023 6:30:00','06/03/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
+insert into CongViec values (5,N'ABC','07/15/2023 6:30:00','07/30/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'Admin')

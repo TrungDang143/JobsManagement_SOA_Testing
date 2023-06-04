@@ -22,6 +22,7 @@ namespace JobsManagement.DTO
         private bool nhacNhoCV = true;
         private int hNN;
         private int mNN;
+        private float doChamChi;
 
         bool isAD = false;
         public TaiKhoan(DataRow row)
@@ -65,7 +66,7 @@ namespace JobsManagement.DTO
                     return mk;
                 return null;
             }
-            private set => mk = value; 
+             set => mk = value; 
         }
         public string TraLoi {
             get
@@ -88,7 +89,7 @@ namespace JobsManagement.DTO
                     return cauHoi;
                 return null;
             }
-            private set => cauHoi = value; 
+            set => cauHoi = value; 
         }
         public int HNN { get => hNN; set => hNN = value; }
         public int MNN { get => mNN; set => mNN = value; }

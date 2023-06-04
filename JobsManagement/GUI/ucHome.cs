@@ -32,10 +32,12 @@ namespace JobsManagement
 
         private void loadCV()
         {
-            string query = "exec HomNay @userName ";
+            // load cong viec theo LoginAcc
+            dtpk.Value = DateTime.Now;
+            DateTime time = dtpk.Value;
+            string query = "exec hienCV @userName , @time";
             string userName = LoginAccount.TenDN;
-            //load công việc theo loginAcc
-            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] {userName});
+            dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, time });
 
             dtpk.Value = timeOfDtpk.TimeSelection;
             dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
@@ -200,6 +202,11 @@ namespace JobsManagement
             string query = "exec hienCV @userName , @time";
             string userName = LoginAccount.TenDN;
             dgv.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { userName, time });
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
