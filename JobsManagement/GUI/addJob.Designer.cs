@@ -51,8 +51,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cbxtHN = new System.Windows.Forms.CheckBox();
             this.pnlHL = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.lbKHopLeGio = new System.Windows.Forms.Label();
             this.lbKHopLeNgay = new System.Windows.Forms.Label();
             this.lbGioiHanCV = new System.Windows.Forms.Label();
@@ -220,8 +218,6 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.panel5.Controls.Add(this.pnlLL);
             this.panel5.Controls.Add(this.pnlHL);
-            this.panel5.Controls.Add(this.label11);
-            this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.lbKHopLeGio);
             this.panel5.Controls.Add(this.lbKHopLeNgay);
             this.panel5.Controls.Add(this.lbGioiHanCV);
@@ -387,28 +383,6 @@
             this.pnlHL.Name = "pnlHL";
             this.pnlHL.Size = new System.Drawing.Size(118, 2);
             this.pnlHL.TabIndex = 15;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label11.Location = new System.Drawing.Point(101, 252);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 20);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "label8";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label8.Location = new System.Drawing.Point(101, 212);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 20);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "label8";
             // 
             // lbKHopLeGio
             // 
@@ -868,8 +842,6 @@
         private System.Windows.Forms.Label lbKHopLeGio;
         private System.Windows.Forms.Label lbKHopLeNgay;
         private System.Windows.Forms.Label lbGioiHanCV;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel pnlHL;
         private System.Windows.Forms.Panel pnlLL;
         private System.Windows.Forms.Panel panel14;

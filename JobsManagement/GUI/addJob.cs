@@ -217,7 +217,7 @@ namespace JobsManagement
             {
                 btnThayDoi2.Enabled = true;
                 lbLapLai.Visible = false;
-                label11.Text = finishTime.ToString();
+                //label11.Text = finishTime.ToString();
 
                 dtpk.Enabled = true;
             }
@@ -295,12 +295,12 @@ namespace JobsManagement
                     setTimeKT();
                 }    
                 setTimeBD();
-                label8.Text = startTime.ToString();
+                //label8.Text = startTime.ToString();
             }
             else
             {
                 setTimeKT();
-                label11.Text = finishTime.ToString();
+                //label11.Text = finishTime.ToString();
             }
             timeOfDtpk.TimeSelection = dtpk.Value;
             checkHopLe();
@@ -437,14 +437,14 @@ namespace JobsManagement
 
             setTimeBD();
             checkHopLe();
-            label8.Text = startTime.ToString();
+            //label8.Text = startTime.ToString();
         }
 
         private void nudH2_ValueChanged(object sender, EventArgs e)
         {
             setTimeKT();
             checkHopLe();
-            label11.Text = finishTime.ToString();
+            //label11.Text = finishTime.ToString();
         }
 
         private void txbCV_TextChanged(object sender, EventArgs e)

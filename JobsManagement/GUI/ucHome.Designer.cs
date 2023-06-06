@@ -339,7 +339,7 @@
             this.btnThang.Name = "btnThang";
             this.btnThang.Size = new System.Drawing.Size(170, 40);
             this.btnThang.TabIndex = 0;
-            this.btnThang.Text = "Tháng này";
+            this.btnThang.Text = "Theo tháng";
             this.btnThang.UseVisualStyleBackColor = false;
             this.btnThang.Click += new System.EventHandler(this.btnThang_Click);
             // 
@@ -355,7 +355,7 @@
             this.btnTuan.Name = "btnTuan";
             this.btnTuan.Size = new System.Drawing.Size(170, 40);
             this.btnTuan.TabIndex = 0;
-            this.btnTuan.Text = "Tuần này";
+            this.btnTuan.Text = "Theo tuần";
             this.btnTuan.UseVisualStyleBackColor = false;
             this.btnTuan.Click += new System.EventHandler(this.btnTuan_Click);
             // 

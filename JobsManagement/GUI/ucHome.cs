@@ -143,7 +143,7 @@ namespace JobsManagement
             resetTimeRange();
             btnTuan.BackColor = Color.FromArgb(37, 42, 64);
 
-            DateTime today = DateTime.Today;
+            DateTime today = dtpk.Value;
             
             int k = today.DayOfWeek - DayOfWeek.Monday;            
             DateTime dauTuan = today.AddDays(-k);
@@ -159,7 +159,7 @@ namespace JobsManagement
             resetTimeRange();
             btnThang.BackColor = Color.FromArgb(37, 42, 64);
 
-            DateTime dauThang = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DateTime dauThang = new DateTime(dtpk.Value.Year, dtpk.Value.Month, 1);
             DateTime cuoiThang = dauThang.AddMonths(1).AddDays(-1);
             tu = dauThang;
             den = cuoiThang;
