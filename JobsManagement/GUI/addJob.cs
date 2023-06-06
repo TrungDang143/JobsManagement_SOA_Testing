@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace JobsManagement
@@ -197,6 +198,10 @@ namespace JobsManagement
                     {
                         dtpk.Value = DateTime.Now.AddDays(-columnHomNay + columnLap);
                     }
+                    else if(columnHomNay == columnLap)
+                    {
+                        dtpk.Value = DateTime.Now;
+                    }
                     else
                     {
                         dtpk.Value = DateTime.Now.AddDays(7 - (columnHomNay - columnLap));
@@ -380,6 +385,7 @@ namespace JobsManagement
 
                     int vtCu = 0;
                     bool firstTime = true;
+                    int idLap = CongViecDAO.nextIdLap(LoginAccount.TenDN);
                     for (int i = 1; i < 9; i++)
                     {
                         if (lap[i] == true)
@@ -388,11 +394,14 @@ namespace JobsManagement
                             startTime = startTime.AddDays(i - vtCu);
                             finishTime = finishTime.AddDays(i - vtCu);
                             int j = 0;
-                            for (DateTime date = startTime; date <= startTime.AddMonths(1); date = date.AddDays(ngayLap))
+                            for (DateTime date = startTime; date <= startTime.AddMonths(2); date = date.AddDays(ngayLap))
                             {
-                                CongViec newCV = new CongViec(txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), LoginAccount.TenDN);
-                                if(!CongViecDAO.addJob(newCV))
+                                try
                                 {
+                                    CongViec newCV = new CongViec(idLap, txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), LoginAccount.TenDN);
+                                    CongViecDAO.addJob(newCV);
+                                }
+                                catch{
                                     throw new Exception("Lỗi thêm công việc");
                                 }
                                 j += ngayLap;
@@ -400,23 +409,22 @@ namespace JobsManagement
                             vtCu = i;
                             firstTime = false;
                         }  
-                        else
-                        {
-
-                        }
                     }
-                    MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Công việc của bạn sẽ được lặp lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    CongViec newCV = new CongViec(txbCV.Text, startTime, finishTime, getLapLai(), LoginAccount.TenDN);
-                    if (!CongViecDAO.addJob(newCV))
+                    try
                     {
-                        throw new Exception("Lỗi thêm công việc");
+                        CongViec newCV = new CongViec(0, txbCV.Text, startTime, finishTime, getLapLai(), LoginAccount.TenDN);
+                        CongViecDAO.addJob(newCV);
+                    }
+                    catch{
+                        throw new Exception("Lỗi thêm công việc!");
                     }
                 }
 
-                MessageBox.Show("thanh cong");
+                MessageBox.Show("Công việc mới đã được thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (Exception ex)

@@ -781,11 +781,11 @@
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(1067, 78);
             this.btnLuu.TabIndex = 2;
-            this.btnLuu.Text = "Thêm công việc";
+            this.btnLuu.Text = "Sửa công việc";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // fAddJob
+            // changeJob
             // 
             this.AcceptButton = this.btnLuu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -793,7 +793,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 670);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlContent);
-            this.Name = "fAddJob";
+            this.Name = "changeJob";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addJob";

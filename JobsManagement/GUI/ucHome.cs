@@ -20,22 +20,26 @@ namespace JobsManagement
     public partial class ucHome : UserControl
     {
         private TaiKhoan loginAccount;
-
         public TaiKhoan LoginAccount { get => loginAccount; private set => loginAccount = value; }
 
         private DataTable duLieu = new DataTable();
-        private int rowSelected;
+        private int idSelected = default(int);
+        private DateTime tu;
+        private DateTime den;
+        private int filter = 0;
 
         public ucHome(TaiKhoan loginAcc)
         {
             InitializeComponent();
             this.LoginAccount = loginAcc;
             dtpk.Value = timeOfDtpk.TimeSelection;
-            loadCV(dtpk.Value, dtpk.Value);
+            btnAll.BackColor = Color.FromArgb(37, 42, 64);
+            loadCV(tu, den, filter);
         }
         
-        private void loadCV( DateTime bd, DateTime kt)
+        private void loadCV( DateTime bd, DateTime kt, int fil)
         {
+            
             string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
             duLieu = DataProvider.Instance.truyVanCoKetQua(query, new object[] { bd, kt, LoginAccount.TenDN });
             dgv.DataSource = duLieu;
@@ -47,21 +51,33 @@ namespace JobsManagement
                 dgv.DefaultCellStyle.ForeColor = Color.Black;
                 dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
                 dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-
-                dgv.Columns[0].Visible = false;
-                dgv.Columns[1].Width = 492;
-                dgv.Columns[2].Width = 175;
-                dgv.Columns[3].Width = 175;
-                dgv.Columns[4].Width = 233;
-                dgv.Sort(dgv.Columns[2], ListSortDirection.Descending);
-
                 lbNull.Visible = false;
             }
             else
             {
                 lbNull.Visible = true;
             }
+            dgv.Columns[0].Visible = false;
+            dgv.Columns[1].Width = 452;
+            dgv.Columns[2].Width = 200;
+            dgv.Columns[3].Width = 200;
+            dgv.Columns[4].Width = 233;
+            dgv.Sort(dgv.Columns[2], ListSortDirection.Ascending);
 
+            switch (fil)
+            {
+                case 2:
+                    {
+                        SDR();
+                        break;
+                    }
+                case 1:
+                    {
+                        DDR(); 
+                        break;
+                    }
+                default: break;
+            }
         }
 
         #region highlight
@@ -89,42 +105,17 @@ namespace JobsManagement
         {
             btnDDR.BackColor = Color.FromArgb(63, 68, 97);
             btnSDR.BackColor = Color.FromArgb(63, 68, 97);
+            btnAll.BackColor = Color.FromArgb(63, 68, 97);
+        }
+        void resetTimeRange()
+        {
             btnThang.BackColor = Color.FromArgb(63, 68, 97);
             btnTuan.BackColor = Color.FromArgb(63, 68, 97);
-
         }
-        private void btnTuan_Click(object sender, EventArgs e)
+        void DDR()
         {
-            resetFilter();
-            btnTuan.BackColor = Color.FromArgb(37, 42, 64);
-
-            DateTime today = DateTime.Today;
-            
-            int k = today.DayOfWeek - DayOfWeek.Monday;            
-            DateTime dauTuan = today.AddDays(-k);
-            DateTime cuoiTuan = today.AddDays(6 - k);
-
-            loadCV(dauTuan, cuoiTuan);
-            
-        }
-
-        private void btnThang_Click(object sender, EventArgs e)
-        {
-            resetFilter();
-            btnThang.BackColor = Color.FromArgb(37, 42, 64);
-
-            DateTime dauThang = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            DateTime cuoiThang = dauThang.AddMonths(1).AddDays(-1);
-            
-            loadCV(dauThang, cuoiThang);
-        }
-        private void btnDaHT_Click(object sender, EventArgs e)
-        {
-            resetFilter();
-            btnDDR.BackColor = Color.FromArgb(37, 42, 64);
-
             DataTable HT = duLieu.Copy();
-            foreach(DataRow dr in HT.Rows)
+            foreach (DataRow dr in HT.Rows)
             {
                 if (dr[HT.Columns.Count - 1].ToString() != "Đang diễn ra")
                 {
@@ -134,12 +125,8 @@ namespace JobsManagement
             HT.AcceptChanges();
             dgv.DataSource = HT;
         }
-
-        private void btnSDR_Click(object sender, EventArgs e)
+        void SDR()
         {
-            resetFilter();
-            btnSDR.BackColor = Color.FromArgb(37, 42, 64);
-
             DataTable SDR = duLieu.Copy();
             foreach (DataRow dr in SDR.Rows)
             {
@@ -149,11 +136,56 @@ namespace JobsManagement
                 }
             }
             SDR.AcceptChanges();
-            dgv.DataSource= SDR;
+            dgv.DataSource = SDR;
+        }
+        private void btnTuan_Click(object sender, EventArgs e)
+        {
+            resetTimeRange();
+            btnTuan.BackColor = Color.FromArgb(37, 42, 64);
+
+            DateTime today = DateTime.Today;
+            
+            int k = today.DayOfWeek - DayOfWeek.Monday;            
+            DateTime dauTuan = today.AddDays(-k);
+            DateTime cuoiTuan = today.AddDays(6 - k);
+
+            tu = dauTuan;
+            den = cuoiTuan;
+            loadCV(tu, den, filter);        
+        }
+
+        private void btnThang_Click(object sender, EventArgs e)
+        {
+            resetTimeRange();
+            btnThang.BackColor = Color.FromArgb(37, 42, 64);
+
+            DateTime dauThang = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DateTime cuoiThang = dauThang.AddMonths(1).AddDays(-1);
+            tu = dauThang;
+            den = cuoiThang;
+            loadCV(tu, den, filter);
+        }
+        private void btnDaHT_Click(object sender, EventArgs e)
+        {
+            DDR();
+            resetFilter();
+            btnDDR.BackColor = Color.FromArgb(37, 42, 64);
+            filter = 1;
+        }
+
+        private void btnSDR_Click(object sender, EventArgs e)
+        {
+            SDR();
+            resetFilter();
+            btnSDR.BackColor = Color.FromArgb(37, 42, 64);
+            filter = 2;
         }
         private void btnAll_Click(object sender, EventArgs e)
         {
-            loadCV(dtpk.Value, dtpk.Value);
+            loadCV(tu, den, filter);
+            resetFilter();
+            btnAll.BackColor = Color.FromArgb(37, 42, 64);
+            filter = 0;
         }
         
         #endregion
@@ -171,8 +203,10 @@ namespace JobsManagement
         private void dtpk_ValueChanged_1(object sender, EventArgs e)
         {
             timeOfDtpk.TimeSelection = dtpk.Value;
-            loadCV(dtpk.Value, dtpk.Value);
-            resetFilter();
+            tu = dtpk.Value;
+            den = dtpk.Value;
+            loadCV(tu, den, filter);
+            resetTimeRange();
         }
 
         #endregion
@@ -193,9 +227,8 @@ namespace JobsManagement
             f.ShowDialog();
             
             mainForm.closeBlur();
-            loadCV(dtpk.Value, dtpk.Value);
+            loadCV(tu, den, filter);
 
-            resetFilter();
             resetSelect();
         }
         private void btnSua_Click(object sender, EventArgs e)
@@ -203,22 +236,30 @@ namespace JobsManagement
             resetHL();
             btnSua.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnSua.Left;
+            try
+            {
+                Panel mainPanel = this.Parent as Panel;
+                mainUI mainForm = mainPanel.Parent as mainUI;
 
-            Panel mainPanel = this.Parent as Panel;
-            mainUI mainForm = mainPanel.Parent as mainUI;
+                if(idSelected == 0 )
+                {
+                    throw new Exception("Chọn công việc cần sửa");
+                } 
+                    
+                CongViec cv = DAO.CongViecDAO.GetCongViecByID_Username(idSelected, LoginAccount.TenDN);
+                mainForm.showBlur();
 
-            mainForm.showBlur();
+                changeJob f = new changeJob(cv);
+                f.ShowDialog();
 
-            DataGridViewRow dgvRow = dgv.Rows[rowSelected];
-            int id = (int)dgvRow.Cells[0].Value;
+                mainForm.closeBlur();
+                loadCV(tu, den, filter);
 
-            CongViec cv = DAO.CongViecDAO.GetCongViecByID_Username(id, LoginAccount.TenDN);
-
-            changeJob f = new changeJob(cv);
-            f.ShowDialog();
-
-            mainForm.closeBlur();
-            loadCV(dtpk.Value, dtpk.Value);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             resetSelect();
         }
@@ -228,6 +269,33 @@ namespace JobsManagement
             resetHL();
             btnXoa.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnXoa.Left;
+
+            string tb = "Bạn muốn xoá công việc này?";
+            try
+            {
+                if (idSelected == 0)
+                {
+                    throw new Exception("Chọn công việc cần xoá");
+                }
+
+                int lap = CongViecDAO.getIdLap(idSelected, LoginAccount.TenDN);
+
+                if (lap != 0)
+                {
+                    tb = "Công việc của bạn có lặp lại, bạn sẽ xoá tất cả công việc tương tự. \nXác nhận?";
+                }
+                var result = MessageBox.Show(tb, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    CongViecDAO.XoaCongViec(idSelected, lap, LoginAccount.TenDN);
+                    loadCV(tu, den, filter);
+                }
+                resetSelect();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnRollBack_Click(object sender, EventArgs e)
@@ -244,13 +312,6 @@ namespace JobsManagement
             plHL.Left = btnHT.Left;
 
         }
-
-        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            rowSelected = e.RowIndex;
-            
-            //MessageBox.Show(dataRow.Cells["noiDungCV"].Value.ToString());
-        }
         #endregion
 
         private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -260,10 +321,20 @@ namespace JobsManagement
                 if (e.Value != null)
                 {
                     DateTime datetime = (DateTime)e.Value;
-                    e.Value = datetime.ToString("HH:mm - dd/MM");
+                    e.Value = datetime.ToString("HH:mm - ddd - dd/MM");
                     e.FormattingApplied = true;
                 }
             }
         }
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex != 0)
+            {
+                DataGridViewRow dgvRow = dgv.Rows[e.RowIndex];
+                idSelected = (int)dgvRow.Cells[0].Value;
+            }
+        }
+
     }
 }

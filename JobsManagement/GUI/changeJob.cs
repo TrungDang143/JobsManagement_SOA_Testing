@@ -62,12 +62,14 @@ namespace JobsManagement
                 uncheckedAll();
                 checkHN = false;
                 cbxtHN.Checked = false;
-            }else 
-            for(int i = 2; i < 9; i++)
+            }
+            else for(int i = 2; i < 9; i++)
             {
                 if (cv.LapLai[i] == true)
                     ThuLapLai(i-2);
             }
+            startTime = Cv.TgBD;
+            finishTime = Cv.TgKT;
 
             nudH1.Value = cv.TgBD.Hour;
             nudM1.Value = cv.TgBD.Minute;
@@ -98,7 +100,6 @@ namespace JobsManagement
                 dtpk.Enabled = true;
             }
         }
-
         #region lap lai
         private bool checkHN = true;//tránh bi bo check het cac ngay khi bo check cbxHN
         private void cbxtHN_CheckedChanged(object sender, EventArgs e)
@@ -211,7 +212,6 @@ namespace JobsManagement
                 }
                 else dtpk.Enabled = false;
 
-                
                 btnThayDoi2.Enabled = false;
                 lbLapLai.Visible = true;
                 pnlHL.Location = new Point(btnThayDoi1.Location.X, btnThayDoi1.Location.Y + btnThayDoi1.Height);
@@ -230,10 +230,13 @@ namespace JobsManagement
                             break;
                         }
                     }
-
                     if (columnHomNay < columnLap)
                     {
                         dtpk.Value = DateTime.Now.AddDays(-columnHomNay + columnLap);
+                    }
+                    else if (columnHomNay == columnLap)
+                    {
+                        dtpk.Value = DateTime.Now;
                     }
                     else
                     {
@@ -250,8 +253,6 @@ namespace JobsManagement
             {
                 btnThayDoi2.Enabled = true;
                 lbLapLai.Visible = false;
-                //label11.Text = finishTime.ToString();
-
                 dtpk.Enabled = true;
             }
             setTimeKT();
@@ -326,7 +327,6 @@ namespace JobsManagement
             timeOfDtpk.TimeSelection = dtpk.Value;
             checkHopLe();
         }
-
         private void btnThayDoi1_Click(object sender, EventArgs e)
         {
             dtpk.Focus();
@@ -335,7 +335,6 @@ namespace JobsManagement
             clickThayDoi2 = false;
             pnlHL.Location = new Point(btnThayDoi1.Location.X, btnThayDoi1.Location.Y + btnThayDoi1.Height);
         }
-
         private void btnThayDoi2_Click(object sender, EventArgs e)
         {
             if(!checkLapLai())
@@ -376,21 +375,102 @@ namespace JobsManagement
                 xuLyLapLai();
             }
         }
-
+        private int checkTH()
+        {
+            bool[] ll = getLapLai();
+            if (Cv.LapLai[0] && ll[0])//k lap - k lap
+            {
+                return 1;
+            }
+            else if ((Cv.LapLai[1] && ll[1]) || Cv.LapLai.SequenceEqual(ll))//lap - lap
+            {
+                return 2;
+            }
+            else if (Cv.LapLai[0]&& ll[0] == false)//k lap - lap
+            {
+                return 3;
+            }
+            else if (Cv.LapLai[0] == false && ll[0])//lap - k lap
+            {
+                return 4;
+            }
+            else return 5;//lap - lap khac
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            int th = checkTH();
             if (string.IsNullOrEmpty(txbCV.Text))
             {
                 lbGioiHanCV.Text = "Vui lòng nhập nội dung công việc.";
                 lbGioiHanCV.ForeColor = Color.OrangeRed;
                 return;
             }
-            
             try
             {
-                if (checkLapLai())
+                CongViec newCV;
+                if(th == 1)
                 {
-
+                    try
+                    {
+                        newCV = new CongViec(Cv.Id, 0, txbCV.Text, startTime, finishTime, getLapLai(), Cv.TenDN);
+                    }
+                    catch
+                    {
+                        throw new Exception("Lỗi sửa công việc không lặp -> không lặp.");
+                    }
+                }
+                else if(th == 2)
+                {
+                    try
+                    {
+                        newCV = new CongViec(Cv.IdLap, txbCV.Text, startTime, finishTime, getLapLai(), Cv.TenDN);
+                    }
+                    catch
+                    {
+                        throw new Exception("Lỗi sửa công việc lặp -> lặp tương tự.");
+                    }
+                }
+                else if(th == 3)
+                {
+                    try
+                    {
+                        int newIdLap = CongViecDAO.nextIdLap(Cv.TenDN);
+                        newCV = new CongViec(newIdLap, txbCV.Text, startTime, finishTime, getLapLai(), Cv.TenDN);
+                        CongViecDAO.XoaCongViec(Cv.Id, 0, Cv.TenDN);
+                    }
+                    catch
+                    {
+                        throw new Exception("Lỗi sửa công việc không lặp -> lặp.");
+                    }
+                }
+                else if (th == 4)
+                {
+                    try
+                    {
+                        newCV = new CongViec(0, txbCV.Text, startTime, finishTime, getLapLai(), Cv.TenDN);                        
+                        CongViecDAO.XoaCongViec(Cv.Id, Cv.IdLap, Cv.TenDN);
+                    }
+                    catch
+                    {
+                        throw new Exception("Lỗi sửa công việc không lặp -> lặp.");
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        int newIdLap = CongViecDAO.nextIdLap(Cv.TenDN);
+                        newCV = new CongViec(newIdLap, txbCV.Text, startTime, finishTime, getLapLai(), Cv.TenDN);
+                        CongViecDAO.XoaCongViec(Cv.Id, Cv.IdLap, Cv.TenDN);
+                    }
+                    catch
+                    {
+                        throw new Exception("Lỗi sửa công việc lặp -> lặp khác.");
+                    }
+                }
+                
+                if (checkLapLai() && th != 2)
+                {
                     bool[] lap = getLapLai();
                     int ngayLap;
                     if (lap[1] == true)
@@ -401,7 +481,6 @@ namespace JobsManagement
                     {
                         ngayLap = 7;
                     }
-
                     int vtCu = 0;
                     bool firstTime = true;
                     for (int i = 1; i < 9; i++)
@@ -411,36 +490,35 @@ namespace JobsManagement
                             if (firstTime == true) vtCu = i;
                             startTime = startTime.AddDays(i - vtCu);
                             finishTime = finishTime.AddDays(i - vtCu);
+                            newCV.TgBD = startTime;
+                            newCV.TgKT = finishTime;
                             int j = 0;
-                            for (DateTime date = startTime; date <= startTime.AddMonths(1); date = date.AddDays(ngayLap))
+                            for (DateTime date = startTime; date <= startTime.AddMonths(2); date = date.AddDays(ngayLap))
                             {
-                                CongViec newCV = new CongViec(txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), Cv.TenDN);
-                                if(!CongViecDAO.changeJob(newCV))
+                                try
                                 {
-                                    throw new Exception("Lỗi sửa công việc");
+                                    newCV.TgBD = newCV.TgBD.AddDays(j);
+                                    newCV.TgKT = newCV.TgKT.AddDays(j);
+                                    CongViecDAO.changeJob(newCV, th);
+                                    //newCV = new CongViec(Cv.Id, Cv.IdLap, txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), Cv.TenDN);
+                                }
+                                catch
+                                {
+                                    throw new Exception("Lỗi sửa công việc lặp.");
                                 }
                                 j += ngayLap;
                             }
                             vtCu = i;
                             firstTime = false;
                         }  
-                        else
-                        {
-
-                        }
                     }
                     MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    CongViec newCV = new CongViec(txbCV.Text, startTime, finishTime, getLapLai(), Cv.TenDN);
-                    if (!CongViecDAO.addJob(newCV))
-                    {
-                        throw new Exception("Lỗi sửa công việc");
-                    }
+                    CongViecDAO.changeJob(newCV, th);
                 }
-
-                MessageBox.Show("Sửa công việc thành công");
+                MessageBox.Show("Sửa công việc thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (Exception ex)
@@ -453,13 +531,11 @@ namespace JobsManagement
             setTimeBD();
             checkHopLe();
         }
-
         private void nudH2_ValueChanged(object sender, EventArgs e)
         {
             setTimeKT();
             checkHopLe();
         }
-
         private void txbCV_TextChanged(object sender, EventArgs e)
         {
             if(txbCV.Text.Length > 48)

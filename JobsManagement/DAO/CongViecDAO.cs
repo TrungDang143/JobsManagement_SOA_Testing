@@ -15,7 +15,7 @@ namespace JobsManagement.DAO
     {
         public static bool addJob(CongViec cv)
         {
-            int id = cv.Id;
+            int idLap = cv.IdLap;
             string nd = cv.NoiDung;
             DateTime tgBD = cv.TgBD;
             DateTime tgKT = cv.TgKT;
@@ -59,13 +59,14 @@ namespace JobsManagement.DAO
                 cn = cv.LapLai[8] == true ? 1 : 0;
             }
 
-            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec AddJob @id , @noiDungCV , @tgBD , @tgKT , @trangThai , @t2 , @t3 , @t4 , @t5 , @t6 , @t7 , @cn , @tenDangNhap",new object[] { id, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
+            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec AddJob @id , @noiDungCV , @tgBD , @tgKT , @trangThai , @t2 , @t3 , @t4 , @t5 , @t6 , @t7 , @cn , @tenDangNhap",new object[] { idLap, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
             return kq;
         }
 
-        public static bool changeJob(CongViec cv)
+        public static bool changeJob(CongViec cv, int th)
         {
             int id = cv.Id;
+            int idLap = cv.IdLap;
             string nd = cv.NoiDung;
             DateTime tgBD = cv.TgBD;
             DateTime tgKT = cv.TgKT;
@@ -109,14 +110,13 @@ namespace JobsManagement.DAO
                 cn = cv.LapLai[8] == true ? 1 : 0;
             }
 
-            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec ChangeJob @id , @noiDungCV , @tgBD , @tgKT , @trangThai , @t2 , @t3 , @t4 , @t5 , @t6 , @t7 , @cn , @tenDangNhap", new object[] { id, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
+            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec ChangeJob @th , @id , @idLap , @noiDungCV , @tgBD , @tgKT , @trangThai , @t2 , @t3 , @t4 , @t5 , @t6 , @t7 , @cn , @tenDangNhap", new object[] {th, id, idLap, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
             return kq;
         }
-        public static int nextID(string userName)
+        public static int nextIdLap(string userName)
         {
-            return (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("print dbo.getNextID( @username )", new object[] { userName });
+            return (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("select dbo.getNextIdLap( @username )", new object[] { userName });
         }
-
 
         public static int tongCV(string userName)
         {
@@ -137,8 +137,7 @@ namespace JobsManagement.DAO
             {
                 DateTime start = (DateTime)items["tgBD"];
                 DateTime finish = (DateTime)items["tgKT"];
-
-
+        
                 if(start <= DateTime.Now)
                 {
                     
@@ -154,5 +153,14 @@ namespace JobsManagement.DAO
             return cv;
         }
 
+        public static void XoaCongViec(int id, int idLap, string username)
+        {
+            DAO.DataProvider.Instance.truyVanKTraVe("exec XoaCongViec @id , @idLap , @username", new object[] { id, idLap, username });
+        }
+
+        public static int getIdLap(int id, string username)
+        {
+            return (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("select dbo.GetIdLapLai( @id , @username )", new object[] { id, username });
+        }
     }
 }
