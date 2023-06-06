@@ -186,5 +186,14 @@ namespace JobsManagement.GUI
         }
         #endregion
 
+        private void pnlAll_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ucSetting_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

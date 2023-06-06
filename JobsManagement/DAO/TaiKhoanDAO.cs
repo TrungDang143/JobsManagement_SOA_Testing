@@ -121,8 +121,13 @@ namespace JobsManagement.DAO
 
         public bool xoaTK(string password)
         {
-            bool xoa = DataProvider.Instance.truyVanKTraVe("exec XoaTK @password", new object[] {password});
+            bool xoa = DataProvider.Instance.truyVanKTraVe("exec XoaTK @password ", new object[] {password});
             return xoa;
+        }
+        public bool DeleteAcc(string userName)
+        {
+            bool delete = DataProvider.Instance.truyVanKTraVe("exec DeleteAcc @userName ", new object[] { userName });
+            return delete;
         }
     }
 }

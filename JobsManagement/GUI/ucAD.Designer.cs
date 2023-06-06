@@ -65,6 +65,8 @@
             this.dgvAdmin.RowTemplate.Height = 24;
             this.dgvAdmin.Size = new System.Drawing.Size(541, 262);
             this.dgvAdmin.TabIndex = 61;
+            this.dgvAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmin_CellClick);
+            this.dgvAdmin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmin_CellContentClick);
             // 
             // tenDangNhap
             // 
@@ -87,7 +89,6 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(179, 2);
             this.panel15.TabIndex = 65;
-            this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.panel15_Paint);
             // 
             // btnAD
             // 
@@ -136,7 +137,7 @@
             this.Controls.Add(this.label2);
             this.Name = "ucAD";
             this.Size = new System.Drawing.Size(554, 467);
-            this.Load += new System.EventHandler(this.ucAD_Load);
+            //this.Load += new System.EventHandler(this.ucAD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -84,15 +84,12 @@ namespace JobsManagement
                 {
                     
                     TaiKhoan loginAcc = TaiKhoanDAO.Instance.CurrentAcc(txbUsername.Text);
-                    LoginAccount = loginAcc;
-                    
-                    //MessageBox.Show("Chào mừng User đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                    mainUI m = new mainUI(LoginAccount);
+                    LoginAccount = loginAcc; 
                     
                     this.ShowInTaskbar = false;
                     this.Hide();
                     
+                    mainUI m = new mainUI(LoginAccount);
                     m.ShowDialog();
                     if (!m.isClose)
                     {
@@ -108,8 +105,8 @@ namespace JobsManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
            
         }

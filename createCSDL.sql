@@ -82,6 +82,7 @@ delete from TaiKhoan
 select * from CauHoiBaoMat
 print datepart(getdate())
 select top(1) id from CongViec where tenDangNhap = 'trungdang' order by id desc
+
 /*
 insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')
 select * from Acc
@@ -258,3 +259,105 @@ go
 
 exec DoiTrangThai 6, trungdang, N'Chưa hoàn thành'
 SELECT	 * FROM CongViec
+
+exec GetSoCVbyTT 'Đang diễn ra', 'trungdang'
+go
+
+CREATE PROCEDURE GetCongViecByDateRange
+    @startDate DATE,
+    @endDate DATE,
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT id, noiDungCV as N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as N'Kết thúc', trangThai as N'Trạng thái'
+    FROM congviec
+    WHERE CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
+	and tenDangNhap = @username
+END
+
+drop proc GetCongViecByDateRange
+exec GetCongViecByDateRange '2023-6-3', '2023-6-5', 'trungdang'
+
+CREATE PROCEDURE GetCongViecByDateRange1
+    @startDate DATE,
+    @endDate DATE,
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT id, noiDungCV , tgBD, tgKT, trangThai
+    FROM congviec
+    WHERE CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
+	and tenDangNhap = @username
+END
+
+select dbo.getNextIdLap( 'trungdang' )
+select * from CongViec where tenDangNhap = 'trungdang'
+declare @id int
+	set @id = (select top(1) id from CongViec where tenDangNhap = 'trungdang' order by id desc) + 1
+	print @id
+
+select dbo.GetIdLapLai( 29 , 'trungdang' )
+select * from CongViec where tenDangNhap = 'trungdang'
+
+create proc ChangeJob (@truongHop int, @id int, @idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	if(@truongHop = 1)
+		exec ChangeJob_KLap_KLap @id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else if(@truongHop = 2)
+		exec ChangeJob_Lap_Lap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else if(@truongHop = 3)
+		exec ChangeJob_KLap_Lap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else if(@truongHop = 4)
+		exec ChangeJob_Lap_KLap @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else
+		exec ChangeJob_Lap_newLap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+end
+go
+
+--giữ nguyên trạng thái lặp: k lăp - k lap
+create proc ChangeJob_KLap_KLap (@id int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	update CongViec set 
+		noiDungCV = @noiDungCV, 
+		tgBD = @tgBD,
+		tgkt = @tgKT,
+		trangThai = @trangThai
+		where tenDangNhap = @tenDangNhap and id = @id
+end
+go
+--giữ nguyên trạng thái lặp: lặp lại tư tượng
+create proc ChangeJob_Lap_Lap (@idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	update CongViec set 
+		noiDungCV = @noiDungCV, 
+		tgBD =  DATEADD(HOUR, DATEPART(HOUR, @tgBD) - DATEPART(HOUR, tgBD), DATEADD(MINUTE, DATEPART(MINUTE, @tgBD) - DATEPART(MINUTE, tgBD), tgBD)),
+		tgkt = DATEADD(HOUR, DATEPART(HOUR, @tgKT) - DATEPART(HOUR, tgKT), DATEADD(MINUTE, DATEPART(MINUTE, @tgKT) - DATEPART(MINUTE, tgKT), tgKT)),
+		trangThai = @trangThai
+		where tenDangNhap = @tenDangNhap and idLap = @idLap
+end
+go
+
+--thay đổi trạng thái lặp: k lặp - lặp
+create proc ChangeJob_KLap_Lap (@idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	insert into CongViec values(@idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
+end
+go
+
+-- thay đổi trạng thái: lặp - k lặp
+create proc ChangeJob_Lap_KLap (@noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	insert into CongViec values(0, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
+end
+go
+
+-- thay đổi trạng thái: lặp - lặp khác
+create proc ChangeJob_Lap_newLap (@idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	insert into CongViec values(@idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
+end
+go
