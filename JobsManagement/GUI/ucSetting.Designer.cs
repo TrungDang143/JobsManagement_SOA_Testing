@@ -76,6 +76,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.pnlAll.SuspendLayout();
             this.pnlHeThong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudH)).BeginInit();
@@ -94,13 +99,13 @@
             this.pnlAll.Controls.Add(this.label4);
             this.pnlAll.Controls.Add(this.label3);
             this.pnlAll.Controls.Add(this.label2);
+            this.pnlAll.Controls.Add(this.pnlAbout);
             this.pnlAll.Controls.Add(this.label1);
             this.pnlAll.Controls.Add(this.pnlHeThong);
             this.pnlAll.Controls.Add(this.pnlAcc);
-            this.pnlAll.Controls.Add(this.pnlAbout);
             this.pnlAll.Location = new System.Drawing.Point(32, 3);
             this.pnlAll.Name = "pnlAll";
-            this.pnlAll.Size = new System.Drawing.Size(1057, 1245);
+            this.pnlAll.Size = new System.Drawing.Size(1057, 1348);
             this.pnlAll.TabIndex = 0;
             this.pnlAll.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAll_Paint);
             // 
@@ -120,7 +125,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 856);
+            this.label3.Location = new System.Drawing.Point(3, 962);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 29);
             this.label3.TabIndex = 4;
@@ -151,6 +156,11 @@
             // pnlHeThong
             // 
             this.pnlHeThong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.pnlHeThong.Controls.Add(this.panel7);
+            this.pnlHeThong.Controls.Add(this.button2);
+            this.pnlHeThong.Controls.Add(this.panel6);
+            this.pnlHeThong.Controls.Add(this.button1);
+            this.pnlHeThong.Controls.Add(this.panel4);
             this.pnlHeThong.Controls.Add(this.lbH);
             this.pnlHeThong.Controls.Add(this.lbM);
             this.pnlHeThong.Controls.Add(this.nudH);
@@ -161,10 +171,11 @@
             this.pnlHeThong.Controls.Add(this.switchKD);
             this.pnlHeThong.Controls.Add(this.label9);
             this.pnlHeThong.Controls.Add(this.label8);
+            this.pnlHeThong.Controls.Add(this.label5);
             this.pnlHeThong.Controls.Add(this.label7);
             this.pnlHeThong.Location = new System.Drawing.Point(0, 634);
             this.pnlHeThong.Name = "pnlHeThong";
-            this.pnlHeThong.Size = new System.Drawing.Size(1050, 179);
+            this.pnlHeThong.Size = new System.Drawing.Size(1050, 302);
             this.pnlHeThong.TabIndex = 1;
             // 
             // lbH
@@ -197,7 +208,7 @@
             this.nudH.ForeColor = System.Drawing.Color.Black;
             this.nudH.Location = new System.Drawing.Point(755, 17);
             this.nudH.Maximum = new decimal(new int[] {
-            47,
+            23,
             0,
             0,
             0});
@@ -521,7 +532,7 @@
             this.pnlAbout.Controls.Add(this.label13);
             this.pnlAbout.Controls.Add(this.label12);
             this.pnlAbout.Controls.Add(this.label10);
-            this.pnlAbout.Location = new System.Drawing.Point(0, 888);
+            this.pnlAbout.Location = new System.Drawing.Point(0, 994);
             this.pnlAbout.Name = "pnlAbout";
             this.pnlAbout.Size = new System.Drawing.Size(1050, 342);
             this.pnlAbout.TabIndex = 2;
@@ -657,20 +668,75 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel4.Location = new System.Drawing.Point(32, 813);
+            this.panel4.Location = new System.Drawing.Point(0, 299);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1050, 3);
             this.panel4.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.ForeColor = System.Drawing.Color.Turquoise;
+            this.label5.Location = new System.Drawing.Point(3, 176);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label5.Size = new System.Drawing.Size(544, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Công việc của bạn sẽ được tự động quá nếu cũ hơn 2 tháng.";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel6.Location = new System.Drawing.Point(71, 270);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(182, 2);
+            this.panel6.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.Location = new System.Drawing.Point(71, 226);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 46);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Xoá CV đã qua";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(280, 226);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(166, 46);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Xoá tất cả CV";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Red;
+            this.panel7.Location = new System.Drawing.Point(280, 270);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(166, 2);
+            this.panel7.TabIndex = 5;
             // 
             // ucSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.pnlAll);
             this.Name = "ucSetting";
-            this.Size = new System.Drawing.Size(1094, 1282);
+            this.Size = new System.Drawing.Size(1094, 1369);
             this.Load += new System.EventHandler(this.ucSetting_Load);
             this.pnlAll.ResumeLayout(false);
             this.pnlAll.PerformLayout();
@@ -740,5 +806,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudH;
         private System.Windows.Forms.NumericUpDown nudM;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button1;
     }
 }
