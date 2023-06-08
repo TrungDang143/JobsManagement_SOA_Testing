@@ -120,12 +120,12 @@ namespace JobsManagement.DAO
 
         public static int tongCV(string userName)
         {
-            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCV @username", new object[] { userName });
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTimeRange @username , @start , @end", new object[] { userName, DateTime.Now, DateTime.Now });
             return kq;
         }
-        public static int CVdangDienRa(string userName)
+        public static int getSoCVbyTT(string userName, string tt)
         {
-            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTT @tt , @username", new object[] { "Đang diễn ra", userName });
+            int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTTandTimeRange @tt , @username , @start , @end", new object[] { tt, userName, DateTime.Now, DateTime.Now });
             return kq;
         }
 
@@ -147,10 +147,18 @@ namespace JobsManagement.DAO
         public static CongViec GetCongViecByID_Username(int id, string username)
         {
             DataTable dt = DAO.DataProvider.Instance.truyVanCoKetQua("exec GetCongViecByID_Username @id , @username", new object[] { id, username });
-            DataRow dr = dt.Rows[0];
-            CongViec cv = new CongViec(dr);
+            try
+            {
+                DataRow dr = dt.Rows[0];
+                CongViec cv = new CongViec(dr);
+            
+                return cv;
+            }
+            catch
+            {
+                throw new Exception("Hãy chọn công việc!");
+            }
 
-            return cv;
         }
 
         public static void XoaCongViec(int id, int idLap, string username)

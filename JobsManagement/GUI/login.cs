@@ -94,6 +94,7 @@ namespace JobsManagement
                     if (!m.isClose)
                     {
                         reset();
+                        txbUsername.Focus();
                         this.Show();
                         this.ShowInTaskbar = true;
                     }

@@ -61,26 +61,6 @@ namespace JobsManagement.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap calendar {
-            get {
-                object obj = ResourceManager.GetObject("calendar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap chart {
-            get {
-                object obj = ResourceManager.GetObject("chart", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] DIGIFACE {
@@ -133,6 +113,16 @@ namespace JobsManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_reminder_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_reminder_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_calendar_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-calendar-48", resourceCulture);
@@ -163,6 +153,26 @@ namespace JobsManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_done_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_done_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_done_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_done_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_multiply_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-multiply-50", resourceCulture);
@@ -176,6 +186,36 @@ namespace JobsManagement.Properties {
         internal static System.Drawing.Bitmap icons8_open_eye_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-open-eye-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pencil_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_pencil_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_remove_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_remove_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_rollback_40_green {
+            get {
+                object obj = ResourceManager.GetObject("icons8_rollback_40_green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

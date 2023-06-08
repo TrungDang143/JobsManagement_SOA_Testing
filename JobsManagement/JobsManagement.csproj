@@ -305,6 +305,12 @@
     <None Include="image\logoFinal.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-done-50.png" />
+    <None Include="Resources\icons8-pencil-40.png" />
+    <None Include="Resources\icons8-remove-40.png" />
+    <None Include="Resources\icons8-rollback-40-green.png" />
+    <None Include="Resources\icons8-done-40.png" />
+    <None Include="Resources\icons8-add-reminder-40.png" />
     <None Include="image\rsz_icons8-dot-30.png" />
     <None Include="image\icon_adminFix.png" />
     <Content Include="logoTo.ico" />

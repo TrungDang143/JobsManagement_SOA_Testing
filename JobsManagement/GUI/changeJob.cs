@@ -222,12 +222,25 @@ namespace JobsManagement
                 {
                     int columnHomNay = getColumnByDate(DateTime.Now);
                     int columnLap = columnHomNay;
-                    for (int i = 1; i < 9; i++)
+                    bool isDone = false;
+                    for (int i = columnHomNay + 2; i < 9; i++)
                     {
                         if (lapThu[i] == true)
                         {
                             columnLap = i - 2;
+                            isDone = true;
                             break;
+                        }
+                    }
+                    if (!isDone)
+                    {
+                        for (int i = 2; i < 9; i++)
+                        {
+                            if (lapThu[i] == true)
+                            {
+                                columnLap = i - 2;
+                                break;
+                            }
                         }
                     }
                     if (columnHomNay < columnLap)
@@ -471,48 +484,76 @@ namespace JobsManagement
                 
                 if (checkLapLai() && th != 2)
                 {
-                    bool[] lap = getLapLai();
-                    int ngayLap;
-                    if (lap[1] == true)
+                    if(MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Lưu ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
-                        ngayLap = 1;
-                    }
-                    else
-                    {
-                        ngayLap = 7;
-                    }
-                    int vtCu = 0;
-                    bool firstTime = true;
-                    for (int i = 1; i < 9; i++)
-                    {
-                        if (lap[i] == true)
+                        bool[] lap = getLapLai();
+                        int ngayLap;
+                        if (lap[1] == true)
                         {
-                            if (firstTime == true) vtCu = i;
-                            startTime = startTime.AddDays(i - vtCu);
-                            finishTime = finishTime.AddDays(i - vtCu);
-                            newCV.TgBD = startTime;
-                            newCV.TgKT = finishTime;
-                            int j = 0;
-                            for (DateTime date = startTime; date <= startTime.AddMonths(2); date = date.AddDays(ngayLap))
+                            ngayLap = 1;
+                        }
+                        else
+                        {
+                            ngayLap = 7;
+                        }
+
+                        startTime = startTime.AddDays(DateTime.Now.Day - startTime.Day);
+                        finishTime = finishTime.AddDays(DateTime.Now.Day - finishTime.Day);
+
+                        for (int i = getColumnByDate(DateTime.Now) + 2; i < 9; i++)
+                        {
+                            if (lap[i] == true)
                             {
-                                try
+                                newCV.TgBD = startTime;
+                                newCV.TgKT = finishTime;
+                                int j = 0;
+                                for (DateTime date = startTime; date <= startTime.AddMonths(2); date = date.AddDays(ngayLap))
                                 {
-                                    newCV.TgBD = newCV.TgBD.AddDays(j);
-                                    newCV.TgKT = newCV.TgKT.AddDays(j);
-                                    CongViecDAO.changeJob(newCV, th);
-                                    //newCV = new CongViec(Cv.Id, Cv.IdLap, txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), Cv.TenDN);
+                                    try
+                                    {
+                                        newCV.TgBD = newCV.TgBD.AddDays(j);
+                                        newCV.TgKT = newCV.TgKT.AddDays(j);
+                                        CongViecDAO.changeJob(newCV, th);
+                                        //newCV = new CongViec(Cv.Id, Cv.IdLap, txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), Cv.TenDN);
+                                    }
+                                    catch
+                                    {
+                                        throw new Exception("Lỗi sửa công việc lặp.");
+                                    }
+                                    j = ngayLap;
                                 }
-                                catch
-                                {
-                                    throw new Exception("Lỗi sửa công việc lặp.");
-                                }
-                                j += ngayLap;
                             }
-                            vtCu = i;
-                            firstTime = false;
-                        }  
-                    }
-                    MessageBox.Show("Công việc của bạn sẽ được lặp lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            startTime = startTime.AddDays(1);
+                            finishTime = finishTime.AddDays(1);
+                        }
+                    
+                        for (int i = 2; i < getColumnByDate(DateTime.Now) + 2; i++)
+                        {
+                            if (lap[i] == true)
+                            {
+                                newCV.TgBD = startTime;
+                                newCV.TgKT = finishTime;
+                                int j = 0;
+                                for (DateTime date = startTime; date <= startTime.AddMonths(2); date = date.AddDays(ngayLap))
+                                {
+                                    try
+                                    {
+                                        newCV.TgBD = newCV.TgBD.AddDays(j);
+                                        newCV.TgKT = newCV.TgKT.AddDays(j);
+                                        CongViecDAO.changeJob(newCV, th);
+                                        //newCV = new CongViec(Cv.Id, Cv.IdLap, txbCV.Text, startTime.AddDays(j), finishTime.AddDays(j), getLapLai(), Cv.TenDN);
+                                    }
+                                    catch
+                                    {
+                                        throw new Exception("Lỗi sửa công việc lặp.");
+                                    }
+                                    j = ngayLap;
+                                }
+                            }
+                            startTime = startTime.AddDays(1);
+                            finishTime = finishTime.AddDays(1);
+                        }
+                    }       
                 }
                 else
                 {

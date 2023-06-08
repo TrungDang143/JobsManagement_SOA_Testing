@@ -84,17 +84,22 @@ begin
 end
 go
 
---lay tong so cong viec
-create proc GetSoCV(@username varchar(20)) as
+--lay tong so cong viec theo ngay
+create proc GetSoCVbyTimeRange(@username varchar(20), @startDate datetime, @endDate datetime) as
 begin
-	select COUNT(*) from CongViec where tenDangNhap = @username
+	select COUNT(*) from CongViec 
+	WHERE CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
 end
 go
 
 --lấy tổng số công việc theo trạng thái
-create proc GetSoCVbyTT(@tt nvarchar(20), @username varchar(20)) as
+create proc GetSoCVbyTTandTimeRange(@tt nvarchar(20), @username varchar(20), @startDate datetime, @endDate datetime) as
 begin
-	select COUNT(*) from CongViec where trangThai = @tt and tenDangNhap = @username
+	select COUNT(*) from CongViec 
+	where trangThai = @tt and tenDangNhap = @username
+	and CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
 end
 go
 
