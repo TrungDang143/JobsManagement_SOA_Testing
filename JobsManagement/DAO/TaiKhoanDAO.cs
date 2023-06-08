@@ -1,4 +1,5 @@
 ﻿using JobsManagement.DTO;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -128,6 +129,33 @@ namespace JobsManagement.DAO
         {
             bool delete = DataProvider.Instance.truyVanKTraVe("exec DeleteAcc @userName ", new object[] { userName });
             return delete;
+        }
+        public static void khoiDong(bool i)
+        {
+            RegistryKey regkey = Registry.CurrentUser.CreateSubKey("Software\\JobsManagement");
+            //mo registry khoi dong cung win
+            RegistryKey regstart = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+            
+            if (i)
+            {
+                string keyvalue = "1";
+                //string subkey = "Software\\ManhQuyen";
+                //chen gia tri key
+                regkey.SetValue("Index", keyvalue);
+                //regstart.SetValue("taoregistrytronghethong", "E:\\Studing\\Bai Tap\\CSharp\\Channel 4\\bai temp\\tao registry trong he thong\\tao registry trong he thong\\bin\\Debug\\tao registry trong he thong.exe");
+                regstart.SetValue("JobsManagement", Application.StartupPath + "\\JobsManagement.exe");
+                ////dong tien trinh ghi key
+                //regkey.Close();
+            }
+            else
+            {
+                try
+                {
+                    regstart.DeleteValue("JobsManagement");
+                }
+                catch { }
+            }
+                
         }
     }
 }

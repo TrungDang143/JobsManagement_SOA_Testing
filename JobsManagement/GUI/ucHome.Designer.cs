@@ -185,6 +185,7 @@
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.GridColor = System.Drawing.Color.RoyalBlue;
             this.dgv.Location = new System.Drawing.Point(0, 0);
+            this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 51;
@@ -225,7 +226,7 @@
             this.btnHT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnHT.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.btnHT.Image = ((System.Drawing.Image)(resources.GetObject("btnHT.Image")));
+            this.btnHT.Image = global::JobsManagement.Properties.Resources.icons8_done_50;
             this.btnHT.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnHT.Location = new System.Drawing.Point(880, 0);
             this.btnHT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -245,7 +246,7 @@
             this.btnRollBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRollBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnRollBack.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.btnRollBack.Image = ((System.Drawing.Image)(resources.GetObject("btnRollBack.Image")));
+            this.btnRollBack.Image = global::JobsManagement.Properties.Resources.icons8_rollback_40_green;
             this.btnRollBack.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRollBack.Location = new System.Drawing.Point(660, 0);
             this.btnRollBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -285,7 +286,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnAdd.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Image = global::JobsManagement.Properties.Resources.icons8_add_reminder_40;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdd.Location = new System.Drawing.Point(0, 0);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -305,7 +306,7 @@
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSua.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.Image = global::JobsManagement.Properties.Resources.icons8_pencil_40;
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSua.Location = new System.Drawing.Point(220, 0);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

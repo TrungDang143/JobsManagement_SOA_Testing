@@ -51,12 +51,15 @@ namespace JobsManagement
 
             loadDuLieuVao(loginAcc);
 
-            setTimeThongBao(LoginAccount.HNN, LoginAccount.MNN);
+            TaiKhoanDAO.khoiDong(LoginAccount.KhoiDong);
 
-            tmThongBaoAll.Start();
+            setTimeThongBaoAll(LoginAccount.HNN, LoginAccount.MNN);
+
+            tmThongBaoCV.Interval = 60000;
+            
         }
 
-        public void setTimeThongBao(int h, int m)
+        public void setTimeThongBaoAll(int h, int m)
         {
             tmThongBaoAll.Interval = (h * 3600 + m * 60) * 1000;
         }
@@ -245,28 +248,49 @@ namespace JobsManagement
                 return;
             //notifyIcon1.Visible = true;
             int cv = DAO.CongViecDAO.tongCV(LoginAccount.TenDN);
-            int cvddr = DAO.CongViecDAO.CVdangDienRa(LoginAccount.TenDN);
-            string tb = string.Empty;
+            int cvsdr = DAO.CongViecDAO.getSoCVbyTT(LoginAccount.TenDN, "Sắp diễn ra");
+            int cvddr = DAO.CongViecDAO.getSoCVbyTT(LoginAccount.TenDN, "Đang diễn ra");
+            int cvdht = DAO.CongViecDAO.getSoCVbyTT(LoginAccount.TenDN, "Đã hoàn thành");
+            int cvcht = DAO.CongViecDAO.getSoCVbyTT(LoginAccount.TenDN, "Chưa hoàn thành");
+            string tb = "Lỗi thông báo";
             if(cv > 0)
             {
-                if(cvddr > 0 && cvddr < cv)
+                if(cvddr > 0 && cvsdr > 0)
                 {
-                    tb = string.Format("Có {0} công việc đang diễn ra\nvà {1} công việc sắp diễn ra", cvddr, cv-cvddr);
+                    tb = string.Format("Có {0} công việc đang diễn ra\nvà {1} công việc sắp diễn ra", cvddr, cvsdr);
                 }
                 else if(cvddr > 0 && cvddr == cv)
                 {
                     tb = string.Format("Có {0} công việc đang diễn ra", cvddr);
                 }
-                else
+                else if(cvsdr > 0 && cvsdr == cv)
                 {
                     tb = string.Format("Có {0} công việc sắp diễn ra", cv);
                 }
+                else if (cvdht == cv)
+                {
+                    tb = "Chúc mừng! Bạn đã hoàn thành hết công việc ngày hôm nay.\nDành thời gian cho bản thân và lên kế hoạch cho ngày mai nhé!";
+                }
+                else if (cvcht == cv)
+                {
+                    tb = "Bạn không có công việc sắp tới,\nnhưng hay hoàn thành nốt những công việc đã bỏ lỡ hôm nay!";
+                }    
             }
             else
             {
-                tb = "Bạn không có công việc ";
+                tb = "Bạn không có công việc hôm nay!\nHãy thêm những mục tiêu để phấn đấu,\nhoặc sắp xếp công việc cho ngày mai\nvà dành ra một ngày nghỉ ngơi.\nHave a nice day!";
             }
+            
             ThongBao.ShowBalloonTip(2000, string.Format("Thông báo công việc ngày {0}",DateTime.Now.ToString("dd/MM/yyyy")), tb, ToolTipIcon.Info);
+        }
+        private void tmThongBaoCV_Tick(object sender, EventArgs e)
+        {
+            if (LoginAccount.NhacNhoCV == false)
+                return;
+        
+            //ThongBao.ShowBalloonTip(2000, "Công việc bắt đầu: ", tb, ToolTipIcon.Info);
+
+
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -320,5 +344,6 @@ namespace JobsManagement
             f.Close();
         }
         #endregion
+
     }
 }

@@ -61,16 +61,17 @@ namespace JobsManagement.GUI
         }
 
         #region cai dat he thong
-
         private void switchKhoiDong(bool isONkd)
         {
             if (!isONkd)
             {
                 switchKD.Image = global::JobsManagement.Properties.Resources.switch_off64;
+                TaiKhoanDAO.khoiDong(false);
             }
             else
             {
                 switchKD.Image = Properties.Resources.switch_on64;
+                TaiKhoanDAO.khoiDong(true);
             }
         }
         private void switchGhiNho(bool isONnncv)

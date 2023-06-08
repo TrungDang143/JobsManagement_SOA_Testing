@@ -78,10 +78,11 @@ insert into CongViec(id, noiDungCV, tgBD, tgKT, trangThai, tenDangNhap) values (
 select * from CongViec
 select * from TaiKhoan
 drop database JobsManagement
-delete from TaiKhoan
+delete from CongViec where noiDungCV = N'k lặp - > hn'
 select * from CauHoiBaoMat
 print datepart(getdate())
 select top(1) id from CongViec where tenDangNhap = 'trungdang' order by id desc
+select * from CongViec where tenDangNhap = 'trungdang' order by tgBD desc
 
 /*
 insert into Acc (tenDangNhap,matKhau,tenHienThi,traLoi) values('Admin','1111','ADMIN','Tên giáo viên bạn quý nhất?','0123456789')

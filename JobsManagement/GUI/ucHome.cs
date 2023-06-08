@@ -34,7 +34,7 @@ namespace JobsManagement
             this.LoginAccount = loginAcc;
             dtpk.Value = timeOfDtpk.TimeSelection;
             btnAll.BackColor = Color.FromArgb(37, 42, 64);
-            loadCV(tu, den, filter);
+            loadCV(tu, den, filter);   
         }
         
         private void loadCV( DateTime bd, DateTime kt, int fil)
@@ -114,6 +114,7 @@ namespace JobsManagement
         }
         void DDR()
         {
+            filter = 1;
             DataTable HT = duLieu.Copy();
             foreach (DataRow dr in HT.Rows)
             {
@@ -127,6 +128,7 @@ namespace JobsManagement
         }
         void SDR()
         {
+            filter = 2;
             DataTable SDR = duLieu.Copy();
             foreach (DataRow dr in SDR.Rows)
             {
@@ -170,7 +172,6 @@ namespace JobsManagement
             DDR();
             resetFilter();
             btnDDR.BackColor = Color.FromArgb(37, 42, 64);
-            filter = 1;
         }
 
         private void btnSDR_Click(object sender, EventArgs e)
@@ -178,14 +179,13 @@ namespace JobsManagement
             SDR();
             resetFilter();
             btnSDR.BackColor = Color.FromArgb(37, 42, 64);
-            filter = 2;
         }
         private void btnAll_Click(object sender, EventArgs e)
         {
+            filter = 0;
             loadCV(tu, den, filter);
             resetFilter();
             btnAll.BackColor = Color.FromArgb(37, 42, 64);
-            filter = 0;
         }
         
         #endregion
