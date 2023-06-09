@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JobsManagement.DAO;
+using JobsManagement.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +15,18 @@ namespace JobsManagement.GUI
 {
     public partial class ucThayDoiThongTin : UserControl
     {
-        public ucThayDoiThongTin()
+        private TaiKhoan loginAccount;
+
+        public TaiKhoan LoginAccount
+        {
+            get { return loginAccount; }
+            private set { loginAccount = value; }
+        }
+
+        public ucThayDoiThongTin(TaiKhoan loginAcc)
         {
             InitializeComponent();
+            this.LoginAccount = loginAcc;
         }
 
         private bool checkTHT()
@@ -259,6 +270,35 @@ namespace JobsManagement.GUI
                 isMat3 = false;
             }
             txbXNMK.UseSystemPasswordChar = !txbXNMK.UseSystemPasswordChar;
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            Panel panel = this.Parent as Panel;
+            Panel panel1 = panel.Parent as Panel;
+            Panel panel2 = panel1.Parent as Panel;
+            UserControl uc = panel2.Parent as UserControl;
+            Panel panel3 = uc.Parent as Panel;
+            mainUI mainF = panel3.Parent as mainUI;
+            mainF.isClose = false;
+            if(txbTHT.Text == "")
+            {
+                TaiKhoanDAO.Instance.changeUserName(LoginAccount.TenDN,loginAccount.TenHT);
+                TaiKhoanDAO.Instance.changePassWord(LoginAccount.TenDN,txbXNMK.Text);
+            }
+            else if(txbMKC.Text == "")
+            {
+                 TaiKhoanDAO.Instance.changeUserName(LoginAccount.TenDN, txbTHT.Text);
+                 TaiKhoanDAO.Instance.changePassWord(LoginAccount.TenDN, loginAccount.Mk);
+            }
+            else
+            {
+                TaiKhoanDAO.Instance.changeUserName(LoginAccount.TenDN, txbTHT.Text);
+                TaiKhoanDAO.Instance.changePassWord(LoginAccount.TenDN, txbXNMK.Text);
+            }
+     
+            Task.Delay(2000).Wait();
+            mainF.Close();
         }
     }
 }

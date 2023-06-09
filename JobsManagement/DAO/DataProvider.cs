@@ -54,7 +54,7 @@ namespace JobsManagement.DAO
                     }
                 }
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
-             
+
                 adt.Fill(dt);
 
                 conn.Close();

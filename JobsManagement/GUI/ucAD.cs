@@ -39,7 +39,6 @@ namespace JobsManagement.GUI
             fThongTinUser fThongTinUser = new fThongTinUser(loginAccount);
 
             fThongTinUser.ShowDialog();
-
             adminView();
             string query = "select count(*) from TaiKhoan where isAD = 0";
             label1.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(query).ToString() + " tài khoản người dùng";

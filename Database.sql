@@ -265,6 +265,7 @@ begin
 	else
 		exec ChangeJob_Lap_newLap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
 end
+drop proc ChangeJob
 go
 
 --giữ nguyên trạng thái lặp: k lăp - k lap
@@ -309,4 +310,88 @@ create proc ChangeJob_Lap_newLap (@idLap int, @noiDungCV nvarchar(50), @tgBD dat
 begin
 	insert into CongViec values(@idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
 end
+go
+
+--lấy thống kê công việc chưa hoàn thành
+create proc chuaHT(
+	@userName varchar(20)
+)
+as
+begin 
+	select noiDungCV from CongViec	
+	where trangThai = N'Chưa hoàn thành'
+	and tenDangNhap = @userName
+end
+
+--đếm số lượng công việc chưa hoàn thành
+create proc countChuaHT(
+	@userName varchar(20)
+)
+as
+begin 
+	select COUNT(*) from CongViec	
+	where trangThai = N'Chưa hoàn thành'
+	and tenDangNhap = @userName
+end
+
+--lấy thống kê công việc đã hoàn thành 
+create proc daHT(
+	@userName varchar(20)
+)
+as
+begin 
+	select noiDungCV from CongViec	
+	where trangThai = N'Đã hoàn thành'
+	and tenDangNhap = @userName
+end
+
+--đếm số lương công việc đã hoàn thành
+create proc countDaHT(
+	@userName varchar(20)
+)
+as
+begin 
+	select COUNT(*) from CongViec	
+	where trangThai = N'Đã hoàn thành'
+	and tenDangNhap = @userName
+end
+
+--thay đổi tên người dùng
+create proc changeUserName(
+	@loginName varchar(20),
+	@userName nvarchar(20)
+)
+as 
+begin 
+	update TaiKhoan
+	set tenHienThi = @userName
+	where tenDangNhap = @loginName
+end
+
+--thay đổi mật khẩu
+create proc changePassWord(
+	@loginName varchar(20),
+	@passWord nvarchar(20)
+)
+as 
+begin 
+	update TaiKhoan
+	set matKhau = @passWord
+	where tenDangNhap = @loginName
+end
+
+--lấy nội dung thống kê công việc theo ngày
+CREATE PROCEDURE GetNoiDungByDateRange
+    @startDate DATE,
+    @endDate DATE,
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT noiDungCV 
+    FROM congviec
+    WHERE CONVERT(DATE, tgBD) >= @startDate 
+    AND CONVERT(DATE, tgKT) <= @endDate
+	and tenDangNhap = @username
+END
 go
