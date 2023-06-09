@@ -37,7 +37,7 @@ namespace JobsManagement
             loadCV(tu, den, filter);   
         }
         
-        private void loadCV( DateTime bd, DateTime kt, int fil)
+        private void loadCV(DateTime bd, DateTime kt, int fil)
         {
             CongViecDAO.setTrangThai(LoginAccount.TenDN);
             string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
@@ -149,8 +149,7 @@ namespace JobsManagement
             resetTimeRange();
             btnTuan.BackColor = Color.FromArgb(37, 42, 64);
 
-            DateTime today = dtpk.Value;
-            
+            DateTime today = dtpk.Value;     
             int k = today.DayOfWeek - DayOfWeek.Monday;            
             DateTime dauTuan = today.AddDays(-k);
             DateTime cuoiTuan = today.AddDays(6 - k);
@@ -159,7 +158,6 @@ namespace JobsManagement
             den = cuoiTuan;
             loadCV(tu, den, filter);        
         }
-
         private void btnThang_Click(object sender, EventArgs e)
         {
             resetTimeRange();
