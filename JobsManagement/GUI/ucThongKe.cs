@@ -63,28 +63,6 @@ namespace JobsManagement
         {
             timeOfDtpk.TimeSelection = dtpk.Value;
         }
-        //public int demSoDong(DataGridView dgv)
-        //{
-        //    int iCount = 0;
-        //    if (dgv.RowCount > 1)
-        //    {
-                
-        //        for (int i = 0; i <= dgv.RowCount - 2; i++)
-        //        {
-        //            //Nếu cột đầu tiên (checkbok) tồn tại
-        //            if (dgv.Rows[i].Cells[0].Value != null)
-        //            {
-        //                //Nếu checkbox được đánh dấu chọn thì tăng biến đếm lên
-        //                if ((bool)dgv.Rows[i].Cells[0].Value)
-        //                {
-        //                    iCount++;
-        //                }
-        //            }
-        //            else continue;
-        //        }
-        //    }
-        //    return iCount;
-        //}
 
         private void btnNgay_Click(object sender, EventArgs e)
         {
