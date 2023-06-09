@@ -96,6 +96,7 @@
             this.btnLuu.TabIndex = 32;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // lbXNMK
             // 

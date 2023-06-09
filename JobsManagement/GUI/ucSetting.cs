@@ -154,7 +154,7 @@ namespace JobsManagement.GUI
         {
             pnlChucNang.Controls.Clear();
             pnlChucNang.Visible = true;
-            ucThayDoiThongTin ucThayDoiThongTin = new ucThayDoiThongTin();
+            ucThayDoiThongTin ucThayDoiThongTin = new ucThayDoiThongTin(LoginAccount);
             pnlChucNang.Controls.Add(ucThayDoiThongTin);
         }
 

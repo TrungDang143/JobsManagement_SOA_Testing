@@ -149,11 +149,11 @@ exec DangKy_1 'tridinh', '1111', 'tri', N'Tên thú cưng đầu tiên?', 'xyz'
 select * from CongViec
 select * from TaiKhoan
 insert into CongViec values (0,N'Học OOP','6/1/2023 6:30:00','06/03/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
-insert into CongViec values (1,N'Học CTDL','6/15/2023 6:30:00','6/30/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'Admin')
-insert into CongViec values (2,N'Học SQL','5/30/2023 6:30:00','6/15/2023 22:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'tridinh')
+insert into CongViec values (7,N'Học CTDL','6/9/2023 14:30:00','6/9/2023 20:30:00', N'Chưa hoàn thành',0,0,0,0,0,0,0,'Admin')
+insert into CongViec values (6,N'Học SQL','5/30/2023 6:30:00','6/15/2023 22:30:00', N'Đã hoàn thành',0,0,0,0,0,0,0,'tridinh')
 insert into CongViec values (3,N'Training','6/2/2023 6:30:00','6/2/2023 22:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'tridinh')
 insert into CongViec values (4,N'di lam','6/1/2023 6:30:00','06/03/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'trungdang')
-insert into CongViec values (5,N'ABC','07/15/2023 6:30:00','07/30/2023 9:30:00', N'Sắp diễn ra',0,0,0,0,0,0,0,'Admin')
+insert into CongViec values (6,N'ABC','07/15/2023 6:30:00','07/30/2023 9:30:00', N'Đã hoàn thành',0,0,0,0,0,0,0,'Admin')
 
 delete from CongViec
 create view Today
@@ -359,6 +359,48 @@ go
 -- thay đổi trạng thái: lặp - lặp khác
 create proc ChangeJob_Lap_newLap (@idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
 begin
-	insert into CongViec values(@idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
+	insert into CongViec values(idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
 end
 go
+
+
+create proc chuaHT(
+	@userName varchar(20)
+)
+as
+begin 
+	select noiDungCV from CongViec	
+	where trangThai = N'Chưa hoàn thành'
+	and tenDangNhap = @userName
+end
+
+exec chuaHT 'Admin'
+drop proc chuaHT
+
+create proc countChuaHT(
+	@userName varchar(20)
+)
+as
+begin 
+	select COUNT(*) from CongViec	
+	where trangThai = N'Chưa hoàn thành'
+	and tenDangNhap = @userName
+end
+
+exec  countChuaHT 'Admin'
+
+create proc daHT(
+	@userName varchar(20)
+)
+as
+begin 
+	select noiDungCV from CongViec	
+	where trangThai = N'Đã hoàn thành'
+	and tenDangNhap = @userName
+end
+
+exec daHT 'Admin'
+
+
+
+

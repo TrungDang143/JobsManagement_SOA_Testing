@@ -148,7 +148,7 @@ namespace JobsManagement
             resetSelect();
             pnlHighLight3.Visible = true;
             
-            ucThongKe ucThongKe = new ucThongKe();  
+            ucThongKe ucThongKe = new ucThongKe(loginAccount);  
             pnlContent.Controls.Add(ucThongKe);
 
             btnTK.BackColor = Color.FromArgb(63, 68, 97);
