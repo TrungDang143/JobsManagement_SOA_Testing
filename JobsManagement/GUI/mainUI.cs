@@ -114,10 +114,10 @@ namespace JobsManagement
             pnlHighLight2.Visible = false;
             pnlHighLight3.Visible = false;
             pnlHighLight4.Visible = false;
-            btnHome.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
-            btnCalendar.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
-            btnTK.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
-            btnSetting.BackColor = System.Drawing.Color.FromArgb(24, 30, 54);
+            btnHome.BackColor = System.Drawing.Color.FromArgb(33, 35, 69);
+            btnCalendar.BackColor = System.Drawing.Color.FromArgb(33, 35, 69);
+            btnTK.BackColor = System.Drawing.Color.FromArgb(33, 35, 69);
+            btnSetting.BackColor = System.Drawing.Color.FromArgb(33, 35, 69);
             pnlContent.Controls.Clear();
         }
         public void btnHome_Click(object sender, EventArgs e)
@@ -196,7 +196,7 @@ namespace JobsManagement
             if(string.Compare( lbTitle.Text, "Trang chủ", true) != 0)
             {
                 pnlHighLight1.Visible = false;
-                btnHome.BackColor = Color.FromArgb(24, 30, 54);
+                btnHome.BackColor = Color.FromArgb(33, 35, 69);
             }    
         }
 
@@ -205,7 +205,7 @@ namespace JobsManagement
             if (string.Compare(lbTitle.Text, "Lịch", true) != 0)
             {
                 pnlHighLight2.Visible = false;
-                btnCalendar.BackColor = Color.FromArgb(24, 30, 54);
+                btnCalendar.BackColor = Color.FromArgb(33, 35, 69);
             }
         }
 
@@ -215,7 +215,7 @@ namespace JobsManagement
             if (string.Compare(lbTitle.Text, "Thống kê", true) != 0)
             {
                 pnlHighLight3.Visible = false;
-                btnTK.BackColor = Color.FromArgb(24, 30, 54);
+                btnTK.BackColor = Color.FromArgb(33, 35, 69);
             }
         }
         private void btnSetting_MouseLeave(object sender, EventArgs e)
@@ -223,7 +223,7 @@ namespace JobsManagement
             if (string.Compare(lbTitle.Text, "Cài đặt", true) != 0)
             {
                 pnlHighLight4.Visible = false;
-                btnSetting.BackColor = Color.FromArgb(24, 30, 54);
+                btnSetting.BackColor = Color.FromArgb(33, 35, 69);
             }
         }
         #endregion
@@ -308,18 +308,18 @@ namespace JobsManagement
                 Thread.Sleep(1000);
             }
         }
+
+        public static bool CoCVsdr = false;
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             string currentTime = e.UserState as string;
             dongHo.Text = currentTime;
 
-            if(DateTime.Now.Second == 0)
+            if(DateTime.Now.Second == 0 && CoCVsdr)
             {
-                
-            
+                //
             }    
         }
-
         private void mainUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (backgroundWorker1.IsBusy)

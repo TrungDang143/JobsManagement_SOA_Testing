@@ -560,6 +560,7 @@ namespace JobsManagement
                     CongViecDAO.changeJob(newCV, th);
                 }
                 MessageBox.Show("Sửa công việc thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CongViecDAO.setTrangThai(Cv.TenDN);
                 this.Close();
             }
             catch (Exception ex)
