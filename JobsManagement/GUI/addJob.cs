@@ -461,6 +461,7 @@ namespace JobsManagement
                 }
 
                 MessageBox.Show("Công việc mới đã được thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CongViecDAO.setTrangThai(LoginAccount.TenDN);
                 this.Close();
             }
             catch (Exception ex)

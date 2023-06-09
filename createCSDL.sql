@@ -303,6 +303,14 @@ declare @id int
 
 select dbo.GetIdLapLai( 29 , 'trungdang' )
 select * from CongViec where tenDangNhap = 'trungdang'
+delete from CongViec where idLap = 1
+declare @a datetime
+declare @b datetime
+
+set @a = CONVERT(datetime, getdate())
+set @b = CONVERT(datetime, getdate())
+
+exec dbo.GetSoCVbyTTandTimeRange N'Đang diễn ra', 'trungdang', 'Jun  8 2023', 'Jun  8 2023'
 
 create proc ChangeJob (@truongHop int, @id int, @idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
 begin
