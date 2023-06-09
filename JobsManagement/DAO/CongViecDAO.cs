@@ -62,7 +62,6 @@ namespace JobsManagement.DAO
             bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec AddJob @id , @noiDungCV , @tgBD , @tgKT , @trangThai , @t2 , @t3 , @t4 , @t5 , @t6 , @t7 , @cn , @tenDangNhap",new object[] { idLap, nd, tgBD, tgKT, trangThai, t2, t3, t4, t5, t6, t7, cn, cv.TenDN });
             return kq;
         }
-
         public static bool changeJob(CongViec cv, int th)
         {
             int id = cv.Id;
@@ -129,20 +128,31 @@ namespace JobsManagement.DAO
             return kq;
         }
 
-        public static void checkCV(string username)
+        public static void setTrangThai(string username)
         {
+            string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
             DataTable dt = new DataTable();
-            dt = DAO.DataProvider.Instance.truyVanCoKetQua("select * from Today");
-            foreach(DataRow items in dt.Rows)
+            dt = DataProvider.Instance.truyVanCoKetQua(query, new object[] { DateTime.Now, DateTime.Now, username });
+            
+            foreach (DataRow items in dt.Rows)
             {
-                DateTime start = (DateTime)items["tgBD"];
-                DateTime finish = (DateTime)items["tgKT"];
+                DateTime start = (DateTime)items[2];
+                DateTime finish = (DateTime)items[3];
         
-                if(start <= DateTime.Now)
+                if(start >= DateTime.Now && finish > DateTime.Now && items[4].ToString() == "Sắp diễn ra")
                 {
-                    
+                    setTT((int)items[0], username, "Đang diễn ra");
                 }
+                else if(finish <= DateTime.Now && items[4].ToString() == "Đang diễn ra")
+                {
+                    setTT((int)items[0], username, "Chưa hoàn thành");
+                }    
             }
+            if(CongViecDAO.getSoCVbyTT(username, "Sắp diễn ra") > 0)
+            {
+                mainUI.CoCVsdr = true;
+            }    
+            else mainUI.CoCVsdr = false;
         }
         public static CongViec GetCongViecByID_Username(int id, string username)
         {
@@ -169,6 +179,11 @@ namespace JobsManagement.DAO
         public static int getIdLap(int id, string username)
         {
             return (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("select dbo.GetIdLapLai( @id , @username )", new object[] { id, username });
+        }
+
+        public static void setTT(int id, string username, string tt)
+        {
+            DAO.DataProvider.Instance.truyVanKTraVe("exec DoiTrangThai @id , @username , @tt", new object[] { id, username, tt });
         }
     }
 }

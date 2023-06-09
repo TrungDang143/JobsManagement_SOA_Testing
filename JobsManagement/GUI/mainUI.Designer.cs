@@ -62,7 +62,7 @@
             // 
             // pnlMenu
             // 
-            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.pnlMenu.Controls.Add(this.dongHo);
             this.pnlMenu.Controls.Add(this.pnlHighLight4);
             this.pnlMenu.Controls.Add(this.pnlHighLight3);
@@ -134,8 +134,8 @@
             // btnSetting
             // 
             this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btnSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.btnSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
@@ -147,7 +147,7 @@
             this.btnSetting.Size = new System.Drawing.Size(248, 71);
             this.btnSetting.TabIndex = 2;
             this.btnSetting.Text = "Cài đặt";
-            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.UseVisualStyleBackColor = false;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             this.btnSetting.MouseEnter += new System.EventHandler(this.btnSetting_MouseHover);
             this.btnSetting.MouseLeave += new System.EventHandler(this.btnSetting_MouseLeave);
@@ -169,7 +169,7 @@
             this.btnTK.TabIndex = 2;
             this.btnTK.Text = "Thống kê";
             this.btnTK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTK.UseVisualStyleBackColor = true;
+            this.btnTK.UseVisualStyleBackColor = false;
             this.btnTK.Click += new System.EventHandler(this.btnTK_Click);
             this.btnTK.MouseEnter += new System.EventHandler(this.button2_MouseHover);
             this.btnTK.MouseLeave += new System.EventHandler(this.btnTK_MouseLeave);
@@ -191,7 +191,7 @@
             this.btnCalendar.TabIndex = 2;
             this.btnCalendar.Text = "Lịch";
             this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnCalendar.UseVisualStyleBackColor = false;
             this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             this.btnCalendar.MouseEnter += new System.EventHandler(this.button1_MouseHover);
             this.btnCalendar.MouseLeave += new System.EventHandler(this.btnCalendar_MouseLeave);
@@ -213,13 +213,14 @@
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseHover);
             this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.panel1.Controls.Add(this.lbUserName);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;

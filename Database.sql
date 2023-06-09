@@ -1,6 +1,7 @@
 ﻿use master
 go
-drop database JobsManagement
+
+drop database if EXISTS JobsManagement
 go
 
 create database JobsManagement
@@ -88,8 +89,9 @@ go
 create proc GetSoCVbyTimeRange(@username varchar(20), @startDate datetime, @endDate datetime) as
 begin
 	select COUNT(*) from CongViec 
-	WHERE CONVERT(DATE, tgBD) >= @startDate 
-    AND CONVERT(DATE, tgKT) <= @endDate
+	WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
 end
 go
 
@@ -98,11 +100,12 @@ create proc GetSoCVbyTTandTimeRange(@tt nvarchar(20), @username varchar(20), @st
 begin
 	select COUNT(*) from CongViec 
 	where trangThai = @tt and tenDangNhap = @username
-	and CONVERT(DATE, tgBD) >= @startDate 
-    AND CONVERT(DATE, tgKT) <= @endDate
+	and ((CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate))))
 end
 go
-
+drop proc GetSoCVbyTTandTimeRange
 --Doi trang thai cong viec
 create proc DoiTrangThai (@id int, @username varchar(20), @tt nvarchar(20)) as
 begin
@@ -208,16 +211,17 @@ go
 
 --lay cong viec theo khoảng
 CREATE PROCEDURE GetCongViecByDateRange
-    @startDate DATE,
-    @endDate DATE,
+    @startDate datetime,
+    @endDate datetime,
 	@username varchar(20)
 AS
 BEGIN
 
     SELECT id, noiDungCV as N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as N'Kết thúc', trangThai as N'Trạng thái'
     FROM congviec
-    WHERE CONVERT(DATE, tgBD) >= @startDate 
-    AND CONVERT(DATE, tgKT) <= @endDate
+    WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
 	and tenDangNhap = @username
 END
 go

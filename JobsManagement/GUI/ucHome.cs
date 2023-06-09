@@ -39,24 +39,20 @@ namespace JobsManagement
         
         private void loadCV( DateTime bd, DateTime kt, int fil)
         {
-            
+            CongViecDAO.setTrangThai(LoginAccount.TenDN);
             string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
             duLieu = DataProvider.Instance.truyVanCoKetQua(query, new object[] { bd, kt, LoginAccount.TenDN });
             dgv.DataSource = duLieu;
-            
-            if(dgv.Rows.Count > 0 )
-            {
-                dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
-                dgv.DefaultCellStyle.BackColor = Color.White;
-                dgv.DefaultCellStyle.ForeColor = Color.Black;
-                dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
-                dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-                lbNull.Visible = false;
-            }
-            else
-            {
-                lbNull.Visible = true;
-            }
+
+            //dtpk.Format = DateTimePickerFormat.Custom;
+            //dtpk.CustomFormat = "dddd - dd , MM , yyyy";
+
+            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgv.DefaultCellStyle.BackColor = Color.White;
+            dgv.DefaultCellStyle.ForeColor = Color.Black;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
+            dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+
             dgv.Columns[0].Visible = false;
             dgv.Columns[1].Width = 452;
             dgv.Columns[2].Width = 200;
@@ -78,6 +74,14 @@ namespace JobsManagement
                     }
                 default: break;
             }
+            if(dgv.Rows.Count == 0)
+            {
+                lbNull.Visible = true;
+                lbNull.Text = $"Không có công việc!\n{dtpk.Value.ToString("dd - MM - yyyy")}";
+                lbNull.Location = new Point(dgv.Width / 2 - lbNull.Width / 2, dgv.Height / 2 - lbNull.Height / 2);
+
+            }
+            else { lbNull.Visible = false; }
         }
 
         #region highlight
