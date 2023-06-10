@@ -415,4 +415,10 @@ BEGIN
 END
 go
 
-drop proc cvdaHT
+
+--xoa cong viec da qua
+create proc XoaCongViecDaQua (@username varchar(20)) as
+begin
+	delete from CongViec where tenDangNhap = @username and (trangThai = N'Đã hoàn thành' or trangThai = N'Chưa hoàn thành')
+end
+go

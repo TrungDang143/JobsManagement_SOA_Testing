@@ -212,5 +212,14 @@ namespace JobsManagement.DAO
         {
             DAO.DataProvider.Instance.truyVanKTraVe("exec DoiTrangThai @id , @username , @tt", new object[] { id, username, tt });
         }
+
+        public static void XoaCongViecDaQua(string username)
+        {
+            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec XoaCongViecDaQua @username", new object[] { username });
+            if (kq == true)
+                MessageBox.Show("Xoa thanh cong!");
+            else
+                MessageBox.Show("Khong co cong viec da qua!");
+        }
     }
 }

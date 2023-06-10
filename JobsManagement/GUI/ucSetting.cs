@@ -204,5 +204,10 @@ namespace JobsManagement.GUI
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CongViecDAO.XoaCongViecDaQua(loginAccount.TenDN);
+        }
     }
 }
