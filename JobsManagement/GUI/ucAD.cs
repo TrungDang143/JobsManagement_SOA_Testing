@@ -56,7 +56,6 @@ namespace JobsManagement.GUI
         {
             int row = e.RowIndex;
             DataGridViewRow dataRow = dgvAdmin.Rows[row];
-            MessageBox.Show(dataRow.Cells[0].Value.ToString());
             loginAccount = TaiKhoanDAO.Instance.CurrentAcc(dataRow.Cells[0].Value.ToString());
         }
 
