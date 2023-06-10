@@ -422,3 +422,12 @@ begin
 	delete from CongViec where tenDangNhap = @username and (trangThai = N'Đã hoàn thành' or trangThai = N'Chưa hoàn thành')
 end
 go
+
+-- xoa tat ca cong viec 
+create proc XoaTatCaCongViec (@username varchar(20))
+as
+begin 
+	delete from CongViec where tenDangNhap = @username
+end 
+go 
+

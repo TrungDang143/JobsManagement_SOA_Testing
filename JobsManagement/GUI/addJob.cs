@@ -502,5 +502,10 @@ namespace JobsManagement
             lbGioiHanCV.ForeColor = SystemColors.ActiveCaption;
 
         }
-    }
+
+		private void panel10_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
 }
