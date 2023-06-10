@@ -150,7 +150,7 @@ namespace JobsManagement.DAO
                 DateTime start = (DateTime)items[2];
                 DateTime finish = (DateTime)items[3];
         
-                if(start <= DateTime.Now && finish > DateTime.Now && items[4].ToString() == "Sắp diễn ra")
+                if(start <= DateTime.Now && finish > DateTime.Now && items[4].ToString() != "Đã hoàn thành")
                 {
                     setTT((int)items[0], username, "Đang diễn ra");
                     string cv = items[1].ToString();
@@ -158,7 +158,7 @@ namespace JobsManagement.DAO
                         cv = cv.Substring(0,20) + "...";
                     mainUI.bdcv.Text = cv;
                 }
-                else if(finish <= DateTime.Now && items[4].ToString() == "Đang diễn ra")
+                else if(finish <= DateTime.Now && items[4].ToString() != "Đã hoàn thành")
                 {
                     setTT((int)items[0], username, "Chưa hoàn thành");
                     string cv = items[1].ToString();
