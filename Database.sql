@@ -310,3 +310,11 @@ begin
 	insert into CongViec values(@idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap)
 end
 go
+
+-- xoa tat ca cong viec 
+create proc XoaTatCaCongViec (@username varchar(20))
+as
+begin 
+	delete from CongViec where tenDangNhap = @username
+end 
+go 
