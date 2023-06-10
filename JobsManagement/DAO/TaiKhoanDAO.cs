@@ -62,7 +62,7 @@ namespace JobsManagement.DAO
             else
             {
                 string query = "exec DangKy_1 @tenDN , @MK , @tenHT , @cauHoi , @traLoi ";
-                DataTable data = DataProvider.Instance.truyVanCoKetQua(query, new object[] { tenDN, MK, tenHT, cauHoi, traLoi });
+                DataProvider.Instance.truyVanKTraVe(query, new object[] { tenDN, MK, tenHT, cauHoi, traLoi });
                 return true;
             }
         }

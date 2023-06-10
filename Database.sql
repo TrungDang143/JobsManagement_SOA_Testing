@@ -400,3 +400,19 @@ BEGIN
 	and tenDangNhap = @username
 END
 go
+
+
+--Cong viec da hoan thanh
+CREATE PROCEDURE cvdaHT
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT count(*)
+    FROM congviec
+    WHERE trangThai = N'Đã hoàn thành'
+	and tenDangNhap = @username
+END
+go
+
+drop proc cvdaHT
