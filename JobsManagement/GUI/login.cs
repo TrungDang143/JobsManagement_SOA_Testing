@@ -39,7 +39,7 @@ namespace JobsManagement
         public void reset()
         {
             txbPassword.Text = string.Empty;
-            txbUsername.Text = string.Empty;    
+            txbUsername.Text = string.Empty; 
         }
 
 
@@ -82,10 +82,8 @@ namespace JobsManagement
             {
                 if (TaiKhoanDAO.Instance.Login(txbUsername.Text, txbPassword.Text))
                 {
-                    
                     TaiKhoan loginAcc = TaiKhoanDAO.Instance.CurrentAcc(txbUsername.Text);
                     LoginAccount = loginAcc; 
-                    
                     this.ShowInTaskbar = false;
                     this.Hide();
                     

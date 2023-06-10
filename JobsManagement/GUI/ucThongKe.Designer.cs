@@ -30,21 +30,23 @@
         {
             this.lbCVdaHoanThanh = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvHT = new System.Windows.Forms.DataGridView();
+            this.noiDungCV1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvchuaHT = new System.Windows.Forms.DataGridView();
+            this.noiDungCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNgay = new System.Windows.Forms.Button();
             this.btnNam = new System.Windows.Forms.Button();
             this.btnThang = new System.Windows.Forms.Button();
             this.btnTuan = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbCVchuaHoanThanh = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbTatCa = new System.Windows.Forms.Label();
             this.dtpk = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvchuaHT)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -65,38 +67,58 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvHT);
+            this.panel1.Controls.Add(this.dgvchuaHT);
             this.panel1.Location = new System.Drawing.Point(46, 215);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1065, 468);
             this.panel1.TabIndex = 4;
             // 
-            // dataGridView2
+            // dgvHT
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.GridColor = System.Drawing.Color.Chocolate;
-            this.dataGridView2.Location = new System.Drawing.Point(534, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(500, 424);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvHT.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.dgvHT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvHT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.noiDungCV1});
+            this.dgvHT.GridColor = System.Drawing.Color.Chocolate;
+            this.dgvHT.Location = new System.Drawing.Point(534, 0);
+            this.dgvHT.Name = "dgvHT";
+            this.dgvHT.RowHeadersWidth = 51;
+            this.dgvHT.RowTemplate.Height = 24;
+            this.dgvHT.Size = new System.Drawing.Size(500, 424);
+            this.dgvHT.TabIndex = 0;
             // 
-            // dataGridView1
+            // noiDungCV1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.Chocolate;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(500, 424);
-            this.dataGridView1.TabIndex = 0;
+            this.noiDungCV1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.noiDungCV1.DataPropertyName = "noiDungCV";
+            this.noiDungCV1.HeaderText = "Tên công việc";
+            this.noiDungCV1.MinimumWidth = 6;
+            this.noiDungCV1.Name = "noiDungCV1";
+            // 
+            // dgvchuaHT
+            // 
+            this.dgvchuaHT.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.dgvchuaHT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvchuaHT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvchuaHT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.noiDungCV});
+            this.dgvchuaHT.GridColor = System.Drawing.Color.Chocolate;
+            this.dgvchuaHT.Location = new System.Drawing.Point(3, 3);
+            this.dgvchuaHT.Name = "dgvchuaHT";
+            this.dgvchuaHT.RowHeadersWidth = 51;
+            this.dgvchuaHT.RowTemplate.Height = 24;
+            this.dgvchuaHT.Size = new System.Drawing.Size(500, 424);
+            this.dgvchuaHT.TabIndex = 0;
+            // 
+            // noiDungCV
+            // 
+            this.noiDungCV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.noiDungCV.DataPropertyName = "noiDungCV";
+            this.noiDungCV.HeaderText = "Tên công việc";
+            this.noiDungCV.MinimumWidth = 6;
+            this.noiDungCV.Name = "noiDungCV";
             // 
             // panel2
             // 
@@ -104,7 +126,7 @@
             this.panel2.Controls.Add(this.btnNam);
             this.panel2.Controls.Add(this.btnThang);
             this.panel2.Controls.Add(this.btnTuan);
-            this.panel2.Location = new System.Drawing.Point(401, 20);
+            this.panel2.Location = new System.Drawing.Point(422, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(689, 40);
             this.panel2.TabIndex = 9;
@@ -123,6 +145,7 @@
             this.btnNgay.TabIndex = 0;
             this.btnNgay.Text = "Hôm nay";
             this.btnNgay.UseVisualStyleBackColor = false;
+            this.btnNgay.Click += new System.EventHandler(this.btnNgay_Click);
             // 
             // btnNam
             // 
@@ -138,6 +161,7 @@
             this.btnNam.TabIndex = 0;
             this.btnNam.Text = "Theo năm";
             this.btnNam.UseVisualStyleBackColor = false;
+            this.btnNam.Click += new System.EventHandler(this.btnNam_Click);
             // 
             // btnThang
             // 
@@ -153,6 +177,7 @@
             this.btnThang.TabIndex = 0;
             this.btnThang.Text = "Theo tháng";
             this.btnThang.UseVisualStyleBackColor = false;
+            this.btnThang.Click += new System.EventHandler(this.btnThang_Click);
             // 
             // btnTuan
             // 
@@ -168,28 +193,28 @@
             this.btnTuan.TabIndex = 0;
             this.btnTuan.Text = "Theo tuần";
             this.btnTuan.UseVisualStyleBackColor = false;
+            this.btnTuan.Click += new System.EventHandler(this.btnTuan_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.lbCVchuaHoanThanh);
             this.panel4.Location = new System.Drawing.Point(49, 149);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(500, 60);
             this.panel4.TabIndex = 10;
             // 
-            // label1
+            // lbCVchuaHoanThanh
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 15);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(423, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Không có công việc chưa hoàn thành";
-            this.label1.Click += new System.EventHandler(this.lbCVchuaHoanThanh_Click);
+            this.lbCVchuaHoanThanh.AutoSize = true;
+            this.lbCVchuaHoanThanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbCVchuaHoanThanh.ForeColor = System.Drawing.Color.White;
+            this.lbCVchuaHoanThanh.Location = new System.Drawing.Point(3, 15);
+            this.lbCVchuaHoanThanh.Name = "lbCVchuaHoanThanh";
+            this.lbCVchuaHoanThanh.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.lbCVchuaHoanThanh.Size = new System.Drawing.Size(423, 29);
+            this.lbCVchuaHoanThanh.TabIndex = 0;
+            this.lbCVchuaHoanThanh.Text = "Không có công việc chưa hoàn thành";
             // 
             // panel5
             // 
@@ -200,24 +225,24 @@
             this.panel5.Size = new System.Drawing.Size(500, 60);
             this.panel5.TabIndex = 10;
             // 
-            // label3
+            // lbTatCa
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label3.Location = new System.Drawing.Point(51, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(760, 32);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Có tất cả ... công việc trong ngày hôm nay/ tuần này /...";
+            this.lbTatCa.AutoSize = true;
+            this.lbTatCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbTatCa.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbTatCa.Location = new System.Drawing.Point(51, 95);
+            this.lbTatCa.Name = "lbTatCa";
+            this.lbTatCa.Size = new System.Drawing.Size(760, 32);
+            this.lbTatCa.TabIndex = 1;
+            this.lbTatCa.Text = "Có tất cả ... công việc trong ngày hôm nay/ tuần này /...";
             // 
             // dtpk
             // 
             this.dtpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpk.Location = new System.Drawing.Point(49, 27);
+            this.dtpk.Location = new System.Drawing.Point(24, 27);
             this.dtpk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpk.Name = "dtpk";
-            this.dtpk.Size = new System.Drawing.Size(330, 30);
+            this.dtpk.Size = new System.Drawing.Size(380, 30);
             this.dtpk.TabIndex = 11;
             this.dtpk.ValueChanged += new System.EventHandler(this.dtpk_ValueChanged);
             // 
@@ -227,16 +252,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.Controls.Add(this.dtpk);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbTatCa);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ucThongKe";
             this.Size = new System.Drawing.Size(1130, 646);
+            this.Load += new System.EventHandler(this.ucThongKe_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvchuaHT)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -254,13 +280,15 @@
         private System.Windows.Forms.Button btnNgay;
         private System.Windows.Forms.Button btnThang;
         private System.Windows.Forms.Button btnTuan;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvHT;
+        private System.Windows.Forms.DataGridView dgvchuaHT;
         private System.Windows.Forms.Button btnNam;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbCVchuaHoanThanh;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbTatCa;
         private System.Windows.Forms.DateTimePicker dtpk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noiDungCV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noiDungCV1;
     }
 }

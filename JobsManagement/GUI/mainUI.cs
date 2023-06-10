@@ -28,9 +28,11 @@ namespace JobsManagement
     {
         public DateTime dateOfdtpk = DateTime.Now;
         public bool isClose = true;
+        
+        public static System.Windows.Forms.Label bdcv = new System.Windows.Forms.Label();
+        public static System.Windows.Forms.Label ktcv = new System.Windows.Forms.Label();
 
         private TaiKhoan loginAccount;
-
         public TaiKhoan LoginAccount
         {
             get { return loginAccount; }
@@ -46,23 +48,17 @@ namespace JobsManagement
             this.LoginAccount = loginAcc;
 
             //CongViecDAO.checkCV(LoginAccount.TenDN);
-
             backgroundWorker1.RunWorkerAsync();
 
             loadDuLieuVao(loginAcc);
 
             TaiKhoanDAO.khoiDong(LoginAccount.KhoiDong);
-
             setTimeThongBaoAll(LoginAccount.HNN, LoginAccount.MNN);
 
-            tmThongBaoCV.Interval = 60000;
-            
+            bdcv.TextChanged += Bdcv_TextChanged;
+            ktcv.TextChanged += Ktcv_TextChanged;
         }
 
-        public void setTimeThongBaoAll(int h, int m)
-        {
-            tmThongBaoAll.Interval = (h * 3600 + m * 60) * 1000;
-        }
         private void loadDuLieuVao(TaiKhoan loginAcc)
         {
             dongHo.Text = DateTime.Now.ToString("HH:MM:ss");
@@ -148,7 +144,7 @@ namespace JobsManagement
             resetSelect();
             pnlHighLight3.Visible = true;
             
-            ucThongKe ucThongKe = new ucThongKe();  
+            ucThongKe ucThongKe = new ucThongKe(loginAccount);  
             pnlContent.Controls.Add(ucThongKe);
 
             btnTK.BackColor = Color.FromArgb(63, 68, 97);
@@ -236,14 +232,27 @@ namespace JobsManagement
         }
 
         #region thong bao + dong ho
-        private void dongHo_Click(object sender, EventArgs e)
+        private void Ktcv_TextChanged(object sender, EventArgs e)
         {
-
+            if(!string.IsNullOrEmpty(ktcv.Text) && LoginAccount.NhacNhoCV == true)
+            {
+                ThongBao.ShowBalloonTip(3000, "Công việc kết thúc: ", ktcv.Text, ToolTipIcon.Info);
+            }    
+        }
+        private void Bdcv_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(bdcv.Text) && LoginAccount.NhacNhoCV == true)
+            {
+                ThongBao.ShowBalloonTip(3000, "Công việc bắt đầu: ", bdcv.Text, ToolTipIcon.Info);
+            }    
+        }
+        public void setTimeThongBaoAll(int h, int m)
+        {
+            tmThongBaoAll.Interval = (h * 3600 + m * 60) * 1000;
         }
 
         private void tmThongBaoAll_Tick(object sender, EventArgs e)
         {
-            
             if (LoginAccount.NhacNho == false)
                 return;
             //notifyIcon1.Visible = true;
@@ -259,11 +268,11 @@ namespace JobsManagement
                 {
                     tb = string.Format("Có {0} công việc đang diễn ra\nvà {1} công việc sắp diễn ra", cvddr, cvsdr);
                 }
-                else if(cvddr > 0 && cvddr == cv)
+                else if(cvddr > 0)
                 {
                     tb = string.Format("Có {0} công việc đang diễn ra", cvddr);
                 }
-                else if(cvsdr > 0 && cvsdr == cv)
+                else if(cvsdr > 0)
                 {
                     tb = string.Format("Có {0} công việc sắp diễn ra", cv);
                 }
@@ -278,21 +287,11 @@ namespace JobsManagement
             }
             else
             {
-                tb = "Bạn không có công việc hôm nay!\nHãy thêm những mục tiêu để phấn đấu,\nhoặc sắp xếp công việc cho ngày mai\nvà dành ra một ngày nghỉ ngơi.\nHave a nice day!";
+                tb = "Bạn không có công việc hôm nay!\nHãy thêm những mục tiêu để phấn đấu,\nhoặc sắp xếp công việc cho ngày mai\nvà dành ra một ngày nghỉ ngơi!";
             }
             
-            ThongBao.ShowBalloonTip(2000, string.Format("Thông báo công việc ngày {0}",DateTime.Now.ToString("dd/MM/yyyy")), tb, ToolTipIcon.Info);
+            ThongBao.ShowBalloonTip(3000, string.Format("Thông báo công việc ngày {0}",DateTime.Now.ToString("dd/MM/yyyy")), tb, ToolTipIcon.Info);
         }
-        private void tmThongBaoCV_Tick(object sender, EventArgs e)
-        {
-            if (LoginAccount.NhacNhoCV == false)
-                return;
-        
-            //ThongBao.ShowBalloonTip(2000, "Công việc bắt đầu: ", tb, ToolTipIcon.Info);
-
-
-        }
-
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
@@ -310,14 +309,15 @@ namespace JobsManagement
         }
 
         public static bool CoCVsdr = false;
+        public static bool CoCVddr = false;
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             string currentTime = e.UserState as string;
             dongHo.Text = currentTime;
 
-            if(DateTime.Now.Second == 0 && CoCVsdr)
+            if(DateTime.Now.Second == 0 && (CoCVsdr || CoCVddr))
             {
-                //
+                CongViecDAO.setTrangThai(LoginAccount.TenDN);
             }    
         }
         private void mainUI_FormClosing(object sender, FormClosingEventArgs e)

@@ -30,7 +30,6 @@
         {
             this.paMatrix = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnSun = new System.Windows.Forms.Button();
             this.btnSat = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,19 +78,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1057, 70);
             this.panel4.TabIndex = 2;
-            // 
-            // btnNext
-            // 
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.ForeColor = System.Drawing.Color.Cyan;
-            this.btnNext.Location = new System.Drawing.Point(885, 2);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(150, 55);
-            this.btnNext.TabIndex = 4;
-            this.btnNext.Text = "Tháng Sau";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -308,6 +295,19 @@
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.Cyan;
+            this.btnNext.Location = new System.Drawing.Point(885, 2);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(150, 55);
+            this.btnNext.TabIndex = 4;
+            this.btnNext.Text = "Tháng Sau";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // ucCalendar
             // 

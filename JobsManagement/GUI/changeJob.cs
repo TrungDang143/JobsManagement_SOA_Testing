@@ -414,6 +414,7 @@ namespace JobsManagement
             int th = checkTH();
             if (string.IsNullOrEmpty(txbCV.Text))
             {
+                lbGioiHanCV.Visible = true;
                 lbGioiHanCV.Text = "Vui lòng nhập nội dung công việc.";
                 lbGioiHanCV.ForeColor = Color.OrangeRed;
                 return;

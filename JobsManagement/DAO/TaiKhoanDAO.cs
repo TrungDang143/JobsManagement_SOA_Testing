@@ -62,7 +62,7 @@ namespace JobsManagement.DAO
             else
             {
                 string query = "exec DangKy_1 @tenDN , @MK , @tenHT , @cauHoi , @traLoi ";
-                DataTable data = DataProvider.Instance.truyVanCoKetQua(query, new object[] { tenDN, MK, tenHT, cauHoi, traLoi });
+                DataProvider.Instance.truyVanKTraVe(query, new object[] { tenDN, MK, tenHT, cauHoi, traLoi });
                 return true;
             }
         }
@@ -127,9 +127,22 @@ namespace JobsManagement.DAO
         }
         public bool DeleteAcc(string userName)
         {
-            bool delete = DataProvider.Instance.truyVanKTraVe("exec DeleteAcc @userName ", new object[] { userName });
+            bool delete = DataProvider.Instance.truyVanKTraVe("exec DeleteAcc @userName ", new object[] {userName});
             return delete;
         }
+
+        public bool changeUserName(string loginName,string userName)
+        {
+            bool change = DataProvider.Instance.truyVanKTraVe("exec changeUserName @loginName , @userName", new object[]{loginName, userName});
+            return change;
+        }
+
+        public bool changePassWord(string loginName, string passWord)
+        {
+            bool change = DataProvider.Instance.truyVanKTraVe("exec changePassWord @loginName , @passWord ", new object[] {loginName, passWord });
+            return change;
+        }
+
         public static void khoiDong(bool i)
         {
             RegistryKey regkey = Registry.CurrentUser.CreateSubKey("Software\\JobsManagement");

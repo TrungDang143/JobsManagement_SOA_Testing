@@ -58,6 +58,14 @@ namespace JobsManagement.GUI
 
             nudH.Value = LoginAccount.HNN;
             nudM.Value = LoginAccount.MNN;
+            if (LoginAccount.DoChamChi == -1)
+            {
+                lbCC.Text = "Độ chăm chỉ: 0%";
+            }
+            else
+            {
+                lbCC.Text = string.Format("Độ chăm chỉ: {0}%", LoginAccount.DoChamChi*100);
+            }
         }
 
         #region cai dat he thong
@@ -154,7 +162,7 @@ namespace JobsManagement.GUI
         {
             pnlChucNang.Controls.Clear();
             pnlChucNang.Visible = true;
-            ucThayDoiThongTin ucThayDoiThongTin = new ucThayDoiThongTin();
+            ucThayDoiThongTin ucThayDoiThongTin = new ucThayDoiThongTin(LoginAccount);
             pnlChucNang.Controls.Add(ucThayDoiThongTin);
         }
 
