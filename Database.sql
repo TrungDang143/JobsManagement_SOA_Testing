@@ -322,6 +322,7 @@ begin
 	where trangThai = N'Chưa hoàn thành'
 	and tenDangNhap = @userName
 end
+go
 
 --đếm số lượng công việc chưa hoàn thành
 create proc countChuaHT(
@@ -333,6 +334,7 @@ begin
 	where trangThai = N'Chưa hoàn thành'
 	and tenDangNhap = @userName
 end
+go
 
 --lấy thống kê công việc đã hoàn thành 
 create proc daHT(
@@ -344,7 +346,7 @@ begin
 	where trangThai = N'Đã hoàn thành'
 	and tenDangNhap = @userName
 end
-
+go
 --đếm số lương công việc đã hoàn thành
 create proc countDaHT(
 	@userName varchar(20)
@@ -355,6 +357,7 @@ begin
 	where trangThai = N'Đã hoàn thành'
 	and tenDangNhap = @userName
 end
+go
 
 --thay đổi tên người dùng
 create proc changeUserName(
@@ -367,6 +370,7 @@ begin
 	set tenHienThi = @userName
 	where tenDangNhap = @loginName
 end
+go
 
 --thay đổi mật khẩu
 create proc changePassWord(
@@ -379,6 +383,7 @@ begin
 	set matKhau = @passWord
 	where tenDangNhap = @loginName
 end
+go
 
 --lấy nội dung thống kê công việc theo ngày
 CREATE PROCEDURE GetNoiDungByDateRange

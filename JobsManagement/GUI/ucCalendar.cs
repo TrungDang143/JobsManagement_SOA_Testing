@@ -23,9 +23,11 @@ namespace JobsManagement
         public ucCalendar(TaiKhoan loginAcc)
         {
             InitializeComponent();
-            createMatrix();
             this.LoginAccount = loginAcc;
+            createMatrix();
             dtpk.Value = timeOfDtpk.TimeSelection;
+            dtpk.Format = DateTimePickerFormat.Custom;
+            dtpk.CustomFormat = "dddd, dd MMMM yyyy";
         }
 
         #region ma tran lich
@@ -121,11 +123,15 @@ namespace JobsManagement
                 int column = dateOfW.IndexOf(useDate.DayOfWeek.ToString());
                 Button btn = Matrix[line][column];
                 
-                btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+                btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                 btn.Text = i.ToString();
 
-                //btn.Image = Properties.Resources.rsz_icons8_dot_30;
-                //btn.ImageAlign = ContentAlignment.BottomRight;
+                DateTime time = new DateTime(date.Year, date.Month, i);
+                if(CongViecDAO.CoCv(LoginAccount.TenDN, time))
+                {
+                    btn.Image = Properties.Resources.rsz_icons8_dot_30;
+                    btn.ImageAlign = ContentAlignment.BottomRight;
+                }
 
                 if (compareTime(useDate, date))
                 {
@@ -153,6 +159,7 @@ namespace JobsManagement
                     Button btn = Matrix[i][j];
                     btn.Text = "";
                     btn.BackColor = Color.White;
+                    btn.Image = null;
                 }
             }
         }
