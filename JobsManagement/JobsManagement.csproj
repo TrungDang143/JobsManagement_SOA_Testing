@@ -37,7 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vsC28F.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs74AE.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vsC28F.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs74AE.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -305,6 +305,8 @@
     <None Include="image\logoFinal.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\rsz_icons8-dot-34.png" />
+    <None Include="Resources\rsz_icons8-dot-60.png" />
     <None Include="Resources\icons8-done-50.png" />
     <None Include="Resources\icons8-pencil-40.png" />
     <None Include="Resources\icons8-remove-40.png" />
@@ -313,6 +315,7 @@
     <None Include="Resources\icons8-add-reminder-40.png" />
     <None Include="image\rsz_icons8-dot-30.png" />
     <None Include="image\icon_adminFix.png" />
+    <None Include="image\rsz_icons8-dot-34_fix.png" />
     <Content Include="logoTo.ico" />
     <None Include="image\icons8-multiply-50.png" />
     <None Include="image\icons8-tick-50.png" />

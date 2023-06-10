@@ -313,6 +313,36 @@ namespace JobsManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rsz_icons8_dot_34 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_icons8-dot-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_icons8_dot_34_fix {
+            get {
+                object obj = ResourceManager.GetObject("rsz_icons8-dot-34_fix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_icons8_dot_60 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_icons8-dot-60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap switch_off64 {
             get {
                 object obj = ResourceManager.GetObject("switch_off64", resourceCulture);
