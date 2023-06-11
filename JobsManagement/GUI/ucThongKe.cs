@@ -36,23 +36,7 @@ namespace JobsManagement
         {
             InitializeComponent();
             dtpk.Value = timeOfDtpk.TimeSelection;
-<<<<<<< HEAD
-            this.LoginAccount = loginAcc;
-            string userName = loginAcc.TenDN;
-            //chuaHTView(loginAcc);
-            //daHTView(loginAcc);
-            //string countChuaHT = "exec countChuaHT @userName";
-            //lbCVchuaHoanThanh.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(countChuaHT, new object[] { userName }).ToString() + " công việc chưa hoàn thành";
-            //string countDaHT = "exec countDaHT @userName";
-            //lbCVdaHoanThanh.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(countDaHT, new object[] { userName }).ToString() + " công việc đã hoàn thành";
-            //int chuaHT = int.Parse(DataProvider.Instance.truyVanCoMotKetQua(countChuaHT, new object[] { userName }).ToString());
-            //int daHT   = int.Parse(DataProvider.Instance.truyVanCoMotKetQua(countDaHT, new object[] { userName }).ToString());
-            //int tatCa = chuaHT + daHT;
-            //lbTatCa.Text = "Có " + tatCa + " công việc";
-=======
-            dtpk.Format = DateTimePickerFormat.Custom;
-            dtpk.CustomFormat = "dddd, dd MMMM yyyy";
-            this.LoginAccount = loginAcc;            
+            this.LoginAccount = loginAcc;       
         }
         private void ucThongKe_Load(object sender, EventArgs e)
         {
@@ -67,7 +51,6 @@ namespace JobsManagement
             int daHT   = int.Parse(DataProvider.Instance.truyVanCoMotKetQua(countDaHT, new object[] { userName }).ToString());
             int tatCa = chuaHT + daHT;
             lbTatCa.Text = "Có " + tatCa + " công việc trong hôm nay";
->>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb
         }
         private void chuaHTView(TaiKhoan loginAcc)
         {
@@ -126,7 +109,6 @@ namespace JobsManagement
             int countChuaHT = dgvchuaHT.RowCount - 1;
             int countHT = dgvHT.RowCount - 1;
             int countTatCa = countChuaHT + countHT;
-<<<<<<< HEAD
             if (countChuaHT == 0)
             {
                 lbCVchuaHoanThanh.Text = "Không có công việc nào chưa hoàn thành";
@@ -144,13 +126,11 @@ namespace JobsManagement
                 lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
             }
             lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tuần";
-=======
             dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua("exec GetNoiDungByDateRange @startDate , @endDate , @userName ", new object[] { dauTuan, cuoiTuan, loginAccount.TenDN });
             
             lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
             lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
             lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tuần này";
->>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb
 
         }
 
@@ -158,7 +138,6 @@ namespace JobsManagement
         {
             DateTime dauThang = new DateTime(dtpk.Value.Year, dtpk.Value.Month, 1);
             DateTime cuoiThang = dauThang.AddMonths(1).AddDays(-1);
-<<<<<<< HEAD
             string query = "exec GetNoiDungChuaHTByDateRange @startDate , @endDate , @userName ";
             dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { dauThang,cuoiThang, LoginAccount.TenDN });
             string query1 = "exec GetNoiDungDaHTByDateRange @startDate , @endDate , @userName ";
@@ -183,21 +162,8 @@ namespace JobsManagement
                 lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
             }
             lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tháng";
-=======
-            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua("exec GetNoiDungByDateRange @startDate , @endDate , @userName ", new object[] { dauThang, cuoiThang, loginAccount.TenDN });
-            int countChuaHT = dgvchuaHT.RowCount - 1;
-            int countHT = dgvHT.RowCount - 1;
-            int countTatCa = countChuaHT + countHT;
-            
-            
-            lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
-            lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
-            lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tháng này";
->>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb
 
         }
-
-
         private void btnNam_Click(object sender, EventArgs e)
         {
             int year = DateTime.Now.Year;
