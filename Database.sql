@@ -328,6 +328,7 @@ begin
 	where trangThai = N'Chưa hoàn thành'
 	and tenDangNhap = @userName
 end
+go
 
 --đếm số lượng công việc chưa hoàn thành
 create proc countChuaHT(
@@ -339,6 +340,7 @@ begin
 	where trangThai = N'Chưa hoàn thành'
 	and tenDangNhap = @userName
 end
+go
 
 --lấy thống kê công việc đã hoàn thành 
 create proc daHT(
@@ -350,7 +352,7 @@ begin
 	where trangThai = N'Đã hoàn thành'
 	and tenDangNhap = @userName
 end
-
+go
 --đếm số lương công việc đã hoàn thành
 create proc countDaHT(
 	@userName varchar(20)
@@ -361,6 +363,7 @@ begin
 	where trangThai = N'Đã hoàn thành'
 	and tenDangNhap = @userName
 end
+go
 
 --thay đổi tên người dùng
 create proc changeUserName(
@@ -373,6 +376,7 @@ begin
 	set tenHienThi = @userName
 	where tenDangNhap = @loginName
 end
+go
 
 --thay đổi mật khẩu
 create proc changePassWord(
@@ -385,6 +389,7 @@ begin
 	set matKhau = @passWord
 	where tenDangNhap = @loginName
 end
+go
 
 --lấy nội dung thống kê chưa hoàn thành công việc theo ngày
 CREATE PROCEDURE GetNoiDungChuaHTByDateRange
@@ -404,14 +409,21 @@ BEGIN
 END
 go
 
+<<<<<<< HEAD
 --lấy nội dung thống kê đã hoàn thành công việc theo ngày
 CREATE PROCEDURE GetNoiDungDaHTByDateRange
     @startDate DATE,
     @endDate DATE,
+=======
+
+--Cong viec da hoan thanh
+CREATE PROCEDURE cvdaHT
+>>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb
 	@username varchar(20)
 AS
 BEGIN
 
+<<<<<<< HEAD
     SELECT noiDungCV 
     FROM congviec
     WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
@@ -422,3 +434,28 @@ BEGIN
 END
 
 
+=======
+    SELECT count(*)
+    FROM congviec
+    WHERE trangThai = N'Đã hoàn thành'
+	and tenDangNhap = @username
+END
+go
+
+
+--xoa cong viec da qua
+create proc XoaCongViecDaQua (@username varchar(20)) as
+begin
+	delete from CongViec where tenDangNhap = @username and (trangThai = N'Đã hoàn thành' or trangThai = N'Chưa hoàn thành')
+end
+go
+
+-- xoa tat ca cong viec 
+create proc XoaTatCaCongViec (@username varchar(20))
+as
+begin 
+	delete from CongViec where tenDangNhap = @username
+end 
+go 
+
+>>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb

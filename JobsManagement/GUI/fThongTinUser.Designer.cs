@@ -104,7 +104,6 @@
             this.lbMK.Size = new System.Drawing.Size(98, 25);
             this.lbMK.TabIndex = 30;
             this.lbMK.Text = "Password";
-            this.lbMK.Visible = false;
             // 
             // lbmatkhau
             // 
@@ -217,7 +216,6 @@
             this.lbTL.Size = new System.Drawing.Size(98, 25);
             this.lbTL.TabIndex = 30;
             this.lbTL.Text = "Password";
-            this.lbTL.Visible = false;
             // 
             // lbCHBM
             // 
@@ -229,7 +227,6 @@
             this.lbCHBM.Size = new System.Drawing.Size(98, 25);
             this.lbCHBM.TabIndex = 30;
             this.lbCHBM.Text = "Password";
-            this.lbCHBM.Visible = false;
             // 
             // panel2
             // 

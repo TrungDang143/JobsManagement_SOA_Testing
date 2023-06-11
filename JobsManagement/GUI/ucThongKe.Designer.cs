@@ -157,7 +157,7 @@
             this.panel2.Controls.Add(this.btnNam);
             this.panel2.Controls.Add(this.btnThang);
             this.panel2.Controls.Add(this.btnTuan);
-            this.panel2.Location = new System.Drawing.Point(401, 20);
+            this.panel2.Location = new System.Drawing.Point(422, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(689, 40);
             this.panel2.TabIndex = 9;
@@ -270,10 +270,10 @@
             // dtpk
             // 
             this.dtpk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpk.Location = new System.Drawing.Point(49, 27);
+            this.dtpk.Location = new System.Drawing.Point(24, 27);
             this.dtpk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpk.Name = "dtpk";
-            this.dtpk.Size = new System.Drawing.Size(330, 30);
+            this.dtpk.Size = new System.Drawing.Size(380, 30);
             this.dtpk.TabIndex = 11;
             this.dtpk.ValueChanged += new System.EventHandler(this.dtpk_ValueChanged);
             // 
@@ -298,6 +298,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ucThongKe";
             this.Size = new System.Drawing.Size(1130, 646);
+            this.Load += new System.EventHandler(this.ucThongKe_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvchuaHT)).EndInit();

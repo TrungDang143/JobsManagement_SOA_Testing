@@ -51,7 +51,6 @@
             this.tmThongBaoAll = new System.Windows.Forms.Timer(this.components);
             this.ThongBao = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tmThongBaoCV = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,7 +88,6 @@
             this.dongHo.Size = new System.Drawing.Size(151, 38);
             this.dongHo.TabIndex = 6;
             this.dongHo.Text = "00:00:00";
-            this.dongHo.Click += new System.EventHandler(this.dongHo_Click);
             // 
             // pnlHighLight4
             // 
@@ -326,11 +324,6 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             // 
-            // tmThongBaoCV
-            // 
-            this.tmThongBaoCV.Enabled = true;
-            this.tmThongBaoCV.Tick += new System.EventHandler(this.tmThongBaoCV_Tick);
-            // 
             // mainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -383,6 +376,5 @@
         public System.Windows.Forms.Timer tmThongBaoAll;
         public System.Windows.Forms.NotifyIcon ThongBao;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        public System.Windows.Forms.Timer tmThongBaoCV;
     }
 }

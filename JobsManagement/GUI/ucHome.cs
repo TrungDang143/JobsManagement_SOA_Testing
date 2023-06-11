@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,18 +29,35 @@ namespace JobsManagement
         private DateTime den;
         private int filter = 0;
 
+        public static Label lb = new Label();
+
+
         public ucHome(TaiKhoan loginAcc)
         {
             InitializeComponent();
             this.LoginAccount = loginAcc;
-            dtpk.Value = timeOfDtpk.TimeSelection;
-            btnAll.BackColor = Color.FromArgb(37, 42, 64);
-            loadCV(tu, den, filter);   
+
         }
-        
-        private void loadCV( DateTime bd, DateTime kt, int fil)
+
+        private void Lb_TextChanged(object sender, EventArgs e)
         {
+            loadCV(tu, den, filter);
+        }
+        private void ucHome_Load(object sender, EventArgs e)
+        {   
+            dtpk.Value = timeOfDtpk.TimeSelection;
+            dtpk.Format = DateTimePickerFormat.Custom;
+            dtpk.CustomFormat = "dddd, dd MMMM yyyy";
+
+            btnAll.BackColor = Color.FromArgb(37, 42, 64);
+            loadCV(tu, den, filter);
+
+            lb.TextChanged += Lb_TextChanged;
             CongViecDAO.setTrangThai(LoginAccount.TenDN);
+        }
+
+        private void loadCV(DateTime bd, DateTime kt, int fil)
+        {
             string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
             duLieu = DataProvider.Instance.truyVanCoKetQua(query, new object[] { bd, kt, LoginAccount.TenDN });
             dgv.DataSource = duLieu;
@@ -149,8 +167,7 @@ namespace JobsManagement
             resetTimeRange();
             btnTuan.BackColor = Color.FromArgb(37, 42, 64);
 
-            DateTime today = dtpk.Value;
-            
+            DateTime today = dtpk.Value;     
             int k = today.DayOfWeek - DayOfWeek.Monday;            
             DateTime dauTuan = today.AddDays(-k);
             DateTime cuoiTuan = today.AddDays(6 - k);
@@ -159,7 +176,6 @@ namespace JobsManagement
             den = cuoiTuan;
             loadCV(tu, den, filter);        
         }
-
         private void btnThang_Click(object sender, EventArgs e)
         {
             resetTimeRange();
@@ -314,6 +330,31 @@ namespace JobsManagement
             resetHL();
             btnHT.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnHT.Left;
+<<<<<<< HEAD
+=======
+
+            string tb = "Bạn muốn đánh dấu \"Hoàn thành\" công việc này?";
+            try
+            {
+                if (idSelected == 0)
+                {
+                    throw new Exception("Chọn công việc cần đánh dấu \"Hoàn thành\"");
+                }
+
+                var result = MessageBox.Show(tb, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    CongViecDAO.setTT(idSelected, LoginAccount.TenDN, "Đã hoàn thành");
+                    loadCV(tu, den, filter);
+                }
+                resetSelect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+>>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb
         }
         #endregion
 
@@ -338,6 +379,5 @@ namespace JobsManagement
                 idSelected = (int)dgvRow.Cells[0].Value;
             }
         }
-
     }
 }

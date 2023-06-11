@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -127,6 +128,16 @@ namespace JobsManagement.DAO
             int kq = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTTandTimeRange @tt , @username , @start , @end", new object[] { tt, userName, DateTime.Now, DateTime.Now });
             return kq;
         }
+        public static bool CoCv(string userName, DateTime time)
+        {
+            int cvsdr = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTTandTimeRange @tt , @username , @start , @end", new object[] { "Sắp diễn ra", userName, time, time });
+            int cvddr = (int)DAO.DataProvider.Instance.truyVanCoMotKetQua("exec GetSoCVbyTTandTimeRange @tt , @username , @start , @end", new object[] { "Đang diễn ra", userName, time, time });
+            if (cvddr > 0 || cvsdr > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public static void setTrangThai(string username)
         {
@@ -139,13 +150,21 @@ namespace JobsManagement.DAO
                 DateTime start = (DateTime)items[2];
                 DateTime finish = (DateTime)items[3];
         
-                if(start >= DateTime.Now && finish > DateTime.Now && items[4].ToString() == "Sắp diễn ra")
+                if(start <= DateTime.Now && finish > DateTime.Now && items[4].ToString() != "Đã hoàn thành")
                 {
                     setTT((int)items[0], username, "Đang diễn ra");
+                    string cv = items[1].ToString();
+                    if(cv.Length > 20)
+                        cv = cv.Substring(0,20) + "...";
+                    mainUI.bdcv.Text = cv;
                 }
-                else if(finish <= DateTime.Now && items[4].ToString() == "Đang diễn ra")
+                else if(finish <= DateTime.Now && items[4].ToString() != "Đã hoàn thành")
                 {
                     setTT((int)items[0], username, "Chưa hoàn thành");
+                    string cv = items[1].ToString();
+                    if (cv.Length > 20)
+                        cv = cv.Substring(0, 20) + "...";
+                    mainUI.ktcv.Text = cv;
                 }    
             }
             if(CongViecDAO.getSoCVbyTT(username, "Sắp diễn ra") > 0)
@@ -153,6 +172,14 @@ namespace JobsManagement.DAO
                 mainUI.CoCVsdr = true;
             }    
             else mainUI.CoCVsdr = false;
+            if (CongViecDAO.getSoCVbyTT(username, "Đang diễn ra") > 0)
+            {
+                mainUI.CoCVddr = true;
+            }
+            else mainUI.CoCVddr = false;
+
+            ucHome.lb.Text = string.Empty;
+            ucHome.lb.Text = "changed";
         }
         public static CongViec GetCongViecByID_Username(int id, string username)
         {
@@ -184,6 +211,24 @@ namespace JobsManagement.DAO
         public static void setTT(int id, string username, string tt)
         {
             DAO.DataProvider.Instance.truyVanKTraVe("exec DoiTrangThai @id , @username , @tt", new object[] { id, username, tt });
+        }
+        public static void XoaTatCaCongViec(string username)
+        {
+            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec XoaTatCaCongViec @username ", new object[] {username} );
+			MessageBox.Show("Xóa tất cả công việc ","Thông báo");
+//			if ( kq )
+//           {
+//				MessageBox.Show();
+//			}
+        }
+
+        public static void XoaCongViecDaQua(string username)
+        {
+            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec XoaCongViecDaQua @username", new object[] { username });
+            if (kq == true)
+                MessageBox.Show("Xoa thanh cong!");
+            else
+                MessageBox.Show("Khong co cong viec da qua!");
         }
     }
 }

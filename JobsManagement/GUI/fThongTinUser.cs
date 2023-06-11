@@ -95,6 +95,14 @@ namespace JobsManagement.GUI
             lbMK.Text = LoginAccount.Mk;
             lbCHBM.Text = LoginAccount.CauHoi;
             lbTL.Text = LoginAccount.TraLoi;
+            if(LoginAccount.DoChamChi == -1)
+            {
+                lbCC.Text = "Độ chăm chỉ: 0%";
+            }
+            else
+            {
+                lbCC.Text = string.Format("Độ chăm chỉ: {0}%", LoginAccount.DoChamChi*100);
+            }
         }
     }
 }
