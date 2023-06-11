@@ -71,6 +71,12 @@ insert into TrangThai values(N'Đã hoàn thành')
 insert into TrangThai values(N'Chưa hoàn thành')
 go
 
+--thêm tài khoản admin
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Admin','1111','ADMIN',N'Kỉ niệm đáng nhớ?','abc', 1)
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('trungdang','1403','TrungDang',N'Kỉ niệm đáng nhớ?','abcd', 0)
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('tridinh','0000','Tri',N'Kỉ niệm đáng nhớ?','xyzt', 0)
+
+
 -----------------------Hàm và thủ tục--------------
 
 --next ID lap
@@ -380,8 +386,8 @@ begin
 	where tenDangNhap = @loginName
 end
 
---lấy nội dung thống kê công việc theo ngày
-CREATE PROCEDURE GetNoiDungByDateRange
+--lấy nội dung thống kê chưa hoàn thành công việc theo ngày
+CREATE PROCEDURE GetNoiDungChuaHTByDateRange
     @startDate DATE,
     @endDate DATE,
 	@username varchar(20)
@@ -390,8 +396,29 @@ BEGIN
 
     SELECT noiDungCV 
     FROM congviec
-    WHERE CONVERT(DATE, tgBD) >= @startDate 
-    AND CONVERT(DATE, tgKT) <= @endDate
+    WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
 	and tenDangNhap = @username
+	and trangThai = N'Chưa hoàn thành'
 END
 go
+
+--lấy nội dung thống kê đã hoàn thành công việc theo ngày
+CREATE PROCEDURE GetNoiDungDaHTByDateRange
+    @startDate DATE,
+    @endDate DATE,
+	@username varchar(20)
+AS
+BEGIN
+
+    SELECT noiDungCV 
+    FROM congviec
+    WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
+	and tenDangNhap = @username
+	and trangThai = N'Đã hoàn thành'
+END
+
+

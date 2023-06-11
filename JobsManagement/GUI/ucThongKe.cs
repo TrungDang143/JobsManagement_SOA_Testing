@@ -20,6 +20,11 @@ namespace JobsManagement
     public partial class ucThongKe : UserControl
     {
         private TaiKhoan loginAccount;
+        private DataTable duLieu = new DataTable();
+        private DateTime tu;
+        private DateTime den;
+        private int filter = 0;
+        private int idSelected = default(int);
 
         public TaiKhoan LoginAccount
         {
@@ -33,47 +38,58 @@ namespace JobsManagement
             dtpk.Value = timeOfDtpk.TimeSelection;
             this.LoginAccount = loginAcc;
             string userName = loginAcc.TenDN;
-            chuaHTView(loginAcc);
-            daHTView(loginAcc);
-            string countChuaHT = "exec countChuaHT @userName";
-            lbCVchuaHoanThanh.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(countChuaHT, new object[] { userName }).ToString() + " công việc chưa hoàn thành";
-            string countDaHT = "exec countDaHT @userName";
-            lbCVdaHoanThanh.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(countDaHT, new object[] { userName }).ToString() + " công việc đã hoàn thành";
-            int chuaHT = int.Parse(DataProvider.Instance.truyVanCoMotKetQua(countChuaHT, new object[] { userName }).ToString());
-            int daHT   = int.Parse(DataProvider.Instance.truyVanCoMotKetQua(countDaHT, new object[] { userName }).ToString());
-            int tatCa = chuaHT + daHT;
-            lbTatCa.Text = "Có " + tatCa + " công việc trong hôm nay";
+            //chuaHTView(loginAcc);
+            //daHTView(loginAcc);
+            //string countChuaHT = "exec countChuaHT @userName";
+            //lbCVchuaHoanThanh.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(countChuaHT, new object[] { userName }).ToString() + " công việc chưa hoàn thành";
+            //string countDaHT = "exec countDaHT @userName";
+            //lbCVdaHoanThanh.Text = "Có " + DataProvider.Instance.truyVanCoMotKetQua(countDaHT, new object[] { userName }).ToString() + " công việc đã hoàn thành";
+            //int chuaHT = int.Parse(DataProvider.Instance.truyVanCoMotKetQua(countChuaHT, new object[] { userName }).ToString());
+            //int daHT   = int.Parse(DataProvider.Instance.truyVanCoMotKetQua(countDaHT, new object[] { userName }).ToString());
+            //int tatCa = chuaHT + daHT;
+            //lbTatCa.Text = "Có " + tatCa + " công việc";
         }
-
         private void chuaHTView(TaiKhoan loginAcc)
         {
-            string userName = loginAcc.TenDN;
-            string sql = "exec chuaHT @userName";
-            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua(sql,new object[] {userName});
+                string userName = loginAcc.TenDN;
+                string sql = "exec chuaHT @userName";
+                dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua(sql,new object[] {userName});
         }
 
         private void daHTView(TaiKhoan loginAcc)
         {
-            string userName = loginAcc.TenDN;
-            string sql = "exec daHT @userName";
-            dgvHT.DataSource = DataProvider.Instance.truyVanCoKetQua(sql, new object[] { userName});
-        }
-
-        private void dtpk_ValueChanged(object sender, EventArgs e)
-        {
-            timeOfDtpk.TimeSelection = dtpk.Value;
+                string userName = loginAcc.TenDN;
+                string sql = "exec daHT @userName";
+                dgvHT.DataSource = DataProvider.Instance.truyVanCoKetQua(sql, new object[] { userName});
         }
 
         private void btnNgay_Click(object sender, EventArgs e)
         {
             DateTime bayGio = DateTime.Today.Date;
             DateTime ketThuc = DateTime.Today.Date;
-            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua("exec GetNoiDungByDateRange @startDate , @endDate , @userName ", new object[] { bayGio, ketThuc, loginAccount.TenDN });
+            string query = "exec GetNoiDungChuaHTByDateRange @startDate , @endDate , @userName ";
+            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { bayGio, ketThuc, LoginAccount.TenDN });
+            string query1 = "exec GetNoiDungDaHTByDateRange @startDate , @endDate , @userName ";
+            dgvHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query1, new object[] { bayGio, ketThuc, LoginAccount.TenDN });
             int countChuaHT = dgvchuaHT.RowCount - 1;
             int countHT = dgvHT.RowCount - 1;
             int countTatCa = countChuaHT + countHT;
-            lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
-            lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
+            if (countChuaHT == 0)
+            {
+                lbCVchuaHoanThanh.Text = "Không có công việc nào chưa hoàn thành";
+            }
+            else
+            {
+                lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
+            }
+            if (countHT == 0)
+            {
+                lbCVdaHoanThanh.Text = "Không có công việc nào cần hoàn thành";
+            }
+            else
+            {
+                lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
+            }
             lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong ngày hôm nay";
         }
 
@@ -83,13 +99,30 @@ namespace JobsManagement
             int k = today.DayOfWeek - DayOfWeek.Monday;
             DateTime dauTuan = today.AddDays(-k);
             DateTime cuoiTuan = today.AddDays(6 - k);
+            string query = "exec GetNoiDungChuaHTByDateRange @startDate , @endDate , @userName ";
+            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { dauTuan,cuoiTuan, LoginAccount.TenDN });
+            string query1 = "exec GetNoiDungDaHTByDateRange @startDate , @endDate , @userName ";
+            dgvHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query1, new object[] { dauTuan, cuoiTuan, LoginAccount.TenDN });
             int countChuaHT = dgvchuaHT.RowCount - 1;
             int countHT = dgvHT.RowCount - 1;
             int countTatCa = countChuaHT + countHT;
-            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua("exec GetNoiDungByDateRange @startDate , @endDate , @userName ", new object[] { dauTuan, cuoiTuan, loginAccount.TenDN });
-            lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
-            lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
-            lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tuần này";
+            if (countChuaHT == 0)
+            {
+                lbCVchuaHoanThanh.Text = "Không có công việc nào chưa hoàn thành";
+            }
+            else
+            {
+                lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
+            }
+            if (countHT == 0)
+            {
+                lbCVdaHoanThanh.Text = "Không có công việc nào cần hoàn thành";
+            }
+            else
+            {
+                lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
+            }
+            lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tuần";
 
         }
 
@@ -97,13 +130,30 @@ namespace JobsManagement
         {
             DateTime dauThang = new DateTime(dtpk.Value.Year, dtpk.Value.Month, 1);
             DateTime cuoiThang = dauThang.AddMonths(1).AddDays(-1);
+            string query = "exec GetNoiDungChuaHTByDateRange @startDate , @endDate , @userName ";
+            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { dauThang,cuoiThang, LoginAccount.TenDN });
+            string query1 = "exec GetNoiDungDaHTByDateRange @startDate , @endDate , @userName ";
+            dgvHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query1, new object[] { dauThang,cuoiThang, LoginAccount.TenDN });
             int countChuaHT = dgvchuaHT.RowCount - 1;
             int countHT = dgvHT.RowCount - 1;
             int countTatCa = countChuaHT + countHT;
-            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua("exec GetNoiDungByDateRange @startDate , @endDate , @userName ", new object[] { dauThang, cuoiThang, loginAccount.TenDN });
-            lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
-            lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
-            lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tháng này";
+            if (countChuaHT == 0)
+            {
+                lbCVchuaHoanThanh.Text = "Không có công việc nào chưa hoàn thành";
+            }
+            else
+            {
+                lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
+            }
+            if (countHT == 0)
+            {
+                lbCVdaHoanThanh.Text = "Không có công việc nào cần hoàn thành";
+            }
+            else
+            {
+                lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
+            }
+            lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong tháng";
 
         }
 
@@ -113,14 +163,37 @@ namespace JobsManagement
             int year = DateTime.Now.Year;
             DateTime dauNam = new DateTime(year, 1, 1);
             DateTime cuoiNam = new DateTime(year, 12, 31);
+            string query = "exec GetNoiDungChuaHTByDateRange @startDate , @endDate , @userName ";
+            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query, new object[] { dauNam,cuoiNam, LoginAccount.TenDN });
+            string query1 = "exec GetNoiDungDaHTByDateRange @startDate , @endDate , @userName ";
+            dgvHT.DataSource = DataProvider.Instance.truyVanCoKetQua(query1, new object[] { dauNam, cuoiNam, LoginAccount.TenDN });
             int countChuaHT = dgvchuaHT.RowCount - 1;
             int countHT = dgvHT.RowCount - 1;
             int countTatCa = countChuaHT + countHT;
-            dgvchuaHT.DataSource = DataProvider.Instance.truyVanCoKetQua("exec GetNoiDungByDateRange @startDate , @endDate , @userName ", new object[] { dauNam, cuoiNam, loginAccount.TenDN });
-            lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
-            lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
+            if (countChuaHT == 0)
+            {
+                lbCVchuaHoanThanh.Text = "Không có công việc nào chưa hoàn thành";
+            }
+            else
+            {
+                lbCVchuaHoanThanh.Text = "Có " + countChuaHT.ToString() + " công việc chưa hoàn thành";
+            }
+            if (countHT == 0)
+            {
+                lbCVdaHoanThanh.Text = "Không có công việc nào cần hoàn thành";
+            }
+            else
+            {
+                lbCVdaHoanThanh.Text = "Có " + countHT.ToString() + " công việc đã hoàn thành";
+            }
             lbTatCa.Text = "Có " + countTatCa.ToString() + " công việc trong năm nay";
+        }
 
+        private void dtpk_ValueChanged(object sender, EventArgs e)
+        {
+            timeOfDtpk.TimeSelection = dtpk.Value;
+            tu = dtpk.Value;
+            den = dtpk.Value;
         }
     }
 }

@@ -314,7 +314,6 @@ namespace JobsManagement
             resetHL();
             btnHT.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnHT.Left;
-
         }
         #endregion
 
