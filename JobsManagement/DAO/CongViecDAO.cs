@@ -138,7 +138,7 @@ namespace JobsManagement.DAO
             }
             return false;
         }
-
+        private static bool isChanged = true;
         public static void setTrangThai(string username)
         {
             string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
@@ -150,7 +150,7 @@ namespace JobsManagement.DAO
                 DateTime start = (DateTime)items[2];
                 DateTime finish = (DateTime)items[3];
         
-                if(start <= DateTime.Now && finish > DateTime.Now && items[4].ToString() != "Đã hoàn thành")
+                if(start <= DateTime.Now && finish > DateTime.Now && items[4].ToString() != "Đã hoàn thành" && items[4].ToString() != "Đang diễn ra")
                 {
                     setTT((int)items[0], username, "Đang diễn ra");
                     string cv = items[1].ToString();
@@ -158,7 +158,7 @@ namespace JobsManagement.DAO
                         cv = cv.Substring(0,20) + "...";
                     mainUI.bdcv.Text = cv;
                 }
-                else if(finish <= DateTime.Now && items[4].ToString() != "Đã hoàn thành")
+                else if(finish <= DateTime.Now && items[4].ToString() != "Đã hoàn thành" && items[4].ToString() != "Chưa hoàn thành")
                 {
                     setTT((int)items[0], username, "Chưa hoàn thành");
                     string cv = items[1].ToString();
@@ -177,9 +177,9 @@ namespace JobsManagement.DAO
                 mainUI.CoCVddr = true;
             }
             else mainUI.CoCVddr = false;
-
-            ucHome.lb.Text = string.Empty;
-            ucHome.lb.Text = "changed";
+            
+            ucHome.lb.Text = isChanged.ToString();
+            isChanged = !isChanged;
         }
         public static CongViec GetCongViecByID_Username(int id, string username)
         {
@@ -229,6 +229,11 @@ namespace JobsManagement.DAO
                 MessageBox.Show("Xoa thanh cong!");
             else
                 MessageBox.Show("Khong co cong viec da qua!");
+        }
+
+        public static DataTable GetCVbyDateRange_Status(DateTime bd, DateTime kt, string username, string tt)
+        {
+            return DAO.DataProvider.Instance.truyVanCoKetQua("exec GetCongViecByDateRange_Status @tgbd , @tgkt , @username , @tt", new object[] { bd, kt, username, tt });
         }
     }
 }

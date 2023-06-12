@@ -33,94 +33,117 @@ namespace JobsManagement.DAO
 
         public DataTable truyVanCoKetQua(string query, object[] parameter = null)
         {
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            try
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                if (parameter != null)
+                DataTable dt = new DataTable();
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
-                }
-                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                    SqlDataAdapter adt = new SqlDataAdapter(cmd);
 
-                adt.Fill(dt);
+                    adt.Fill(dt);
 
-                conn.Close();
-            }    
-            return dt;
+                    conn.Close();
+                }    
+                return dt;
+            }
+            catch
+            {
+                throw new Exception("Lỗi lấy dữ liệu!(ExecuteQuery)");
+            }
         }
 
         public bool truyVanKTraVe(string query, object[] parameter = null)
         {
-            bool kq = false;
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            try
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                if (parameter != null)
+                bool kq = false;
+                DataTable dt = new DataTable();
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
-                }
-                int k = cmd.ExecuteNonQuery();
-                if ( k > 0) kq = true;
+                    int k = cmd.ExecuteNonQuery();
+                    if ( k > 0) kq = true;
 
-                conn.Close();
+                    conn.Close();
+                }
+                return kq;
+
             }
-            return kq;
+            catch
+            {
+                throw new Exception("Lỗi lấy dữ liệu!(ExecuteNonQuery)");
+            }
         }
         
         public object truyVanCoMotKetQua(string query, object[] parameter = null)
         {
-            object kq = 0;
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            try
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                if (parameter != null)
+                object kq = 0;
+                DataTable dt = new DataTable();
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
-                }
-                kq = cmd.ExecuteScalar();
+                    kq = cmd.ExecuteScalar();
 
-                conn.Close();
+                    conn.Close();
+                }
+                return kq;
+
             }
-            return kq;
+            catch
+            {
+                throw new Exception("Lỗi lấy dữ liệu!(ExecuteScalar)");
+            }
         }
     }
 }

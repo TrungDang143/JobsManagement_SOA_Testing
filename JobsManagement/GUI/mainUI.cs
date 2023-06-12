@@ -237,14 +237,14 @@ namespace JobsManagement
             if(!string.IsNullOrEmpty(ktcv.Text) && LoginAccount.NhacNhoCV == true)
             {
                 ThongBao.ShowBalloonTip(3000, "Công việc kết thúc: ", ktcv.Text, ToolTipIcon.Info);
-            }    
+            }
         }
         private void Bdcv_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(bdcv.Text) && LoginAccount.NhacNhoCV == true)
             {
                 ThongBao.ShowBalloonTip(3000, "Công việc bắt đầu: ", bdcv.Text, ToolTipIcon.Info);
-            }    
+            }
         }
         public void setTimeThongBaoAll(int h, int m)
         {
