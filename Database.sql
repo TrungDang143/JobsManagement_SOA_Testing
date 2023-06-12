@@ -73,9 +73,10 @@ go
 
 --thêm tài khoản admin
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Admin','1111','ADMIN',N'Kỉ niệm đáng nhớ?','abc', 1)
+insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('Ad','1111','AD',N'Kỉ niệm đáng nhớ?','abc', 1)
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('trungdang','1403','TrungDang',N'Kỉ niệm đáng nhớ?','abcd', 0)
 insert into TaiKhoan(tenDangNhap, matKhau, tenHienThi, cauhoi, traLoi, isAD) values('tridinh','0000','Tri',N'Kỉ niệm đáng nhớ?','xyzt', 0)
-
+go
 
 -----------------------Hàm và thủ tục--------------
 
@@ -95,9 +96,9 @@ go
 create proc GetSoCVbyTimeRange(@username varchar(20), @startDate datetime, @endDate datetime) as
 begin
 	select COUNT(*) from CongViec 
-	WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+	WHERE tenDangNhap = @username and ((CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
 	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
-	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate))))
 end
 go
 
@@ -106,12 +107,12 @@ create proc GetSoCVbyTTandTimeRange(@tt nvarchar(20), @username varchar(20), @st
 begin
 	select COUNT(*) from CongViec 
 	where trangThai = @tt and tenDangNhap = @username
-	and ((CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+	and (((CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
 	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
-	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate))))
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))))
 end
 go
-drop proc GetSoCVbyTTandTimeRange
+
 --Doi trang thai cong viec
 create proc DoiTrangThai (@id int, @username varchar(20), @tt nvarchar(20)) as
 begin
@@ -206,15 +207,6 @@ begin
 end
 go
 
---sua cong viec
-create proc ChangeJob (@id int, @idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
-begin
-	if(@idLap = 0)
-		update CongViec set noiDungCV = @noiDungCV, tgBD = @tgBD, tgKT = @tgKT, trangThai = @trangThai, lapLaiT2 =  @t2, lapLaiT3 =  @t3, lapLaiT4 =  @t4, lapLaiT5 =  @t5, lapLaiT6 =  @t6, lapLaiT7 =  @t7, lapLaiCN =  @cn where tenDangNhap = @tenDangNhap and id = @id
-	else update CongViec set noiDungCV = @noiDungCV, tgBD = @tgBD, tgKT = @tgKT, trangThai = @trangThai, lapLaiT2 =  @t2, lapLaiT3 =  @t3, lapLaiT4 =  @t4, lapLaiT5 =  @t5, lapLaiT6 =  @t6, lapLaiT7 =  @t7, lapLaiCN =  @cn where tenDangNhap = @tenDangNhap and idlap = @idLap
-end
-go
-
 --lay cong viec theo khoảng
 CREATE PROCEDURE GetCongViecByDateRange
     @startDate datetime,
@@ -225,10 +217,10 @@ BEGIN
 
     SELECT id, noiDungCV as N'Nội dung công việc', tgBD as N'Bắt đầu', tgKT as N'Kết thúc', trangThai as N'Trạng thái'
     FROM congviec
-    WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+    WHERE tenDangNhap = @username and ((CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
 	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
-	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
-	and tenDangNhap = @username
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate))))
+	 
 END
 go
 
@@ -255,23 +247,6 @@ begin
 	set @isLap = (select idLap from CongViec where id = @id and tenDangNhap = @username)
 	return @isLap
 end
-go
-
---thay doi cong viec
-create proc ChangeJob (@truongHop int, @id int, @idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
-begin
-	if(@truongHop = 1)
-		exec ChangeJob_KLap_KLap @id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
-	else if(@truongHop = 2)
-		exec ChangeJob_Lap_Lap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
-	else if(@truongHop = 3)
-		exec ChangeJob_KLap_Lap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
-	else if(@truongHop = 4)
-		exec ChangeJob_Lap_KLap @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
-	else
-		exec ChangeJob_Lap_newLap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
-end
-drop proc ChangeJob
 go
 
 --giữ nguyên trạng thái lặp: k lăp - k lap
@@ -318,50 +293,19 @@ begin
 end
 go
 
---lấy thống kê công việc chưa hoàn thành
-create proc chuaHT(
-	@userName varchar(20)
-)
-as
-begin 
-	select noiDungCV from CongViec	
-	where trangThai = N'Chưa hoàn thành'
-	and tenDangNhap = @userName
-end
-go
-
---đếm số lượng công việc chưa hoàn thành
-create proc countChuaHT(
-	@userName varchar(20)
-)
-as
-begin 
-	select COUNT(*) from CongViec	
-	where trangThai = N'Chưa hoàn thành'
-	and tenDangNhap = @userName
-end
-go
-
---lấy thống kê công việc đã hoàn thành 
-create proc daHT(
-	@userName varchar(20)
-)
-as
-begin 
-	select noiDungCV from CongViec	
-	where trangThai = N'Đã hoàn thành'
-	and tenDangNhap = @userName
-end
-go
---đếm số lương công việc đã hoàn thành
-create proc countDaHT(
-	@userName varchar(20)
-)
-as
-begin 
-	select COUNT(*) from CongViec	
-	where trangThai = N'Đã hoàn thành'
-	and tenDangNhap = @userName
+--thay doi cong viec
+create proc ChangeJob (@truongHop int, @id int, @idLap int, @noiDungCV nvarchar(50), @tgBD datetime, @tgKT datetime, @trangThai nvarchar(20), @t2 bit, @t3 bit, @t4 bit, @t5 bit, @t6 bit, @t7 bit, @cn bit, @tenDangNhap varchar(20)) as
+begin
+	if(@truongHop = 1)
+		exec ChangeJob_KLap_KLap @id, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else if(@truongHop = 2)
+		exec ChangeJob_Lap_Lap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else if(@truongHop = 3)
+		exec ChangeJob_KLap_Lap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else if(@truongHop = 4)
+		exec ChangeJob_Lap_KLap @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
+	else
+		exec ChangeJob_Lap_newLap @idLap, @noiDungCV, @tgBD, @tgKT, @trangThai, @t2, @t3, @t4, @t5, @t6, @t7, @cn, @tenDangNhap
 end
 go
 
@@ -391,57 +335,23 @@ begin
 end
 go
 
---lấy nội dung thống kê chưa hoàn thành công việc theo ngày
-CREATE PROCEDURE GetNoiDungChuaHTByDateRange
-    @startDate DATE,
-    @endDate DATE,
-	@username varchar(20)
+--lay cong viec theo trang thai
+CREATE PROCEDURE GetCongViecByDateRange_Status
+    @startDate datetime,
+    @endDate datetime,
+	@username varchar(20),
+	@tt nvarchar(20)
 AS
 BEGIN
 
-    SELECT noiDungCV 
+    SELECT noiDungCV as N'Nội dung công việc'
     FROM congviec
-    WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
+    WHERE tenDangNhap = @username and trangThai = @tt and ((CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
 	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
-	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
-	and tenDangNhap = @username
-	and trangThai = N'Chưa hoàn thành'
+	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate))))
+	 
 END
 go
-
-<<<<<<< HEAD
---lấy nội dung thống kê đã hoàn thành công việc theo ngày
-CREATE PROCEDURE GetNoiDungDaHTByDateRange
-    @startDate DATE,
-    @endDate DATE,
-=======
-
---Cong viec da hoan thanh
-CREATE PROCEDURE cvdaHT
->>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb
-	@username varchar(20)
-AS
-BEGIN
-
-<<<<<<< HEAD
-    SELECT noiDungCV 
-    FROM congviec
-    WHERE (CONVERT(DATE, tgBD) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgBD) <= CONVERT(DATE, @endDate))
-	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) >= CONVERT(DATE, @endDate))
-	or (CONVERT(DATE, tgBD) <= CONVERT(DATE, @startDate) AND (CONVERT(DATE, tgKT) >= CONVERT(DATE, @startDate) AND CONVERT(DATE, tgKT) <= CONVERT(DATE, @endDate)))
-	and tenDangNhap = @username
-	and trangThai = N'Đã hoàn thành'
-END
-
-
-=======
-    SELECT count(*)
-    FROM congviec
-    WHERE trangThai = N'Đã hoàn thành'
-	and tenDangNhap = @username
-END
-go
-
 
 --xoa cong viec da qua
 create proc XoaCongViecDaQua (@username varchar(20)) as
@@ -458,4 +368,3 @@ begin
 end 
 go 
 
->>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb

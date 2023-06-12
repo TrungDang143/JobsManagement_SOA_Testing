@@ -37,6 +37,11 @@ namespace JobsManagement
             InitializeComponent();
             this.LoginAccount = loginAcc;
 
+            lb.Text = string.Empty;
+            lb.TextChanged += Lb_TextChanged;
+            
+            tu = dtpk.Value;
+            den = dtpk.Value;
         }
 
         private void Lb_TextChanged(object sender, EventArgs e)
@@ -51,8 +56,7 @@ namespace JobsManagement
 
             btnAll.BackColor = Color.FromArgb(37, 42, 64);
             loadCV(tu, den, filter);
-
-            lb.TextChanged += Lb_TextChanged;
+            
             CongViecDAO.setTrangThai(LoginAccount.TenDN);
         }
 
@@ -61,15 +65,6 @@ namespace JobsManagement
             string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
             duLieu = DataProvider.Instance.truyVanCoKetQua(query, new object[] { bd, kt, LoginAccount.TenDN });
             dgv.DataSource = duLieu;
-
-            //dtpk.Format = DateTimePickerFormat.Custom;
-            //dtpk.CustomFormat = "dddd - dd , MM , yyyy";
-
-            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgv.DefaultCellStyle.BackColor = Color.White;
-            dgv.DefaultCellStyle.ForeColor = Color.Black;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
-            dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
             dgv.Columns[0].Visible = false;
             dgv.Columns[1].Width = 452;
@@ -97,7 +92,6 @@ namespace JobsManagement
                 lbNull.Visible = true;
                 lbNull.Text = $"Không có công việc!\n{dtpk.Value.ToString("dd - MM - yyyy")}";
                 lbNull.Location = new Point(dgv.Width / 2 - lbNull.Width / 2, dgv.Height / 2 - lbNull.Height / 2);
-
             }
             else { lbNull.Visible = false; }
         }
@@ -330,9 +324,6 @@ namespace JobsManagement
             resetHL();
             btnHT.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnHT.Left;
-<<<<<<< HEAD
-=======
-
             string tb = "Bạn muốn đánh dấu \"Hoàn thành\" công việc này?";
             try
             {
@@ -353,8 +344,6 @@ namespace JobsManagement
             {
                 MessageBox.Show(ex.Message, "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
->>>>>>> e0843331171488d70e2e02c0b776053ff6048fbb
         }
         #endregion
 
