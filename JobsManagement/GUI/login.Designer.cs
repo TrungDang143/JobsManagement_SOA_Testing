@@ -145,7 +145,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(496, 57);
+            this.panel1.Size = new System.Drawing.Size(496, 77);
             this.panel1.TabIndex = 12;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
@@ -276,6 +276,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 19;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // label1
             // 
@@ -310,9 +311,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(496, 582);
-            this.Controls.Add(this.lbSaiThongTin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.lbSaiThongTin);
             this.Controls.Add(this.HLtk);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);

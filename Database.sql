@@ -368,3 +368,21 @@ begin
 end 
 go 
 
+--backup
+create proc backupCV( @username varchar(20)) as
+begin
+	drop table if EXISTS BackupCongViec
+	select * into BackupCongViec from CongViec where tenDangNhap = @username
+end
+go
+
+--restore
+create proc restoreCV( @username varchar(20)) as
+begin
+	delete from CongViec where tenDangNhap = @username;
+	SET IDENTITY_INSERT CongViec ON;
+	INSERT INTO CongViec(id, idLap, noiDungCV, tgBD, tgKT, trangThai, lapLaiT2, lapLaiT3, lapLaiT4, lapLaiT5, lapLaiT6, lapLaiT7, lapLaiCN, tenDangNhap)
+	SELECT id, idLap, noiDungCV, tgBD, tgKT, trangThai, lapLaiT2, lapLaiT3, lapLaiT4, lapLaiT5, lapLaiT6, lapLaiT7, lapLaiCN, tenDangNhap FROM BackupCongViec;
+	SET IDENTITY_INSERT CongViec OFF;
+end
+go

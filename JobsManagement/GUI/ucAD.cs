@@ -18,13 +18,6 @@ namespace JobsManagement.GUI
     {
         private TaiKhoan loginAccount;
 
-        public TaiKhoan LoginAccount
-        {
-            get { return loginAccount; }
-            private set { loginAccount = value; }
-        }
-
-
         public ucAD()
         {
             InitializeComponent();
@@ -35,7 +28,11 @@ namespace JobsManagement.GUI
 
         private void btnAD_Click(object sender, EventArgs e)
         {
-
+            if(loginAccount == null)
+            {
+                MessageBox.Show("Hãy chọn 01 tài khoản!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }    
             fThongTinUser fThongTinUser = new fThongTinUser(loginAccount);
 
             fThongTinUser.ShowDialog();
@@ -49,8 +46,6 @@ namespace JobsManagement.GUI
             string sql = "select tenDangNhap,tenHienThi from TaiKhoan where isAD = 0"; 
             dgvAdmin.DataSource = DataProvider.Instance.truyVanCoKetQua(sql); 
         }
-
-  
 
         private void dgvAdmin_CellClick(object sender, DataGridViewCellEventArgs e)
         {

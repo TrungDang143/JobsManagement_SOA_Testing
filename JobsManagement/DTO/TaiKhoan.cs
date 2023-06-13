@@ -22,7 +22,7 @@ namespace JobsManagement.DTO
         private bool nhacNhoCV = true;
         private int hNN;
         private int mNN;
-        private float doChamChi;
+        private double doChamChi;
 
         bool isAD = false;
         public TaiKhoan(DataRow row)
@@ -44,6 +44,7 @@ namespace JobsManagement.DTO
             {
                 DoChamChi = (float)soCVHT / soCV;
             }
+            DoChamChi = Math.Round(DoChamChi, 2);
 
             if (row["khoiDong"].ToString() == "True")
             {
@@ -83,6 +84,6 @@ namespace JobsManagement.DTO
         public string Mk { get => mk; set => mk = value; }
         public string CauHoi { get => cauHoi; set => cauHoi = value; }
         public string TraLoi { get => traLoi; set => traLoi = value; }
-        public float DoChamChi { get => doChamChi; set => doChamChi = value; }
+        public double DoChamChi { get => doChamChi; set => doChamChi = value; }
     }
 }
