@@ -228,6 +228,7 @@ namespace JobsManagement
         #region taskbar
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            CongViecDAO.backup(LoginAccount.TenDN);
             resetHL();
             btnAdd.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnAdd.Left;
@@ -247,6 +248,7 @@ namespace JobsManagement
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
+            CongViecDAO.backup(LoginAccount.TenDN);
             resetHL();
             btnSua.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnSua.Left;
@@ -280,6 +282,7 @@ namespace JobsManagement
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            CongViecDAO.backup(LoginAccount.TenDN);
             resetHL();
             btnXoa.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnXoa.Left;
@@ -317,10 +320,14 @@ namespace JobsManagement
             resetHL();
             btnRollBack.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnRollBack.Left;
+            CongViecDAO.restore(LoginAccount.TenDN);
+            loadCV(tu, den, filter);
+            resetSelect();
         }
 
         private void btnHT_Click(object sender, EventArgs e)
         {
+            CongViecDAO.backup(LoginAccount.TenDN);
             resetHL();
             btnHT.BackColor = Color.FromArgb(46, 51, 73);
             plHL.Left = btnHT.Left;

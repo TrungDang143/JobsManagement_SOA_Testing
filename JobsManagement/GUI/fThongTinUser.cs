@@ -68,12 +68,12 @@ namespace JobsManagement.GUI
                 lbCanhBao.Visible = true;
                 btnXoaTK.Text = string.Empty;
                 btnXoaTK.Enabled = false;
-                for( int i = 9; i >= 0; i-- )
+                for( int i = 5; i >= 0; i-- )
                 {
                     btnXoaTK.Text = string.Format("Xác nhận ({0})", i);
                     Task.Delay(1000).Wait();
                 }
-                btnXoaTK.Text = "Xác nhận";
+                btnXoaTK.Text = "Xác nhận xoá";
                 btnXoaTK.Enabled = true;
                 isXacNhan = true;
             }
