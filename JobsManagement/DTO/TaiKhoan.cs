@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace JobsManagement.DTO
 {
@@ -33,18 +34,7 @@ namespace JobsManagement.DTO
             this.CauHoi = row["cauhoi"].ToString();
             this.TraLoi = row["traLoi"].ToString();
 
-            int soCV = (int)DataProvider.Instance.truyVanCoMotKetQua("select count(*) from CongViec where tenDangNhap = @userName ", new object[] { tenDN });
-            int soCVHT = (int)DataProvider.Instance.truyVanCoMotKetQua("exec cvdaHT @userName ", new object[] { tenDN });
-
-            if(soCVHT == 0)
-            {
-                DoChamChi = -1;
-            }
-            else
-            {
-                DoChamChi = (float)soCVHT / soCV;
-            }
-            DoChamChi = Math.Round(DoChamChi, 2);
+            DoChamChi = TaiKhoanDAO.getDCC(TenDN);
 
             if (row["khoiDong"].ToString() == "True")
             {

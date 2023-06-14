@@ -101,12 +101,14 @@ namespace JobsManagement
             {
                 picCheck.Image = Properties.Resources.icons8_multiply_50;
                 isCorrect = false;
+                lbCHBM.Visible = false;
             }
             else
             {
                 TaiKhoan llmk = new TaiKhoan(dt.Rows[0]);
                 LoginAccount = llmk;
                 picCheck.Image = Properties.Resources.icons8_tick_501;
+                lbCHBM.Visible=true;
                 lbCHBM.Text = LoginAccount.CauHoi.ToString();
                 isCorrect = true;
             }

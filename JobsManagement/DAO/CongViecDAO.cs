@@ -140,6 +140,7 @@ namespace JobsManagement.DAO
             }
             return false;
         }
+
         private static bool isChanged = true;
         public static void setTrangThai(string username)
         {
@@ -183,6 +184,7 @@ namespace JobsManagement.DAO
             ucHome.lb.Text = isChanged.ToString();
             isChanged = !isChanged;
         }
+        
         public static CongViec GetCongViecByID_Username(int id, string username)
         {
             DataTable dt = DAO.DataProvider.Instance.truyVanCoKetQua("exec GetCongViecByID_Username @id , @username", new object[] { id, username });
@@ -214,23 +216,14 @@ namespace JobsManagement.DAO
         {
             DAO.DataProvider.Instance.truyVanKTraVe("exec DoiTrangThai @id , @username , @tt", new object[] { id, username, tt });
         }
-        public static void XoaTatCaCongViec(string username)
+        public static bool XoaTatCaCongViec(string username)
         {
-            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec XoaTatCaCongViec @username ", new object[] {username} );
-			MessageBox.Show("Xóa tất cả công việc ","Thông báo");
-//			if ( kq )
-//           {
-//				MessageBox.Show();
-//			}
+            return DAO.DataProvider.Instance.truyVanKTraVe("exec XoaTatCaCongViec @username ", new object[] { username });
         }
 
-        public static void XoaCongViecDaQua(string username)
+        public static bool XoaCongViecDaQua(string username)
         {
-            bool kq = DAO.DataProvider.Instance.truyVanKTraVe("exec XoaCongViecDaQua @username", new object[] { username });
-            if (kq == true)
-                MessageBox.Show("Xoa thanh cong!");
-            else
-                MessageBox.Show("Khong co cong viec da qua!");
+            return DAO.DataProvider.Instance.truyVanKTraVe("exec XoaCongViecDaQua @username", new object[] { username });
         }
 
         public static DataTable GetCVbyDateRange_Status(DateTime bd, DateTime kt, string username, string tt)
@@ -238,8 +231,8 @@ namespace JobsManagement.DAO
             return DAO.DataProvider.Instance.truyVanCoKetQua("exec GetCongViecByDateRange_Status @tgbd , @tgkt , @username , @tt", new object[] { bd, kt, username, tt });
         }
 
+        #region backup restore
         static string backupPath = AppDomain.CurrentDomain.BaseDirectory + "backupCV.bak";
-
         public static void backup(string username)
         {
             string backupQuery = "exec backupCV @username";
@@ -250,5 +243,6 @@ namespace JobsManagement.DAO
             string restoreQuery = "exec restoreCV @username";
             DAO.DataProvider.Instance.truyVanKTraVe(restoreQuery, new object[] { username });
         }
+        #endregion
     }
 }

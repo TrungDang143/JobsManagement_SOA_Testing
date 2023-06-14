@@ -108,7 +108,6 @@
             this.pnlAll.Name = "pnlAll";
             this.pnlAll.Size = new System.Drawing.Size(793, 1095);
             this.pnlAll.TabIndex = 0;
-            this.pnlAll.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAll_Paint);
             // 
             // label4
             // 
@@ -792,7 +791,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucSetting";
             this.Size = new System.Drawing.Size(820, 1112);
-            this.Load += new System.EventHandler(this.ucSetting_Load);
             this.pnlAll.ResumeLayout(false);
             this.pnlAll.PerformLayout();
             this.pnlAbout.ResumeLayout(false);

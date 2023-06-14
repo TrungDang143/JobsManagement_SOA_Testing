@@ -62,6 +62,8 @@ namespace JobsManagement
 
         private void loadCV(DateTime bd, DateTime kt, int fil)
         {
+            TaiKhoanDAO.setDCC(LoginAccount);
+
             string query = "exec GetCongViecByDateRange @tgbd , @tgkt , @username";
             duLieu = DataProvider.Instance.truyVanCoKetQua(query, new object[] { bd, kt, LoginAccount.TenDN });
             dgv.DataSource = duLieu;

@@ -26,13 +26,6 @@ namespace JobsManagement
             CauHoiBaoMatDAO.loadCHBM(cbb);
         }
 
-        private TaiKhoan loginAccount;
-
-        public TaiKhoan LoginAccount
-        {
-            get { return loginAccount; }
-            private set { loginAccount = value; }
-        }
         #region title bar
 
         private void icoMinus_Click(object sender, EventArgs e)
@@ -130,16 +123,44 @@ namespace JobsManagement
             txbXNMK.UseSystemPasswordChar = !txbXNMK.UseSystemPasswordChar;
         }
 
-
+        private bool isCorrect = false;
         private void txbTK_TextChanged(object sender, EventArgs e)
         {
             if(txbTK.Text.Length == 19)
             {
+                lbGioiHanTK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
+                lbGioiHanTK.ForeColor = Color.White;
                 lbGioiHanTK.Visible = true;
             }
             else
             {
                 lbGioiHanTK.Visible = false;
+            }
+
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt = DataProvider.Instance.truyVanCoKetQua("exec GetTTTK @username", new object[] { txbTK.Text });
+
+            if (string.IsNullOrEmpty(txbTK.Text))
+            {
+                picCheck.Visible = false; 
+            }
+            else picCheck.Visible = true;
+
+            if (dt.Rows.Count != 0)
+            {
+                picCheck.Image = Properties.Resources.icons8_multiply_50;
+                isCorrect = false;
+
+                lbGioiHanTK.Visible = true;
+                lbGioiHanTK.Text = "Tên tài khoản đã tồn tại!";
+                lbGioiHanTK.ForeColor = Color.OrangeRed;
+            }
+            else
+            {
+                picCheck.Image = Properties.Resources.icons8_tick_501;
+                lbGioiHanTK.Visible = false;
+                isCorrect = true;
             }
         }
 
@@ -191,116 +212,41 @@ namespace JobsManagement
             }
         }
         #endregion
-
-        /*
-        public bool KiemTraThongTin()
-        {
-
-            if (txbTK.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập tài khoản", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txbTK.Focus();
-                return false;
-            }
-            else if (txbTen.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập tên hiển thị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txbTen.Focus();
-                return false;
-            }
-            else if (txbMK.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txbMK.Focus();
-                return false;
-            }
-            else if(cbb.SelectedIndex < 0)
-            {
-                MessageBox.Show("Vui lòng chọn câu hỏi bảo mật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cbb.Focus();
-                return false;
-            }    
-            else if (txbTraLoi.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập câu trả lời", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txbTraLoi.Focus();
-                return false;
-            }
-            return true;
-        }
-        */
+   
         private void btnTaoTK_Click(object sender, EventArgs e)
         {
-            /*
-            if (!KiemTraThongTin()) return;
-            
-            if (TaiKhoanDAO.Instance.DKTK(txbTK.Text, txbMK.Text, txbTen.Text, cbb.SelectedItem.ToString(), txbTraLoi.Text))
+            if(isCorrect)
             {
-                MessageBox.Show("dk thanh cong");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("dk k thanh cong, xem lai thong tin");
+                string userName = txbTK.Text;
+                string passWord = txbMK.Text;
+                string passWord1 = txbXNMK.Text;
+                string displayName = txbTen.Text;
+                string question = "";
+                string answer = txbTraLoi.Text;
+                if(cbb.SelectedItem != null)
+                {
+                    question = cbb.SelectedItem.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các thông tin!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-            }
-            */
-            string userName = txbTK.Text;
-            string passWord = txbMK.Text;
-            string passWord1 = txbXNMK.Text;
-            string displayName = txbTen.Text;
-            string question = "";
-            string answer = txbTraLoi.Text;
-            if(cbb.SelectedItem != null)
-            {
-                question = cbb.SelectedItem.ToString();
-            }
-            else
-            {
-                //
-            }
-            if (signUp(userName, passWord, passWord1, displayName, question, answer))
-              { 
-                MessageBox.Show("Đăng kí thành công");
+                if (signUp(userName, passWord, passWord1, displayName, question, answer))
+                  { 
+                    MessageBox.Show("Đăng kí thành công!", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ các thông tin!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-                this.Close();
-
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng điền đầy đủ các thông tin");
-            }
-
-            bool signUp(string tenDN, string MK, string MK1, string tenHT, string cauHoi, string traLoi)
-            {
-                return TaiKhoanDAO.Instance.signUp(tenDN, MK, MK1, tenHT, cauHoi, traLoi);
-            }
-            //if (KiemTraThongTin())
-            //{
-            //    try
-            //    {
-            //        SqlConnection conn = new SqlConnection();
-            //        conn.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=JobsManagement;Integrated Security=True";
-            //        SqlCommand cmd = new SqlCommand();
-
-            //        cmd.CommandText = "SP_ThemTaiKhoan";
-            //        cmd.CommandType = CommandType.StoredProcedure;
-            //        cmd.Parameters.Add("@TaiKhoan", SqlDbType.NVarChar).Value = txbTK.Text;
-            //        cmd.Parameters.Add("@TenHienThi", SqlDbType.NVarChar).Value = txbTen.Text;
-            //        cmd.Parameters.Add("@MatKhau", SqlDbType.NVarChar).Value = txbMK.Text;
-            //        cmd.Parameters.Add("@CauHoiBaoMat", SqlDbType.NVarChar).Value = txbTraLoi.Text;
-
-            //        cmd.Connection = conn;
-            //        conn.Open();
-            //        cmd.ExecuteNonQuery();
-            //        conn.Close();
-            //        MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-            //}
+                bool signUp(string tenDN, string MK, string MK1, string tenHT, string cauHoi, string traLoi)
+                {
+                    return TaiKhoanDAO.Instance.signUp(tenDN, MK, MK1, tenHT, cauHoi, traLoi);
+                }
+            }  
         }
     }
 }

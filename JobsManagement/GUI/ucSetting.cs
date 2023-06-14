@@ -195,24 +195,24 @@ namespace JobsManagement.GUI
         }
         #endregion
 
-        private void pnlAll_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ucSetting_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            CongViecDAO.XoaCongViecDaQua(loginAccount.TenDN);
+            if (MessageBox.Show("Bạn sẽ xoá tất cả công việc đã qua?\n(Đã hoàn thành và chưa hoàn thành)", "Lưu ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                if (CongViecDAO.XoaCongViecDaQua(loginAccount.TenDN))
+                    MessageBox.Show("Xoá công việc đã qua thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else MessageBox.Show("Lỗi xoá công việc đã qua!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CongViecDAO.XoaTatCaCongViec(loginAccount.TenDN);
+            if (MessageBox.Show("Bạn sẽ xoá tất cả công việc?", "Lưu ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                if (CongViecDAO.XoaTatCaCongViec(loginAccount.TenDN))
+                    MessageBox.Show("Xoá tất cả công việc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else MessageBox.Show("Lỗi xoá công việc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

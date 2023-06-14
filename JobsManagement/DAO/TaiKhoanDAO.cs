@@ -62,8 +62,7 @@ namespace JobsManagement.DAO
             else
             {
                 string query = "exec DangKy_1 @tenDN , @MK , @tenHT , @cauHoi , @traLoi ";
-                DataProvider.Instance.truyVanKTraVe(query, new object[] { tenDN, MK, tenHT, cauHoi, traLoi });
-                return true;
+                return DataProvider.Instance.truyVanKTraVe(query, new object[] { tenDN, MK, tenHT, cauHoi, traLoi });
             }
         }
 
@@ -167,8 +166,17 @@ namespace JobsManagement.DAO
                     regstart.DeleteValue("JobsManagement");
                 }
                 catch { }
-            }
-                
+            }    
+        }
+        public static double getDCC(string loginName)
+        {
+            double DoChamChi = (double)DAO.DataProvider.Instance.truyVanCoMotKetQua("select dbo.DoChamChi( @username )", new object[] { loginName });
+            DoChamChi = Math.Round(DoChamChi, 2);
+            return DoChamChi;
+        }
+        public static void setDCC(TaiKhoan loginAcc)
+        {
+            loginAcc.DoChamChi = getDCC(loginAcc.TenDN);
         }
     }
 }

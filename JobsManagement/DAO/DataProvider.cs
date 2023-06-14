@@ -138,7 +138,6 @@ namespace JobsManagement.DAO
                     conn.Close();
                 }
                 return kq;
-
             }
             catch
             {

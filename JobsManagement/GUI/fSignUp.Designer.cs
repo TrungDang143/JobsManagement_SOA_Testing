@@ -66,6 +66,7 @@
             this.lbGioiHanTHT = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txbTK = new System.Windows.Forms.TextBox();
+            this.picCheck = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icoMinus)).BeginInit();
@@ -77,6 +78,7 @@
             this.panel14.SuspendLayout();
             this.pnlDK.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -407,6 +409,7 @@
             // 
             // pnlDK
             // 
+            this.pnlDK.Controls.Add(this.picCheck);
             this.pnlDK.Controls.Add(this.lbGioiHanXNMK);
             this.pnlDK.Controls.Add(this.lbGioiHanTK);
             this.pnlDK.Controls.Add(this.lbGioiHanMK);
@@ -436,11 +439,11 @@
             // lbGioiHanXNMK
             // 
             this.lbGioiHanXNMK.AutoSize = true;
-            this.lbGioiHanXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanXNMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbGioiHanXNMK.ForeColor = System.Drawing.Color.White;
             this.lbGioiHanXNMK.Location = new System.Drawing.Point(28, 338);
             this.lbGioiHanXNMK.Name = "lbGioiHanXNMK";
-            this.lbGioiHanXNMK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanXNMK.Size = new System.Drawing.Size(367, 18);
             this.lbGioiHanXNMK.TabIndex = 47;
             this.lbGioiHanXNMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
             this.lbGioiHanXNMK.Visible = false;
@@ -448,11 +451,11 @@
             // lbGioiHanTK
             // 
             this.lbGioiHanTK.AutoSize = true;
-            this.lbGioiHanTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbGioiHanTK.ForeColor = System.Drawing.Color.White;
             this.lbGioiHanTK.Location = new System.Drawing.Point(28, 87);
             this.lbGioiHanTK.Name = "lbGioiHanTK";
-            this.lbGioiHanTK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTK.Size = new System.Drawing.Size(367, 18);
             this.lbGioiHanTK.TabIndex = 48;
             this.lbGioiHanTK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
             this.lbGioiHanTK.Visible = false;
@@ -460,11 +463,11 @@
             // lbGioiHanMK
             // 
             this.lbGioiHanMK.AutoSize = true;
-            this.lbGioiHanMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbGioiHanMK.ForeColor = System.Drawing.Color.White;
             this.lbGioiHanMK.Location = new System.Drawing.Point(28, 216);
             this.lbGioiHanMK.Name = "lbGioiHanMK";
-            this.lbGioiHanMK.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanMK.Size = new System.Drawing.Size(367, 18);
             this.lbGioiHanMK.TabIndex = 48;
             this.lbGioiHanMK.Text = "Không quá 20 kí tự và không chứa kí tự đặc biệt!";
             this.lbGioiHanMK.Visible = false;
@@ -472,11 +475,11 @@
             // lbGioiHanTL
             // 
             this.lbGioiHanTL.AutoSize = true;
-            this.lbGioiHanTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbGioiHanTL.ForeColor = System.Drawing.Color.White;
             this.lbGioiHanTL.Location = new System.Drawing.Point(496, 338);
             this.lbGioiHanTL.Name = "lbGioiHanTL";
-            this.lbGioiHanTL.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTL.Size = new System.Drawing.Size(367, 18);
             this.lbGioiHanTL.TabIndex = 49;
             this.lbGioiHanTL.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
             this.lbGioiHanTL.Visible = false;
@@ -484,11 +487,11 @@
             // lbGioiHanTHT
             // 
             this.lbGioiHanTHT.AutoSize = true;
-            this.lbGioiHanTHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGioiHanTHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbGioiHanTHT.ForeColor = System.Drawing.Color.White;
             this.lbGioiHanTHT.Location = new System.Drawing.Point(496, 87);
             this.lbGioiHanTHT.Name = "lbGioiHanTHT";
-            this.lbGioiHanTHT.Size = new System.Drawing.Size(319, 18);
+            this.lbGioiHanTHT.Size = new System.Drawing.Size(367, 18);
             this.lbGioiHanTHT.TabIndex = 49;
             this.lbGioiHanTHT.Text = "Không quá 30 kí tự và không chứa kí tự đặc biệt!";
             this.lbGioiHanTHT.Visible = false;
@@ -517,6 +520,17 @@
             this.txbTK.WordWrap = false;
             this.txbTK.Click += new System.EventHandler(this.txbTK_Click);
             this.txbTK.TextChanged += new System.EventHandler(this.txbTK_TextChanged);
+            // 
+            // picCheck
+            // 
+            this.picCheck.Image = global::JobsManagement.Properties.Resources.icons8_tick_50;
+            this.picCheck.Location = new System.Drawing.Point(416, 38);
+            this.picCheck.Name = "picCheck";
+            this.picCheck.Size = new System.Drawing.Size(45, 45);
+            this.picCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCheck.TabIndex = 50;
+            this.picCheck.TabStop = false;
+            this.picCheck.Visible = false;
             // 
             // fSignUp
             // 
@@ -555,6 +569,7 @@
             this.pnlDK.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheck)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -598,5 +613,6 @@
         private System.Windows.Forms.Label lbGioiHanMK;
         private System.Windows.Forms.Label lbGioiHanTL;
         private System.Windows.Forms.Label lbGioiHanTHT;
+        private System.Windows.Forms.PictureBox picCheck;
     }
 }

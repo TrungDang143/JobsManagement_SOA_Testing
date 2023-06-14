@@ -1,0 +1,3 @@
+- Trước khi cài đặt, đảm bảo bạn đã có SQL Server
+- Dùng SQL Server để Execute file Database.sql
+- Sau đó chạy file JobsManagement.msi để cài đặt phần mềm 
