@@ -85,7 +85,7 @@ begin
 	declare @id int
 	set @id = (select top(1) idLap from CongViec where tenDangNhap = @userName order by idLap desc) 
 	set @id = @id+1
-	if (@id is null) set @id = 0
+	if (@id is null) set @id = 1
 	return @id
 end
 go
