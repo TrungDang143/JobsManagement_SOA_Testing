@@ -110,6 +110,7 @@ namespace JobsManagement
             pnlHighLight2.Visible = false;
             pnlHighLight3.Visible = false;
             pnlHighLight4.Visible = false;
+            pnlHighLight5.Visible = false;
             btnHome.BackColor = System.Drawing.Color.FromArgb(33, 35, 69);
             btnCalendar.BackColor = System.Drawing.Color.FromArgb(33, 35, 69);
             btnTK.BackColor = System.Drawing.Color.FromArgb(33, 35, 69);
@@ -345,5 +346,30 @@ namespace JobsManagement
         }
         #endregion
 
+        private void btnSOA_MouseEnter(object sender, EventArgs e)
+        {
+            pnlHighLight5.Visible = true;
+        }
+
+        private void btnSOA_MouseLeave(object sender, EventArgs e)
+        {
+            if (string.Compare(lbTitle.Text, "Kiểm thử SOA", true) != 0)
+            {
+                pnlHighLight5.Visible = false;
+                btnSOA.BackColor = Color.FromArgb(33, 35, 69);
+            }
+        }
+
+        private void btnSOA_Click(object sender, EventArgs e)
+        {
+            resetSelect();
+            pnlHighLight5.Visible = true;
+
+            ucSOA newUC = new ucSOA(loginAccount);
+            pnlContent.Controls.Add(newUC);
+
+            btnSOA.BackColor = Color.FromArgb(63, 68, 97);
+            lbTitle.Text = "Kiểm thử SOA";
+        }
     }
 }

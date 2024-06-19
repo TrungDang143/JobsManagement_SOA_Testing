@@ -51,6 +51,8 @@
             this.tmThongBaoAll = new System.Windows.Forms.Timer(this.components);
             this.ThongBao = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnSOA = new System.Windows.Forms.Button();
+            this.pnlHighLight5 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,12 +64,14 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
+            this.pnlMenu.Controls.Add(this.pnlHighLight5);
             this.pnlMenu.Controls.Add(this.dongHo);
             this.pnlMenu.Controls.Add(this.pnlHighLight4);
             this.pnlMenu.Controls.Add(this.pnlHighLight3);
             this.pnlMenu.Controls.Add(this.pnlHighLight2);
             this.pnlMenu.Controls.Add(this.pnlHighLight1);
             this.pnlMenu.Controls.Add(this.btnSetting);
+            this.pnlMenu.Controls.Add(this.btnSOA);
             this.pnlMenu.Controls.Add(this.btnTK);
             this.pnlMenu.Controls.Add(this.btnCalendar);
             this.pnlMenu.Controls.Add(this.btnHome);
@@ -307,7 +311,6 @@
             // 
             // tmThongBaoAll
             // 
-            this.tmThongBaoAll.Enabled = true;
             this.tmThongBaoAll.Interval = 10000;
             this.tmThongBaoAll.Tick += new System.EventHandler(this.tmThongBaoAll_Tick);
             // 
@@ -323,6 +326,37 @@
             this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            // 
+            // btnSOA
+            // 
+            this.btnSOA.FlatAppearance.BorderSize = 0;
+            this.btnSOA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.btnSOA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(68)))), ((int)(((byte)(97)))));
+            this.btnSOA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSOA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnSOA.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSOA.Location = new System.Drawing.Point(5, 501);
+            this.btnSOA.Name = "btnSOA";
+            this.btnSOA.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnSOA.Size = new System.Drawing.Size(248, 68);
+            this.btnSOA.TabIndex = 2;
+            this.btnSOA.Text = "Kiểm thử SOA";
+            this.btnSOA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSOA.UseVisualStyleBackColor = false;
+            this.btnSOA.Click += new System.EventHandler(this.btnSOA_Click);
+            this.btnSOA.MouseEnter += new System.EventHandler(this.btnSOA_MouseEnter);
+            this.btnSOA.MouseLeave += new System.EventHandler(this.btnSOA_MouseLeave);
+            // 
+            // pnlHighLight5
+            // 
+            this.pnlHighLight5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlHighLight5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlHighLight5.Location = new System.Drawing.Point(0, 501);
+            this.pnlHighLight5.Name = "pnlHighLight5";
+            this.pnlHighLight5.Size = new System.Drawing.Size(5, 68);
+            this.pnlHighLight5.TabIndex = 5;
+            this.pnlHighLight5.Visible = false;
             // 
             // mainUI
             // 
@@ -376,5 +410,7 @@
         public System.Windows.Forms.Timer tmThongBaoAll;
         public System.Windows.Forms.NotifyIcon ThongBao;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel pnlHighLight5;
+        private System.Windows.Forms.Button btnSOA;
     }
 }

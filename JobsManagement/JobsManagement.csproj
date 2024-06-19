@@ -37,7 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs879.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\ddtru\AppData\Local\Temp\vs9C01.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\TRUNGD~1\AppData\Local\Temp\vs879.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\ddtru\AppData\Local\Temp\vs9C01.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -149,6 +149,12 @@
     <Compile Include="GUI\ucSetting.Designer.cs">
       <DependentUpon>ucSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucSOA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucSOA.Designer.cs">
+      <DependentUpon>ucSOA.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucThayDoiThongTin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucSetting.resx">
       <DependentUpon>ucSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucSOA.resx">
+      <DependentUpon>ucSOA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucThayDoiThongTin.resx">
       <DependentUpon>ucThayDoiThongTin.cs</DependentUpon>
